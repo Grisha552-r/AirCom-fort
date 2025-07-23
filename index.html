@@ -1,766 +1,864 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-</script>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Установка кондиционеров в Гомеле и Областях</title>
-<script src="https://cdn.tailwindcss.com/3.4.16"></script>
-<script>tailwind.config={theme:{extend:{colors:{primary:'#4CAF50',secondary:'#2196F3',accent:'#FF6B35'},borderRadius:{'none':'0px','sm':'4px',DEFAULT:'8px','md':'12px','lg':'16px','xl':'20px','2xl':'24px','3xl':'32px','full':'9999px','button':'12px'},boxShadow:{'glow':'0 0 20px rgba(76, 175, 80, 0.3)','card':'0 10px 25px rgba(0, 0, 0, 0.1)','hover':'0 20px 40px rgba(0, 0, 0, 0.15)'}}}}</script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-<link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
-<style>
-:where([class^="ri-"])::before { content: "\f3c2"; }
-
-/* Прелоадер */
-#preloader {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: white;
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  z-index: 9999;
-  transition: opacity 0.5s ease-out;
-}
-
-#preloader-logo {
-  animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
-}
-
-#preloader-text {
-  font-family: 'Pacifico', cursive;
-  font-size: 2.5rem;
-  background: linear-gradient(135deg, #4CAF50, #2196F3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  margin-top: 20px;
-  animation: fadeIn 1.5s ease-out;
-}
-
-/* Модальное окно */
-.modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0,0,0,0.5);
-  z-index: 1000;
-  justify-content: center;
-  align-items: center;
-}
-
-.modal-content {
-  background: white;
-  padding: 2rem;
-  border-radius: 12px;
-  max-width: 400px;
-  width: 90%;
-  text-align: center;
-  animation: fadeIn 0.3s ease-out;
-}
-
-/* Сообщения формы */
-.form-message {
-  display: none;
-  padding: 1rem;
-  margin-top: 1rem;
-  border-radius: 8px;
-}
-
-.success-message {
-  background-color: #d1fae5;
-  color: #065f46;
-}
-
-.error-message {
-  background-color: #fee2e2;
-  color: #b91c1c;
-}
-
-/* Кастомные чекбоксы */
-.checkbox-container {
-  display: flex;
-  align-items: center;
-  cursor: pointer;
-}
-
-.checkbox-container input[type="checkbox"] {
-  position: absolute;
-  opacity: 0;
-  cursor: pointer;
-}
-
-.checkbox-custom {
-  width: 24px;
-  height: 24px;
-  border: 2px solid #d1d5db;
-  border-radius: 4px;
-  margin-right: 12px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: all 0.3s;
-}
-
-.checkbox-container:hover .checkbox-custom {
-  border-color: #4CAF50;
-}
-
-.checkbox-container input[type="checkbox"]:checked ~ .checkbox-custom {
-  background-color: #4CAF50;
-  border-color: #4CAF50;
-}
-
-.checkbox-container input[type="checkbox"]:checked ~ .checkbox-custom::after {
-  content: "✓";
-  color: white;
-  font-size: 14px;
-}
-
-/* Анимации */
-@keyframes float {
-  0%, 100% { transform: translateY(0px); }
-  50% { transform: translateY(-20px); }
-}
-
-@keyframes pulse {
-  0%, 100% { transform: scale(1); }
-  50% { transform: scale(1.1); }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; }
-  to { opacity: 1; }
-}
-
-@keyframes fadeInContent {
-  from { opacity: 0; transform: translateY(30px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-@keyframes slideInLeft {
-  from { opacity: 0; transform: translateX(-50px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes slideInRight {
-  from { opacity: 0; transform: translateX(50px); }
-  to { opacity: 1; transform: translateX(0); }
-}
-
-@keyframes bounce {
-  0%, 100% { transform: translateY(-10%); }
-  50% { transform: translateY(0); }
-}
-
-@keyframes glow {
-  0%, 100% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.3); }
-  50% { box-shadow: 0 0 30px rgba(76, 175, 80, 0.5); }
-}
-
-/* Общие стили */
-.animate-bounce {
-  animation: bounce 2s ease-in-out infinite;
-}
-
-.animate-float {
-  animation: float 3s ease-in-out infinite;
-}
-
-.animate-glow {
-  animation: glow 2s ease-in-out infinite;
-}
-
-.animate-fadeIn {
-  animation: fadeInContent 1s ease-out forwards;
-}
-
-.animate-slideInLeft {
-  animation: slideInLeft 0.8s ease-out forwards;
-}
-
-.animate-slideInRight {
-  animation: slideInRight 0.8s ease-out forwards;
-}
-
-.gradient-bg {
-  background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
-}
-
-.card-hover {
-  transition: all 0.3s ease;
-}
-
-.card-hover:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
-}
-
-.glass-effect {
-  backdrop-filter: blur(10px);
-  background: rgba(255, 255, 255, 0.9);
-}
-
-.text-gradient {
-  background: linear-gradient(135deg, #4CAF50, #2196F3);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-}
-
-@media (max-width: 768px) {
-  .max-w-7xl {
-    padding-left: 1rem;
-    padding-right: 1rem;
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  <!-- Основные SEO-теги -->
+  <title>Установка кондиционеров в Гомеле и Областях | Профессиональный монтаж</title>
+  <meta name="description" content="Профессиональная установка и обслуживание кондиционеров в Гомеле. Бесплатный выезд замерщика, монтаж за 1 день, гарантия.">
+  <meta name="keywords" content="установка кондиционеров, монтаж кондиционеров, кондиционеры Гомель, обслуживание кондиционеров">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://aircomfort-gomel.by/">
+  <meta property="og:title" content="AirComfort - Установка кондиционеров в Гомеле">
+  <meta property="og:description" content="Профессиональная установка и обслуживание кондиционеров в Гомеле. Бесплатный выезд замерщика, монтаж за 1 день.">
+  <meta property="og:image" content="https://aircomfort-gomel.by/images/logo-social.jpg">
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content="https://aircomfort-gomel.by/">
+  <meta property="twitter:title" content="AirComfort - Установка кондиционеров в Гомеле">
+  <meta property="twitter:description" content="Профессиональная установка и обслуживание кондиционеров в Гомеле. Бесплатный выезд замерщика, монтаж за 1 день.">
+  <meta property="twitter:image" content="https://aircomfort-gomel.by/images/logo-social.jpg">
+  
+  <!-- Каноническая ссылка -->
+  <link rel="canonical" href="https://aircomfort-gomel.by/">
+  
+  <!-- Favicon и иконки -->
+  <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+  <link rel="manifest" href="/site.webmanifest">
+  <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#4CAF50">
+  <meta name="msapplication-TileColor" content="#4CAF50">
+  <meta name="theme-color" content="#ffffff">
+  
+  <!-- Schema.org markup for Google -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "AirComfort",
+    "image": "https://aircomfort-gomel.by/images/logo.jpg",
+    "description": "Профессиональная установка и обслуживание кондиционеров в Гомеле",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": "Гомель",
+      "addressRegion": "Гомельская область",
+      "addressCountry": "Беларусь"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": "52.4345",
+      "longitude": "30.9754"
+    },
+    "telephone": "+375291050694",
+    "openingHoursSpecification": {
+      "@type": "OpeningHoursSpecification",
+      "dayOfWeek": [
+        "Monday",
+        "Tuesday",
+        "Wednesday",
+        "Thursday",
+        "Friday"
+      ],
+      "opens": "09:00",
+      "closes": "20:00"
+    },
+    "sameAs": [
+      "https://t.me/AirComforto",
+      "https://vk.com/aircomfort_gomel"
+    ]
   }
-  .grid {
-    grid-template-columns: 1fr;
-  }
-}
-</style>
+  </script>
+  
+  <!-- Подключение CSS и шрифтов -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            primary: '#4CAF50',
+            secondary: '#2196F3',
+            accent: '#FF6B35'
+          },
+          borderRadius: {
+            'none': '0px',
+            'sm': '4px',
+            DEFAULT: '8px',
+            'md': '12px',
+            'lg': '16px',
+            'xl': '20px',
+            '2xl': '24px',
+            '3xl': '32px',
+            'full': '9999px',
+            'button': '12px'
+          },
+          boxShadow: {
+            'glow': '0 0 20px rgba(76, 175, 80, 0.3)',
+            'card': '0 10px 25px rgba(0, 0, 0, 0.1)',
+            'hover': '0 20px 40px rgba(0, 0, 0, 0.15)'
+          }
+        }
+      }
+    }
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/remixicon/4.6.0/remixicon.min.css" rel="stylesheet">
+  
+  <style>
+    :where([class^="ri-"])::before { content: "\f3c2"; }
+    
+    /* Прелоадер */
+    #preloader {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: white;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      z-index: 9999;
+      transition: opacity 0.5s ease-out;
+    }
+    
+    #preloader-logo {
+      animation: float 3s ease-in-out infinite, pulse 2s ease-in-out infinite;
+    }
+    
+    #preloader-text {
+      font-family: 'Pacifico', cursive;
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #4CAF50, #2196F3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-top: 20px;
+      animation: fadeIn 1.5s ease-out;
+    }
+    
+    /* Модальное окно */
+    .modal {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0,0,0,0.5);
+      z-index: 1000;
+      justify-content: center;
+      align-items: center;
+    }
+    
+    .modal-content {
+      background: white;
+      padding: 2rem;
+      border-radius: 12px;
+      max-width: 400px;
+      width: 90%;
+      text-align: center;
+      animation: fadeIn 0.3s ease-out;
+    }
+    
+    /* Сообщения формы */
+    .form-message {
+      display: none;
+      padding: 1rem;
+      margin-top: 1rem;
+      border-radius: 8px;
+    }
+    
+    .success-message {
+      background-color: #d1fae5;
+      color: #065f46;
+    }
+    
+    .error-message {
+      background-color: #fee2e2;
+      color: #b91c1c;
+    }
+    
+    /* Кастомные чекбоксы */
+    .checkbox-container {
+      display: flex;
+      align-items: center;
+      cursor: pointer;
+    }
+    
+    .checkbox-container input[type="checkbox"] {
+      position: absolute;
+      opacity: 0;
+      cursor: pointer;
+    }
+    
+    .checkbox-custom {
+      width: 24px;
+      height: 24px;
+      border: 2px solid #d1d5db;
+      border-radius: 4px;
+      margin-right: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s;
+    }
+    
+    .checkbox-container:hover .checkbox-custom {
+      border-color: #4CAF50;
+    }
+    
+    .checkbox-container input[type="checkbox"]:checked ~ .checkbox-custom {
+      background-color: #4CAF50;
+      border-color: #4CAF50;
+    }
+    
+    .checkbox-container input[type="checkbox"]:checked ~ .checkbox-custom::after {
+      content: "✓";
+      color: white;
+      font-size: 14px;
+    }
+    
+    /* Анимации */
+    @keyframes float {
+      0%, 100% { transform: translateY(0px); }
+      50% { transform: translateY(-20px); }
+    }
+    
+    @keyframes pulse {
+      0%, 100% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+    }
+    
+    @keyframes fadeIn {
+      from { opacity: 0; }
+      to { opacity: 1; }
+    }
+    
+    @keyframes fadeInContent {
+      from { opacity: 0; transform: translateY(30px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+    
+    @keyframes slideInLeft {
+      from { opacity: 0; transform: translateX(-50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes slideInRight {
+      from { opacity: 0; transform: translateX(50px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+    
+    @keyframes bounce {
+      0%, 100% { transform: translateY(-10%); }
+      50% { transform: translateY(0); }
+    }
+    
+    @keyframes glow {
+      0%, 100% { box-shadow: 0 0 20px rgba(76, 175, 80, 0.3); }
+      50% { box-shadow: 0 0 30px rgba(76, 175, 80, 0.5); }
+    }
+    
+    /* Общие стили */
+    .animate-bounce {
+      animation: bounce 2s ease-in-out infinite;
+    }
+    
+    .animate-float {
+      animation: float 3s ease-in-out infinite;
+    }
+    
+    .animate-glow {
+      animation: glow 2s ease-in-out infinite;
+    }
+    
+    .animate-fadeIn {
+      animation: fadeInContent 1s ease-out forwards;
+    }
+    
+    .animate-slideInLeft {
+      animation: slideInLeft 0.8s ease-out forwards;
+    }
+    
+    .animate-slideInRight {
+      animation: slideInRight 0.8s ease-out forwards;
+    }
+    
+    .gradient-bg {
+      background: linear-gradient(135deg, #4CAF50 0%, #45a049 100%);
+    }
+    
+    .card-hover {
+      transition: all 0.3s ease;
+    }
+    
+    .card-hover:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+    }
+    
+    .glass-effect {
+      backdrop-filter: blur(10px);
+      background: rgba(255, 255, 255, 0.9);
+    }
+    
+    .text-gradient {
+      background: linear-gradient(135deg, #4CAF50, #2196F3);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    
+    @media (max-width: 768px) {
+      .max-w-7xl {
+        padding-left: 1rem;
+        padding-right: 1rem;
+      }
+      .grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
 <body class="font-sans bg-gradient-to-br from-gray-50 to-white">
-<!-- Прелоадер -->
-<div id="preloader">
-  <div id="preloader-logo" class="bg-gradient-to-br from-primary/20 to-primary/10 rounded-full p-4 shadow-lg">
-    <i class="ri-temp-cold-line text-5xl text-primary"></i>
+  <!-- Прелоадер -->
+  <div id="preloader">
+    <div id="preloader-logo" class="bg-gradient-to-br from-primary/20 to-primary/10 rounded-full p-4 shadow-lg">
+      <i class="ri-temp-cold-line text-5xl text-primary"></i>
+    </div>
+    <div id="preloader-text">AirComfort</div>
   </div>
-  <div id="preloader-text">AirComfort</div>
-</div>
-
-<!-- Основное содержимое (изначально скрыто) -->
-<div id="content" style="display: none;">
-
-<!-- Навигация -->
-<nav class="glass-effect shadow-lg py-4 px-4 sm:px-6 fixed w-full z-50 border-b border-white/20">
-  <div class="max-w-7xl mx-auto flex justify-between items-center">
-    <div class="flex items-center">
-      <div class="mr-2 text-primary animate-float">
-        <div class="bg-gradient-to-br from-primary/20 to-primary/10 rounded-full p-2 shadow-lg">
-          <i class="ri-temp-cold-line text-2xl"></i>
-        </div>
-      </div>
-      <span class="text-2xl sm:text-3xl font-['Pacifico'] text-gradient flex items-center">AirComfort</span>
-    </div>
-    <div class="hidden md:flex space-x-6">
-      <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Услуги</button>
-      <button onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Расчет стоимости</button>
-      <button onclick="document.getElementById('advantages').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Преимущества</button>
-      <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Контакты</button>
-    </div>
-    <div class="flex items-center space-x-2">
-      <a href="tel:+375291050694" class="text-primary font-medium flex items-center">
-        <i class="ri-phone-line"></i>
-        +375291050694
-      </a>
-    </div>
-  </div>
-</nav>
-
-<!-- Главный экран -->
-<section class="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20air%20conditioner%20unit%20mounted%20on%20a%20light%20wall%20with%20soft%20natural%20lighting%2C%20green%20plants%20visible%20in%20foreground%2C%20minimalist%20interior%20design%2C%20professional%20installation%2C%20high-quality%20air%20conditioning%20system%2C%20energy%20efficient%20cooling%20system%2C%20comfortable%20home%20environment&width=1600&height=800&seq=1&orientation=landscape'); background-size: cover; background-position: center right;">
-  <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/30"></div>
-  <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/20"></div>
-  <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
-    <div class="max-w-2xl animate-slideInLeft">
-      <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">Профессиональная установка и продажа <span class="text-gradient">кондиционеров</span> с гарантией!</h1>
-      <p class="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">Бесплатный выезд замерщика, точный расчет стоимости и монтаж за 1 день! Официальный дилер ведущих мировых брендов.</p>
-      <div class="flex flex-col sm:flex-row gap-4">
-        <button onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})" class="gradient-bg text-white px-8 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap flex items-center justify-center transform hover:scale-105">
-          <div class="w-5 h-5 flex items-center justify-center mr-2">
-            <i class="ri-calculator-line"></i>
-          </div>
-          Рассчитать стоимость
-        </button>
-        <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-button font-medium hover:bg-primary/10 hover:shadow-card transition-all duration-300 whitespace-nowrap flex items-center justify-center transform hover:scale-105">
-          <div class="w-5 h-5 flex items-center justify-center mr-2">
-            <i class="ri-customer-service-2-line"></i>
-          </div>
-          Заказать консультацию
-        </button>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Наши услуги -->
-<section id="services" class="py-16 bg-gradient-to-b from-gray-50 to-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Наши услуги</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
-      <!-- Услуга 1 -->
-      <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-        <div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5"></div>
-          <div class="w-24 h-24 flex items-center justify-center text-primary relative z-10 animate-float">
-            <i class="ri-install-line ri-4x"></i>
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Установка кондиционеров</h3>
-          <p class="text-gray-700 mb-4">Профессиональный монтаж кондиционеров любого типа с гарантией качества работы. Быстро, качественно, с соблюдением всех норм.</p>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-            <span class="text-gray-600">Стоимость:</span>
-            <span class="text-xl font-bold text-primary">от 400 BYN</span>
-          </div>
-        </div>
-      </div>
-      <!-- Услуга 2 -->
-      <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-        <div class="h-48 bg-gradient-to-br from-secondary/10 to-secondary/5 flex items-center justify-center relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-transparent to-secondary/5"></div>
-          <div class="w-24 h-24 flex items-center justify-center text-secondary relative z-10 animate-float" style="animation-delay: 0.5s;">
-            <i class="ri-tools-line ri-4x"></i>
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Демонтаж оборудования</h3>
-          <p class="text-gray-700 mb-4">Аккуратный демонтаж старых кондиционеров с сохранением безопасных стен и отделок. Быстро и без пыли.</p>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-            <span class="text-gray-600">Стоимость:</span>
-            <span class="text-xl font-bold text-primary">100 BYN</span>
-          </div>
-        </div>
-      </div>
-      <!-- Услуга 3 -->
-      <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
-        <div class="h-48 bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center relative">
-          <div class="absolute inset-0 bg-gradient-to-br from-transparent to-accent/5"></div>
-          <div class="w-24 h-24 flex items-center justify-center text-accent relative z-10 animate-float" style="animation-delay: 1s;">
-            <i class="ri-service-line ri-4x"></i>
-          </div>
-        </div>
-        <div class="p-6">
-          <h3 class="text-xl font-bold text-gray-900 mb-3">Обслуживание кондиционера</h3>
-          <p class="text-gray-700 mb-4">Регулярное техническое обслуживание, чистка, дезинфекция и заправка фреоном. Продлите срок службы вашего кондиционера!</p>
-          <div class="flex justify-between items-center pt-4 border-t border-gray-100">
-            <span class="text-gray-600">Стоимость:</span>
-            <span class="text-xl font-bold text-primary">100 BYN</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="mt-8 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg border border-primary/20 shadow-card">
-      <p class="text-gray-700">Регулярное обслуживание кондиционера не только продлевает срок его службы, но и обеспечивает эффективную работу, экономит электроэнергию и поддерживает чистоту воздуха в помещении. Рекомендуем проводить профилактику не реже 1 раза в год.</p>
-    </div>
-  </div>
-</section>
-
-<!-- Калькулятор расчета стоимости -->
-<section id="calculator" class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Расчет стоимости монтажа</h2>
-    <div class="bg-white rounded-lg shadow-hover overflow-hidden max-w-3xl mx-auto border border-gray-100">
-      <div class="p-8">
-        <div class="mb-6">
-          <label for="model" class="block text-gray-700 font-medium mb-2">Модель кондиционера</label>
-          <div class="relative">
-            <select id="model" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none pr-8">
-              <option value="400">Модель 7,9(до 30м²) 400 BYN</option>
-              <option value="450">Модель 12(35м²) 450 BYN</option>
-              <option value="500">Модель 18(50м²) 500 BYN</option>
-              <option value="550">Модель 24(70м²) 550 BYN</option>
-              <option value="0">Модель 42 и выше (индивидуально)</option>
-            </select>
-            <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-              <div class="w-5 h-5 flex items-center justify-center text-gray-500">
-                <i class="ri-arrow-down-s-line"></i>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="mb-6">
-          <label for="length" class="block text-gray-700 font-medium mb-2">Длина трассы (метры)</label>
-          <div class="flex items-center">
-            <button id="decrease-length" class="px-4 py-2 bg-gray-200 rounded-l-lg hover:bg-gray-300 focus:outline-none">
-              <div class="w-5 h-5 flex items-center justify-center">
-                <i class="ri-subtract-line"></i>
-              </div>
-            </button>
-            <input type="number" id="length" value="3" min="3" class="w-full px-4 py-2 border-y border-gray-300 text-center focus:outline-none border-none" readonly>
-            <button id="increase-length" class="px-4 py-2 bg-gray-200 rounded-r-lg hover:bg-gray-300 focus:outline-none">
-              <div class="w-5 h-5 flex items-center justify-center">
-                <i class="ri-add-line"></i>
-              </div>
-            </button>
-          </div>
-          <p class="text-sm text-gray-600 mt-2">Стандартная длина - 3 метра. Каждый дополнительный метр: +50 BYN</p>
-        </div>
-        <div class="mb-8">
-          <p class="block text-gray-700 font-medium mb-3">Дополнительные услуги</p>
-          <div class="space-y-3">
-            <label class="checkbox-container">
-              <input type="checkbox" id="demontage" name="demontage" value="100">
-              <span class="checkbox-custom"></span>
-              <span class="flex-1">
-                <span class="text-gray-700">Демонтаж старого оборудования</span>
-                <span class="ml-1 text-primary font-medium">+100 BYN</span>
-              </span>
-            </label>
-            <label class="checkbox-container">
-              <input type="checkbox" id="service" name="service" value="100">
-              <span class="checkbox-custom"></span>
-              <span class="flex-1">
-                <span class="text-gray-700">Обслуживание кондиционера</span>
-                <span class="ml-1 text-primary font-medium">+100 BYN</span>
-              </span>
-            </label>
-          </div>
-        </div>
-        <div class="bg-gradient-to-r from-gray-50 to-primary/5 p-6 rounded-lg border border-primary/10">
-          <div class="flex justify-between items-center">
-            <span class="text-lg font-medium text-gray-700">Итоговая стоимость:</span>
-            <span id="total-price" class="text-2xl font-bold text-primary">400 BYN</span>
-          </div>
-        </div>
-        <div class="mt-6">
-          <button id="order-button" class="w-full gradient-bg text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300 flex items-center justify-center transform hover:scale-105">
-            <div class="w-5 h-5 flex items-center justify-center mr-2">
-              <i class="ri-phone-line"></i>
-            </div>
-            Заказать по этой цене
-          </button>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Модальное окно выбора способа связи -->
-<div id="contact-modal" class="modal">
-  <div class="modal-content">
-    <h3 class="text-xl font-bold text-gray-900 mb-6">Выберите способ связи</h3>
-    <div class="space-y-4">
-      <a href="tel:+375291050694" class="flex items-center justify-center gradient-bg text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300">
-        <i class="ri-phone-line mr-2"></i>
-        Позвонить
-      </a>
-      <a href="https://t.me/AirComforto" target="_blank" class="flex items-center justify-center bg-blue-500 text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300">
-        <i class="ri-telegram-line mr-2"></i>
-        Написать в Telegram
-      </a>
-      <a href="https://msngr.link/vi/375291050694?text=" target="_blank" class="flex items-center justify-center bg-purple-600 text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300">
-        <i class="ri-chat-3-line mr-2"></i>
-        Написать в Viber
-      </a>
-      <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'}); document.getElementById('contact-modal').style.display = 'none';" class="w-full bg-gray-200 text-gray-800 px-6 py-3 rounded-button font-medium hover:bg-gray-300 transition-all duration-300">
-        Заполнить форму на сайте
-      </button>
-    </div>
-    <button onclick="document.getElementById('contact-modal').style.display = 'none';" class="mt-6 text-gray-500 hover:text-gray-700">
-      <i class="ri-close-line"></i> Закрыть
-    </button>
-  </div>
-</div>
-
-<!-- Наши преимущества -->
-<section id="advantages" class="py-16 bg-gradient-to-b from-white to-gray-50">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Наши преимущества</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
-      <!-- Преимущество 1 -->
-      <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
-        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary shadow-lg animate-float">
-          <i class="ri-shield-check-line ri-2x"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Гарантия 5 лет</h3>
-        <p class="text-gray-700">Самая длительная гарантия на оборудование и 1 год на монтажные работы.</p>
-      </div>
-      <!-- Преимущество 2 -->
-      <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
-        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full text-secondary shadow-lg animate-float" style="animation-delay: 0.3s;">
-          <i class="ri-user-star-line ri-2x"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Профессионализм</h3>
-        <p class="text-gray-700">Опытные мастера с профессиональной подготовкой и сертификатами.</p>
-      </div>
-      <!-- Преимущество 3 -->
-      <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
-        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-accent/20 to-accent/10 rounded-full text-accent shadow-lg animate-float" style="animation-delay: 0.6s;">
-          <i class="ri-time-line ri-2x"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Быстрая установка</h3>
-        <p class="text-gray-700">Установка в течение 1-2 дней после заказа по всей Гомельской области.</p>
-      </div>
-      <!-- Преимущество 4 -->
-      <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
-        <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary shadow-lg animate-float" style="animation-delay: 0.9s;">
-          <i class="ri-money-dollar-circle-line ri-2x"></i>
-        </div>
-        <h3 class="text-xl font-bold text-gray-900 mb-3">Лучшие цены</h3>
-        <p class="text-gray-700">Оптимальное соотношение цены и качества.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Контакты -->
-<section id="contacts" class="py-16 bg-white">
-  <div class="max-w-7xl mx-auto px-6">
-    <h2 class="text-3xl font-bold text-center text-gray-900 mb-4">Контакты</h2>
-    <p class="text-center text-gray-700 mb-12">Свяжитесь с нами любым удобным способом</p>
-    <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
-      <div>
-        <h3 class="text-xl font-bold text-gray-900 mb-6">Наши контакты</h3>
-        <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
-          <div class="bg-white p-6 rounded-lg shadow-card card-hover">
-            <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary mb-4 shadow-lg">
-              <i class="ri-phone-line ri-lg"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-900 mb-2">Телефон</h4>
-            <a href="tel:+375291050694" class="text-primary hover:underline">+375291050694</a>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-card card-hover">
-            <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full text-secondary mb-4 shadow-lg">
-              <i class="ri-mail-line ri-lg"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-900 mb-2">Электронная почта</h4>
-            <a href="mailto:aircomfortbel@gmail.com" class="text-primary hover:underline">aircomfortbel@gmail.com</a>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-card card-hover">
-            <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-accent/20 to-accent/10 rounded-full text-accent mb-4 shadow-lg">
-              <i class="ri-time-line ri-lg"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-900 mb-2">Время работы</h4>
-            <p class="text-gray-700">Пн-Пт: 9:00 - 20:00</p>
-            <p class="text-gray-700">Сб-Вс: 10:00 - 18:00</p>
-          </div>
-          <div class="bg-white p-6 rounded-lg shadow-card card-hover">
-            <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary mb-4 shadow-lg">
-              <i class="ri-map-pin-line ri-lg"></i>
-            </div>
-            <h4 class="text-lg font-medium text-gray-900 mb-2">Регион работы</h4>
-            <p class="text-gray-700">Гомель и Гомельская область</p>
-          </div>
-        </div>
-      </div>
-      <div class="bg-white p-8 rounded-lg shadow-hover border border-gray-100">
-        <h3 class="text-xl font-bold text-gray-900 mb-6">Оставить заявку</h3>
-        <form id="contact-form" action="https://formspree.io/f/mrbkdwwe" method="POST">
-          <input type="hidden" id="calculator-data" name="calculator_data">
-          <div class="mb-4">
-            <label for="form-name" class="block text-gray-700 font-medium mb-2">Ваше имя *</label>
-            <input type="text" id="form-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Иван Петров" required>
-          </div>
-          <div class="mb-4">
-            <label for="form-phone" class="block text-gray-700 font-medium mb-2">Телефон *</label>
-            <input type="tel" id="form-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="+375 (XX) XXX-XX-XX" required>
-          </div>
-          <div class="mb-4">
-            <label for="form-email" class="block text-gray-700 font-medium mb-2">Email (необязательно)</label>
-            <input type="email" id="form-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="your@email.com">
-          </div>
-          <div class="mb-6">
-            <label for="form-message" class="block text-gray-700 font-medium mb-2">Сообщение</label>
-            <textarea id="form-message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Опишите ваш вопрос или потребность"></textarea>
-          </div>
-          <button type="submit" class="w-full gradient-bg text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300 whitespace-nowrap transform hover:scale-105">
-            <span id="submit-text">Отправить заявку</span>
-            <span id="submit-spinner" class="hidden ml-2"><i class="ri-loader-4-line animate-spin"></i></span>
-          </button>
-          <div id="success-message" class="form-message success-message mt-4 hidden">
-            <i class="ri-checkbox-circle-fill mr-2"></i> Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
-          </div>
-          <div id="error-message" class="form-message error-message mt-4 hidden">
-            <i class="ri-error-warning-fill mr-2"></i> Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.
-          </div>
-        </form>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Футер -->
-<footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12">
-  <div class="max-w-7xl mx-auto px-6">
-    <div class="flex flex-col md:flex-row justify-between items-center">
-      <div class="mb-6 md:mb-0">
-        <div class="flex items-center">
-          <span class="text-2xl sm:text-3xl font-['Pacifico'] text-white mr-2">AirComfort</span>
-        </div>
-        <p class="text-gray-400 mt-2">Профессиональная установка кондиционеров в Гомеле</p>
-      </div>
-      <div class="flex flex-col items-center md:items-end">
-        <p class="text-gray-400 mb-2">© 2025 AirComfort. Все права защищены.</p>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<!-- Frisbie Widget -->
-<div class="fixed bottom-4 sm:bottom-6 right-4 sm:right-6 z-50">
-  <script type="text/javascript" src="https://app.frisbie.me/api/messageus/bb08aa6e-7fb5-48c0-8632-76e5d01f3eab" async defer></script>
-</div>
-
-</div> <!-- Конец основного содержимого -->
-
-<!-- Скрипты -->
-<script>
-// Обработка прелоадера
-document.addEventListener('DOMContentLoaded', function() {
-  const preloader = document.getElementById('preloader');
-  const content = document.getElementById('content');
   
-  setTimeout(function() {
-    preloader.style.opacity = '0';
-    setTimeout(function() {
-      preloader.style.display = 'none';
-      content.style.display = 'block';
-    }, 500);
-  }, 2000);
-});
-
-// Калькулятор
-document.addEventListener('DOMContentLoaded', function() {
-  const modelSelect = document.getElementById('model');
-  const lengthInput = document.getElementById('length');
-  const decreaseBtn = document.getElementById('decrease-length');
-  const increaseBtn = document.getElementById('increase-length');
-  const totalPrice = document.getElementById('total-price');
-  const checkboxes = document.querySelectorAll('input[type="checkbox"]');
-
-  function calculateTotal() {
-    const modelPrice = parseInt(modelSelect.value);
-    const length = parseInt(lengthInput.value);
-    const additionalLength = Math.max(0, length - 3);
-    const additionalLengthPrice = additionalLength * 50;
-    let total = modelPrice + additionalLengthPrice;
-
-    checkboxes.forEach(checkbox => {
-      if (checkbox.checked) {
-        total += parseInt(checkbox.value);
+  <!-- Основное содержимое (изначально скрыто) -->
+  <div id="content" style="display: none;">
+    
+    <!-- Навигация -->
+    <nav class="glass-effect shadow-lg py-4 px-4 sm:px-6 fixed w-full z-50 border-b border-white/20">
+      <div class="max-w-7xl mx-auto flex justify-between items-center">
+        <div class="flex items-center">
+          <div class="mr-2 text-primary animate-float">
+            <div class="bg-gradient-to-br from-primary/20 to-primary/10 rounded-full p-2 shadow-lg">
+              <i class="ri-temp-cold-line text-2xl"></i>
+            </div>
+          </div>
+          <span class="text-2xl sm:text-3xl font-['Pacifico'] text-gradient flex items-center">AirComfort</span>
+        </div>
+        <div class="hidden md:flex space-x-6">
+          <button onclick="document.getElementById('services').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Услуги</button>
+          <button onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Расчет стоимости</button>
+          <button onclick="document.getElementById('advantages').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Преимущества</button>
+          <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" class="text-gray-700 hover:text-primary transition-colors">Контакты</button>
+        </div>
+        <div class="flex items-center space-x-2">
+          <a href="tel:+375291050694" class="text-primary font-medium flex items-center">
+            <i class="ri-phone-line"></i>
+            +375 (29) 105-06-94
+          </a>
+        </div>
+      </div>
+    </nav>
+    
+    <!-- Главный экран -->
+    <section class="pt-20 sm:pt-24 pb-12 sm:pb-16 relative overflow-hidden" style="background-image: url('https://readdy.ai/api/search-image?query=Modern%20air%20conditioner%20unit%20mounted%20on%20a%20light%20wall%20with%20soft%20natural%20lighting%2C%20green%20plants%20visible%20in%20foreground%2C%20minimalist%20interior%20design%2C%20professional%20installation%2C%20high-quality%20air%20conditioning%20system%2C%20energy%20efficient%20cooling%20system%2C%20comfortable%20home%20environment&width=1600&height=800&seq=1&orientation=landscape'); background-size: cover; background-position: center right;">
+      <div class="absolute inset-0 bg-gradient-to-r from-white via-white/95 to-white/30"></div>
+      <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-white/20"></div>
+      <div class="max-w-7xl mx-auto px-4 sm:px-6 relative z-10">
+        <div class="max-w-2xl animate-slideInLeft">
+          <h1 class="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6 leading-tight">Профессиональная установка и продажа <span class="text-gradient">кондиционеров</span> с гарантией!</h1>
+          <p class="text-base sm:text-lg text-gray-700 mb-6 sm:mb-8 leading-relaxed">Бесплатный выезд замерщика, точный расчет стоимости и монтаж за 1 день! Официальный дилер ведущих мировых брендов.</p>
+          <div class="flex flex-col sm:flex-row gap-4">
+            <button onclick="document.getElementById('calculator').scrollIntoView({behavior: 'smooth'})" class="gradient-bg text-white px-8 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300 shadow-lg shadow-primary/20 whitespace-nowrap flex items-center justify-center transform hover:scale-105">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-calculator-line"></i>
+              </div>
+              Рассчитать стоимость
+            </button>
+            <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'})" class="bg-white text-primary border-2 border-primary px-8 py-3 rounded-button font-medium hover:bg-primary/10 hover:shadow-card transition-all duration-300 whitespace-nowrap flex items-center justify-center transform hover:scale-105">
+              <div class="w-5 h-5 flex items-center justify-center mr-2">
+                <i class="ri-customer-service-2-line"></i>
+              </div>
+              Заказать консультацию
+            </button>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Наши услуги -->
+    <section id="services" class="py-16 bg-gradient-to-b from-gray-50 to-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Наши услуги</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8">
+          <!-- Услуга 1 -->
+          <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
+            <div class="h-48 bg-gradient-to-br from-primary/10 to-primary/5 flex items-center justify-center relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-transparent to-primary/5"></div>
+              <div class="w-24 h-24 flex items-center justify-center text-primary relative z-10 animate-float">
+                <i class="ri-install-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Установка кондиционеров</h3>
+              <p class="text-gray-700 mb-4">Профессиональный монтаж кондиционеров любого типа с гарантией качества работы. Быстро, качественно, с соблюдением всех норм.</p>
+              <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                <span class="text-gray-600">Стоимость:</span>
+                <span class="text-xl font-bold text-primary">от 400 BYN</span>
+              </div>
+            </div>
+          </div>
+          <!-- Услуга 2 -->
+          <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
+            <div class="h-48 bg-gradient-to-br from-secondary/10 to-secondary/5 flex items-center justify-center relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-transparent to-secondary/5"></div>
+              <div class="w-24 h-24 flex items-center justify-center text-secondary relative z-10 animate-float" style="animation-delay: 0.5s;">
+                <i class="ri-tools-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Демонтаж оборудования</h3>
+              <p class="text-gray-700 mb-4">Аккуратный демонтаж старых кондиционеров с сохранением безопасных стен и отделок. Быстро и без пыли.</p>
+              <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                <span class="text-gray-600">Стоимость:</span>
+                <span class="text-xl font-bold text-primary">100 BYN</span>
+              </div>
+            </div>
+          </div>
+          <!-- Услуга 3 -->
+          <div class="bg-white rounded-lg shadow-card overflow-hidden card-hover">
+            <div class="h-48 bg-gradient-to-br from-accent/10 to-accent/5 flex items-center justify-center relative">
+              <div class="absolute inset-0 bg-gradient-to-br from-transparent to-accent/5"></div>
+              <div class="w-24 h-24 flex items-center justify-center text-accent relative z-10 animate-float" style="animation-delay: 1s;">
+                <i class="ri-service-line ri-4x"></i>
+              </div>
+            </div>
+            <div class="p-6">
+              <h3 class="text-xl font-bold text-gray-900 mb-3">Обслуживание кондиционера</h3>
+              <p class="text-gray-700 mb-4">Регулярное техническое обслуживание, чистка, дезинфекция и заправка фреоном. Продлите срок службы вашего кондиционера!</p>
+              <div class="flex justify-between items-center pt-4 border-t border-gray-100">
+                <span class="text-gray-600">Стоимость:</span>
+                <span class="text-xl font-bold text-primary">100 BYN</span>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="mt-8 p-6 bg-gradient-to-r from-primary/5 to-secondary/5 rounded-lg border border-primary/20 shadow-card">
+          <p class="text-gray-700">Регулярное обслуживание кондиционера не только продлевает срок его службы, но и обеспечивает эффективную работу, экономит электроэнергию и поддерживает чистоту воздуха в помещении. Рекомендуем проводить профилактику не реже 1 раза в год.</p>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Калькулятор расчета стоимости -->
+    <section id="calculator" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Расчет стоимости монтажа</h2>
+        <div class="bg-white rounded-lg shadow-hover overflow-hidden max-w-3xl mx-auto border border-gray-100">
+          <div class="p-8">
+            <div class="mb-6">
+              <label for="model" class="block text-gray-700 font-medium mb-2">Модель кондиционера</label>
+              <div class="relative">
+                <select id="model" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary appearance-none pr-8">
+                  <option value="400">Модель 7,9(до 30м²) 400 BYN</option>
+                  <option value="450">Модель 12(35м²) 450 BYN</option>
+                  <option value="500">Модель 18(50м²) 500 BYN</option>
+                  <option value="550">Модель 24(70м²) 550 BYN</option>
+                  <option value="0">Модель 42 и выше (индивидуально)</option>
+                </select>
+                <div class="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+                  <div class="w-5 h-5 flex items-center justify-center text-gray-500">
+                    <i class="ri-arrow-down-s-line"></i>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="mb-6">
+              <label for="length" class="block text-gray-700 font-medium mb-2">Длина трассы (метры)</label>
+              <div class="flex items-center">
+                <button id="decrease-length" class="px-4 py-2 bg-gray-200 rounded-l-lg hover:bg-gray-300 focus:outline-none">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-subtract-line"></i>
+                  </div>
+                </button>
+                <input type="number" id="length" value="3" min="3" class="w-full px-4 py-2 border-y border-gray-300 text-center focus:outline-none border-none" readonly>
+                <button id="increase-length" class="px-4 py-2 bg-gray-200 rounded-r-lg hover:bg-gray-300 focus:outline-none">
+                  <div class="w-5 h-5 flex items-center justify-center">
+                    <i class="ri-add-line"></i>
+                  </div>
+                </button>
+              </div>
+              <p class="text-sm text-gray-600 mt-2">Стандартная длина - 3 метра. Каждый дополнительный метр: +50 BYN</p>
+            </div>
+            <div class="mb-8">
+              <p class="block text-gray-700 font-medium mb-3">Дополнительные услуги</p>
+              <div class="space-y-3">
+                <label class="checkbox-container">
+                  <input type="checkbox" id="demontage" name="demontage" value="100">
+                  <span class="checkbox-custom"></span>
+                  <span class="flex-1">
+                    <span class="text-gray-700">Демонтаж старого оборудования</span>
+                    <span class="ml-1 text-primary font-medium">+100 BYN</span>
+                  </span>
+                </label>
+                <label class="checkbox-container">
+                  <input type="checkbox" id="service" name="service" value="100">
+                  <span class="checkbox-custom"></span>
+                  <span class="flex-1">
+                    <span class="text-gray-700">Обслуживание кондиционера</span>
+                    <span class="ml-1 text-primary font-medium">+100 BYN</span>
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="bg-gradient-to-r from-gray-50 to-primary/5 p-6 rounded-lg border border-primary/10">
+              <div class="flex justify-between items-center">
+                <span class="text-lg font-medium text-gray-700">Итоговая стоимость:</span>
+                <span id="total-price" class="text-2xl font-bold text-primary">400 BYN</span>
+              </div>
+            </div>
+            <div class="mt-6">
+              <button id="order-button" class="w-full gradient-bg text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300 flex items-center justify-center transform hover:scale-105">
+                <div class="w-5 h-5 flex items-center justify-center mr-2">
+                  <i class="ri-phone-line"></i>
+                </div>
+                Заказать по этой цене
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Модальное окно выбора способа связи -->
+    <div id="contact-modal" class="modal">
+      <div class="modal-content">
+        <h3 class="text-xl font-bold text-gray-900 mb-6">Выберите способ связи</h3>
+        <div class="space-y-4">
+          <a href="tel:+375291050694" class="flex items-center justify-center gradient-bg text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300">
+            <i class="ri-phone-line mr-2"></i>
+            Позвонить
+          </a>
+          <a href="https://t.me/AirComforto" target="_blank" class="flex items-center justify-center bg-blue-500 text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300">
+            <i class="ri-telegram-line mr-2"></i>
+            Написать в Telegram
+          </a>
+          <a href="https://msngr.link/vi/375291050694?text=" target="_blank" class="flex items-center justify-center bg-purple-600 text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300">
+            <i class="ri-chat-3-line mr-2"></i>
+            Написать в Viber
+          </a>
+          <button onclick="document.getElementById('contacts').scrollIntoView({behavior: 'smooth'}); document.getElementById('contact-modal').style.display = 'none';" class="w-full bg-gray-200 text-gray-800 px-6 py-3 rounded-button font-medium hover:bg-gray-300 transition-all duration-300">
+            Заполнить форму на сайте
+          </button>
+        </div>
+        <button onclick="document.getElementById('contact-modal').style.display = 'none';" class="mt-6 text-gray-500 hover:text-gray-700">
+          <i class="ri-close-line"></i> Закрыть
+        </button>
+      </div>
+    </div>
+    
+    <!-- Наши преимущества -->
+    <section id="advantages" class="py-16 bg-gradient-to-b from-white to-gray-50">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-12">Наши преимущества</h2>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-8">
+          <!-- Преимущество 1 -->
+          <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary shadow-lg animate-float">
+              <i class="ri-shield-check-line ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Гарантия 5 лет</h3>
+            <p class="text-gray-700">Самая длительная гарантия на оборудование и 1 год на монтажные работы.</p>
+          </div>
+          <!-- Преимущество 2 -->
+          <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full text-secondary shadow-lg animate-float" style="animation-delay: 0.3s;">
+              <i class="ri-user-star-line ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Профессионализм</h3>
+            <p class="text-gray-700">Опытные мастера с профессиональной подготовкой и сертификатами.</p>
+          </div>
+          <!-- Преимущество 3 -->
+          <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-accent/20 to-accent/10 rounded-full text-accent shadow-lg animate-float" style="animation-delay: 0.6s;">
+              <i class="ri-time-line ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Быстрая установка</h3>
+            <p class="text-gray-700">Установка в течение 1-2 дней после заказа по всей Гомельской области.</p>
+          </div>
+          <!-- Преимущество 4 -->
+          <div class="bg-white p-6 rounded-lg shadow-card text-center card-hover">
+            <div class="w-16 h-16 mx-auto mb-4 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary shadow-lg animate-float" style="animation-delay: 0.9s;">
+              <i class="ri-money-dollar-circle-line ri-2x"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-3">Лучшие цены</h3>
+            <p class="text-gray-700">Оптимальное соотношение цены и качества.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Контакты -->
+    <section id="contacts" class="py-16 bg-white">
+      <div class="max-w-7xl mx-auto px-6">
+        <h2 class="text-3xl font-bold text-center text-gray-900 mb-4">Контакты</h2>
+        <p class="text-center text-gray-700 mb-12">Свяжитесь с нами любым удобным способом</p>
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-start">
+          <div>
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Наши контакты</h3>
+            <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+              <div class="bg-white p-6 rounded-lg shadow-card card-hover">
+                <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary mb-4 shadow-lg">
+                  <i class="ri-phone-line ri-lg"></i>
+                </div>
+                <h4 class="text-lg font-medium text-gray-900 mb-2">Телефон</h4>
+                <a href="tel:+375291050694" class="text-primary hover:underline">+375 (29) 105-06-94</a>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-card card-hover">
+                <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-secondary/20 to-secondary/10 rounded-full text-secondary mb-4 shadow-lg">
+                  <i class="ri-mail-line ri-lg"></i>
+                </div>
+                <h4 class="text-lg font-medium text-gray-900 mb-2">Электронная почта</h4>
+                <a href="mailto:aircomfortbel@gmail.com" class="text-primary hover:underline">aircomfortbel@gmail.com</a>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-card card-hover">
+                <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-accent/20 to-accent/10 rounded-full text-accent mb-4 shadow-lg">
+                  <i class="ri-time-line ri-lg"></i>
+                </div>
+                <h4 class="text-lg font-medium text-gray-900 mb-2">Время работы</h4>
+                <p class="text-gray-700">Пн-Пт: 9:00 - 20:00</p>
+                <p class="text-gray-700">Сб-Вс: 10:00 - 18:00</p>
+              </div>
+              <div class="bg-white p-6 rounded-lg shadow-card card-hover">
+                <div class="w-10 h-10 flex items-center justify-center bg-gradient-to-br from-primary/20 to-primary/10 rounded-full text-primary mb-4 shadow-lg">
+                  <i class="ri-map-pin-line ri-lg"></i>
+                </div>
+                <h4 class="text-lg font-medium text-gray-900 mb-2">Регион работы</h4>
+                <p class="text-gray-700">Гомель и Гомельская область</p>
+              </div>
+            </div>
+          </div>
+          <div class="bg-white p-8 rounded-lg shadow-hover border border-gray-100">
+            <h3 class="text-xl font-bold text-gray-900 mb-6">Оставить заявку</h3>
+            <form id="contact-form" action="https://formspree.io/f/mrbkdwwe" method="POST">
+              <input type="hidden" id="calculator-data" name="calculator_data">
+              <div class="mb-4">
+                <label for="form-name" class="block text-gray-700 font-medium mb-2">Ваше имя *</label>
+                <input type="text" id="form-name" name="name" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Иван Петров" required>
+              </div>
+              <div class="mb-4">
+                <label for="form-phone" class="block text-gray-700 font-medium mb-2">Телефон *</label>
+                <input type="tel" id="form-phone" name="phone" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="+375 (XX) XXX-XX-XX" required>
+              </div>
+              <div class="mb-4">
+                <label for="form-email" class="block text-gray-700 font-medium mb-2">Email (необязательно)</label>
+                <input type="email" id="form-email" name="email" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="your@email.com">
+              </div>
+              <div class="mb-6">
+                <label for="form-message" class="block text-gray-700 font-medium mb-2">Сообщение</label>
+                <textarea id="form-message" name="message" rows="4" class="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-primary/50 focus:border-primary" placeholder="Опишите ваш вопрос или потребность"></textarea>
+              </div>
+              <button type="submit" class="w-full gradient-bg text-white px-6 py-3 rounded-button font-medium hover:shadow-glow transition-all duration-300 whitespace-nowrap transform hover:scale-105">
+                <span id="submit-text">Отправить заявку</span>
+                <span id="submit-spinner" class="hidden ml-2"><i class="ri-loader-4-line animate-spin"></i></span>
+              </button>
+              <div id="success-message" class="form-message success-message mt-4 hidden">
+                <i class="ri-checkbox-circle-fill mr-2"></i> Спасибо! Ваша заявка отправлена. Мы свяжемся с вами в ближайшее время.
+              </div>
+              <div id="error-message" class="form-message error-message mt-4 hidden">
+                <i class="ri-error-warning-fill mr-2"></i> Произошла ошибка при отправке. Пожалуйста, попробуйте еще раз или свяжитесь с нами по телефону.
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+    
+    <!-- Футер -->
+    <footer class="bg-gradient-to-r from-gray-900 to-gray-800 text-white py-12">
+      <div class="max-w-7xl mx-auto px-6">
+        <div class="flex flex-col md:flex-row justify-between items-center">
+          <div class="mb-6 md:mb-0">
+            <div class="flex items-center">
+              <span class="text-2xl sm:text-3xl font-['Pacifico'] text-white mr-2">AirComfort</span>
+            </div>
+            <p class="text-gray-400 mt-2">Профессиональная установка кондиционеров в Гомеле</p>
+          </div>
+          <div class="flex flex-col items-center md:items-end">
+            <p class="text-gray-400 mb-2">© 2025 AirComfort. Все права защищены.</p>
+          </div>
+        </div>
+      </div>
+    </footer>
+    
+  </div> <!-- Конец основного содержимого -->
+  
+  <!-- Скрипты -->
+  <script>
+    // Обработка прелоадера
+    document.addEventListener('DOMContentLoaded', function() {
+      const preloader = document.getElementById('preloader');
+      const content = document.getElementById('content');
+      
+      setTimeout(function() {
+        preloader.style.opacity = '0';
+        setTimeout(function() {
+          preloader.style.display = 'none';
+          content.style.display = 'block';
+        }, 500);
+      }, 2000);
+    });
+    
+    // Калькулятор
+    document.addEventListener('DOMContentLoaded', function() {
+      const modelSelect = document.getElementById('model');
+      const lengthInput = document.getElementById('length');
+      const decreaseBtn = document.getElementById('decrease-length');
+      const increaseBtn = document.getElementById('increase-length');
+      const totalPrice = document.getElementById('total-price');
+      const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+    
+      function calculateTotal() {
+        const modelPrice = parseInt(modelSelect.value);
+        const length = parseInt(lengthInput.value);
+        const additionalLength = Math.max(0, length - 3);
+        const additionalLengthPrice = additionalLength * 50;
+        let total = modelPrice + additionalLengthPrice;
+    
+        checkboxes.forEach(checkbox => {
+          if (checkbox.checked) {
+            total += parseInt(checkbox.value);
+          }
+        });
+    
+        if (modelPrice === 0) {
+          totalPrice.textContent = 'По запросу';
+        } else {
+          totalPrice.textContent = total + ' BYN';
+        }
+      }
+    
+      modelSelect.addEventListener('change', calculateTotal);
+      decreaseBtn.addEventListener('click', function() {
+        const currentValue = parseInt(lengthInput.value);
+        if (currentValue > 3) {
+          lengthInput.value = currentValue - 1;
+          calculateTotal();
+        }
+      });
+      increaseBtn.addEventListener('click', function() {
+        const currentValue = parseInt(lengthInput.value);
+        lengthInput.value = currentValue + 1;
+        calculateTotal();
+      });
+      checkboxes.forEach(checkbox => {
+        checkbox.addEventListener('change', calculateTotal);
+      });
+    
+      calculateTotal();
+    });
+    
+    // Модальное окно заказа
+    document.getElementById('order-button').addEventListener('click', function() {
+      document.getElementById('contact-modal').style.display = 'flex';
+    });
+    
+    window.addEventListener('click', function(event) {
+      if (event.target == document.getElementById('contact-modal')) {
+        document.getElementById('contact-modal').style.display = 'none';
       }
     });
-
-    if (modelPrice === 0) {
-      totalPrice.textContent = 'По запросу';
-    } else {
-      totalPrice.textContent = total + ' BYN';
-    }
-  }
-
-  modelSelect.addEventListener('change', calculateTotal);
-  decreaseBtn.addEventListener('click', function() {
-    const currentValue = parseInt(lengthInput.value);
-    if (currentValue > 3) {
-      lengthInput.value = currentValue - 1;
-      calculateTotal();
-    }
-  });
-  increaseBtn.addEventListener('click', function() {
-    const currentValue = parseInt(lengthInput.value);
-    lengthInput.value = currentValue + 1;
-    calculateTotal();
-  });
-  checkboxes.forEach(checkbox => {
-    checkbox.addEventListener('change', calculateTotal);
-  });
-
-  calculateTotal();
-});
-
-// Модальное окно заказа
-document.getElementById('order-button').addEventListener('click', function() {
-  document.getElementById('contact-modal').style.display = 'flex';
-});
-
-window.addEventListener('click', function(event) {
-  if (event.target == document.getElementById('contact-modal')) {
-    document.getElementById('contact-modal').style.display = 'none';
-  }
-});
-
-// Обработка формы
-document.getElementById('contact-form').addEventListener('submit', function(e) {
-  e.preventDefault();
-  
-  const form = this;
-  const submitBtn = form.querySelector('button[type="submit"]');
-  const submitText = document.getElementById('submit-text');
-  const submitSpinner = document.getElementById('submit-spinner');
-  const successMessage = document.getElementById('success-message');
-  const errorMessage = document.getElementById('error-message');
-  
-  // Получаем данные из калькулятора
-  const model = document.getElementById('model').options[document.getElementById('model').selectedIndex].text;
-  const length = document.getElementById('length').value;
-  const demontage = document.getElementById('demontage').checked ? 'Да (+100 BYN)' : 'Нет';
-  const service = document.getElementById('service').checked ? 'Да (+100 BYN)' : 'Нет';
-  const totalPrice = document.getElementById('total-price').textContent;
-  
-  // Формируем строку с данными калькулятора
-  const calculatorData = `Данные из калькулятора:\nМодель: ${model}\nДлина трассы: ${length} м\nДемонтаж: ${demontage}\nОбслуживание: ${service}\nИтоговая стоимость: ${totalPrice}`;
-  
-  // Добавляем данные калькулятора к сообщению
-  const messageField = document.getElementById('form-message');
-  messageField.value = (messageField.value ? messageField.value + '\n\n' : '') + calculatorData;
-  
-  // Показываем индикатор загрузки
-  submitText.textContent = 'Отправка...';
-  submitSpinner.classList.remove('hidden');
-  submitBtn.disabled = true;
-  
-  // Скрываем предыдущие сообщения
-  successMessage.classList.add('hidden');
-  errorMessage.classList.add('hidden');
-  
-  // Отправка формы через Formspree
-  fetch(form.action, {
-    method: 'POST',
-    body: new FormData(form),
-    headers: {
-      'Accept': 'application/json'
-    }
-  })
-  .then(response => {
-    if (response.ok) {
-      // Показываем сообщение об успехе
-      successMessage.classList.remove('hidden');
-      form.reset();
+    
+    // Обработка формы
+    document.getElementById('contact-form').addEventListener('submit', function(e) {
+      e.preventDefault();
       
-      // Показываем данные калькулятора под формой
-      const calculatorInfo = document.createElement('div');
-      calculatorInfo.className = 'form-message success-message mt-4';
-      calculatorInfo.innerHTML = `
-        <p><strong>Выбранные параметры:</strong></p>
-        <p>Модель: ${model}</p>
-        <p>Длина трассы: ${length} м</p>
-        <p>Демонтаж: ${demontage}</p>
-        <p>Обслуживание: ${service}</p>
-        <p><strong>Итоговая стоимость: ${totalPrice}</strong></p>
-      `;
+      const form = this;
+      const submitBtn = form.querySelector('button[type="submit"]');
+      const submitText = document.getElementById('submit-text');
+      const submitSpinner = document.getElementById('submit-spinner');
+      const successMessage = document.getElementById('success-message');
+      const errorMessage = document.getElementById('error-message');
       
-      // Вставляем после формы
-      form.parentNode.insertBefore(calculatorInfo, form.nextSibling);
+      // Получаем данные из калькулятора
+      const model = document.getElementById('model').options[document.getElementById('model').selectedIndex].text;
+      const length = document.getElementById('length').value;
+      const demontage = document.getElementById('demontage').checked ? 'Да (+100 BYN)' : 'Нет';
+      const service = document.getElementById('service').checked ? 'Да (+100 BYN)' : 'Нет';
+      const totalPrice = document.getElementById('total-price').textContent;
       
-      // Прокручиваем к сообщению
-      calculatorInfo.scrollIntoView({ behavior: 'smooth' });
-    } else {
-      throw new Error('Ошибка сети');
-    }
-  })
-  .catch(error => {
-    // Показываем сообщение об ошибке
-    errorMessage.classList.remove('hidden');
-    console.error('Error:', error);
-  })
-  .finally(() => {
-    // Восстанавливаем кнопку
-    submitText.textContent = 'Отправить заявку';
-    submitSpinner.classList.add('hidden');
-    submitBtn.disabled = false;
-  });
-});
+      // Формируем строку с данными калькулятора
+      const calculatorData = `Данные из калькулятора:\nМодель: ${model}\nДлина трассы: ${length} м\nДемонтаж: ${demontage}\nОбслуживание: ${service}\nИтоговая стоимость: ${totalPrice}`;
+      
+      // Добавляем данные калькулятора к сообщению
+      const messageField = document.getElementById('form-message');
+      messageField.value = (messageField.value ? messageField.value + '\n\n' : '') + calculatorData;
+      
+      // Показываем индикатор загрузки
+      submitText.textContent = 'Отправка...';
+      submitSpinner.classList.remove('hidden');
+      submitBtn.disabled = true;
+      
+      // Скрываем предыдущие сообщения
+      successMessage.classList.add('hidden');
+      errorMessage.classList.add('hidden');
+      
+      // Отправка формы через Formspree
+      fetch(form.action, {
+        method: 'POST',
+        body: new FormData(form),
+        headers: {
+          'Accept': 'application/json'
+        }
+      })
+      .then(response => {
+        if (response.ok) {
+          // Показываем сообщение об успехе
+          successMessage.classList.remove('hidden');
+          form.reset();
+          
+          // Показываем данные калькулятора под формой
+          const calculatorInfo = document.createElement('div');
+          calculatorInfo.className = 'form-message success-message mt-4';
+          calculatorInfo.innerHTML = `
+            <p><strong>Выбранные параметры:</strong></p>
+            <p>Модель: ${model}</p>
+            <p>Длина трассы: ${length} м</p>
+            <p>Демонтаж: ${demontage}</p>
+            <p>Обслуживание: ${service}</p>
+            <p><strong>Итоговая стоимость: ${totalPrice}</strong></p>
+          `;
+          
+          // Вставляем после формы
+          form.parentNode.insertBefore(calculatorInfo, form.nextSibling);
+          
+          // Прокручиваем к сообщению
+          calculatorInfo.scrollIntoView({ behavior: 'smooth' });
+        } else {
+          throw new Error('Ошибка сети');
+        }
+      })
+      .catch(error => {
+        // Показываем сообщение об ошибке
+        errorMessage.classList.remove('hidden');
+        console.error('Error:', error);
+      })
+      .finally(() => {
+        // Восстанавливаем кнопку
+        submitText.textContent = 'Отправить заявку';
+        submitSpinner.classList.add('hidden');
+        submitBtn.disabled = false;
+      });
+    });
+  </script>
+</body>
+</html>
 </script>
 </body>
 </html>
