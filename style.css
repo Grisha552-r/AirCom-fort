@@ -1,7 +1,3 @@
-:where([class^="ri-"])::before { 
-  content: "\f3c2"; 
-}
-
 /* Прелоадер */
 #preloader {
   position: fixed;
@@ -31,6 +27,77 @@
   background-clip: text;
   margin-top: 20px;
   animation: fadeIn 1.5s ease-out;
+}
+
+/* Баннер рассрочки */
+.installment-banner {
+  background: linear-gradient(45deg, #ff4d4d, #f97316, #eab308, #f97316, #ff4d4d);
+  background-size: 300% 300%;
+  color: white;
+  padding: 8px 16px;
+  border-radius: 8px;
+  font-weight: bold;
+  box-shadow: 0 4px 15px rgba(239, 68, 68, 0.3);
+  display: inline-flex;
+  align-items: center;
+  animation: gradientShift 12s ease infinite;
+  transition: all 0.5s ease;
+  max-width: 280px;
+  position: relative;
+  font-size: 14px;
+  line-height: 1.2;
+  overflow: hidden;
+}
+
+.installment-banner:hover {
+  animation: gradientShift 8s ease infinite;
+  transform: scale(1.02);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.installment-banner::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(
+    to bottom right,
+    rgba(255,255,255,0.1),
+    rgba(255,255,255,0)
+  );
+  transform: rotate(30deg);
+  animation: shine 8s infinite;
+}
+
+.installment-text {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+}
+
+.installment-title {
+  font-size: 14px;
+  text-shadow: 0 1px 2px rgba(0,0,0,0.2);
+}
+
+.installment-subtitle {
+  font-size: 12px;
+  opacity: 0.9;
+  text-shadow: 0 1px 1px rgba(0,0,0,0.2);
+}
+
+@keyframes gradientShift {
+  0% { background-position: 0% 50%; }
+  50% { background-position: 100% 50%; }
+  100% { background-position: 0% 50%; }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) rotate(30deg); opacity: 0; }
+  20% { transform: translateX(100%) rotate(30deg); opacity: 0.3; }
+  100% { transform: translateX(100%) rotate(30deg); opacity: 0; }
 }
 
 /* Модальное окно */
@@ -206,6 +273,85 @@
   background-clip: text;
 }
 
+/* Стили для плавающих кнопок */
+.float-buttons {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 99;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.float-button {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 24px;
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.float-button:hover {
+  transform: translateY(-5px) scale(1.1);
+  box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+}
+
+.float-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(255,255,255,0.1);
+  opacity: 0;
+  transition: all 0.3s ease;
+}
+
+.float-button:hover::after {
+  opacity: 1;
+}
+
+.float-button-tooltip {
+  position: absolute;
+  right: 70px;
+  background: white;
+  padding: 8px 12px;
+  border-radius: 8px;
+  font-size: 14px;
+  color: #333;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.1);
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.float-button:hover .float-button-tooltip {
+  opacity: 1;
+  right: 80px;
+}
+
+.phone-button {
+  background: linear-gradient(135deg, #4CAF50, #45a049);
+}
+
+.viber-button {
+  background: linear-gradient(135deg, #7360F2, #8B5CF6);
+}
+
+.telegram-button {
+  background: linear-gradient(135deg, #2AABEE, #229ED9);
+}
+
 @media (max-width: 768px) {
   .max-w-7xl {
     padding-left: 1rem;
@@ -213,5 +359,161 @@
   }
   .grid {
     grid-template-columns: 1fr;
+  }
+  
+  .float-buttons {
+    bottom: 20px;
+    right: 20px;
+  }
+  
+  .float-button {
+    width: 50px;
+    height: 50px;
+    font-size: 20px;
+  }
+  
+  .installment-banner {
+    padding: 6px 12px;
+    max-width: 240px;
+    font-size: 12px;
+  }
+  
+  .installment-title {
+    font-size: 12px;
+  }
+  
+  .installment-subtitle {
+    font-size: 10px;
+  }
+}
+
+/* Стили для опросника */
+.questionnaire-modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0,0,0,0.7);
+  z-index: 1001;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem;
+}
+
+.questionnaire-content {
+  background: white;
+  padding: 2rem;
+  border-radius: 16px;
+  max-width: 500px;
+  width: 100%;
+  max-height: 90vh;
+  overflow-y: auto;
+  animation: fadeIn 0.3s ease-out;
+  position: relative;
+}
+
+.close-questionnaire {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: pointer;
+  color: #666;
+  z-index: 10;
+}
+
+.close-questionnaire:hover {
+  color: #000;
+}
+
+.progress-bar {
+  height: 6px;
+  background-color: #e5e7eb;
+  border-radius: 3px;
+  margin-bottom: 2rem;
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+  background: #226160;
+  border-radius: 3px;
+  transition: width 0.3s ease;
+}
+
+.question-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  margin-bottom: 2rem;
+  color: 1f2937;
+  text-align: center;
+}
+
+.option-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+
+.option-button {
+  padding: 1.5rem 1rem;
+  border: 2px solid #e5e7eb;
+  border-radius: 12px;
+  text-align: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  background: white;
+}
+
+.option-button:hover {
+  border-color: #226160;
+  transform: translateY(-2px);
+}
+
+.option-button.selected {
+  border-color: #226160;
+  background-color: #f0f9f9;
+  box-shadow: 0 4px 12px rgba(34, 97, 96, 0.2);
+}
+
+.navigation-buttons {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.questionnaire-form {
+  display: none;
+}
+
+.questionnaire-form.active {
+  display: block;
+}
+
+.question-step {
+  display: none;
+  animation: fadeIn 0.5s ease-out;
+}
+
+.question-step.active {
+  display: block;
+}
+
+@media (max-width: 640px) {
+  .questionnaire-content {
+    padding: 1.5rem;
+  }
+  
+  .option-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .question-title {
+    font-size: 1.25rem;
   }
 }
