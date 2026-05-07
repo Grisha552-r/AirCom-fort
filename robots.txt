@@ -1,3 +1,28 @@
+# robots.txt для сайта aircom-fort.by (Установка кондиционеров в Гомеле)
+# Версия: 1.0 | Дата: 2026-05-07
+
 User-agent: *
+Disallow: /admin-panel
+Disallow: /#admin-login-modal
+Disallow: /cart-modal
+Disallow: /product-page
+Disallow: /checkout
+Disallow: /*?*
+Disallow: /#*
+
+# Запрещаем индексацию админ-панели (важно для безопасности)
+Disallow: /admin-*
+
+# Разрешаем всё остальное
 Allow: /
+
+# Указываем путь к карте сайта (ОБЯЗАТЕЛЬНО!)
 Sitemap: https://aircom-fort.by/sitemap.xml
+
+# Настройки для Яндекса
+Host: https://aircom-fort.by
+
+# Настройки для Google
+User-agent: Googlebot
+Disallow: /admin-*
+Allow: /
