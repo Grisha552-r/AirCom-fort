@@ -1,0 +1,140 @@
+'use client';
+import React, { useState } from 'react';
+import Header from '@/components/Header';
+import Footer from '@/components/Footer';
+import CartDrawer from '@/components/CartDrawer';
+import Icon from '@/components/ui/AppIcon';
+import Link from 'next/link';
+
+const ARTICLES = [
+  {
+    slug: 'kak-vybrat-konditsioner',
+    title: 'Как выбрать кондиционер: полное руководство покупателя',
+    excerpt: 'Разбираем всё, что важно знать перед покупкой: мощность, типы, режимы работы, фильтры и энергоэффективность. Поможем не переплатить и выбрать то, что реально нужно.',
+    image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
+    readTime: '10 мин',
+    date: '2025',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'invertor-ili-obychnyy',
+    title: 'Инверторный или обычный кондиционер: в чём разница и стоит ли переплачивать',
+    excerpt: 'Объясняем, чем инверторный компрессор отличается от обычного, сколько реально экономится электричества и когда переплата за инвертор оправдана, а когда нет.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '7 мин',
+    date: '2025',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'chistka-i-obsluzhivanie',
+    title: 'Чистка и обслуживание кондиционера: когда, как и почему это важно',
+    excerpt: 'Рассказываем, что происходит с кондиционером без ухода, какие работы можно сделать самому, а что лучше доверить мастеру. Признаки, что пора вызывать специалиста.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png',
+    readTime: '8 мин',
+    date: '2025',
+    tag: 'Обслуживание',
+  },
+  {
+    slug: 'kak-pravilno-polzovatsya-letom',
+    title: 'Как правильно пользоваться кондиционером летом: советы и частые ошибки',
+    excerpt: 'Какую температуру выставить, куда направлять воздух, как избежать простуды и аллергии. Простые правила, которые продлят жизнь технике и сохранят здоровье.',
+    image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
+    readTime: '6 мин',
+    date: '2025',
+    tag: 'Эксплуатация',
+  },
+  {
+    slug: 'podgotovka-k-zime',
+    title: 'Подготовка кондиционера к зиме: пошаговое руководство',
+    excerpt: 'Что нужно сделать осенью, чтобы кондиционер пережил зиму без поломок. Как правильно консервировать и когда имеет смысл использовать кондиционер для обогрева.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '7 мин',
+    date: '2025',
+    tag: 'Эксплуатация',
+  },
+  {
+    slug: 'mobilnyy-ili-split',
+    title: 'Мобильный кондиционер или сплит-система: что выбрать',
+    excerpt: 'Сравниваем два типа кондиционеров по шуму, эффективности, цене и удобству. Кому подойдёт мобильный, а кому лучше сразу брать сплит.',
+    image: 'https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg',
+    readTime: '6 мин',
+    date: '2025',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'soglasovanie-ustanovki',
+    title: 'Как согласовать установку кондиционера в Беларуси: документы и штрафы',
+    excerpt: 'Разбираем законодательство: когда нужно разрешение, какие документы собрать, куда обращаться и что грозит за самовольную установку на фасаде многоквартирного дома.',
+    image: 'https://split.by/sites/default/files/styles/640x400/public/field/image/nr.jpg?itok=eysvupPi',
+    readTime: '5 мин',
+    date: '2025',
+    tag: 'Установка',
+  },
+];
+
+const TAG_COLORS: Record<string, string> = {
+  'Выбор техники': 'bg-crimson-100 text-crimson-700',
+  'Обслуживание': 'bg-emerald-100 text-emerald-700',
+  'Эксплуатация': 'bg-blue-100 text-blue-700',
+  'Установка': 'bg-amber-100 text-amber-700',
+};
+
+export default function ArticlesPage() {
+  const [cartOpen, setCartOpen] = useState(false);
+
+  return (
+    <div className="min-h-screen bg-background">
+      <Header onCartOpen={() => setCartOpen(true)} />
+      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
+
+      <main>
+        <div className="bg-crimson-gradient text-white">
+          <div className="max-w-7xl mx-auto px-4 py-14">
+            <nav className="flex items-center gap-2 text-sm text-crimson-200 mb-6">
+              <Link href="/" className="hover:text-white transition-colors">Главная</Link>
+              <Icon name="ChevronRightIcon" size={14} />
+              <span className="text-white font-medium">Ответы на вопросы</span>
+            </nav>
+            <h1 className="text-4xl font-bold mb-3">Ответы на вопросы</h1>
+            <p className="text-crimson-100 text-lg">Полезные статьи о выборе, установке и обслуживании кондиционеров</p>
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 py-12">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+            {ARTICLES.map(article => (
+              <Link key={article.slug} href={`/articles/${article.slug}`} className="group block">
+                <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-crimson-200 transition-all duration-300 h-full flex flex-col">
+                  <div className="aspect-video overflow-hidden bg-zinc-100">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={article.image}
+                      alt={article.title}
+                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                    />
+                  </div>
+                  <div className="p-5 flex flex-col flex-1">
+                    <div className="flex items-center gap-3 mb-3">
+                      <span className={`text-xs font-semibold px-3 py-1 rounded-full ${TAG_COLORS[article.tag] ?? 'bg-zinc-100 text-zinc-700'}`}>{article.tag}</span>
+                      <span className="text-xs text-muted-foreground flex items-center gap-1">
+                        <Icon name="ClockIcon" size={12} />
+                        {article.readTime}
+                      </span>
+                    </div>
+                    <h2 className="text-base font-bold text-foreground mb-2 group-hover:text-crimson-700 transition-colors leading-snug">{article.title}</h2>
+                    <p className="text-sm text-muted-foreground leading-relaxed flex-1">{article.excerpt}</p>
+                    <div className="flex items-center gap-1 text-crimson-700 text-sm font-semibold mt-4">
+                      Читать статью <Icon name="ArrowRightIcon" size={14} className="group-hover:translate-x-1 transition-transform" />
+                    </div>
+                  </div>
+                </div>
+              </Link>
+            ))}
+          </div>
+        </div>
+      </main>
+
+      <Footer />
+    </div>
+  );
+}
