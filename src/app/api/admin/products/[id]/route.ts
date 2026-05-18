@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { isAuthorized } from '@/app/api/admin/_auth';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function toDb(p: any) {
@@ -27,7 +27,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
   try {
     const { id } = await params;
     const update = await req.json();
-    const { error } = await supabaseAdmin.from('products').update(toDb(update)).eq('id', id);
+    const { error } = await getSupabaseAdmin().from('products').update(toDb(update)).eq('id', id);
     if (error) throw new Error(error.message);
     return NextResponse.json({ ok: true });
   } catch (e) {
@@ -39,7 +39,7 @@ export async function DELETE(_: Request, { params }: { params: Promise<{ id: str
   if (!await isAuthorized()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   try {
     const { id } = await params;
-    const { error } = await supabaseAdmin.from('products').delete().eq('id', id);
+    const { error } = await getSupabaseAdmin().from('products').delete().eq('id', id);
     if (error) throw new Error(error.message);
     return NextResponse.json({ ok: true });
   } catch (e) {

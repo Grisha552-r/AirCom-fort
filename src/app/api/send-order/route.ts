@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -65,7 +65,7 @@ export async function POST(req: Request) {
       html,
     });
 
-    await supabaseAdmin.from('orders').insert({
+    await getSupabaseAdmin().from('orders').insert({
       id: orderId || `ORD-${Date.now()}`,
       created_at: new Date().toISOString(),
       customer_name: name || 'Аноним',

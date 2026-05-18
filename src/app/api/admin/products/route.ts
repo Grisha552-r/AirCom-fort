@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { isAuthorized } from '@/app/api/admin/_auth';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function fromDb(row: any) {
@@ -46,7 +46,7 @@ function toDb(p: any) {
 
 export async function GET() {
   if (!await isAuthorized()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
-  const { data, error } = await supabaseAdmin.from('products').select('*');
+  const { data, error } = await getSupabaseAdmin().from('products').select('*');
   if (error) return NextResponse.json([]);
   return NextResponse.json((data ?? []).map(fromDb));
 }
@@ -55,7 +55,7 @@ export async function POST(req: Request) {
   if (!await isAuthorized()) return NextResponse.json({ error: 'Unauthorized' }, { status: 401 });
   try {
     const product = await req.json();
-    const { error } = await supabaseAdmin.from('products').insert(toDb(product));
+    const { error } = await getSupabaseAdmin().from('products').insert(toDb(product));
     if (error) throw new Error(error.message);
     return NextResponse.json({ ok: true });
   } catch (e) {

@@ -1,8 +1,24 @@
-import { createClient } from '@supabase/supabase-js';
+import { createClient, SupabaseClient } from '@supabase/supabase-js';
 
-const url = process.env.NEXT_PUBLIC_SUPABASE_URL!;
-const anonKey = process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!;
-const serviceKey = process.env.SUPABASE_SERVICE_ROLE_KEY!;
+let _pub: SupabaseClient | null = null;
+let _admin: SupabaseClient | null = null;
 
-export const supabase = createClient(url, anonKey);
-export const supabaseAdmin = createClient(url, serviceKey);
+export function getSupabase(): SupabaseClient {
+  if (!_pub) {
+    _pub = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.NEXT_PUBLIC_SUPABASE_ANON_KEY!
+    );
+  }
+  return _pub;
+}
+
+export function getSupabaseAdmin(): SupabaseClient {
+  if (!_admin) {
+    _admin = createClient(
+      process.env.NEXT_PUBLIC_SUPABASE_URL!,
+      process.env.SUPABASE_SERVICE_ROLE_KEY!
+    );
+  }
+  return _admin;
+}

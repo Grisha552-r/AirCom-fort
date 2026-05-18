@@ -1,9 +1,9 @@
 import { cookies } from 'next/headers';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 export async function getAdminPassword(): Promise<string> {
   try {
-    const { data } = await supabaseAdmin
+    const { data } = await getSupabaseAdmin()
       .from('settings')
       .select('value')
       .eq('key', 'admin_password')

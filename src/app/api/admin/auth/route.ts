@@ -1,6 +1,6 @@
 import { NextResponse } from 'next/server';
 import { cookies } from 'next/headers';
-import { supabaseAdmin } from '@/lib/supabase';
+import { getSupabaseAdmin } from '@/lib/supabase';
 import { getAdminPassword, isAuthorized } from '@/app/api/admin/_auth';
 
 const COOKIE = 'admin_session';
@@ -41,7 +41,7 @@ export async function PUT(req: Request) {
   if (currentPassword !== current) {
     return NextResponse.json({ ok: false, error: 'Текущий пароль неверный' }, { status: 400 });
   }
-  const { error } = await supabaseAdmin
+  const { error } = await getSupabaseAdmin()
     .from('settings')
     .upsert({ key: 'admin_password', value: newPassword });
   if (error) {

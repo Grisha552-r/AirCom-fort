@@ -1,5 +1,5 @@
 import { NextResponse } from 'next/server';
-import { supabase } from '@/lib/supabase';
+import { getSupabase } from '@/lib/supabase';
 
 function isBlock(name: string): boolean {
   return /^(Блок\s+(внутренний|наружный)|Внутренний\s+блок|Внешний\s+блок|Панель\s)/i.test(name);
@@ -27,7 +27,7 @@ function fromDb(row: any) {
 }
 
 export async function GET() {
-  const { data, error } = await supabase.from('products').select('*');
+  const { data, error } = await getSupabase().from('products').select('*');
   if (error) return NextResponse.json({ error: error.message }, { status: 500 });
   return NextResponse.json((data ?? []).map(fromDb), {
     headers: { 'Cache-Control': 'public, max-age=60' },
