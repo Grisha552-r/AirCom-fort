@@ -1,7 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
-import fs from 'fs';
-import path from 'path';
+import { supabaseAdmin } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   const body = await req.json();
@@ -66,28 +65,22 @@ export async function POST(req: Request) {
       html,
     });
 
-    const order = {
+    await supabaseAdmin.from('orders').insert({
       id: orderId || `ORD-${Date.now()}`,
-      createdAt: new Date().toISOString(),
-      customerName: name || 'Аноним',
-      customerPhone: phone || '',
-      customerEmail: email || undefined,
-      address: address || undefined,
-      comment: comment || undefined,
+      created_at: new Date().toISOString(),
+      customer_name: name || 'Аноним',
+      customer_phone: phone || '',
+      customer_email: email || null,
+      address: address || null,
+      comment: comment || null,
       items: items || [],
       total: total || 0,
       status: 'new',
-    };
-    try {
-      const ordersFile = path.join(process.cwd(), 'src/data/orders.json');
-      const existing = JSON.parse(fs.readFileSync(ordersFile, 'utf-8'));
-      existing.unshift(order);
-      fs.writeFileSync(ordersFile, JSON.stringify(existing));
-    } catch {}
+    });
 
     return NextResponse.json({ ok: true });
   } catch (err) {
-    console.error('Email error:', err);
+    console.error('Order error:', err);
     return NextResponse.json({ ok: false, error: String(err) }, { status: 500 });
   }
 }

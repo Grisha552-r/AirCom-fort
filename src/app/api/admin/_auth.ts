@@ -1,21 +1,22 @@
 import { cookies } from 'next/headers';
-import fs from 'fs';
-import path from 'path';
+import { supabaseAdmin } from '@/lib/supabase';
 
-const ADMIN_FILE = path.join(process.cwd(), 'src/data/admin.json');
-
-export function getAdminPassword(): string {
+export async function getAdminPassword(): Promise<string> {
   try {
-    const data = JSON.parse(fs.readFileSync(ADMIN_FILE, 'utf-8'));
-    return data.password || process.env.ADMIN_PASSWORD || '';
-  } catch {
-    return process.env.ADMIN_PASSWORD || '';
-  }
+    const { data } = await supabaseAdmin
+      .from('settings')
+      .select('value')
+      .eq('key', 'admin_password')
+      .single();
+    if (data?.value) return data.value;
+  } catch {}
+  return process.env.ADMIN_PASSWORD || '';
 }
 
 export async function isAuthorized(): Promise<boolean> {
   const store = await cookies();
   const session = store.get('admin_session');
-  const pwd = getAdminPassword();
-  return !!pwd && session?.value === pwd;
+  if (!session?.value) return false;
+  const pwd = await getAdminPassword();
+  return !!pwd && session.value === pwd;
 }
