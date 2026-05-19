@@ -68,7 +68,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
       <header className={`sticky top-0 z-50 w-full transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'} bg-white`}>
         {/* Top bar */}
         <div className="bg-crimson-800 text-white">
-          <div className="max-w-7xl mx-auto px-4 h-9 flex items-center justify-between text-xs">
+          <div className="max-w-7xl mx-auto px-4 min-h-9 py-1.5 sm:h-9 sm:py-0 flex items-center justify-between text-xs">
             <div />
             <div className="flex items-center gap-3">
               {/* Telegram */}
@@ -101,11 +101,19 @@ export default function Header({ onCartOpen }: HeaderProps) {
                 </svg>
               </a>
               <span className="opacity-30">|</span>
-              <a href="tel:+375291050694" onClick={e => { e.preventDefault(); window.open('tel:+375291050694'); }} className="flex items-center gap-1.5 font-medium hover:text-crimson-200 transition-colors">
-                <Icon name="PhoneIcon" size={12} />
-                +375 29 105-06-94
-              </a>
-              <span className="hidden md:block opacity-70">с 9:00 до 18:00</span>
+              <div className="flex flex-col items-end sm:flex-row sm:items-center sm:gap-1.5">
+                <a href="tel:+375291050694" onClick={e => { e.preventDefault(); window.open('tel:+375291050694'); }} className="flex items-center gap-1.5 font-medium hover:text-crimson-200 transition-colors">
+                  <Icon name="PhoneIcon" size={12} />
+                  +375 29 105-06-94
+                </a>
+                <button
+                  onClick={() => setCallFormOpen(true)}
+                  className="sm:hidden text-[10px] text-crimson-200 hover:text-white underline underline-offset-2 transition-colors leading-tight mt-0.5"
+                >
+                  Заказать звонок
+                </button>
+                <span className="hidden md:block opacity-70">с 9:00 до 18:00</span>
+              </div>
             </div>
           </div>
         </div>
@@ -217,15 +225,6 @@ export default function Header({ onCartOpen }: HeaderProps) {
               <Icon name="PhoneIcon" size={14} />
               Заказать звонок
             </button>
-            {/* Mobile: compact call button */}
-            <button
-              onClick={() => setCallFormOpen(true)}
-              className="md:hidden flex items-center justify-center w-9 h-9 rounded-lg border border-crimson-200 hover:bg-crimson-50 text-crimson-700 transition-all shrink-0"
-              title="Заказать звонок"
-            >
-              <Icon name="PhoneIcon" size={18} />
-            </button>
-
             {/* Action icons */}
             <div className="flex items-center gap-1 shrink-0">
               <Link href="/favorites" className="hidden md:flex flex-col items-center p-2 rounded-lg hover:bg-muted transition-colors group relative">
