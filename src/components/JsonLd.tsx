@@ -53,14 +53,6 @@ export default function JsonLd() {
         hasOfferCatalog: {
           '@type': 'OfferCatalog',
           name: 'Кондиционеры и климатическая техника',
-          itemListElement: [
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Сплит-системы Electrolux' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Сплит-системы Ballu' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Сплит-системы Haier' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Сплит-системы LG' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Сплит-системы Mitsudai' } },
-            { '@type': 'Offer', itemOffered: { '@type': 'Product', name: 'Мобильные кондиционеры' } },
-          ],
         },
       },
       {
