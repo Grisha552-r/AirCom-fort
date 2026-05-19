@@ -68,7 +68,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
       <header className={`sticky top-0 z-50 w-full transition-shadow duration-300 ${scrolled ? 'shadow-lg' : 'shadow-sm'} bg-white`}>
         {/* Top bar */}
         <div className="bg-crimson-800 text-white">
-          <div className="max-w-7xl mx-auto px-4 min-h-9 py-1.5 sm:h-9 sm:py-0 flex items-center justify-between text-xs">
+          <div className="max-w-7xl mx-auto px-4 py-1.5 flex items-center justify-between text-xs">
             <div />
             <div className="flex items-center gap-3">
               {/* Telegram */}
