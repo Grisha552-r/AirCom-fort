@@ -18,6 +18,9 @@ const CATEGORY_SLUGS = [
 ];
 
 const ARTICLE_SLUGS = [
+  'tsena-ustanovki-konditsionera',
+  'konditsioner-dlya-komnaty',
+  'konditsioner-ne-okhlazhdaet',
   'kak-vybrat-konditsioner',
   'invertor-ili-obychnyy',
   'chistka-i-obsluzhivanie',

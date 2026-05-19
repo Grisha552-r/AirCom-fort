@@ -40,7 +40,7 @@ const fetchProduct = cache(async (id: string) => {
   try {
     const { data } = await getSupabaseAdmin()
       .from('products')
-      .select('id, name, description, price, images, brand, in_stock, category_id')
+      .select('id, name, description, price, images, brand, in_stock, category_id, rating, review_count')
       .eq('id', id)
       .single();
     return data;
@@ -122,6 +122,17 @@ export default async function ProductLayout({
         description: product.description?.replace(/<[^>]+>/g, '').slice(0, 200),
         image: Array.isArray(product.images) ? product.images.slice(0, 5) : [],
         brand: { '@type': 'Brand', name: product.brand || 'AirComfort' },
+        ...(product.rating && product.review_count && product.review_count > 0
+          ? {
+              aggregateRating: {
+                '@type': 'AggregateRating',
+                ratingValue: product.rating,
+                reviewCount: product.review_count,
+                bestRating: 5,
+                worstRating: 1,
+              },
+            }
+          : {}),
         offers: {
           '@type': 'Offer',
           price: product.price,

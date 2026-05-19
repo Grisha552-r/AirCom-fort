@@ -8,6 +8,33 @@ import Link from 'next/link';
 
 const ARTICLES = [
   {
+    slug: 'tsena-ustanovki-konditsionera',
+    title: 'Сколько стоит установка кондиционера в Гомеле в 2025 году',
+    excerpt: 'Актуальные цены на монтаж: от 400 р. за комнату до 30 м². Что входит в стоимость, за что попросят доплату и как не переплатить — объясняем по шагам.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '5 мин',
+    date: '2025',
+    tag: 'Установка',
+  },
+  {
+    slug: 'konditsioner-dlya-komnaty',
+    title: 'Какой кондиционер выбрать для комнаты в 2025 году: советы мастеров',
+    excerpt: 'Как рассчитать мощность, выбрать между инвертором и on/off, и какой бренд лучше. Простые советы без лишних слов.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '6 мин',
+    date: '2025',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'konditsioner-ne-okhlazhdaet',
+    title: 'Кондиционер работает, но не охлаждает: 7 причин и что делать',
+    excerpt: 'Грязный фильтр, обмерзание, нехватка фреона — разбираем по порядку. Что можно сделать самому за 10 минут, а когда нужно звонить мастеру.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png',
+    readTime: '5 мин',
+    date: '2025',
+    tag: 'Обслуживание',
+  },
+  {
     slug: 'kak-vybrat-konditsioner',
     title: 'Как выбрать кондиционер: полное руководство покупателя',
     excerpt: 'Разбираем всё, что важно знать перед покупкой: мощность, типы, режимы работы, фильтры и энергоэффективность. Поможем не переплатить и выбрать то, что реально нужно.',
