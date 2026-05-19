@@ -42,6 +42,35 @@ const nextConfig = {
 
   compress: true,
 
+  async headers() {
+    return [
+      {
+        source: '/(.*)',
+        headers: [
+          { key: 'X-Content-Type-Options', value: 'nosniff' },
+          { key: 'X-Frame-Options', value: 'SAMEORIGIN' },
+          { key: 'X-XSS-Protection', value: '1; mode=block' },
+          { key: 'Referrer-Policy', value: 'strict-origin-when-cross-origin' },
+        ],
+      },
+      // Static assets — 1 year cache
+      {
+        source: '/_next/static/(.*)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=31536000, immutable' }],
+      },
+      // Images — 30 days
+      {
+        source: '/assets/(.*)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=2592000, stale-while-revalidate=86400' }],
+      },
+      // Sitemap and robots — 1 day
+      {
+        source: '/(sitemap.xml|robots.txt)',
+        headers: [{ key: 'Cache-Control', value: 'public, max-age=86400, stale-while-revalidate=3600' }],
+      },
+    ];
+  },
+
   experimental: {
     optimizePackageImports: ['@heroicons/react'],
   },

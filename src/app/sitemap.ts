@@ -1,6 +1,5 @@
 import { MetadataRoute } from 'next';
-import fs from 'fs';
-import path from 'path';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 const BASE = 'https://aircom-fort.by';
 
@@ -28,7 +27,7 @@ const ARTICLE_SLUGS = [
   'mobilnyy-ili-split',
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
 
   const categoryPages = CATEGORY_SLUGS.map(slug => ({
@@ -43,15 +42,20 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
+  // Fetch products from Supabase (works on Vercel, unlike fs.readFileSync)
   let productPages: MetadataRoute.Sitemap = [];
   try {
-    const raw = fs.readFileSync(path.join(process.cwd(), 'src/data/products.json'), 'utf-8');
-    const products: { id: string }[] = JSON.parse(raw);
-    productPages = products.map(p => ({
-      url: `${BASE}/products/${p.id}`,
-      lastModified: now,
-      priority: 0.7,
-    }));
+    const { data } = await getSupabaseAdmin()
+      .from('products')
+      .select('id')
+      .order('id');
+    if (data) {
+      productPages = data.map(p => ({
+        url: `${BASE}/products/${p.id}`,
+        lastModified: now,
+        priority: 0.7,
+      }));
+    }
   } catch {}
 
   return [
