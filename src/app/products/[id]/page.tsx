@@ -107,44 +107,53 @@ const CATEGORY_META: Record<string, { label: string; brand?: string; categoryIds
   },
 };
 
-type SortKey = 'default' | 'price-asc' | 'price-desc';
-type AreaFilter = 'all' | 'lt25' | '25-40' | '40-60' | 'gt60';
-type PriceFilter = 'all' | 'lt800' | '800-1400' | '1400-2000' | 'gt2000';
-
-const AREA_FILTERS: { key: AreaFilter; label: string; maxBtu?: number; minBtu?: number }[] = [
-  { key: 'all',   label: 'Любая площадь' },
-  { key: 'lt25',  label: 'до 25 м²',  maxBtu: 9000 },
-  { key: '25-40', label: '25–40 м²',  minBtu: 9001,  maxBtu: 12000 },
-  { key: '40-60', label: '40–60 м²',  minBtu: 12001, maxBtu: 18000 },
-  { key: 'gt60',  label: 'от 60 м²',  minBtu: 18001 },
+const BTU_OPTIONS = [
+  { id: '7 000',  label: '7 000 BTU — до 20 м²' },
+  { id: '9 000',  label: '9 000 BTU — до 25 м²' },
+  { id: '12 000', label: '12 000 BTU — до 35 м²' },
+  { id: '18 000', label: '18 000 BTU — до 50 м²' },
+  { id: '24 000', label: '24 000 BTU — до 70 м²' },
+  { id: '36 000', label: '36 000 BTU' },
 ];
 
-const PRICE_FILTERS: { key: PriceFilter; label: string }[] = [
-  { key: 'all',      label: 'Любая цена' },
-  { key: 'lt800',    label: 'до 800 р.' },
-  { key: '800-1400', label: '800–1400 р.' },
-  { key: '1400-2000',label: '1400–2000 р.' },
-  { key: 'gt2000',   label: 'от 2000 р.' },
-];
+const CAT_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai'];
 
-const ALL_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai'];
-
-function matchesArea(p: Product, area: AreaFilter): boolean {
-  if (area === 'all') return true;
-  const btu = getBtuNum(p);
-  if (btu === 99999) return true;
-  const f = AREA_FILTERS.find(a => a.key === area)!;
-  if (f.minBtu && btu < f.minBtu) return false;
-  if (f.maxBtu && btu > f.maxBtu) return false;
-  return true;
+function CatCheckbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
+  return (
+    <label className="flex items-center gap-2.5 cursor-pointer group py-0.5 select-none" onClick={onChange}>
+      <div className={`w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'bg-crimson-700 border-crimson-700' : 'border-border group-hover:border-crimson-400 bg-white'}`}>
+        {checked && <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5"><path d="M1.5 5l2.5 2.5 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+      </div>
+      <span className={`text-sm leading-tight transition-colors ${checked ? 'text-crimson-700 font-medium' : 'text-foreground group-hover:text-crimson-700'}`}>{label}</span>
+    </label>
+  );
 }
 
-function matchesPrice(p: Product, price: PriceFilter): boolean {
-  if (price === 'all') return true;
-  if (price === 'lt800') return p.price < 800;
-  if (price === '800-1400') return p.price >= 800 && p.price <= 1400;
-  if (price === '1400-2000') return p.price > 1400 && p.price <= 2000;
-  return p.price > 2000;
+function CatRadio({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
+  return (
+    <label className="flex items-center gap-2.5 cursor-pointer group py-0.5 select-none" onClick={onChange}>
+      <div className={`w-[18px] h-[18px] rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'border-crimson-700 bg-crimson-700' : 'border-border group-hover:border-crimson-400 bg-white'}`}>
+        {checked && <div className="w-2 h-2 rounded-full bg-white" />}
+      </div>
+      <span className={`text-sm leading-tight transition-colors ${checked ? 'text-crimson-700 font-medium' : 'text-foreground group-hover:text-crimson-700'}`}>{label}</span>
+    </label>
+  );
+}
+
+function CatFilterSection({ title, badge, children }: { title: string; badge?: number; children: React.ReactNode }) {
+  const [open, setOpen] = useState(true);
+  return (
+    <div className="border-b border-border pb-4 mb-4 last:border-0 last:pb-0 last:mb-0">
+      <button className="flex items-center justify-between w-full mb-3 text-left" onClick={() => setOpen(o => !o)}>
+        <span className="font-semibold text-sm text-foreground flex items-center gap-2">
+          {title}
+          {!!badge && <span className="bg-crimson-700 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">{badge}</span>}
+        </span>
+        <Icon name={open ? 'ChevronUpIcon' : 'ChevronDownIcon'} size={14} className="text-muted-foreground shrink-0" />
+      </button>
+      {open && <div className="space-y-2">{children}</div>}
+    </div>
+  );
 }
 
 function CategoryView({ slug }: { slug: string }) {
@@ -152,45 +161,94 @@ function CategoryView({ slug }: { slug: string }) {
   const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [cartOpen, setCartOpen] = useState(false);
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  // filters
-  const [sort, setSort] = useState<SortKey>('default');
-  const [area, setArea] = useState<AreaFilter>('all');
-  const [price, setPrice] = useState<PriceFilter>('all');
-  const [brand, setBrand] = useState<string>('all');
-  const showBrandFilter = slug === 'split-systems';
+  const [selectedBrands, setSelectedBrands] = useState<Set<string>>(new Set());
+  const [selectedBtus, setSelectedBtus] = useState<Set<string>>(new Set());
+  const [inverterFilter, setInverterFilter] = useState<'all' | 'yes' | 'no'>('all');
+  const [priceMin, setPriceMin] = useState('');
+  const [priceMax, setPriceMax] = useState('');
+  const [sortBy, setSortBy] = useState('default');
+
+  const showBrands = slug === 'split-systems';
 
   useEffect(() => {
     fetch('/api/products')
       .then(r => r.json())
       .then((all: Product[]) => {
         let filtered: Product[] = all;
-        if (info.brand) {
-          filtered = all.filter(p => p.brand === info.brand);
-        } else if (info.categoryIds) {
-          filtered = all.filter(p => info.categoryIds!.includes(p.categoryId));
-        }
+        if (info.brand) filtered = all.filter(p => p.brand === info.brand);
+        else if (info.categoryIds) filtered = all.filter(p => info.categoryIds!.includes(p.categoryId));
         setAllProducts(filtered);
         setLoading(false);
       });
   }, [slug]);
 
+  const toggleBrand = (id: string) => setSelectedBrands(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+  const toggleBtu = (id: string) => setSelectedBtus(prev => { const n = new Set(prev); n.has(id) ? n.delete(id) : n.add(id); return n; });
+
   const products = React.useMemo(() => {
-    let list = allProducts
-      .filter(p => matchesArea(p, area))
-      .filter(p => matchesPrice(p, price))
-      .filter(p => brand === 'all' || p.brand === brand);
-
-    if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
-    else if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
+    let list = [...allProducts];
+    if (selectedBrands.size > 0) list = list.filter(p => selectedBrands.has(p.brand));
+    if (selectedBtus.size > 0) list = list.filter(p => selectedBtus.has(getBtuLabel(p).replace(/\s/g, ' ').trim()));
+    if (inverterFilter === 'yes') {
+      list = list.filter(p => {
+        const tech = p.characteristics?.['Инверторная технология'];
+        const ctrl = p.characteristics?.['Тип управления'];
+        return tech === 'Да' || ctrl === 'Инвертор';
+      });
+    } else if (inverterFilter === 'no') {
+      list = list.filter(p => {
+        const tech = p.characteristics?.['Инверторная технология'];
+        const ctrl = p.characteristics?.['Тип управления'];
+        return tech === 'Нет' || ctrl === 'On/Off';
+      });
+    }
+    if (priceMin) list = list.filter(p => p.price >= Number(priceMin));
+    if (priceMax) list = list.filter(p => p.price <= Number(priceMax));
+    if (sortBy === 'price-asc') list.sort((a, b) => a.price - b.price);
+    else if (sortBy === 'price-desc') list.sort((a, b) => b.price - a.price);
+    else if (sortBy === 'rating') list.sort((a, b) => b.rating - a.rating);
     return list;
-  }, [allProducts, sort, area, price, brand]);
+  }, [allProducts, selectedBrands, selectedBtus, inverterFilter, priceMin, priceMax, sortBy]);
 
-  const activeCount = [area !== 'all', price !== 'all', brand !== 'all'].filter(Boolean).length;
+  const activeCount = selectedBrands.size + selectedBtus.size + (inverterFilter !== 'all' ? 1 : 0) + (priceMin ? 1 : 0) + (priceMax ? 1 : 0);
 
-  const resetFilters = () => {
-    setArea('all'); setPrice('all'); setBrand('all'); setSort('default');
+  const resetAll = () => {
+    setSelectedBrands(new Set()); setSelectedBtus(new Set());
+    setInverterFilter('all'); setPriceMin(''); setPriceMax(''); setSortBy('default');
   };
+
+  const SidebarFilters = (
+    <div>
+      {showBrands && (
+        <CatFilterSection title="Бренд" badge={selectedBrands.size}>
+          {CAT_BRANDS.map(b => <CatCheckbox key={b} label={b} checked={selectedBrands.has(b)} onChange={() => toggleBrand(b)} />)}
+        </CatFilterSection>
+      )}
+      <CatFilterSection title="Мощность (BTU)" badge={selectedBtus.size}>
+        {BTU_OPTIONS.map(o => <CatCheckbox key={o.id} label={o.label} checked={selectedBtus.has(o.id)} onChange={() => toggleBtu(o.id)} />)}
+      </CatFilterSection>
+      <CatFilterSection title="Технология" badge={inverterFilter !== 'all' ? 1 : 0}>
+        {(['all', 'yes', 'no'] as const).map(v => (
+          <CatRadio key={v} label={v === 'all' ? 'Все' : v === 'yes' ? 'Инвертор' : 'On/Off'} checked={inverterFilter === v} onChange={() => setInverterFilter(v)} />
+        ))}
+      </CatFilterSection>
+      <CatFilterSection title="Цена (р.)" badge={priceMin || priceMax ? 1 : 0}>
+        <div className="flex gap-2">
+          <input type="number" placeholder="От" value={priceMin} onChange={e => setPriceMin(e.target.value)}
+            className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-crimson-400" />
+          <input type="number" placeholder="До" value={priceMax} onChange={e => setPriceMax(e.target.value)}
+            className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-crimson-400" />
+        </div>
+      </CatFilterSection>
+      {activeCount > 0 && (
+        <button onClick={resetAll} className="w-full mt-2 text-sm text-crimson-600 hover:text-crimson-700 font-medium py-2.5 border border-crimson-200 rounded-lg hover:bg-crimson-50 transition-colors">
+          Сбросить все ({activeCount})
+        </button>
+      )}
+    </div>
+  );
 
   return (
     <div className="min-h-screen bg-background">
@@ -207,126 +265,82 @@ function CategoryView({ slug }: { slug: string }) {
 
         <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-5">{info.label} в Гомеле</h1>
 
-        {/* Filter bar */}
-        <div className="bg-white rounded-2xl border border-border p-4 mb-5 space-y-4">
+        <div className="flex gap-6 items-start">
+          {/* Desktop sidebar */}
+          <aside className="hidden lg:block w-60 shrink-0">
+            <div className="bg-white rounded-2xl border border-border p-5 sticky top-24 max-h-[calc(100vh-7rem)] overflow-y-auto">
+              <div className="flex items-center justify-between mb-4">
+                <span className="font-bold text-base text-foreground">Фильтры</span>
+                {activeCount > 0 && <button onClick={resetAll} className="text-xs text-crimson-600 font-medium">Сбросить ({activeCount})</button>}
+              </div>
+              {SidebarFilters}
+            </div>
+          </aside>
 
-          {/* Row 1: sort + in-stock */}
-          <div className="flex flex-wrap items-center gap-3 justify-between">
-            <div className="flex items-center gap-2 flex-wrap">
-              <span className="text-sm font-semibold text-foreground">Сортировка:</span>
-              {(['default', 'price-asc', 'price-desc'] as SortKey[]).map(s => (
+          {/* Main */}
+          <div className="flex-1 min-w-0">
+            <div className="flex items-center justify-between gap-3 mb-4 flex-wrap">
+              <div className="flex items-center gap-3">
                 <button
-                  key={s}
-                  onClick={() => setSort(s)}
-                  className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${sort === s ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
+                  onClick={() => setSidebarOpen(true)}
+                  className={`lg:hidden flex items-center gap-2 border rounded-xl px-4 py-2.5 text-sm font-medium transition-colors ${activeCount > 0 ? 'border-crimson-500 text-crimson-700 bg-crimson-50' : 'border-border hover:border-crimson-400'}`}
                 >
-                  {s === 'default' ? 'По умолчанию' : s === 'price-asc' ? 'Цена ↑' : 'Цена ↓'}
+                  <Icon name="AdjustmentsHorizontalIcon" size={16} />
+                  Фильтры{activeCount > 0 ? ` (${activeCount})` : ''}
                 </button>
-              ))}
+                <span className="text-sm text-muted-foreground">{loading ? 'Загрузка...' : `${products.length} товаров`}</span>
+              </div>
+              <select value={sortBy} onChange={e => setSortBy(e.target.value)}
+                className="border border-border rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:border-crimson-400 bg-white">
+                <option value="default">По умолчанию</option>
+                <option value="price-asc">Цена: по возрастанию</option>
+                <option value="price-desc">Цена: по убыванию</option>
+                <option value="rating">По рейтингу</option>
+              </select>
             </div>
+
+            {loading ? (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                {[...Array(8)].map((_, i) => <div key={i} className="h-72 bg-zinc-100 rounded-2xl animate-pulse" />)}
+              </div>
+            ) : products.length === 0 ? (
+              <div className="text-center py-16 bg-white rounded-2xl border border-border">
+                <p className="text-lg font-semibold text-foreground mb-2">Ничего не найдено</p>
+                <p className="text-muted-foreground mb-5 text-sm">Попробуйте изменить фильтры</p>
+                <button onClick={resetAll} className="bg-crimson-gradient text-white px-6 py-2.5 rounded-xl font-semibold hover:opacity-90">Сбросить фильтры</button>
+              </div>
+            ) : (
+              <div className="grid grid-cols-2 md:grid-cols-3 gap-3 md:gap-4">
+                {products.map(p => <ProductCard key={p.id} product={p} onCartAdd={() => setCartOpen(true)} />)}
+              </div>
+            )}
           </div>
-
-          {/* Row 2: area filter */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-semibold text-foreground shrink-0">Площадь:</span>
-            {AREA_FILTERS.map(f => (
-              <button
-                key={f.key}
-                onClick={() => setArea(f.key)}
-                className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${area === f.key ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Row 3: price filter */}
-          <div className="flex flex-wrap items-center gap-2">
-            <span className="text-sm font-semibold text-foreground shrink-0">Цена:</span>
-            {PRICE_FILTERS.map(f => (
-              <button
-                key={f.key}
-                onClick={() => setPrice(f.key)}
-                className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${price === f.key ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
-              >
-                {f.label}
-              </button>
-            ))}
-          </div>
-
-          {/* Row 4: brand filter (only on split-systems) */}
-          {showBrandFilter && (
-            <div className="flex flex-wrap items-center gap-2">
-              <span className="text-sm font-semibold text-foreground shrink-0">Бренд:</span>
-              <button
-                onClick={() => setBrand('all')}
-                className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${brand === 'all' ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
-              >
-                Все
-              </button>
-              {ALL_BRANDS.map(b => (
-                <button
-                  key={b}
-                  onClick={() => setBrand(b)}
-                  className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${brand === b ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
-                >
-                  {b}
-                </button>
-              ))}
-            </div>
-          )}
-
-          {/* Reset */}
-          {activeCount > 0 && (
-            <div className="flex items-center gap-3 pt-1 border-t border-border">
-              <span className="text-sm text-muted-foreground">Активных фильтров: <strong className="text-crimson-700">{activeCount}</strong></span>
-              <button onClick={resetFilters} className="text-sm text-crimson-700 hover:underline font-medium">
-                Сбросить все
-              </button>
-            </div>
-          )}
         </div>
-
-        {/* Results count */}
-        {!loading && (
-          <p className="text-sm text-muted-foreground mb-4">
-            Найдено: <strong className="text-foreground">{products.length}</strong> товаров
-          </p>
-        )}
-
-        {loading ? (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
-            {[...Array(8)].map((_, i) => (
-              <div key={i} className="h-72 bg-zinc-100 rounded-2xl animate-pulse" />
-            ))}
-          </div>
-        ) : products.length === 0 ? (
-          <div className="text-center py-16">
-            <p className="text-lg font-semibold text-foreground mb-2">Ничего не найдено</p>
-            <p className="text-muted-foreground mb-5 text-sm">Попробуйте изменить фильтры</p>
-            <button onClick={resetFilters} className="bg-crimson-gradient text-white px-6 py-2.5 rounded-xl font-semibold hover:opacity-90 transition-opacity">
-              Сбросить фильтры
-            </button>
-          </div>
-        ) : (
-          <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
-            {products.map(p => (
-              <ProductCard key={p.id} product={p} onCartAdd={() => setCartOpen(true)} />
-            ))}
-          </div>
-        )}
 
         {info.seoText && (
           <div className="mt-12 bg-zinc-50 rounded-2xl border border-border p-6 md:p-8">
             <h2 className="text-xl font-bold text-foreground mb-4">{info.seoText.h2}</h2>
             <div className="space-y-3">
-              {info.seoText.paragraphs.map((p, i) => (
-                <p key={i} className="text-sm text-muted-foreground leading-relaxed">{p}</p>
-              ))}
+              {info.seoText.paragraphs.map((p, i) => <p key={i} className="text-sm text-muted-foreground leading-relaxed">{p}</p>)}
             </div>
           </div>
         )}
       </main>
+
+      {/* Mobile sidebar */}
+      {sidebarOpen && (
+        <>
+          <div className="fixed inset-0 bg-black/40 z-50" onClick={() => setSidebarOpen(false)} />
+          <div className="fixed top-0 left-0 h-full w-full max-w-xs bg-white z-50 shadow-2xl overflow-y-auto p-5">
+            <div className="flex items-center justify-between mb-6">
+              <h3 className="font-bold text-lg">Фильтры</h3>
+              <button onClick={() => setSidebarOpen(false)}><Icon name="XMarkIcon" size={20} /></button>
+            </div>
+            {SidebarFilters}
+          </div>
+        </>
+      )}
+
       <Footer />
     </div>
   );

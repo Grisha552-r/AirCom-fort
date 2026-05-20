@@ -7,7 +7,6 @@ import HeroSection from '@/app/components/HeroSection';
 import FeaturedProducts from '@/app/components/FeaturedProducts';
 import PopularProducts from '@/app/components/PopularProducts';
 import ReviewsSection from '@/app/components/ReviewsSection';
-import PickupInfoSection from '@/app/components/PickupInfoSection';
 import SeoSection from '@/app/components/SeoSection';
 
 export default function HomePage() {
@@ -23,7 +22,6 @@ export default function HomePage() {
         <FeaturedProducts onCartOpen={() => setCartOpen(true)} />
 <PopularProducts onCartOpen={() => setCartOpen(true)} />
         <ReviewsSection />
-        <PickupInfoSection />
         <SeoSection />
       </main>
 
