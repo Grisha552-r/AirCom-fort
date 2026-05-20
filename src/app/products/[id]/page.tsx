@@ -118,18 +118,42 @@ const BTU_OPTIONS = [
 
 const CAT_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai'];
 
-function CatCheckbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
+function FilterSection({
+  title, activeCount, defaultOpen = false, children,
+}: { title: string; activeCount?: number; defaultOpen?: boolean; children: React.ReactNode }) {
+  const [open, setOpen] = useState(defaultOpen);
+  return (
+    <div className="border-b border-border pb-4 mb-4 last:border-0 last:pb-0 last:mb-0">
+      <button className="flex items-center justify-between w-full mb-3 text-left" onClick={() => setOpen(o => !o)}>
+        <span className="font-semibold text-sm text-foreground flex items-center gap-2">
+          {title}
+          {activeCount ? (
+            <span className="bg-crimson-700 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">{activeCount}</span>
+          ) : null}
+        </span>
+        <Icon name={open ? 'ChevronUpIcon' : 'ChevronDownIcon'} size={14} className="text-muted-foreground shrink-0" />
+      </button>
+      {open && <div className="space-y-2">{children}</div>}
+    </div>
+  );
+}
+
+function Checkbox({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
   return (
     <label className="flex items-center gap-2.5 cursor-pointer group py-0.5 select-none" onClick={onChange}>
       <div className={`w-[18px] h-[18px] rounded-[4px] border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'bg-crimson-700 border-crimson-700' : 'border-border group-hover:border-crimson-400 bg-white'}`}>
-        {checked && <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5"><path d="M1.5 5l2.5 2.5 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round"/></svg>}
+        {checked && (
+          <svg viewBox="0 0 10 10" fill="none" className="w-2.5 h-2.5">
+            <path d="M1.5 5l2.5 2.5 5-5" stroke="white" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" />
+          </svg>
+        )}
       </div>
       <span className={`text-sm leading-tight transition-colors ${checked ? 'text-crimson-700 font-medium' : 'text-foreground group-hover:text-crimson-700'}`}>{label}</span>
     </label>
   );
 }
 
-function CatRadio({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
+function RadioOption({ label, checked, onChange }: { label: string; checked: boolean; onChange: () => void }) {
   return (
     <label className="flex items-center gap-2.5 cursor-pointer group py-0.5 select-none" onClick={onChange}>
       <div className={`w-[18px] h-[18px] rounded-full border-2 flex items-center justify-center shrink-0 transition-all ${checked ? 'border-crimson-700 bg-crimson-700' : 'border-border group-hover:border-crimson-400 bg-white'}`}>
@@ -137,22 +161,6 @@ function CatRadio({ label, checked, onChange }: { label: string; checked: boolea
       </div>
       <span className={`text-sm leading-tight transition-colors ${checked ? 'text-crimson-700 font-medium' : 'text-foreground group-hover:text-crimson-700'}`}>{label}</span>
     </label>
-  );
-}
-
-function CatFilterSection({ title, badge, children }: { title: string; badge?: number; children: React.ReactNode }) {
-  const [open, setOpen] = useState(false);
-  return (
-    <div className="border-b border-border pb-4 mb-4 last:border-0 last:pb-0 last:mb-0">
-      <button className="flex items-center justify-between w-full mb-3 text-left" onClick={() => setOpen(o => !o)}>
-        <span className="font-semibold text-sm text-foreground flex items-center gap-2">
-          {title}
-          {!!badge && <span className="bg-crimson-700 text-white text-[10px] font-bold rounded-full min-w-[18px] h-[18px] px-1 flex items-center justify-center">{badge}</span>}
-        </span>
-        <Icon name={open ? 'ChevronUpIcon' : 'ChevronDownIcon'} size={14} className="text-muted-foreground shrink-0" />
-      </button>
-      {open && <div className="space-y-2">{children}</div>}
-    </div>
   );
 }
 
@@ -222,29 +230,29 @@ function CategoryView({ slug }: { slug: string }) {
   const SidebarFilters = (
     <div>
       {showBrands && (
-        <CatFilterSection title="Бренд" badge={selectedBrands.size}>
-          {CAT_BRANDS.map(b => <CatCheckbox key={b} label={b} checked={selectedBrands.has(b)} onChange={() => toggleBrand(b)} />)}
-        </CatFilterSection>
+        <FilterSection title="Бренд" activeCount={selectedBrands.size}>
+          {CAT_BRANDS.map(b => <Checkbox key={b} label={b} checked={selectedBrands.has(b)} onChange={() => toggleBrand(b)} />)}
+        </FilterSection>
       )}
-      <CatFilterSection title="Мощность (BTU)" badge={selectedBtus.size}>
-        {BTU_OPTIONS.map(o => <CatCheckbox key={o.id} label={o.label} checked={selectedBtus.has(o.id)} onChange={() => toggleBtu(o.id)} />)}
-      </CatFilterSection>
-      <CatFilterSection title="Технология" badge={inverterFilter !== 'all' ? 1 : 0}>
+      <FilterSection title="Мощность (BTU)" activeCount={selectedBtus.size}>
+        {BTU_OPTIONS.map(o => <Checkbox key={o.id} label={o.label} checked={selectedBtus.has(o.id)} onChange={() => toggleBtu(o.id)} />)}
+      </FilterSection>
+      <FilterSection title="Технология" activeCount={inverterFilter !== 'all' ? 1 : 0}>
         {(['all', 'yes', 'no'] as const).map(v => (
-          <CatRadio key={v} label={v === 'all' ? 'Все' : v === 'yes' ? 'Инвертор' : 'On/Off'} checked={inverterFilter === v} onChange={() => setInverterFilter(v)} />
+          <RadioOption key={v} label={v === 'all' ? 'Все' : v === 'yes' ? 'Инверторный' : 'Не инверторный (On/Off)'} checked={inverterFilter === v} onChange={() => setInverterFilter(v)} />
         ))}
-      </CatFilterSection>
-      <CatFilterSection title="Цена (р.)" badge={priceMin || priceMax ? 1 : 0}>
+      </FilterSection>
+      <FilterSection title="Цена (BYN)" activeCount={priceMin || priceMax ? 1 : 0}>
         <div className="flex gap-2">
           <input type="number" placeholder="От" value={priceMin} onChange={e => setPriceMin(e.target.value)}
-            className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-crimson-400" />
+            className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-crimson-400 focus:ring-1 focus:ring-crimson-100" />
           <input type="number" placeholder="До" value={priceMax} onChange={e => setPriceMax(e.target.value)}
-            className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-crimson-400" />
+            className="w-full border border-border rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-crimson-400 focus:ring-1 focus:ring-crimson-100" />
         </div>
-      </CatFilterSection>
+      </FilterSection>
       {activeCount > 0 && (
-        <button onClick={resetAll} className="w-full mt-2 text-sm text-crimson-600 hover:text-crimson-700 font-medium py-2.5 border border-crimson-200 rounded-lg hover:bg-crimson-50 transition-colors">
-          Сбросить все ({activeCount})
+        <button onClick={resetAll} className="w-full mt-3 text-sm text-crimson-600 hover:text-crimson-700 font-medium py-2.5 border border-crimson-200 rounded-lg hover:bg-crimson-50 transition-colors">
+          Сбросить все фильтры ({activeCount})
         </button>
       )}
     </div>
