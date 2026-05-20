@@ -141,7 +141,7 @@ function CatRadio({ label, checked, onChange }: { label: string; checked: boolea
 }
 
 function CatFilterSection({ title, badge, children }: { title: string; badge?: number; children: React.ReactNode }) {
-  const [open, setOpen] = useState(true);
+  const [open, setOpen] = useState(false);
   return (
     <div className="border-b border-border pb-4 mb-4 last:border-0 last:pb-0 last:mb-0">
       <button className="flex items-center justify-between w-full mb-3 text-left" onClick={() => setOpen(o => !o)}>
