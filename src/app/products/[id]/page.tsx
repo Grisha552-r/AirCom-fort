@@ -158,7 +158,6 @@ function CategoryView({ slug }: { slug: string }) {
   const [area, setArea] = useState<AreaFilter>('all');
   const [price, setPrice] = useState<PriceFilter>('all');
   const [brand, setBrand] = useState<string>('all');
-  const [inStockOnly, setInStockOnly] = useState(false);
   const showBrandFilter = slug === 'split-systems';
 
   useEffect(() => {
@@ -180,7 +179,6 @@ function CategoryView({ slug }: { slug: string }) {
     let list = allProducts
       .filter(p => matchesArea(p, area))
       .filter(p => matchesPrice(p, price))
-      .filter(p => !inStockOnly || p.inStock)
       .filter(p => brand === 'all' || p.brand === brand);
 
     if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
@@ -188,10 +186,10 @@ function CategoryView({ slug }: { slug: string }) {
     return list;
   }, [allProducts, sort, area, price, brand, inStockOnly]);
 
-  const activeCount = [area !== 'all', price !== 'all', brand !== 'all', inStockOnly].filter(Boolean).length;
+  const activeCount = [area !== 'all', price !== 'all', brand !== 'all'].filter(Boolean).length;
 
   const resetFilters = () => {
-    setArea('all'); setPrice('all'); setBrand('all'); setInStockOnly(false); setSort('default');
+    setArea('all'); setPrice('all'); setBrand('all'); setSort('default');
   };
 
   return (
@@ -226,15 +224,6 @@ function CategoryView({ slug }: { slug: string }) {
                 </button>
               ))}
             </div>
-            <label className="flex items-center gap-2 cursor-pointer select-none">
-              <input
-                type="checkbox"
-                checked={inStockOnly}
-                onChange={e => setInStockOnly(e.target.checked)}
-                className="w-4 h-4 accent-crimson-700 cursor-pointer"
-              />
-              <span className="text-sm text-foreground font-medium">Только в наличии</span>
-            </label>
           </div>
 
           {/* Row 2: area filter */}
