@@ -350,6 +350,104 @@ export default function ServicesPage() {
             </div>
           </div>
         </div>
+        {/* Installation steps */}
+        <div className="bg-zinc-50 border-y border-border py-14">
+          <div className="max-w-7xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-foreground mb-3 text-center">Этапы установки кондиционера</h2>
+            <p className="text-muted-foreground text-center mb-10 max-w-xl mx-auto">Монтаж выполняется по ГОСТ, всё оборудование и расходники включены в стоимость</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-5">
+              {[
+                { step: '01', icon: 'ClipboardDocumentCheckIcon', title: 'Замер и разметка', desc: 'Мастер определяет оптимальное место установки внутреннего блока, размечает трассу и бурит отверстие в стене.' },
+                { step: '02', icon: 'HomeModernIcon', title: 'Монтаж внутреннего блока', desc: 'Крепим пластину, навешиваем внутренний блок, подключаем трубки и электрокабель. Прокладываем трассу.' },
+                { step: '03', icon: 'BuildingOffice2Icon', title: 'Монтаж наружного блока', desc: 'Устанавливаем кронштейны на стену, монтируем наружный блок, подключаем трубки и кабель снаружи.' },
+                { step: '04', icon: 'BoltIcon', title: 'Пуско-наладка', desc: 'Вакуумируем систему, проверяем герметичность, запускаем кондиционер и тестируем все режимы работы.' },
+              ].map(s => (
+                <div key={s.step} className="bg-white rounded-2xl border border-border p-6 relative hover:border-crimson-200 hover:shadow-md transition-all">
+                  <span className="absolute top-4 right-5 text-4xl font-black text-zinc-100 leading-none select-none">{s.step}</span>
+                  <div className="w-12 h-12 rounded-2xl bg-crimson-50 flex items-center justify-center mb-4">
+                    <Icon name={s.icon} size={24} className="text-crimson-700" />
+                  </div>
+                  <h3 className="font-bold text-foreground mb-2">{s.title}</h3>
+                  <p className="text-sm text-muted-foreground leading-relaxed">{s.desc}</p>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+
+        {/* Why us + geography */}
+        <div className="max-w-7xl mx-auto px-4 py-14">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-10">
+
+            {/* Why us */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Почему выбирают AirComfort</h2>
+              <div className="space-y-4">
+                {[
+                  { icon: 'ShieldCheckIcon', title: 'Гарантия на монтаж 1 год', desc: 'Если что-то выйдет из строя по нашей вине — устраним бесплатно. Официальные расходники и сертифицированные мастера.' },
+                  { icon: 'ClockIcon', title: 'Выезд в день заказа', desc: 'Принимаем заявки с 9:00 до 18:00. Мастер приезжает в удобное для вас время, часто в тот же день.' },
+                  { icon: 'CurrencyDollarIcon', title: 'Фиксированная цена без скрытых доплат', desc: 'Цена, названная при заказе — окончательная. Все расходники, крепёж и вакуумирование включены.' },
+                  { icon: 'WrenchScrewdriverIcon', title: 'Монтаж по ГОСТ', desc: 'Используем медные трубки, правильные диаметры и изоляцию. Система работает без сбоев весь срок службы.' },
+                ].map(item => (
+                  <div key={item.title} className="flex gap-4 p-4 bg-zinc-50 rounded-2xl border border-border">
+                    <div className="w-10 h-10 rounded-xl bg-crimson-50 flex items-center justify-center shrink-0">
+                      <Icon name={item.icon} size={20} className="text-crimson-700" />
+                    </div>
+                    <div>
+                      <p className="font-semibold text-foreground text-sm mb-1">{item.title}</p>
+                      <p className="text-xs text-muted-foreground leading-relaxed">{item.desc}</p>
+                    </div>
+                  </div>
+                ))}
+              </div>
+            </div>
+
+            {/* Geography */}
+            <div>
+              <h2 className="text-2xl font-bold text-foreground mb-6">Зона обслуживания</h2>
+              <p className="text-muted-foreground mb-5 leading-relaxed">
+                Продажу кондиционеров осуществляем по всей Беларуси. Установку и обслуживание выполняем в <strong className="text-foreground">Гомеле и Гомельской области</strong>. Для уточнения возможности выезда — позвоните нам.
+              </p>
+              <div className="bg-zinc-50 rounded-2xl border border-border p-5 mb-5">
+                <p className="text-sm font-semibold text-foreground mb-3">Населённые пункты:</p>
+                <div className="flex flex-wrap gap-2">
+                  {['Гомель', 'Жлобин', 'Мозырь', 'Речица', 'Светлогорск', 'Калинковичи', 'Рогачёв', 'Петриков', 'Житковичи', 'Хойники', 'Лоев'].map(city => (
+                    <span key={city} className="text-sm bg-white border border-border rounded-lg px-3 py-1 text-foreground">{city}</span>
+                  ))}
+                </div>
+              </div>
+              <div className="bg-crimson-50 border border-crimson-200 rounded-2xl p-5">
+                <p className="text-sm font-semibold text-crimson-800 mb-1">Выезд за пределы Гомеля</p>
+                <p className="text-xs text-crimson-700 leading-relaxed">Для районов Гомельской области уточняйте наличие выезда и стоимость доставки по телефону. Стараемся охватить все запросы.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* SEO text block */}
+        <div className="bg-zinc-50 border-t border-border">
+          <div className="max-w-7xl mx-auto px-4 py-12">
+            <h2 className="text-xl font-bold text-foreground mb-5">Установка кондиционеров в Гомеле — AirComfort</h2>
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 text-sm text-muted-foreground leading-relaxed">
+              <div className="space-y-4">
+                <p>
+                  AirComfort выполняет профессиональный монтаж кондиционеров в Гомеле и Гомельской области. Устанавливаем настенные сплит-системы брендов <strong className="text-foreground">Electrolux, Ballu, Haier, LG и Mitsudai</strong> в квартирах, частных домах и офисах. Стоимость установки кондиционера под ключ — от 400 р. для помещений до 30 м².
+                </p>
+                <p>
+                  В стоимость монтажа входит: крепление внутреннего и наружного блоков, прокладка медной трассы до 5 м с изоляцией, электрокабель, сливной шланг, вакуумирование системы, пусконаладочные работы и проверка всех режимов. Дополнительный метр трассы — 50 р. Монтаж через балкон или лоджию — доплата 50 р.
+                </p>
+              </div>
+              <div className="space-y-4">
+                <p>
+                  Помимо установки, оказываем полный спектр сервисных услуг: техническое обслуживание кондиционера (чистка фильтров, промывка теплообменника, дозаправка фреоном) — от 100 р., диагностика и ремонт — от 80 р., демонтаж при замене или переезде — от 100 р. Рекомендуем проводить профилактику раз в год — весной перед сезоном.
+                </p>
+                <p>
+                  Все работы выполняются с соблюдением требований ГОСТ. Мастера — сертифицированные специалисты с опытом монтажа более 5 лет. Гарантия на монтажные работы — 1 год. Звоните: <strong className="text-foreground">+375 29 105-06-94</strong>, работаем пн–сб с 9:00 до 18:00.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </main>
 
       <Footer />

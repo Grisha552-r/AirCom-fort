@@ -8,6 +8,7 @@ import FeaturedProducts from '@/app/components/FeaturedProducts';
 import PopularProducts from '@/app/components/PopularProducts';
 import ReviewsSection from '@/app/components/ReviewsSection';
 import PickupInfoSection from '@/app/components/PickupInfoSection';
+import SeoSection from '@/app/components/SeoSection';
 
 export default function HomePage() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -23,6 +24,7 @@ export default function HomePage() {
 <PopularProducts onCartOpen={() => setCartOpen(true)} />
         <ReviewsSection />
         <PickupInfoSection />
+        <SeoSection />
       </main>
 
       <Footer />
