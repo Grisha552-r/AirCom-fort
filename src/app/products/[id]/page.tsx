@@ -107,11 +107,59 @@ const CATEGORY_META: Record<string, { label: string; brand?: string; categoryIds
   },
 };
 
+type SortKey = 'default' | 'price-asc' | 'price-desc';
+type AreaFilter = 'all' | 'lt25' | '25-40' | '40-60' | 'gt60';
+type PriceFilter = 'all' | 'lt800' | '800-1400' | '1400-2000' | 'gt2000';
+
+const AREA_FILTERS: { key: AreaFilter; label: string; maxBtu?: number; minBtu?: number }[] = [
+  { key: 'all',   label: 'Любая площадь' },
+  { key: 'lt25',  label: 'до 25 м²',  maxBtu: 9000 },
+  { key: '25-40', label: '25–40 м²',  minBtu: 9001,  maxBtu: 12000 },
+  { key: '40-60', label: '40–60 м²',  minBtu: 12001, maxBtu: 18000 },
+  { key: 'gt60',  label: 'от 60 м²',  minBtu: 18001 },
+];
+
+const PRICE_FILTERS: { key: PriceFilter; label: string }[] = [
+  { key: 'all',      label: 'Любая цена' },
+  { key: 'lt800',    label: 'до 800 р.' },
+  { key: '800-1400', label: '800–1400 р.' },
+  { key: '1400-2000',label: '1400–2000 р.' },
+  { key: 'gt2000',   label: 'от 2000 р.' },
+];
+
+const ALL_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai'];
+
+function matchesArea(p: Product, area: AreaFilter): boolean {
+  if (area === 'all') return true;
+  const btu = getBtuNum(p);
+  if (btu === 99999) return true;
+  const f = AREA_FILTERS.find(a => a.key === area)!;
+  if (f.minBtu && btu < f.minBtu) return false;
+  if (f.maxBtu && btu > f.maxBtu) return false;
+  return true;
+}
+
+function matchesPrice(p: Product, price: PriceFilter): boolean {
+  if (price === 'all') return true;
+  if (price === 'lt800') return p.price < 800;
+  if (price === '800-1400') return p.price >= 800 && p.price <= 1400;
+  if (price === '1400-2000') return p.price > 1400 && p.price <= 2000;
+  return p.price > 2000;
+}
+
 function CategoryView({ slug }: { slug: string }) {
   const info = CATEGORY_META[slug];
-  const [products, setProducts] = useState<Product[]>([]);
+  const [allProducts, setAllProducts] = useState<Product[]>([]);
   const [loading, setLoading] = useState(true);
   const [cartOpen, setCartOpen] = useState(false);
+
+  // filters
+  const [sort, setSort] = useState<SortKey>('default');
+  const [area, setArea] = useState<AreaFilter>('all');
+  const [price, setPrice] = useState<PriceFilter>('all');
+  const [brand, setBrand] = useState<string>('all');
+  const [inStockOnly, setInStockOnly] = useState(false);
+  const showBrandFilter = slug === 'split-systems';
 
   useEffect(() => {
     fetch('/api/products')
@@ -123,10 +171,28 @@ function CategoryView({ slug }: { slug: string }) {
         } else if (info.categoryIds) {
           filtered = all.filter(p => info.categoryIds!.includes(p.categoryId));
         }
-        setProducts(filtered);
+        setAllProducts(filtered);
         setLoading(false);
       });
   }, [slug]);
+
+  const products = React.useMemo(() => {
+    let list = allProducts
+      .filter(p => matchesArea(p, area))
+      .filter(p => matchesPrice(p, price))
+      .filter(p => !inStockOnly || p.inStock)
+      .filter(p => brand === 'all' || p.brand === brand);
+
+    if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
+    else if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
+    return list;
+  }, [allProducts, sort, area, price, brand, inStockOnly]);
+
+  const activeCount = [area !== 'all', price !== 'all', brand !== 'all', inStockOnly].filter(Boolean).length;
+
+  const resetFilters = () => {
+    setArea('all'); setPrice('all'); setBrand('all'); setInStockOnly(false); setSort('default');
+  };
 
   return (
     <div className="min-h-screen bg-background">
@@ -141,13 +207,117 @@ function CategoryView({ slug }: { slug: string }) {
           <span className="text-foreground font-medium">{info.label}</span>
         </nav>
 
-        <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-6">{info.label} в Гомеле</h1>
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-5">{info.label} в Гомеле</h1>
+
+        {/* Filter bar */}
+        <div className="bg-white rounded-2xl border border-border p-4 mb-5 space-y-4">
+
+          {/* Row 1: sort + in-stock */}
+          <div className="flex flex-wrap items-center gap-3 justify-between">
+            <div className="flex items-center gap-2 flex-wrap">
+              <span className="text-sm font-semibold text-foreground">Сортировка:</span>
+              {(['default', 'price-asc', 'price-desc'] as SortKey[]).map(s => (
+                <button
+                  key={s}
+                  onClick={() => setSort(s)}
+                  className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${sort === s ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
+                >
+                  {s === 'default' ? 'По умолчанию' : s === 'price-asc' ? 'Цена ↑' : 'Цена ↓'}
+                </button>
+              ))}
+            </div>
+            <label className="flex items-center gap-2 cursor-pointer select-none">
+              <input
+                type="checkbox"
+                checked={inStockOnly}
+                onChange={e => setInStockOnly(e.target.checked)}
+                className="w-4 h-4 accent-crimson-700 cursor-pointer"
+              />
+              <span className="text-sm text-foreground font-medium">Только в наличии</span>
+            </label>
+          </div>
+
+          {/* Row 2: area filter */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold text-foreground shrink-0">Площадь:</span>
+            {AREA_FILTERS.map(f => (
+              <button
+                key={f.key}
+                onClick={() => setArea(f.key)}
+                className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${area === f.key ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Row 3: price filter */}
+          <div className="flex flex-wrap items-center gap-2">
+            <span className="text-sm font-semibold text-foreground shrink-0">Цена:</span>
+            {PRICE_FILTERS.map(f => (
+              <button
+                key={f.key}
+                onClick={() => setPrice(f.key)}
+                className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${price === f.key ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
+              >
+                {f.label}
+              </button>
+            ))}
+          </div>
+
+          {/* Row 4: brand filter (only on split-systems) */}
+          {showBrandFilter && (
+            <div className="flex flex-wrap items-center gap-2">
+              <span className="text-sm font-semibold text-foreground shrink-0">Бренд:</span>
+              <button
+                onClick={() => setBrand('all')}
+                className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${brand === 'all' ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
+              >
+                Все
+              </button>
+              {ALL_BRANDS.map(b => (
+                <button
+                  key={b}
+                  onClick={() => setBrand(b)}
+                  className={`text-sm px-3 py-1.5 rounded-lg border transition-colors ${brand === b ? 'bg-crimson-700 text-white border-crimson-700' : 'border-border text-muted-foreground hover:border-crimson-300 hover:text-foreground'}`}
+                >
+                  {b}
+                </button>
+              ))}
+            </div>
+          )}
+
+          {/* Reset */}
+          {activeCount > 0 && (
+            <div className="flex items-center gap-3 pt-1 border-t border-border">
+              <span className="text-sm text-muted-foreground">Активных фильтров: <strong className="text-crimson-700">{activeCount}</strong></span>
+              <button onClick={resetFilters} className="text-sm text-crimson-700 hover:underline font-medium">
+                Сбросить все
+              </button>
+            </div>
+          )}
+        </div>
+
+        {/* Results count */}
+        {!loading && (
+          <p className="text-sm text-muted-foreground mb-4">
+            Найдено: <strong className="text-foreground">{products.length}</strong> товаров
+          </p>
+        )}
 
         {loading ? (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
             {[...Array(8)].map((_, i) => (
               <div key={i} className="h-72 bg-zinc-100 rounded-2xl animate-pulse" />
             ))}
+          </div>
+        ) : products.length === 0 ? (
+          <div className="text-center py-16">
+            <p className="text-lg font-semibold text-foreground mb-2">Ничего не найдено</p>
+            <p className="text-muted-foreground mb-5 text-sm">Попробуйте изменить фильтры</p>
+            <button onClick={resetFilters} className="bg-crimson-gradient text-white px-6 py-2.5 rounded-xl font-semibold hover:opacity-90 transition-opacity">
+              Сбросить фильтры
+            </button>
           </div>
         ) : (
           <div className="grid grid-cols-2 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-3 md:gap-4">
