@@ -184,7 +184,7 @@ function CategoryView({ slug }: { slug: string }) {
     if (sort === 'price-asc') list = [...list].sort((a, b) => a.price - b.price);
     else if (sort === 'price-desc') list = [...list].sort((a, b) => b.price - a.price);
     return list;
-  }, [allProducts, sort, area, price, brand, inStockOnly]);
+  }, [allProducts, sort, area, price, brand]);
 
   const activeCount = [area !== 'all', price !== 'all', brand !== 'all'].filter(Boolean).length;
 
