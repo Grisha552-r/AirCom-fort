@@ -1,8 +1,9 @@
 'use client';
-import React, { useEffect, useRef } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
+import SelectionModal from '@/components/SelectionModal';
 
 const HERO_CATS = [
   { id: 'split-electrolux', name: 'Electrolux', image: 'https://climate-montazh.by/wp-content/uploads/2023/03/88183.970.png', alt: 'Кондиционер Electrolux' },
@@ -13,6 +14,7 @@ const HERO_CATS = [
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
+  const [modalOpen, setModalOpen] = useState(false);
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -32,65 +34,76 @@ export default function HeroSection() {
   }, []);
 
   return (
-    <section ref={sectionRef} className="bg-white pt-6 pb-10">
-      <div className="max-w-7xl mx-auto px-4">
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
-          {/* Left: Text */}
-          <div className="reveal-on-scroll opacity-100">
-<h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
-              Установка и продажа
-              <span className="text-crimson-gradient block">кондиционеров</span>
-              в Гомеле и области
-            </h1>
-            <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-md">
-              Electrolux, Ballu, Haier, LG, Panasonic, Mitsudai — настенные сплит-системы и мобильные кондиционеры с установкой в Гомеле. Официальная гарантия производителя.
-            </p>
+    <>
+      <section ref={sectionRef} className="bg-white pt-6 pb-10">
+        <div className="max-w-7xl mx-auto px-4">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
+            {/* Left: Text */}
+            <div className="reveal-on-scroll opacity-100">
+              <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
+                Установка и продажа
+                <span className="text-crimson-gradient block">кондиционеров</span>
+                в Гомеле и области
+              </h1>
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-md">
+                Electrolux, Ballu, Haier, LG, Panasonic, Mitsudai — настенные сплит-системы и мобильные кондиционеры с установкой в Гомеле. Официальная гарантия производителя.
+              </p>
 
-            <div className="flex flex-col sm:flex-row gap-3 mb-8">
-              <Link
-                href="/products"
-                className="bg-crimson-gradient text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:opacity-90 transition-all duration-200 shadow-crimson flex items-center justify-center gap-2 group">
-                <Icon name="Squares2X2Icon" size={18} />
-                Смотреть каталог
-                <Icon name="ArrowRightIcon" size={16} className="group-hover:translate-x-1 transition-transform" />
-              </Link>
+              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+                <button
+                  onClick={() => setModalOpen(true)}
+                  className="bg-crimson-gradient text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:opacity-90 transition-all duration-200 shadow-crimson flex items-center justify-center gap-2 group"
+                >
+                  <Icon name="MagnifyingGlassIcon" size={18} />
+                  Подобрать кондиционер
+                  <Icon name="ArrowRightIcon" size={16} className="group-hover:translate-x-1 transition-transform" />
+                </button>
+                <Link
+                  href="/products"
+                  className="border border-border text-foreground px-8 py-3.5 rounded-xl font-semibold text-base hover:border-crimson-300 hover:bg-crimson-50 transition-all duration-200 flex items-center justify-center gap-2"
+                >
+                  <Icon name="Squares2X2Icon" size={18} />
+                  Весь каталог
+                </Link>
+              </div>
             </div>
 
-          </div>
+            {/* Right: Brand grid */}
+            <div className="reveal-on-scroll opacity-100 grid grid-cols-2 grid-rows-2 gap-3 h-[260px] sm:h-[360px] md:h-[480px]">
+              <div className="row-span-2 relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
+                <AppImage src={HERO_CATS[0].image} alt={HERO_CATS[0].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" priority sizes="(max-width: 1024px) 100vw, 50vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
+                <Link href={`/products/${HERO_CATS[0].id}`} className="absolute inset-0 flex flex-col justify-end p-4">
+                  <span className="text-white font-bold text-lg leading-tight">{HERO_CATS[0].name}</span>
+                  <span className="text-white/70 text-xs mt-0.5">Смотреть →</span>
+                </Link>
+              </div>
 
-          {/* Right: Brand grid */}
-          <div className="reveal-on-scroll opacity-100 grid grid-cols-2 grid-rows-2 gap-3 h-[260px] sm:h-[360px] md:h-[480px]">
-            <div className="row-span-2 relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
-              <AppImage src={HERO_CATS[0].image} alt={HERO_CATS[0].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" priority sizes="(max-width: 1024px) 100vw, 50vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-              <Link href={`/products/${HERO_CATS[0].id}`} className="absolute inset-0 flex flex-col justify-end p-4">
-                <span className="text-white font-bold text-lg leading-tight">{HERO_CATS[0].name}</span>
-                <span className="text-white/70 text-xs mt-0.5">Смотреть →</span>
-              </Link>
-            </div>
+              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
+                <AppImage src={HERO_CATS[1].image} alt={HERO_CATS[1].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 1024px) 50vw, 25vw" />
+                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
+                <Link href={`/products/${HERO_CATS[1].id}`} className="absolute inset-0 flex flex-col justify-end p-3">
+                  <span className="text-white font-bold text-sm">{HERO_CATS[1].name}</span>
+                </Link>
+              </div>
 
-            <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
-              <AppImage src={HERO_CATS[1].image} alt={HERO_CATS[1].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 1024px) 50vw, 25vw" />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-              <Link href={`/products/${HERO_CATS[1].id}`} className="absolute inset-0 flex flex-col justify-end p-3">
-                <span className="text-white font-bold text-sm">{HERO_CATS[1].name}</span>
-              </Link>
-            </div>
-
-            <div className="grid grid-cols-2 gap-3">
-              {HERO_CATS.slice(2).map((cat) => (
-                <div key={cat.id} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
-                  <AppImage src={cat.image} alt={cat.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 1024px) 25vw, 12vw" />
-                  <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                  <Link href={`/products/${cat.id}`} className="absolute inset-0 flex flex-col justify-end p-2">
-                    <span className="text-white font-semibold text-xs leading-tight">{cat.name}</span>
-                  </Link>
-                </div>
-              ))}
+              <div className="grid grid-cols-2 gap-3">
+                {HERO_CATS.slice(2).map((cat) => (
+                  <div key={cat.id} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
+                    <AppImage src={cat.image} alt={cat.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 1024px) 25vw, 12vw" />
+                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
+                    <Link href={`/products/${cat.id}`} className="absolute inset-0 flex flex-col justify-end p-2">
+                      <span className="text-white font-semibold text-xs leading-tight">{cat.name}</span>
+                    </Link>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>
-      </div>
-    </section>
+      </section>
+
+      <SelectionModal open={modalOpen} onClose={() => setModalOpen(false)} />
+    </>
   );
 }
