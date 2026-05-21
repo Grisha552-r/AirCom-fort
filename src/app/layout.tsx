@@ -32,7 +32,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://aircom-fort.by'),
   title: {
     default: `Купить кондиционер в Гомеле с установкой — цены на ${currentMonth} | AirComfort`,
-    template: '%s — AirComfort',
+    template: '%s',
   },
   description: 'Купить кондиционер в Гомеле с установкой под ключ — AirComfort. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р., гарантия 1 год, выезд в день заказа.',
   keywords: [
