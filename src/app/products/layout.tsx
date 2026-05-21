@@ -18,7 +18,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://aircom-fort.by/products' },
   openGraph: {
-    title: 'Каталог кондиционеров — AirComfort Гомель',
+    title: 'Каталог кондиционеров в Гомеле',
     description: 'Сплит-системы и мобильные кондиционеры со склада в Гомеле. Лучшие цены.',
     url: 'https://aircom-fort.by/products',
   },

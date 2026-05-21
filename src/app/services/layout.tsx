@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   ],
   alternates: { canonical: 'https://aircom-fort.by/services' },
   openGraph: {
-    title: 'Установка кондиционера в Гомеле — AirComfort',
+    title: 'Установка кондиционера в Гомеле',
     description: 'Монтаж, обслуживание и демонтаж кондиционеров в Гомеле. Рассчитайте стоимость онлайн.',
     url: 'https://aircom-fort.by/services',
     locale: 'ru_BY',

@@ -4,7 +4,7 @@ import React from 'react';
 const BASE = 'https://aircom-fort.by';
 
 export const metadata: Metadata = {
-  title: 'О компании AirComfort — кондиционеры в Гомеле с установкой',
+  title: 'О компании — кондиционеры в Гомеле с установкой',
   description: 'AirComfort — продажа и установка кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж под ключ от 400 р., гарантия на работы 1 год. Официальный дилер.',
   keywords: [
     'о компании AirComfort',
@@ -21,7 +21,7 @@ export const metadata: Metadata = {
   robots: { index: true, follow: true },
   alternates: { canonical: `${BASE}/about` },
   openGraph: {
-    title: 'О компании AirComfort — кондиционеры в Гомеле',
+    title: 'О компании — кондиционеры в Гомеле',
     description: 'Продажа и установка кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р., гарантия 1 год.',
     url: `${BASE}/about`,
     locale: 'ru_BY',

@@ -96,7 +96,7 @@ export async function generateMetadata(
   }
 
   return {
-    title: 'Купить кондиционер в Гомеле — AirComfort',
+    title: 'Купить кондиционер в Гомеле',
     description: 'Купить кондиционер в Гомеле с доставкой и установкой. Официальная гарантия. Монтаж под ключ от 400 р.',
     robots: { index: true, follow: true },
   };

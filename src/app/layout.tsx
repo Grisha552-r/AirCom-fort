@@ -31,7 +31,7 @@ const currentMonth = MONTHS_RU[new Date().getMonth()];
 export const metadata: Metadata = {
   metadataBase: new URL('https://aircom-fort.by'),
   title: {
-    default: `Установка и продажа кондиционеров в Гомеле и области | AirComfort`,
+    default: `Установка и продажа кондиционеров в Гомеле и области`,
     template: '%s',
   },
   description: 'Купить кондиционер в Гомеле с установкой под ключ — AirComfort. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р., гарантия 1 год, выезд в день заказа.',
@@ -119,7 +119,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Установка и продажа кондиционеров в Гомеле и области | AirComfort`,
+    title: `Установка и продажа кондиционеров в Гомеле и области`,
     description: 'Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
     images: ['/opengraph-image'],
   },
