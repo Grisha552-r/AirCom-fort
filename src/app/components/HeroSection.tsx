@@ -49,7 +49,7 @@ export default function HeroSection() {
                 Electrolux, Ballu, Haier, LG, Panasonic, Mitsudai — настенные сплит-системы и мобильные кондиционеры с установкой в Гомеле. Официальная гарантия производителя.
               </p>
 
-              <div className="flex flex-col sm:flex-row gap-3 mb-8">
+              <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <button
                   onClick={() => setModalOpen(true)}
                   className="bg-crimson-gradient text-white px-8 py-3.5 rounded-xl font-semibold text-base hover:opacity-90 transition-all duration-200 shadow-crimson flex items-center justify-center gap-2 group"
@@ -66,6 +66,48 @@ export default function HeroSection() {
                   Весь каталог
                 </Link>
               </div>
+
+              {/* Promo card */}
+              <Link href="/products/p-md-sne09ai" className="group relative flex items-center gap-4 bg-white border border-crimson-200 rounded-2xl p-3 max-w-md shadow-sm hover:shadow-md hover:border-crimson-400 transition-all duration-300">
+                {/* АКЦИЯ badge */}
+                <div className="absolute -top-3 left-4 flex items-center gap-1.5 bg-crimson-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
+                  АКЦИЯ
+                </div>
+
+                {/* Image */}
+                <div className="w-[88px] h-[88px] shrink-0 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center">
+                  {/* eslint-disable-next-line @next/next/no-img-element */}
+                  <img
+                    src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
+                    alt="Mitsudai MD-SNE09AI"
+                    className="w-full h-full object-contain p-1.5"
+                  />
+                </div>
+
+                {/* Info */}
+                <div className="flex-1 min-w-0">
+                  <p className="text-xs text-muted-foreground truncate mb-1">Сплит-система Mitsudai MD-SNE09AI</p>
+                  <div className="flex items-center gap-1.5 mb-2">
+                    <span className="text-xs text-gray-400 line-through">929 р.</span>
+                    <span className="text-[11px] font-bold bg-crimson-100 text-crimson-700 px-1.5 py-0.5 rounded-md">−4%</span>
+                  </div>
+                  <p className="text-xs text-muted-foreground">
+                    <span className="font-medium text-foreground">890 р.</span>
+                    <span className="mx-1 text-gray-300">+</span>
+                    монтаж 400 р.
+                  </p>
+                  <div className="flex items-baseline gap-1 mt-0.5">
+                    <span className="text-[11px] text-muted-foreground">Итого:</span>
+                    <span className="text-xl font-bold text-crimson-700 leading-none">1 290 р.</span>
+                  </div>
+                </div>
+
+                {/* Arrow */}
+                <div className="shrink-0 w-8 h-8 rounded-xl bg-crimson-50 flex items-center justify-center text-crimson-600 group-hover:bg-crimson-700 group-hover:text-white transition-colors">
+                  <Icon name="ArrowRightIcon" size={16} />
+                </div>
+              </Link>
             </div>
 
             {/* Right: Brand grid */}
