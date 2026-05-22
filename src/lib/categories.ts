@@ -17,5 +17,6 @@ export const CATEGORIES: Category[] = [
   { id: "split-lg", name: "Сплит-системы LG", slug: "split-lg", icon: "BoltIcon", parentId: "split-systems", productCount: 73, image: "https://rkcdn.ru/products/d04e8c84-44aa-11ed-b732-005056013a69/src.jpg" },
   { id: "split-panasonic", name: "Сплит-системы Panasonic", slug: "split-panasonic", icon: "BoltIcon", parentId: "split-systems", productCount: 14, image: "https://rkcdn.ru/products/d04e8c84-44aa-11ed-b732-005056013a69/src.jpg" },
   { id: "split-mitsudai", name: "Сплит-системы Mitsudai", slug: "split-mitsudai", icon: "BoltIcon", parentId: "split-systems", productCount: 16, image: "https://interpride.by/wp-content/uploads/2023/04/inv2-600x600-2-1.png" },
+  { id: "split-kinghome", name: "Сплит-системы King Home", slug: "split-kinghome", icon: "BoltIcon", parentId: "split-systems", productCount: 4, image: "https://hobot.by/upload/resize_cache/webp/resize_cache/iblock/cfd/1920_1080_1a343e72c12fde7d8b74032b2d7d3a0fa/ix97mhtv7010pg6hkg8j3ym9sxlezct0.webp" },
   { id: "mobile", name: "Мобильные кондиционеры", slug: "mobile", icon: "DevicePhoneMobileIcon", productCount: 39, image: "https://rkcdn.ru/products/dfb0eaee-fada-11ed-b736-005056013a69/src.jpg" },
 ];

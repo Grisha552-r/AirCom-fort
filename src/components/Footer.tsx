@@ -42,6 +42,7 @@ export default function Footer() {
                 { name: 'Haier', slug: 'split-haier' },
                 { name: 'LG', slug: 'split-lg' },
                 { name: 'Mitsudai', slug: 'split-mitsudai' },
+                { name: 'King Home', slug: 'split-kinghome' },
                 { name: 'Мобильные', slug: 'mobile' },
               ]?.map(item => (
                 <li key={item.slug}>
