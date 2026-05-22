@@ -7,17 +7,20 @@ function isBlock(name: string): boolean {
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any
 function fromDb(row: any) {
+  const chars = row.characteristics ?? {};
   return {
     id: row.id,
     name: row.name,
     slug: row.slug,
     categoryId: isBlock(row.name) ? 'blocks' : row.category_id,
     price: row.price,
+    originalPrice: chars._originalPrice ?? undefined,
+    discount: chars._discount ?? undefined,
     rating: row.rating,
     reviewCount: row.review_count,
     images: row.images,
     description: row.description,
-    characteristics: row.characteristics,
+    characteristics: chars,
     inStock: row.in_stock,
     isNew: row.is_new,
     isFeatured: row.is_featured,
