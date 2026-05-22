@@ -24,7 +24,7 @@ const BTU_TO_AREA: Record<string, string> = {
   '48 000': '140', '55 000': '160', '60 000': '180',
 };
 
-const WALL_CATEGORY_IDS = ['split-electrolux', 'split-ballu', 'split-haier', 'split-panasonic', 'split-lg', 'split-mitsudai'];
+const WALL_CATEGORY_IDS = ['split-electrolux', 'split-ballu', 'split-haier', 'split-panasonic', 'split-lg', 'split-mitsudai', 'split-kinghome'];
 
 const CATEGORY_META: Record<string, { label: string; brand?: string; categoryIds?: string[]; seoText?: { h2: string; paragraphs: string[] } }> = {
   'split-systems': {
@@ -94,6 +94,17 @@ const CATEGORY_META: Record<string, { label: string; brand?: string; categoryIds
       ],
     },
   },
+  'split-kinghome': {
+    label: 'Кондиционеры King Home',
+    brand: 'King Home',
+    seoText: {
+      h2: 'Кондиционеры King Home в Гомеле — серия Luna Matt G-MAX',
+      paragraphs: [
+        'King Home Luna Matt — инверторные сплит-системы премиум-класса серии G-MAX с матовым корпусом. Энергоэффективность класса A++ при охлаждении и A+ при обогреве, хладагент R32, Wi-Fi управление, ионизация воздуха. Рабочий диапазон: от −15 °C до +43 °C при охлаждении. Гарантия производителя 74 месяца.',
+        'В каталоге AirComfort — четыре модели King Home Luna Matt мощностью 9 000–24 000 BTU для помещений площадью 25–70 м². Профессиональная установка в Гомеле под ключ от 400 р. Консультация по подбору — бесплатно.',
+      ],
+    },
+  },
   mobile: {
     label: 'Мобильные кондиционеры',
     categoryIds: ['mobile'],
@@ -116,7 +127,7 @@ const BTU_OPTIONS = [
   { id: '36 000', label: '36 000 BTU' },
 ];
 
-const CAT_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai'];
+const CAT_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai', 'King Home'];
 
 function FilterSection({
   title, activeCount, defaultOpen = false, children,

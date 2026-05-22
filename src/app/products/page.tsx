@@ -16,10 +16,11 @@ const BRANDS_LIST = [
   { id: 'LG', label: 'LG' },
   { id: 'Panasonic', label: 'Panasonic' },
   { id: 'Mitsudai', label: 'Mitsudai' },
+  { id: 'King Home', label: 'King Home' },
 ];
 
 const TYPE_GROUPS = [
-  { id: 'wall', label: 'Настенная сплит-система', slugs: ['split-electrolux', 'split-ballu', 'split-haier', 'split-panasonic', 'split-lg', 'split-mitsudai'] },
+  { id: 'wall', label: 'Настенная сплит-система', slugs: ['split-electrolux', 'split-ballu', 'split-haier', 'split-panasonic', 'split-lg', 'split-mitsudai', 'split-kinghome'] },
   { id: 'mobile', label: 'Мобильный', slugs: ['mobile'] },
 ];
 
@@ -40,6 +41,7 @@ const SLUG_TO_BRAND: Record<string, string> = {
   'split-panasonic': 'Panasonic',
   'split-lg': 'LG',
   'split-mitsudai': 'Mitsudai',
+  'split-kinghome': 'King Home',
 };
 
 const SLUG_TO_TYPE: Record<string, string> = {
