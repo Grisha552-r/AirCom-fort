@@ -14,7 +14,7 @@ const STATIC_PAGES = [
 
 const CATEGORY_SLUGS = [
   'split-systems', 'split-electrolux', 'split-ballu',
-  'split-haier', 'split-lg', 'split-mitsudai', 'mobile',
+  'split-haier', 'split-lg', 'split-mitsudai', 'split-kinghome', 'mobile',
 ];
 
 const ARTICLE_SLUGS = [

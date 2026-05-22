@@ -44,7 +44,7 @@ const fetchProduct = cache(async (id: string) => {
   try {
     const { data } = await getSupabaseAdmin()
       .from('products')
-      .select('id, name, description, price, images, brand, in_stock, category_id, rating, review_count')
+      .select('id, name, description, price, images, brand, in_stock, category_id, rating, review_count, characteristics')
       .eq('id', id)
       .single();
     return data;
@@ -152,6 +152,24 @@ export default async function ProductLayout({
             name: 'AirComfort',
             url: BASE,
           },
+          ...(product.characteristics?._originalPrice
+            ? {
+                priceSpecification: [
+                  {
+                    '@type': 'UnitPriceSpecification',
+                    priceType: 'https://schema.org/ListPrice',
+                    price: String(product.characteristics._originalPrice),
+                    priceCurrency: 'BYN',
+                  },
+                  {
+                    '@type': 'UnitPriceSpecification',
+                    priceType: 'https://schema.org/SalePrice',
+                    price: String(product.price),
+                    priceCurrency: 'BYN',
+                  },
+                ],
+              }
+            : {}),
         },
       };
       return (
