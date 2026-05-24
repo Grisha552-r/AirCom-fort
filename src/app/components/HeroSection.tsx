@@ -233,6 +233,7 @@ export default function HeroSection() {
                             2 290 <span className="text-sm font-semibold text-zinc-400">BYN</span>
                           </p>
                           <p className="text-[9px] text-zinc-500 mt-0.5">1 890 + монтаж 400</p>
+                          <p className="text-[9px] text-emerald-400 font-semibold mt-0.5">Экономия 210 р.</p>
                         </div>
                         <button
                           onClick={handleOrderKH}
