@@ -130,12 +130,12 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    <div className="flex-1 flex items-center justify-center px-4">
+                    <div className="flex-1 min-h-0 flex items-center justify-center px-4 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
                         alt="Сплит-система Mitsudai"
-                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
+                        className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                       />
                     </div>
 
@@ -212,12 +212,12 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    <div className="flex-1 flex items-center justify-center px-4">
+                    <div className="flex-1 min-h-0 flex items-center justify-center px-4 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
-                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
+                        className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                       />
                     </div>
 
