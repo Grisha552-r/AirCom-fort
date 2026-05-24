@@ -1,12 +1,26 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
+import { useRouter } from 'next/navigation';
 import Icon from '@/components/ui/AppIcon';
 import SelectionModal from '@/components/SelectionModal';
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
   const [modalOpen, setModalOpen] = useState(false);
+  const router = useRouter();
+
+  function handleOrder(e: React.MouseEvent) {
+    e.preventDefault();
+    e.stopPropagation();
+    const items = [
+      { productId: 'p-md-sne09ai', productName: 'Сплит-система Mitsudai MD-SNE09AI', price: 890, quantity: 1, image: 'https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png' },
+      { productId: 'service-montage', productName: 'Монтаж кондиционера (стандарт, до 3 м трассы)', price: 400, quantity: 1, image: '' },
+    ];
+    localStorage.setItem('sga_cart', JSON.stringify(items));
+    window.dispatchEvent(new Event('cart-updated'));
+    router.push('/checkout');
+  }
 
   useEffect(() => {
     const observer = new IntersectionObserver(
@@ -59,108 +73,72 @@ export default function HeroSection() {
                 </Link>
               </div>
 
-              {/* Promo card */}
-              <Link href="/products/p-md-sne09ai" className="group relative flex items-center gap-4 bg-white border border-crimson-200 rounded-2xl p-3 max-w-md shadow-sm hover:shadow-md hover:border-crimson-400 transition-all duration-300">
-                {/* АКЦИЯ badge */}
-                <div className="absolute -top-3 left-4 flex items-center gap-1.5 bg-crimson-700 text-white text-xs font-bold px-3 py-1 rounded-full shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white/80 animate-pulse" />
-                  АКЦИЯ
-                </div>
-
-                {/* Image */}
-                <div className="w-[88px] h-[88px] shrink-0 rounded-xl overflow-hidden bg-gray-50 border border-gray-100 flex items-center justify-center">
-                  {/* eslint-disable-next-line @next/next/no-img-element */}
-                  <img
-                    src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
-                    alt="Mitsudai MD-SNE09AI"
-                    className="w-full h-full object-contain p-1.5"
-                  />
-                </div>
-
-                {/* Info */}
-                <div className="flex-1 min-w-0">
-                  <p className="text-xs text-muted-foreground truncate mb-1">Сплит-система Mitsudai MD-SNE09AI</p>
-                  <div className="flex items-center gap-1.5 mb-2">
-                    <span className="text-xs text-gray-400 line-through">929 р.</span>
-                    <span className="text-[11px] font-bold bg-crimson-100 text-crimson-700 px-1.5 py-0.5 rounded-md">−4%</span>
-                  </div>
-                  <p className="text-xs text-muted-foreground">
-                    <span className="font-medium text-foreground">890 р.</span>
-                    <span className="mx-1 text-gray-300">+</span>
-                    монтаж 400 р.
-                  </p>
-                  <div className="flex items-baseline gap-1 mt-0.5">
-                    <span className="text-[11px] text-muted-foreground">Итого:</span>
-                    <span className="text-xl font-bold text-crimson-700 leading-none">1 290 р.</span>
-                  </div>
-                </div>
-
-                {/* Arrow */}
-                <div className="shrink-0 w-8 h-8 rounded-xl bg-crimson-50 flex items-center justify-center text-crimson-600 group-hover:bg-crimson-700 group-hover:text-white transition-colors">
-                  <Icon name="ArrowRightIcon" size={16} />
-                </div>
-              </Link>
             </div>
 
             {/* Right: Promo card */}
-            <Link
-              href="/products/p-md-sne09ai"
-              className="reveal-on-scroll opacity-100 relative rounded-3xl overflow-hidden flex flex-col h-[420px] sm:h-[480px] md:h-[520px] shadow-xl cursor-pointer group"
+            <div
+              className="reveal-on-scroll opacity-100 rounded-3xl overflow-hidden flex flex-col h-[420px] sm:h-[480px] md:h-[520px] shadow-xl"
               style={{ background: 'linear-gradient(160deg, #f7e8d6 0%, #edcfad 100%)' }}
             >
-              {/* Top badges */}
-              <div className="flex items-start justify-between p-4">
-                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-sm">
-                  <div className="w-6 h-6 rounded-lg bg-crimson-100 flex items-center justify-center">
-                    <Icon name="PowerIcon" size={13} className="text-crimson-700" />
+              {/* Top row: badges + area */}
+              <div className="flex items-start justify-between px-4 pt-4 pb-1">
+                <div className="flex flex-col gap-2">
+                  <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-sm self-start">
+                    <div className="w-6 h-6 rounded-lg bg-crimson-100 flex items-center justify-center">
+                      <Icon name="PowerIcon" size={13} className="text-crimson-700" />
+                    </div>
+                    <div>
+                      <p className="text-[9px] text-muted-foreground leading-none uppercase tracking-wide">Тип</p>
+                      <p className="text-xs font-bold text-foreground leading-tight">On / Off</p>
+                    </div>
                   </div>
-                  <div>
-                    <p className="text-[9px] text-muted-foreground leading-none uppercase tracking-wide">Тип</p>
-                    <p className="text-xs font-bold text-foreground leading-tight">On / Off</p>
+                  <div className="flex items-center gap-1.5 bg-crimson-700 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm self-start">
+                    <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                    СЕЗОН · 2026
                   </div>
                 </div>
-                <div className="flex items-center gap-1.5 bg-crimson-700 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm">
-                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                  СЕЗОН · 2026
+                <div className="text-right">
+                  <p className="text-[9px] text-foreground/40 uppercase tracking-widest leading-none">Для комнаты</p>
+                  <p className="text-[64px] sm:text-[80px] font-black text-foreground/10 leading-none">27</p>
+                  <p className="text-sm font-bold text-foreground/20 -mt-1">м²</p>
                 </div>
-              </div>
-
-              {/* Area label */}
-              <div className="absolute top-12 right-4 text-right pointer-events-none">
-                <p className="text-[9px] text-foreground/40 uppercase tracking-widest leading-none mb-1">Для комнаты до</p>
-                <p className="text-[80px] sm:text-[100px] font-black text-foreground/10 leading-none">27</p>
-                <p className="text-base font-bold text-foreground/20 -mt-2">м²</p>
               </div>
 
               {/* Product image */}
-              <div className="flex-1 flex items-center justify-center px-6 -mt-4">
+              <div className="flex-1 flex items-center justify-center px-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
                 <img
                   src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
                   alt="Сплит-система Mitsudai"
-                  className="w-full max-w-[280px] object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
+                  className="w-full max-w-[220px] sm:max-w-[260px] object-contain drop-shadow-xl"
                 />
               </div>
 
               {/* Bottom info */}
               <div className="p-3 space-y-2">
-                {/* АКЦИЯ badge + headline */}
-                <div>
-                  <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5 mb-1.5">
+                {/* АКЦИЯ + price text */}
+                <div className="flex items-center justify-between">
+                  <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
                     <span className="w-1.5 h-1.5 rounded-full bg-crimson-600" />
                     <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
                   </div>
-                  <p className="text-sm font-bold text-foreground leading-snug">
-                    Кондиционер + монтаж = <span className="text-crimson-700">1 290 BYN</span>
-                  </p>
                 </div>
 
-                {/* Dark price block */}
-                <div className="bg-zinc-900 rounded-2xl px-4 py-2.5">
-                  <p className="text-[9px] text-zinc-400 uppercase tracking-widest mb-0.5">Цена под ключ</p>
-                  <p className="text-3xl font-black text-white leading-none">
-                    1 290 <span className="text-base font-semibold text-zinc-400">BYN</span>
-                  </p>
+                {/* Dark price block + order button */}
+                <div className="bg-zinc-900 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3">
+                  <div>
+                    <p className="text-[9px] text-zinc-400 uppercase tracking-widest mb-0.5">Цена под ключ</p>
+                    <p className="text-2xl font-black text-white leading-none">
+                      1 290 <span className="text-sm font-semibold text-zinc-400">BYN</span>
+                    </p>
+                  </div>
+                  <button
+                    onClick={handleOrder}
+                    className="shrink-0 bg-crimson-700 hover:bg-crimson-800 active:scale-95 text-white text-xs font-bold px-4 py-2.5 rounded-xl transition-all duration-150 shadow-lg flex items-center gap-1.5"
+                  >
+                    Заказать
+                    <Icon name="ArrowRightIcon" size={13} />
+                  </button>
                 </div>
 
                 {/* Features */}
@@ -194,7 +172,7 @@ export default function HeroSection() {
                   <span className="text-xs font-black text-crimson-700 tracking-tight">AIRCOMFORT</span>
                 </div>
               </div>
-            </Link>
+            </div>
           </div>
         </div>
       </section>
