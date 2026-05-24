@@ -54,11 +54,21 @@ export default function HeroSection() {
 
   return (
     <>
-      <section ref={sectionRef} className="bg-white pt-6 pb-10">
+      <section ref={sectionRef} className="bg-white pt-6 pb-10 relative overflow-hidden">
+        {/* Background: subtle AC photo, tinted white to match site theme */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            backgroundImage: 'url(https://images.unsplash.com/photo-1544603396-e4a163c7c658?fm=jpg&q=80&w=1920&auto=format&fit=crop)',
+            backgroundSize: 'cover',
+            backgroundPosition: 'center',
+            opacity: 0.07,
+          }}
+        />
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Left: Text */}
-            <div className="reveal-on-scroll opacity-100">
+            <div className="reveal-on-scroll opacity-100 relative z-10">
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
                 Установка и продажа
                 <span className="text-crimson-gradient block">кондиционеров</span>
@@ -88,7 +98,7 @@ export default function HeroSection() {
             </div>
 
             {/* Right: Promo card carousel */}
-            <div className="reveal-on-scroll opacity-100">
+            <div className="reveal-on-scroll opacity-100 relative z-10">
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-[480px] sm:h-[500px] md:h-[520px]">
                 {/* Slider track */}
                 <div
