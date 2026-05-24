@@ -54,17 +54,7 @@ export default function HeroSection() {
 
   return (
     <>
-      <section ref={sectionRef} className="bg-white pt-6 pb-10 relative overflow-hidden">
-        {/* Background: subtle AC photo, tinted white to match site theme */}
-        <div
-          className="absolute inset-0 pointer-events-none"
-          style={{
-            backgroundImage: 'url(https://images.unsplash.com/photo-1544603396-e4a163c7c658?fm=jpg&q=80&w=1920&auto=format&fit=crop)',
-            backgroundSize: 'cover',
-            backgroundPosition: 'center',
-            opacity: 0.18,
-          }}
-        />
+      <section ref={sectionRef} className="bg-white pt-6 pb-10">
         <div className="max-w-7xl mx-auto px-4">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Left: Text */}
