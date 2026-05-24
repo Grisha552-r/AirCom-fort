@@ -212,12 +212,13 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    <div className="flex-none flex items-center justify-center px-2 h-[175px] sm:h-[210px] md:h-[230px]">
+                    <div className="flex-1 min-h-0 flex items-center justify-center px-2 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
-                        className="h-full w-auto object-contain mix-blend-multiply"
+                        className="max-h-full w-auto max-w-[280px] sm:max-w-[320px] object-contain mix-blend-multiply"
+                        style={{ transform: 'scale(1.35)' }}
                       />
                     </div>
 
