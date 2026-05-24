@@ -36,13 +36,6 @@ export default function HeroSection() {
   }
 
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCardIndex(i => (i + 1) % 2);
-    }, 5000);
-    return () => clearInterval(timer);
-  }, []);
-
-  useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -189,7 +182,6 @@ export default function HeroSection() {
                     className="w-full shrink-0 h-full flex flex-col"
                     style={{ background: 'linear-gradient(160deg, #f6f8ff 0%, #e8edff 100%)' }}
                   >
-                    {/* Top: badges row (raised, more compact) */}
                     <div className="flex items-start justify-between px-4 pt-4 pb-1">
                       <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-sm self-start">
@@ -198,7 +190,7 @@ export default function HeroSection() {
                           </div>
                           <div>
                             <p className="text-[9px] text-muted-foreground leading-none uppercase tracking-wide">Тип</p>
-                            <p className="text-xs font-bold text-foreground leading-tight">Inverter A++</p>
+                            <p className="text-xs font-bold text-foreground leading-tight">Inverter</p>
                           </div>
                         </div>
                         <div className="flex items-center gap-1.5 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm self-start">
@@ -213,43 +205,22 @@ export default function HeroSection() {
                       </div>
                     </div>
 
-                    {/* Model name */}
-                    <div className="px-4 pb-2">
+                    <div className="px-4 pb-1">
                       <p className="text-foreground/50 text-[11px] font-medium tracking-wide">Сплит-система</p>
                       <p className="text-foreground font-bold text-base leading-tight">
                         King Home <span className="text-indigo-600">Luna Matt</span>
                       </p>
                     </div>
 
-                    {/* Montage + warranty — prominent, visible */}
-                    <div className="px-4 pb-2 flex items-center gap-2">
-                      <div className="flex-1 flex items-center gap-1.5 bg-white/80 backdrop-blur-sm rounded-xl px-3 py-2 shadow-sm">
-                        <Icon name="ClockIcon" size={14} className="text-crimson-600 shrink-0" />
-                        <div>
-                          <p className="text-[10px] font-bold text-foreground leading-none">Монтаж</p>
-                          <p className="text-[9px] text-muted-foreground leading-none mt-0.5">за 1 день</p>
-                        </div>
-                      </div>
-                      <div className="flex-1 flex items-center gap-1.5 bg-white/80 backdrop-blur-sm rounded-xl px-3 py-2 shadow-sm">
-                        <Icon name="ShieldCheckIcon" size={14} className="text-emerald-600 shrink-0" />
-                        <div>
-                          <p className="text-[10px] font-bold text-foreground leading-none">Гарантия</p>
-                          <p className="text-[9px] text-muted-foreground leading-none mt-0.5">74 месяца</p>
-                        </div>
-                      </div>
-                    </div>
-
-                    {/* Product image */}
                     <div className="flex-1 flex items-center justify-center px-4">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
-                        className="w-full max-w-[200px] sm:max-w-[240px] object-contain mix-blend-multiply"
+                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                       />
                     </div>
 
-                    {/* Bottom price bar */}
                     <div className="p-3 space-y-2">
                       <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
                         <span className="w-1.5 h-1.5 rounded-full bg-indigo-500" />
@@ -261,6 +232,7 @@ export default function HeroSection() {
                           <p className="text-2xl font-black text-white leading-none">
                             2 290 <span className="text-sm font-semibold text-zinc-400">BYN</span>
                           </p>
+                          <p className="text-[9px] text-zinc-500 mt-0.5">1 890 + монтаж 400</p>
                         </div>
                         <button
                           onClick={handleOrderKH}
@@ -269,6 +241,21 @@ export default function HeroSection() {
                           Заказать
                           <Icon name="ArrowRightIcon" size={13} />
                         </button>
+                      </div>
+                      <div className="grid grid-cols-3 gap-1.5">
+                        {[
+                          { icon: 'ClockIcon', color: 'text-crimson-600', bg: 'bg-crimson-50', title: 'Монтаж', sub: 'за 1 день' },
+                          { icon: 'ShieldCheckIcon', color: 'text-emerald-600', bg: 'bg-emerald-50', title: 'Гарантия', sub: '74 мес.' },
+                          { icon: 'BoltIcon', color: 'text-indigo-600', bg: 'bg-indigo-50', title: 'Инвертор', sub: 'A++ класс' },
+                        ].map((f) => (
+                          <div key={f.sub} className="bg-white/80 backdrop-blur-sm rounded-xl p-2 text-center">
+                            <div className={`w-6 h-6 rounded-lg ${f.bg} flex items-center justify-center mx-auto mb-1`}>
+                              <Icon name={f.icon as Parameters<typeof Icon>[0]['name']} size={13} className={f.color} />
+                            </div>
+                            <p className="text-[9px] font-semibold text-foreground leading-tight">{f.title}</p>
+                            <p className="text-[9px] text-muted-foreground leading-tight">{f.sub}</p>
+                          </div>
+                        ))}
                       </div>
                     </div>
                   </div>
