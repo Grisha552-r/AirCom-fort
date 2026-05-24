@@ -1,16 +1,8 @@
 'use client';
 import React, { useState, useEffect, useRef } from 'react';
 import Link from 'next/link';
-import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import SelectionModal from '@/components/SelectionModal';
-
-const HERO_CATS = [
-  { id: 'split-electrolux', name: 'Electrolux', image: 'https://climate-montazh.by/wp-content/uploads/2023/03/88183.970.png', alt: 'Кондиционер Electrolux' },
-  { id: 'split-ballu',      name: 'Ballu',      image: 'https://climate-montazh.by/wp-content/uploads/2024/01/konditsioner-ballu-bsagi-igreen-pro-dc-inverter.500x500.jpeg', alt: 'Кондиционер Ballu' },
-  { id: 'split-haier',      name: 'Haier',      image: 'https://climate-montazh.by/wp-content/uploads/2022/07/klimat-montazh-kondi-57.webp', alt: 'Кондиционер Haier' },
-  { id: 'split-mitsudai',   name: 'Mitsudai',   image: 'https://interpride.by/wp-content/uploads/2023/04/inv2-600x600-2-1.png', alt: 'Кондиционер Mitsudai' },
-];
 
 export default function HeroSection() {
   const sectionRef = useRef<HTMLDivElement>(null);
@@ -110,37 +102,99 @@ export default function HeroSection() {
               </Link>
             </div>
 
-            {/* Right: Brand grid */}
-            <div className="reveal-on-scroll opacity-100 grid grid-cols-2 grid-rows-2 gap-3 h-[260px] sm:h-[360px] md:h-[480px]">
-              <div className="row-span-2 relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
-                <AppImage src={HERO_CATS[0].image} alt={HERO_CATS[0].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" priority sizes="(max-width: 1024px) 100vw, 50vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent" />
-                <Link href={`/products/${HERO_CATS[0].id}`} className="absolute inset-0 flex flex-col justify-end p-4">
-                  <span className="text-white font-bold text-lg leading-tight">{HERO_CATS[0].name}</span>
-                  <span className="text-white/70 text-xs mt-0.5">Смотреть →</span>
-                </Link>
-              </div>
-
-              <div className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
-                <AppImage src={HERO_CATS[1].image} alt={HERO_CATS[1].alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 1024px) 50vw, 25vw" />
-                <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/10 to-transparent" />
-                <Link href={`/products/${HERO_CATS[1].id}`} className="absolute inset-0 flex flex-col justify-end p-3">
-                  <span className="text-white font-bold text-sm">{HERO_CATS[1].name}</span>
-                </Link>
-              </div>
-
-              <div className="grid grid-cols-2 gap-3">
-                {HERO_CATS.slice(2).map((cat) => (
-                  <div key={cat.id} className="relative rounded-2xl overflow-hidden group cursor-pointer shadow-card">
-                    <AppImage src={cat.image} alt={cat.alt} fill className="object-cover group-hover:scale-105 transition-transform duration-700" sizes="(max-width: 1024px) 25vw, 12vw" />
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />
-                    <Link href={`/products/${cat.id}`} className="absolute inset-0 flex flex-col justify-end p-2">
-                      <span className="text-white font-semibold text-xs leading-tight">{cat.name}</span>
-                    </Link>
+            {/* Right: Promo card */}
+            <Link
+              href="/products/p-md-sne09ai"
+              className="reveal-on-scroll opacity-100 relative rounded-3xl overflow-hidden flex flex-col h-[420px] sm:h-[480px] md:h-[520px] shadow-xl cursor-pointer group"
+              style={{ background: 'linear-gradient(160deg, #f7e8d6 0%, #edcfad 100%)' }}
+            >
+              {/* Top badges */}
+              <div className="flex items-start justify-between p-4">
+                <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-sm">
+                  <div className="w-6 h-6 rounded-lg bg-crimson-100 flex items-center justify-center">
+                    <Icon name="PowerIcon" size={13} className="text-crimson-700" />
                   </div>
-                ))}
+                  <div>
+                    <p className="text-[9px] text-muted-foreground leading-none uppercase tracking-wide">Тип</p>
+                    <p className="text-xs font-bold text-foreground leading-tight">On / Off</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-1.5 bg-crimson-700 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm">
+                  <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
+                  СЕЗОН · 2026
+                </div>
               </div>
-            </div>
+
+              {/* Area label */}
+              <div className="absolute top-12 right-4 text-right pointer-events-none">
+                <p className="text-[9px] text-foreground/40 uppercase tracking-widest leading-none mb-1">Для комнаты до</p>
+                <p className="text-[80px] sm:text-[100px] font-black text-foreground/10 leading-none">27</p>
+                <p className="text-base font-bold text-foreground/20 -mt-2">м²</p>
+              </div>
+
+              {/* Product image */}
+              <div className="flex-1 flex items-center justify-center px-6 -mt-4">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
+                  src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
+                  alt="Сплит-система Mitsudai"
+                  className="w-full max-w-[280px] object-contain drop-shadow-xl group-hover:scale-105 transition-transform duration-500"
+                />
+              </div>
+
+              {/* Bottom info */}
+              <div className="p-3 space-y-2">
+                {/* АКЦИЯ badge + headline */}
+                <div>
+                  <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5 mb-1.5">
+                    <span className="w-1.5 h-1.5 rounded-full bg-crimson-600" />
+                    <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
+                  </div>
+                  <p className="text-sm font-bold text-foreground leading-snug">
+                    Кондиционер + монтаж = <span className="text-crimson-700">1 290 BYN</span>
+                  </p>
+                </div>
+
+                {/* Dark price block */}
+                <div className="bg-zinc-900 rounded-2xl px-4 py-2.5">
+                  <p className="text-[9px] text-zinc-400 uppercase tracking-widest mb-0.5">Цена под ключ</p>
+                  <p className="text-3xl font-black text-white leading-none">
+                    1 290 <span className="text-base font-semibold text-zinc-400">BYN</span>
+                  </p>
+                </div>
+
+                {/* Features */}
+                <div className="grid grid-cols-3 gap-1.5">
+                  {[
+                    { icon: 'ClockIcon', color: 'text-crimson-600', bg: 'bg-crimson-50', title: 'Монтаж', sub: 'за 1 день' },
+                    { icon: 'ShieldCheckIcon', color: 'text-emerald-600', bg: 'bg-emerald-50', title: 'Гарантия', sub: '2 года' },
+                    { icon: 'WrenchScrewdriverIcon', color: 'text-amber-600', bg: 'bg-amber-50', title: 'Гарантия', sub: '1 год' },
+                  ].map((f) => (
+                    <div key={f.sub} className="bg-white/80 backdrop-blur-sm rounded-xl p-2 text-center">
+                      <div className={`w-6 h-6 rounded-lg ${f.bg} flex items-center justify-center mx-auto mb-1`}>
+                        <Icon name={f.icon as Parameters<typeof Icon>[0]['name']} size={13} className={f.color} />
+                      </div>
+                      <p className="text-[9px] font-semibold text-foreground leading-tight">{f.title}</p>
+                      <p className="text-[9px] text-muted-foreground leading-tight">{f.sub}</p>
+                    </div>
+                  ))}
+                </div>
+
+                {/* Phone row */}
+                <div className="bg-white/80 backdrop-blur-sm rounded-xl px-3 py-2 flex items-center justify-between">
+                  <div className="flex items-center gap-2">
+                    <div className="w-7 h-7 rounded-lg bg-crimson-700 flex items-center justify-center shrink-0">
+                      <Icon name="PhoneIcon" size={13} className="text-white" />
+                    </div>
+                    <div>
+                      <p className="text-[8px] text-muted-foreground uppercase tracking-wide leading-none">Звоните</p>
+                      <p className="text-xs font-bold text-foreground">+375 29 105-06-94</p>
+                    </div>
+                  </div>
+                  <span className="text-xs font-black text-crimson-700 tracking-tight">AIRCOMFORT</span>
+                </div>
+              </div>
+            </Link>
           </div>
         </div>
       </section>
