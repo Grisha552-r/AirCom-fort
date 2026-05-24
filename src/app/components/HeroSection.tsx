@@ -180,7 +180,7 @@ export default function HeroSection() {
                   {/* ── Card 1: King Home ── */}
                   <div
                     className="w-full shrink-0 h-full flex flex-col"
-                    style={{ background: 'linear-gradient(160deg, #f6f8ff 0%, #e8edff 100%)' }}
+                    style={{ background: 'linear-gradient(160deg, #ffffff 0%, #f0f3ff 100%)' }}
                   >
                     <div className="flex items-start justify-between px-4 pt-4 pb-1">
                       <div className="flex flex-col gap-2">
