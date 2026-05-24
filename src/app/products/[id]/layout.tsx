@@ -118,7 +118,10 @@ export default async function ProductLayout({
   // Inject server-side JSON-LD for individual product pages (not categories)
   if (!CATEGORY_META[id]) {
     const product = await fetchProduct(id);
-    if (product) {
+    if (product && product.price > 0) {
+      const priceValidUntil = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
+      const originalPrice = product.characteristics?._originalPrice;
+
       const jsonLd = {
         '@context': 'https://schema.org',
         '@type': 'Product',
@@ -139,9 +142,9 @@ export default async function ProductLayout({
           : {}),
         offers: {
           '@type': 'Offer',
-          price: String(product.price),
+          price: product.price,
           priceCurrency: 'BYN',
-          priceValidUntil: new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0],
+          priceValidUntil,
           availability: product.in_stock
             ? 'https://schema.org/InStock'
             : 'https://schema.org/OutOfStock',
@@ -152,19 +155,45 @@ export default async function ProductLayout({
             name: 'AirComfort',
             url: BASE,
           },
-          ...(product.characteristics?._originalPrice
+          shippingDetails: {
+            '@type': 'OfferShippingDetails',
+            shippingRate: {
+              '@type': 'MonetaryAmount',
+              value: '0',
+              currency: 'BYN',
+            },
+            shippingDestination: {
+              '@type': 'DefinedRegion',
+              addressCountry: 'BY',
+              addressRegion: 'Гомельская область',
+            },
+            deliveryTime: {
+              '@type': 'ShippingDeliveryTime',
+              handlingTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 1, unitCode: 'DAY' },
+              transitTime: { '@type': 'QuantitativeValue', minValue: 0, maxValue: 2, unitCode: 'DAY' },
+            },
+          },
+          hasMerchantReturnPolicy: {
+            '@type': 'MerchantReturnPolicy',
+            applicableCountry: 'BY',
+            returnPolicyCategory: 'https://schema.org/MerchantReturnFiniteReturnWindow',
+            merchantReturnDays: 14,
+            returnMethod: 'https://schema.org/ReturnInStore',
+            returnFees: 'https://schema.org/FreeReturn',
+          },
+          ...(originalPrice
             ? {
                 priceSpecification: [
                   {
                     '@type': 'UnitPriceSpecification',
                     priceType: 'https://schema.org/ListPrice',
-                    price: String(product.characteristics._originalPrice),
+                    price: originalPrice,
                     priceCurrency: 'BYN',
                   },
                   {
                     '@type': 'UnitPriceSpecification',
                     priceType: 'https://schema.org/SalePrice',
-                    price: String(product.price),
+                    price: product.price,
                     priceCurrency: 'BYN',
                   },
                 ],
