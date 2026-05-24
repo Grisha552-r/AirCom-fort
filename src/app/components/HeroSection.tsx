@@ -89,7 +89,7 @@ export default function HeroSection() {
 
             {/* Right: Promo card carousel */}
             <div className="reveal-on-scroll opacity-100">
-              <div className="relative rounded-3xl overflow-hidden shadow-xl h-[420px] sm:h-[480px] md:h-[520px]">
+              <div className="relative rounded-3xl overflow-hidden shadow-xl h-[480px] sm:h-[500px] md:h-[520px]">
                 {/* Slider track */}
                 <div
                   className="flex h-full transition-transform duration-500 ease-in-out"
@@ -218,7 +218,7 @@ export default function HeroSection() {
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
                         className="max-h-full w-auto max-w-[280px] sm:max-w-[320px] object-contain mix-blend-multiply"
-                        style={{ transform: 'scale(1.7)' }}
+                        style={{ transform: 'scale(2.5)' }}
                       />
                     </div>
 
