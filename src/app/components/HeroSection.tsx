@@ -212,12 +212,12 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    <div className="flex-1 min-h-0 flex items-center justify-center px-4 overflow-hidden">
+                    <div className="flex-1 min-h-0 flex items-center justify-center px-2 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
-                        className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
+                        className="max-h-full w-auto max-w-[270px] sm:max-w-[310px] object-contain mix-blend-multiply"
                       />
                     </div>
 
@@ -244,11 +244,11 @@ export default function HeroSection() {
                       </div>
                       <div className="grid grid-cols-3 gap-1.5">
                         {[
-                          { icon: 'ClockIcon', color: 'text-crimson-600', bg: 'bg-crimson-50', title: 'Монтаж', sub: 'за 1 день' },
-                          { icon: 'ShieldCheckIcon', color: 'text-emerald-600', bg: 'bg-emerald-50', title: 'Гарантия', sub: '74 мес.' },
-                          { icon: 'BoltIcon', color: 'text-indigo-600', bg: 'bg-indigo-50', title: 'Инвертор', sub: 'A++ класс' },
+                          { icon: 'WifiIcon', color: 'text-indigo-600', bg: 'bg-indigo-50', title: 'Wi-Fi', sub: 'встроенный' },
+                          { icon: 'SparklesIcon', color: 'text-sky-500', bg: 'bg-sky-50', title: 'Ионизация', sub: 'воздуха' },
+                          { icon: 'CpuChipIcon', color: 'text-zinc-600', bg: 'bg-zinc-100', title: 'Gree', sub: 'компрессор' },
                         ].map((f) => (
-                          <div key={f.sub} className="bg-white/80 backdrop-blur-sm rounded-xl p-2 text-center">
+                          <div key={f.title} className="bg-white/80 backdrop-blur-sm rounded-xl p-2 text-center">
                             <div className={`w-6 h-6 rounded-lg ${f.bg} flex items-center justify-center mx-auto mb-1`}>
                               <Icon name={f.icon as Parameters<typeof Icon>[0]['name']} size={13} className={f.color} />
                             </div>
