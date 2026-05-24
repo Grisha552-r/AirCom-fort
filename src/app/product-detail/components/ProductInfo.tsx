@@ -80,6 +80,43 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
         )}
       </div>
 
+      {/* Выгода: цена под ключ + экономия */}
+      {product.categoryId !== 'mobile' && (
+        <div className="rounded-2xl border border-crimson-200 overflow-hidden">
+          <div className="bg-crimson-700 px-4 py-1.5">
+            <p className="text-[10px] text-white/80 font-bold uppercase tracking-widest">Цена под ключ</p>
+          </div>
+          <div className="bg-crimson-50 px-4 py-3 flex items-center justify-between gap-4">
+            <div>
+              <p className="text-2xl font-bold text-foreground">
+                {(product.price + 400).toLocaleString('ru-RU')} <span className="text-base font-semibold text-muted-foreground">р.</span>
+              </p>
+              <p className="text-xs text-muted-foreground mt-0.5">
+                {product.price.toLocaleString('ru-RU')} р. + монтаж 400 р.
+              </p>
+            </div>
+            {product.discount && product.originalPrice && (
+              <div className="text-right shrink-0 bg-white rounded-xl px-3 py-2 border border-emerald-200">
+                <p className="text-[9px] text-muted-foreground uppercase tracking-wide">Экономия</p>
+                <p className="text-lg font-bold text-emerald-600">
+                  −{(product.originalPrice - product.price).toLocaleString('ru-RU')} р.
+                </p>
+              </div>
+            )}
+          </div>
+        </div>
+      )}
+
+      {/* King Home discount banner */}
+      {product.brand === 'King Home' && (
+        <div className="flex items-center gap-2.5 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5">
+          <Icon name="TagIcon" size={16} className="text-amber-600 shrink-0" />
+          <p className="text-sm text-amber-800">
+            Скидка <span className="font-bold">10%</span> на все модели King Home Luna Matt — акция сезона 2026
+          </p>
+        </div>
+      )}
+
       {/* Quantity + Add to cart */}
       <div className="flex items-center gap-3">
         <div className="flex items-center border border-border rounded-xl overflow-hidden">
