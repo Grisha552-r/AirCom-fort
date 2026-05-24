@@ -78,7 +78,7 @@ export default function HeroSection() {
             {/* Right: Promo card */}
             <div
               className="reveal-on-scroll opacity-100 rounded-3xl overflow-hidden flex flex-col h-[420px] sm:h-[480px] md:h-[520px] shadow-xl"
-              style={{ background: 'linear-gradient(160deg, #fdf5ee 0%, #f7e4cc 100%)' }}
+              style={{ background: 'linear-gradient(160deg, #fffaf6 0%, #faeedd 100%)' }}
             >
               {/* Top row: badges + area */}
               <div className="flex items-start justify-between px-4 pt-4 pb-1">
