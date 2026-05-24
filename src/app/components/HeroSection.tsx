@@ -104,6 +104,14 @@ export default function HeroSection() {
                 </div>
               </div>
 
+              {/* Model name — between badges and image */}
+              <div className="px-4 pb-1">
+                <p className="text-foreground/50 text-[11px] font-medium tracking-wide">Сплит-система</p>
+                <p className="text-foreground font-bold text-base leading-tight">
+                  Mitsudai <span className="text-crimson-700">MD-SNE09AI</span>
+                </p>
+              </div>
+
               {/* Product image */}
               <div className="flex-1 flex items-center justify-center px-4">
                 {/* eslint-disable-next-line @next/next/no-img-element */}
@@ -158,10 +166,6 @@ export default function HeroSection() {
                   ))}
                 </div>
 
-                {/* Model name */}
-                <p className="text-center text-[11px] font-semibold text-foreground/60 tracking-wide">
-                  Кондиционер Mitsudai MD-SNE09AI
-                </p>
               </div>
             </div>
           </div>
