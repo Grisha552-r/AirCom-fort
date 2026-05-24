@@ -130,14 +130,14 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    <div className="flex-1 min-h-0 flex items-center justify-center px-4 overflow-hidden">
+                    <Link href="/products/p-md-sne09ai" className="flex-1 min-h-0 flex items-center justify-center px-4 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
                         alt="Сплит-система Mitsudai"
                         className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                       />
-                    </div>
+                    </Link>
 
                     <div className="p-3 space-y-2">
                       <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
@@ -150,6 +150,8 @@ export default function HeroSection() {
                           <p className="text-2xl font-black text-white leading-none">
                             1 290 <span className="text-sm font-semibold text-zinc-400">BYN</span>
                           </p>
+                          <p className="text-[9px] text-zinc-500 mt-0.5">890 + монтаж 400</p>
+                          <p className="text-[9px] text-emerald-400 font-semibold mt-0.5">Экономия 39 р.</p>
                         </div>
                         <button
                           onClick={handleOrder}
@@ -212,7 +214,7 @@ export default function HeroSection() {
                       </p>
                     </div>
 
-                    <div className="flex-1 min-h-0 flex items-center justify-center px-2 overflow-hidden">
+                    <Link href="/products/p-kh-luna-09" className="flex-1 min-h-0 flex items-center justify-center px-2 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
@@ -220,7 +222,7 @@ export default function HeroSection() {
                         className="max-h-full w-auto max-w-[280px] sm:max-w-[320px] object-contain mix-blend-multiply"
                         style={{ transform: 'scale(2.5)' }}
                       />
-                    </div>
+                    </Link>
 
                     <div className="p-3 space-y-2">
                       <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
