@@ -62,7 +62,7 @@ export default function HeroSection() {
             backgroundImage: 'url(https://images.unsplash.com/photo-1544603396-e4a163c7c658?fm=jpg&q=80&w=1920&auto=format&fit=crop)',
             backgroundSize: 'cover',
             backgroundPosition: 'center',
-            opacity: 0.07,
+            opacity: 0.18,
           }}
         />
         <div className="max-w-7xl mx-auto px-4">
