@@ -105,7 +105,7 @@ export default function HeroSection() {
                   {/* ── Card 0: Mitsudai ── */}
                   <div
                     className="w-full shrink-0 h-full flex flex-col"
-                    style={{ background: 'linear-gradient(160deg, #fffaf6 0%, #faeedd 100%)' }}
+                    style={{ background: 'linear-gradient(160deg, #ffffff 0%, #fff8f0 100%)' }}
                   >
                     <div className="flex items-start justify-between px-4 pt-4 pb-1">
                       <div className="flex flex-col gap-2">
@@ -187,20 +187,20 @@ export default function HeroSection() {
                   {/* ── Card 1: King Home ── */}
                   <div
                     className="w-full shrink-0 h-full flex flex-col"
-                    style={{ background: 'linear-gradient(160deg, #f2fdf7 0%, #d8f5e8 100%)' }}
+                    style={{ background: 'linear-gradient(160deg, #ffffff 0%, #fff8f0 100%)' }}
                   >
                     <div className="flex items-start justify-between px-4 pt-4 pb-1">
                       <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-sm self-start">
-                          <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center">
-                            <Icon name="BoltIcon" size={13} className="text-emerald-600" />
+                          <div className="w-6 h-6 rounded-lg bg-crimson-100 flex items-center justify-center">
+                            <Icon name="BoltIcon" size={13} className="text-crimson-700" />
                           </div>
                           <div>
                             <p className="text-[9px] text-muted-foreground leading-none uppercase tracking-wide">Тип</p>
                             <p className="text-xs font-bold text-foreground leading-tight">Inverter</p>
                           </div>
                         </div>
-                        <div className="flex items-center gap-1.5 bg-amber-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm self-start">
+                        <div className="flex items-center gap-1.5 bg-crimson-700 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm self-start">
                           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                           СКИДКА · 10%
                         </div>
@@ -230,7 +230,7 @@ export default function HeroSection() {
 
                     <div className="p-3 space-y-2">
                       <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
-                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        <span className="w-1.5 h-1.5 rounded-full bg-crimson-600" />
                         <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
                       </div>
                       <div className="bg-zinc-900 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3">
