@@ -96,13 +96,13 @@ export default function HeroSection() {
 
             {/* Right: Promo card carousel */}
             <div className="reveal-on-scroll opacity-100">
-              {/* Slider */}
               <div className="relative rounded-3xl overflow-hidden shadow-xl h-[420px] sm:h-[480px] md:h-[520px]">
+                {/* Slider track */}
                 <div
                   className="flex h-full transition-transform duration-500 ease-in-out"
                   style={{ transform: `translateX(-${cardIndex * 100}%)` }}
                 >
-                  {/* Card 0: Mitsudai */}
+                  {/* ── Card 0: Mitsudai ── */}
                   <div
                     className="w-full shrink-0 h-full flex flex-col"
                     style={{ background: 'linear-gradient(160deg, #fffaf6 0%, #faeedd 100%)' }}
@@ -142,16 +142,14 @@ export default function HeroSection() {
                       <img
                         src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
                         alt="Сплит-система Mitsudai"
-                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain drop-shadow-xl"
+                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                       />
                     </div>
 
                     <div className="p-3 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-crimson-600" />
-                          <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
-                        </div>
+                      <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-crimson-600" />
+                        <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
                       </div>
                       <div className="bg-zinc-900 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3">
                         <div>
@@ -172,7 +170,7 @@ export default function HeroSection() {
                         {[
                           { icon: 'ClockIcon', color: 'text-crimson-600', bg: 'bg-crimson-50', title: 'Монтаж', sub: 'за 1 день' },
                           { icon: 'ShieldCheckIcon', color: 'text-emerald-600', bg: 'bg-emerald-50', title: 'Гарантия', sub: '2 года' },
-                          { icon: 'WrenchScrewdriverIcon', color: 'text-amber-600', bg: 'bg-amber-50', title: 'Гарантия', sub: '1 год' },
+                          { icon: 'WrenchScrewdriverIcon', color: 'text-amber-600', bg: 'bg-amber-50', title: 'Сервис', sub: '1 год' },
                         ].map((f) => (
                           <div key={f.sub} className="bg-white/80 backdrop-blur-sm rounded-xl p-2 text-center">
                             <div className={`w-6 h-6 rounded-lg ${f.bg} flex items-center justify-center mx-auto mb-1`}>
@@ -186,16 +184,16 @@ export default function HeroSection() {
                     </div>
                   </div>
 
-                  {/* Card 1: King Home */}
+                  {/* ── Card 1: King Home ── */}
                   <div
                     className="w-full shrink-0 h-full flex flex-col"
-                    style={{ background: 'linear-gradient(160deg, #f5fbff 0%, #deeeff 100%)' }}
+                    style={{ background: 'linear-gradient(160deg, #f2fdf7 0%, #d8f5e8 100%)' }}
                   >
                     <div className="flex items-start justify-between px-4 pt-4 pb-1">
                       <div className="flex flex-col gap-2">
                         <div className="flex items-center gap-2 bg-white/80 backdrop-blur-sm rounded-xl px-2.5 py-1.5 shadow-sm self-start">
-                          <div className="w-6 h-6 rounded-lg bg-amber-100 flex items-center justify-center">
-                            <Icon name="BoltIcon" size={13} className="text-amber-600" />
+                          <div className="w-6 h-6 rounded-lg bg-emerald-100 flex items-center justify-center">
+                            <Icon name="BoltIcon" size={13} className="text-emerald-600" />
                           </div>
                           <div>
                             <p className="text-[9px] text-muted-foreground leading-none uppercase tracking-wide">Тип</p>
@@ -203,7 +201,7 @@ export default function HeroSection() {
                           </div>
                         </div>
                         <div className="flex items-center gap-1.5 bg-amber-500 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm self-start">
-                          <span className="w-1.5 h-1.5 rounded-full bg-white" />
+                          <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
                           СКИДКА · 10%
                         </div>
                       </div>
@@ -226,16 +224,14 @@ export default function HeroSection() {
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
-                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain drop-shadow-xl"
+                        className="w-full max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                       />
                     </div>
 
                     <div className="p-3 space-y-2">
-                      <div className="flex items-center justify-between">
-                        <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
-                          <span className="w-1.5 h-1.5 rounded-full bg-amber-500" />
-                          <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
-                        </div>
+                      <div className="inline-flex items-center gap-1.5 border border-foreground/20 rounded-full px-2.5 py-0.5">
+                        <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                        <span className="text-[9px] font-semibold tracking-widest text-foreground/50 uppercase">Акция · Всё включено</span>
                       </div>
                       <div className="bg-zinc-900 rounded-2xl px-4 py-2.5 flex items-center justify-between gap-3">
                         <div>
@@ -270,9 +266,23 @@ export default function HeroSection() {
                     </div>
                   </div>
                 </div>
+
+                {/* Prev / Next arrows */}
+                <button
+                  onClick={() => setCardIndex(i => (i - 1 + 2) % 2)}
+                  className="absolute left-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm shadow flex items-center justify-center hover:bg-white transition-colors"
+                >
+                  <Icon name="ChevronLeftIcon" size={16} className="text-foreground" />
+                </button>
+                <button
+                  onClick={() => setCardIndex(i => (i + 1) % 2)}
+                  className="absolute right-2 top-1/2 -translate-y-1/2 z-10 w-8 h-8 rounded-full bg-white/70 backdrop-blur-sm shadow flex items-center justify-center hover:bg-white transition-colors"
+                >
+                  <Icon name="ChevronRightIcon" size={16} className="text-foreground" />
+                </button>
               </div>
 
-              {/* Carousel dots */}
+              {/* Dots */}
               <div className="flex items-center justify-center gap-2 mt-3">
                 {[0, 1].map(i => (
                   <button
