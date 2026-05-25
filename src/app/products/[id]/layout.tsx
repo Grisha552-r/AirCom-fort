@@ -106,6 +106,17 @@ export async function generateMetadata(
   };
 }
 
+const CAT_BREADCRUMB_NAME: Record<string, string> = {
+  'split-systems': 'Сплит-системы',
+  'split-electrolux': 'Кондиционеры Electrolux',
+  'split-ballu': 'Кондиционеры Ballu',
+  'split-haier': 'Кондиционеры Haier',
+  'split-lg': 'Кондиционеры LG',
+  'split-mitsudai': 'Кондиционеры Mitsudai',
+  'split-kinghome': 'Кондиционеры King Home',
+  'mobile': 'Мобильные кондиционеры',
+};
+
 export default async function ProductLayout({
   children,
   params,
@@ -115,12 +126,44 @@ export default async function ProductLayout({
 }) {
   const { id } = await params;
 
-  // Inject server-side JSON-LD for individual product pages (not categories)
-  if (!CATEGORY_META[id]) {
+  // BreadcrumbList for category pages
+  if (CATEGORY_META[id]) {
+    const catName = CAT_BREADCRUMB_NAME[id] || id;
+    const breadcrumb = {
+      '@context': 'https://schema.org',
+      '@type': 'BreadcrumbList',
+      itemListElement: [
+        { '@type': 'ListItem', position: 1, name: 'Главная', item: `${BASE}/` },
+        { '@type': 'ListItem', position: 2, name: 'Каталог', item: `${BASE}/products` },
+        { '@type': 'ListItem', position: 3, name: catName, item: `${BASE}/products/${id}` },
+      ],
+    };
+    return (
+      <>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
+        {children}
+      </>
+    );
+  }
+
+  // Inject server-side JSON-LD for individual product pages
+  {
     const product = await fetchProduct(id);
     if (product && product.price > 0) {
       const priceValidUntil = new Date(Date.now() + 90 * 24 * 60 * 60 * 1000).toISOString().split('T')[0];
       const originalPrice = product.characteristics?._originalPrice;
+      const catName = CAT_BREADCRUMB_NAME[product.category_id] || product.category_id || 'Каталог';
+
+      const breadcrumb = {
+        '@context': 'https://schema.org',
+        '@type': 'BreadcrumbList',
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Главная', item: `${BASE}/` },
+          { '@type': 'ListItem', position: 2, name: 'Каталог', item: `${BASE}/products` },
+          { '@type': 'ListItem', position: 3, name: catName, item: `${BASE}/products/${product.category_id}` },
+          { '@type': 'ListItem', position: 4, name: product.name, item: `${BASE}/products/${id}` },
+        ],
+      };
 
       const jsonLd = {
         '@context': 'https://schema.org',
@@ -203,6 +246,7 @@ export default async function ProductLayout({
       };
       return (
         <>
+          <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumb) }} />
           <script
             type="application/ld+json"
             dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
