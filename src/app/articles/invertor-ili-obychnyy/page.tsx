@@ -51,6 +51,15 @@ export default function ArticlePage() {
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
 
       <main>
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://aircom-fort.by' },
+            { '@type': 'ListItem', position: 2, name: 'Статьи', item: 'https://aircom-fort.by/articles' },
+            { '@type': 'ListItem', position: 3, name: 'Инверторный или обычный кондиционер: в чём разница и стоит ли переплачивать' },
+          ],
+        }) }} />
         {/* Hero */}
         <div className="bg-crimson-gradient text-white">
           <div className="max-w-7xl mx-auto px-4 py-14">

@@ -14,6 +14,15 @@ export default function SkolkoVremeni() {
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
 
       <main className="max-w-3xl mx-auto px-4 py-10">
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify({
+          '@context': 'https://schema.org',
+          '@type': 'BreadcrumbList',
+          itemListElement: [
+            { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://aircom-fort.by' },
+            { '@type': 'ListItem', position: 2, name: 'Статьи', item: 'https://aircom-fort.by/articles' },
+            { '@type': 'ListItem', position: 3, name: 'Сколько времени занимает установка кондиционера: от замера до запуска' },
+          ],
+        }) }} />
         <nav className="text-sm text-gray-500 mb-6">
           <Link href="/" className="hover:text-crimson-700">Главная</Link>
           {' / '}
