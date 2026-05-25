@@ -60,12 +60,12 @@ export default function HeroSection() {
             {/* Left: Text */}
             <div className="reveal-on-scroll opacity-100 relative z-10">
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
-                Установка и продажа
-                <span className="text-crimson-gradient block">кондиционеров</span>
-                в Гомеле и области
+                Кондиционеры в Гомеле
+                <span className="text-crimson-gradient block">от 1 290 р.</span>
+                с установкой под ключ
               </h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-md">
-                Electrolux, Ballu, Haier, LG, Panasonic, Mitsudai — настенные сплит-системы и мобильные кондиционеры с установкой в Гомеле. Официальная гарантия производителя.
+                Electrolux, Ballu, Haier, LG, Mitsudai — 300+ моделей в наличии. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.
               </p>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
