@@ -36,6 +36,7 @@ const ARTICLE_SLUGS = [
   'montazh-kassetnogo-konditsionera',
   'zapravka-konditsionera-gomel',
   'remont-konditsionera-gomel',
+  'obsluzhivanie-konditsionera-gomel',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

@@ -309,10 +309,10 @@ export default function ArticlePage() {
               +375 29 105-06-94
             </a>
             <Link
-              href="/products"
+              href="/konditsionery-gomel"
               className="flex items-center justify-center gap-2 bg-white/20 text-white border border-white/40 px-6 py-3 rounded-xl font-bold hover:bg-white/30 transition-colors"
             >
-              Смотреть каталог
+              Кондиционеры в Гомеле от 1 290 р.
               <Icon name="ArrowRightIcon" size={16} />
             </Link>
           </div>

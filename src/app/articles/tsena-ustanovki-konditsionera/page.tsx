@@ -183,6 +183,10 @@ export default function TsenaUstanovkiPage() {
       <div className="border-t pt-8">
         <h3 className="text-lg font-semibold text-gray-900 mb-4">Читайте также</h3>
         <div className="grid sm:grid-cols-2 gap-4">
+          <Link href="/konditsionery-gomel" className="block p-4 border border-red-200 rounded-lg bg-red-50 hover:bg-red-100 transition-colors">
+            <p className="font-medium text-red-800 text-sm">Купить кондиционер с установкой в Гомеле</p>
+            <p className="text-red-600 text-xs mt-1">От 1 290 р. под ключ — 300+ моделей</p>
+          </Link>
           <Link href="/articles/kak-vybrat-konditsioner" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
             <p className="font-medium text-gray-900 text-sm">Как выбрать кондиционер для квартиры</p>
             <p className="text-gray-500 text-xs mt-1">Советы по мощности, бренду и функциям</p>

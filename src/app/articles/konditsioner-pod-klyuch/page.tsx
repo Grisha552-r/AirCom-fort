@@ -190,6 +190,10 @@ export default function KonditsionerPodKlyuch() {
         <div className="border-t pt-8">
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Читайте также</h3>
           <div className="grid sm:grid-cols-2 gap-4">
+            <Link href="/konditsionery-gomel" className="block p-4 border border-crimson-200 rounded-lg bg-crimson-50 hover:bg-crimson-100 transition-colors">
+              <p className="font-medium text-crimson-800 text-sm">Кондиционеры в Гомеле от 1 290 р.</p>
+              <p className="text-crimson-600 text-xs mt-1">300+ моделей с установкой под ключ</p>
+            </Link>
             <Link href="/articles/tsena-ustanovki-konditsionera" className="block p-4 border border-gray-200 rounded-lg hover:border-crimson-300 hover:bg-crimson-50 transition-colors">
               <p className="font-medium text-gray-900 text-sm">Сколько стоит установка кондиционера</p>
               <p className="text-gray-500 text-xs mt-1">Подробный разбор цен и доплат</p>
