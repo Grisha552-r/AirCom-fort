@@ -7,6 +7,18 @@ export const metadata: Metadata = {
   alternates: { canonical: 'https://aircom-fort.by/articles/kak-vybrat-konditsioner' },
 };
 
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Как выбрать кондиционер для квартиры — советы и рейтинг брендов',
+  datePublished: '2026-05-01',
+  dateModified: '2026-05-25',
+  author: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
+  publisher: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
+  url: 'https://aircom-fort.by/articles/kak-vybrat-konditsioner',
+  inLanguage: 'ru',
+};
+
 const faqSchema = {
   '@context': 'https://schema.org',
   '@type': 'FAQPage',
@@ -49,6 +61,7 @@ const faqSchema = {
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
