@@ -33,6 +33,8 @@ const ARTICLE_SLUGS = [
   'razreshenie-na-ustanovku-konditsionera',
   'konditsioner-pod-klyuch',
   'montazh-kassetnogo-konditsionera',
+  'zapravka-konditsionera-gomel',
+  'remont-konditsionera-gomel',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

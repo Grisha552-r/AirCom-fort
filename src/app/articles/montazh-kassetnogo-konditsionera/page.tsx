@@ -25,7 +25,7 @@ export default function MontazhKassetnogo() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Монтаж кассетного кондиционера: стоимость и особенности установки
         </h1>
-        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 5 мин</p>
+        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 5 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
           Кассетный кондиционер — профессиональное решение для офисов, торговых залов и других

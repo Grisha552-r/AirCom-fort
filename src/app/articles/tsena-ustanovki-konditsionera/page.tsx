@@ -12,9 +12,9 @@ export default function TsenaUstanovkiPage() {
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
-        Сколько стоит установка кондиционера в Гомеле в 2025 году
+        Сколько стоит установка кондиционера в Гомеле в 2026 году
       </h1>
-      <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 5 мин</p>
+      <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 5 мин</p>
 
       <p className="text-gray-700 leading-relaxed mb-6">
         Один из главных вопросов при покупке кондиционера — сколько придётся заплатить за установку.
@@ -22,7 +22,7 @@ export default function TsenaUstanovkiPage() {
         и сложности монтажа. Но базовые цены прозрачны, и в этой статье мы разберём всё по шагам.
       </p>
 
-      <h2 className="text-2xl font-semibold text-gray-900 mb-4">Базовые цены на монтаж в 2025 году</h2>
+      <h2 className="text-2xl font-semibold text-gray-900 mb-4">Базовые цены на монтаж в 2026 году</h2>
       <div className="overflow-x-auto mb-8">
         <table className="w-full text-sm border-collapse">
           <thead>

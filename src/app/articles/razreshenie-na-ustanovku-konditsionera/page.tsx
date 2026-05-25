@@ -25,7 +25,7 @@ export default function RazresheniePage() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Нужно ли разрешение на установку кондиционера в Гомеле
         </h1>
-        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 5 мин</p>
+        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 5 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
           Вопрос согласования — один из самых частых у тех, кто впервые устанавливает кондиционер в квартире.

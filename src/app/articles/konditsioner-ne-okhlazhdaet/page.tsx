@@ -14,7 +14,7 @@ export default function KonditsionerNeOkhlazhdaetPage() {
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
         Кондиционер работает, но не охлаждает: 7 причин и что делать
       </h1>
-      <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 5 мин</p>
+      <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 5 мин</p>
 
       <p className="text-gray-700 leading-relaxed mb-6">
         Кондиционер включён, вентилятор крутится, а прохлады нет — знакомая ситуация в жаркий день.

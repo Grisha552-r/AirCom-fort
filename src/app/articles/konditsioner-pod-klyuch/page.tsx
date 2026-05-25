@@ -25,7 +25,7 @@ export default function KonditsionerPodKlyuch() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Кондиционер под ключ в Гомеле: цены и что входит в пакет
         </h1>
-        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 5 мин</p>
+        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 5 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
           «Под ключ» — значит вы делаете один заказ и получаете готовую работающую систему.

@@ -12,9 +12,9 @@ export default function KonditsionerDlyaKomnatyPage() {
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
-        Какой кондиционер выбрать для комнаты в 2025 году: советы мастеров
+        Какой кондиционер выбрать для комнаты в 2026 году: советы мастеров
       </h1>
-      <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 6 мин</p>
+      <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 6 мин</p>
 
       <p className="text-gray-700 leading-relaxed mb-6">
         Выбрать кондиционер сложнее, чем кажется. Продавцы в магазинах часто советуют
@@ -203,7 +203,7 @@ export default function KonditsionerDlyaKomnatyPage() {
         <div className="grid sm:grid-cols-2 gap-4">
           <Link href="/articles/tsena-ustanovki-konditsionera" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
             <p className="font-medium text-gray-900 text-sm">Сколько стоит установка кондиционера</p>
-            <p className="text-gray-500 text-xs mt-1">Актуальные цены в Гомеле на 2025 год</p>
+            <p className="text-gray-500 text-xs mt-1">Актуальные цены в Гомеле на 2026 год</p>
           </Link>
           <Link href="/articles/invertor-ili-obychnyy" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
             <p className="font-medium text-gray-900 text-sm">Инверторный или обычный кондиционер</p>

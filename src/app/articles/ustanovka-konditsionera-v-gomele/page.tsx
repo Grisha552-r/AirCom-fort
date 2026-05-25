@@ -25,7 +25,7 @@ export default function UstanovkaVGomelee() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Установка кондиционера в Гомеле: монтаж сплит-системы под ключ
         </h1>
-        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 6 мин</p>
+        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 6 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
           Установка кондиционера в Гомеле — услуга, которую многие откладывают до последнего. А потом приходит жара,

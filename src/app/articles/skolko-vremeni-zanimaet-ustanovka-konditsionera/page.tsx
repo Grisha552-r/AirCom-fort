@@ -25,7 +25,7 @@ export default function SkolkoVremeni() {
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
           Сколько времени занимает установка кондиционера: от замера до запуска
         </h1>
-        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2025 · Время чтения: 4 мин</p>
+        <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 4 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
           Один из самых частых вопросов перед заказом монтажа — нужно ли брать выходной или достаточно

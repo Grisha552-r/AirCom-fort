@@ -42,3 +42,8 @@ jest-test-results.json
 
 # Optional: if using TurboRepo or monorepo
 turbo/
+.vercel
+add-kinghome.js
+check-discount.js
+kinghome-discount.js
+update-kinghome-images.js

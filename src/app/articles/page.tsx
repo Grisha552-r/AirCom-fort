@@ -9,20 +9,20 @@ import Link from 'next/link';
 const ARTICLES = [
   {
     slug: 'tsena-ustanovki-konditsionera',
-    title: 'Сколько стоит установка кондиционера в Гомеле в 2025 году',
+    title: 'Сколько стоит установка кондиционера в Гомеле в 2026 году',
     excerpt: 'Актуальные цены на монтаж: от 400 р. за комнату до 30 м². Что входит в стоимость, за что попросят доплату и как не переплатить — объясняем по шагам.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
     readTime: '5 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
   },
   {
     slug: 'konditsioner-dlya-komnaty',
-    title: 'Какой кондиционер выбрать для комнаты в 2025 году: советы мастеров',
+    title: 'Какой кондиционер выбрать для комнаты в 2026 году: советы мастеров',
     excerpt: 'Как рассчитать мощность, выбрать между инвертором и on/off, и какой бренд лучше. Простые советы без лишних слов.',
     image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
     readTime: '6 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Выбор техники',
   },
   {
@@ -31,7 +31,7 @@ const ARTICLES = [
     excerpt: 'Грязный фильтр, обмерзание, нехватка фреона — разбираем по порядку. Что можно сделать самому за 10 минут, а когда нужно звонить мастеру.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png',
     readTime: '5 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Обслуживание',
   },
   {
@@ -40,7 +40,7 @@ const ARTICLES = [
     excerpt: 'Разбираем всё, что важно знать перед покупкой: мощность, типы, режимы работы, фильтры и энергоэффективность. Поможем не переплатить и выбрать то, что реально нужно.',
     image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
     readTime: '10 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Выбор техники',
   },
   {
@@ -49,7 +49,7 @@ const ARTICLES = [
     excerpt: 'Объясняем, чем инверторный компрессор отличается от обычного, сколько реально экономится электричества и когда переплата за инвертор оправдана, а когда нет.',
     image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
     readTime: '7 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Выбор техники',
   },
   {
@@ -58,7 +58,7 @@ const ARTICLES = [
     excerpt: 'Рассказываем, что происходит с кондиционером без ухода, какие работы можно сделать самому, а что лучше доверить мастеру. Признаки, что пора вызывать специалиста.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png',
     readTime: '8 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Обслуживание',
   },
   {
@@ -67,7 +67,7 @@ const ARTICLES = [
     excerpt: 'Какую температуру выставить, куда направлять воздух, как избежать простуды и аллергии. Простые правила, которые продлят жизнь технике и сохранят здоровье.',
     image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
     readTime: '6 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Эксплуатация',
   },
   {
@@ -76,7 +76,7 @@ const ARTICLES = [
     excerpt: 'Что нужно сделать осенью, чтобы кондиционер пережил зиму без поломок. Как правильно консервировать и когда имеет смысл использовать кондиционер для обогрева.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
     readTime: '7 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Эксплуатация',
   },
   {
@@ -85,7 +85,7 @@ const ARTICLES = [
     excerpt: 'Сравниваем два типа кондиционеров по шуму, эффективности, цене и удобству. Кому подойдёт мобильный, а кому лучше сразу брать сплит.',
     image: 'https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg',
     readTime: '6 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Выбор техники',
   },
   {
@@ -94,7 +94,7 @@ const ARTICLES = [
     excerpt: 'Разбираем законодательство: когда нужно разрешение, какие документы собрать, куда обращаться и что грозит за самовольную установку на фасаде многоквартирного дома.',
     image: 'https://split.by/sites/default/files/styles/640x400/public/field/image/nr.jpg?itok=eysvupPi',
     readTime: '5 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
   },
   {
@@ -103,7 +103,7 @@ const ARTICLES = [
     excerpt: 'Монтаж кондиционера в Гомеле от 400 р. Что входит в установку под ключ, как выбрать надёжную фирму и почему лучше брать кондиционер с установкой в одном месте.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
     readTime: '6 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
   },
   {
@@ -112,7 +112,7 @@ const ARTICLES = [
     excerpt: 'Стандартный монтаж сплит-системы — 2–4 часа. Разбираем все этапы установки, что увеличивает время и нужно ли присутствовать дома весь день.',
     image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
     readTime: '4 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
   },
   {
@@ -121,7 +121,7 @@ const ARTICLES = [
     excerpt: 'Когда требуется согласование, куда обращаться в Гомеле и что грозит за самовольную установку наружного блока на фасаде многоквартирного дома.',
     image: 'https://split.by/sites/default/files/styles/640x400/public/field/image/nr.jpg?itok=eysvupPi',
     readTime: '5 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
   },
   {
@@ -130,7 +130,7 @@ const ARTICLES = [
     excerpt: 'Кондиционер с установкой под ключ: один договор, один визит мастера, гарантия 1 год. Разбираем, что реально включено в пакет и почему это выгоднее, чем покупать отдельно.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png',
     readTime: '5 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
   },
   {
@@ -139,8 +139,26 @@ const ARTICLES = [
     excerpt: 'Стоимость монтажа кассетного кондиционера в Гомеле, отличия от настенного сплита и этапы установки в подвесной потолок. Цены от 600 р.',
     image: 'https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg',
     readTime: '5 мин',
-    date: '2025',
+    date: '2026',
     tag: 'Установка',
+  },
+  {
+    slug: 'zapravka-konditsionera-gomel',
+    title: 'Заправка кондиционера в Гомеле — цены 2026, выезд в день заказа',
+    excerpt: 'Кондиционер плохо охлаждает или покрывается льдом? Скорее всего нужна дозаправка фреоном. Цены от 60 р., диагностика бесплатно при заправке.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '4 мин',
+    date: '2026',
+    tag: 'Обслуживание',
+  },
+  {
+    slug: 'remont-konditsionera-gomel',
+    title: 'Ремонт кондиционера в Гомеле — диагностика бесплатно, цены 2026',
+    excerpt: 'Не включается, течёт, шумит или не охлаждает? Разбираем частые поломки и цены на ремонт. Мастер приедет в день обращения.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Обслуживание',
   },
 ];
 

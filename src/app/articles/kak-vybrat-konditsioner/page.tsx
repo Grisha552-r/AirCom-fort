@@ -78,7 +78,7 @@ export default function ArticlePage() {
           </h1>
           <div className="flex items-center gap-4 text-sm text-muted-foreground">
             <span className="flex items-center gap-1"><Icon name="ClockIcon" size={14} /> 10 мин читать</span>
-            <span className="flex items-center gap-1"><Icon name="CalendarIcon" size={14} /> 2025</span>
+            <span className="flex items-center gap-1"><Icon name="CalendarIcon" size={14} /> 2026</span>
           </div>
         </div>
 
