@@ -59,12 +59,6 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Left: Text */}
             <div className="reveal-on-scroll opacity-100 relative z-10">
-              {/* Urgency badge */}
-              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
-                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" />
-                Сезон открыт — выезд мастера в день заказа
-              </div>
-
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
                 Кондиционеры в Гомеле
                 <span className="text-crimson-gradient block">от 1 290 р.</span>
