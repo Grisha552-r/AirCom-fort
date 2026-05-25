@@ -46,9 +46,22 @@ const faqSchema = {
   ],
 };
 
+const articleSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Article',
+  headline: 'Чистка и обслуживание кондиционера: когда, как и почему это важно',
+  datePublished: '2026-05-01',
+  dateModified: '2026-05-25',
+  author: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
+  publisher: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
+  url: 'https://aircom-fort.by/articles/chistka-i-obsluzhivanie',
+  inLanguage: 'ru',
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
