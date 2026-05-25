@@ -346,6 +346,10 @@ function ProductsContent() {
           )}
         </nav>
 
+        <h1 className="text-2xl md:text-3xl font-bold text-foreground mb-6">
+          Купить кондиционер в Гомеле — каталог 2026
+        </h1>
+
         <div className="flex gap-6">
           {/* Desktop Sidebar */}
           <aside className="hidden lg:block w-64 shrink-0">

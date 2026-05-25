@@ -1,7 +1,9 @@
 import Link from 'next/link';
+import ArticleShell from '../ArticleShell';
 
 export default function KonditsionerNeOkhlazhdaetPage() {
   return (
+    <ArticleShell>
     <main className="max-w-3xl mx-auto px-4 py-10">
       <nav className="text-sm text-gray-500 mb-6">
         <Link href="/" className="hover:text-blue-600">Главная</Link>
@@ -194,5 +196,6 @@ export default function KonditsionerNeOkhlazhdaetPage() {
         </div>
       </div>
     </main>
+    </ArticleShell>
   );
 }

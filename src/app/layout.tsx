@@ -6,7 +6,7 @@ import JsonLd from '@/components/JsonLd';
 import YandexMetrica from '@/components/YandexMetrica';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
-  subsets: ['latin'],
+  subsets: ['latin', 'cyrillic'],
   weight: ['300', '400', '500', '600', '700', '800'],
   variable: '--font-plus-jakarta-sans',
   display: 'swap',

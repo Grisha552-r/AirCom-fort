@@ -41,10 +41,14 @@ export default function JsonLd() {
         priceRange: '$$',
         currenciesAccepted: 'BYN',
         paymentAccepted: 'Cash, Credit Card',
-        areaServed: {
-          '@type': 'City',
-          name: 'Гомель',
-        },
+        areaServed: [
+          { '@type': 'City', name: 'Гомель' },
+          { '@type': 'City', name: 'Жлобин' },
+          { '@type': 'City', name: 'Мозырь' },
+          { '@type': 'City', name: 'Речица' },
+          { '@type': 'City', name: 'Светлогорск' },
+          { '@type': 'AdministrativeArea', name: 'Гомельская область' },
+        ],
         contactPoint: {
           '@type': 'ContactPoint',
           telephone: '+375291050694',
