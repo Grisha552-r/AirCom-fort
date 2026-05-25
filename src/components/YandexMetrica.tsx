@@ -1,25 +1,23 @@
 'use client';
 import { useEffect } from 'react';
 
-// Yandex Metrica counter — replace COUNTER_ID with your actual ID from metrica.yandex.ru
-const COUNTER_ID = process.env.NEXT_PUBLIC_YANDEX_METRICA_ID;
-
 export default function YandexMetrica() {
   useEffect(() => {
-    if (!COUNTER_ID) return;
     const script = document.createElement('script');
+    script.type = 'text/javascript';
     script.innerHTML = `
-      (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
-      m[i].l=1*new Date();
-      for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
-      k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
-      (window,document,"script","https://mc.yandex.ru/metrika/tag.js","ym");
-      ym(${COUNTER_ID},"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});
+      (function(m,e,t,r,i,k,a){
+        m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+        m[i].l=1*new Date();
+        for(var j=0;j<document.scripts.length;j++){if(document.scripts[j].src===r){return;}}
+        k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)
+      })(window,document,'script','https://mc.yandex.ru/metrika/tag.js?id=109411009','ym');
+      ym(109411009,'init',{ssr:true,webvisor:true,clickmap:true,ecommerce:"dataLayer",referrer:document.referrer,url:location.href,accurateTrackBounce:true,trackLinks:true});
     `;
     document.head.appendChild(script);
 
     const noscript = document.createElement('noscript');
-    noscript.innerHTML = `<div><img src="https://mc.yandex.ru/watch/${COUNTER_ID}" style="position:absolute;left:-9999px;" alt="" /></div>`;
+    noscript.innerHTML = '<div><img src="https://mc.yandex.ru/watch/109411009" style="position:absolute;left:-9999px;" alt="" /></div>';
     document.body.appendChild(noscript);
   }, []);
 
