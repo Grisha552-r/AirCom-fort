@@ -31,10 +31,10 @@ const currentMonth = MONTHS_RU[new Date().getMonth()];
 export const metadata: Metadata = {
   metadataBase: new URL('https://aircom-fort.by'),
   title: {
-    default: `Установка и продажа кондиционеров в Гомеле и области`,
+    default: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
     template: '%s',
   },
-  description: '⭐ 4.9 — Кондиционеры в Гомеле с установкой под ключ от 1 290 р. Electrolux, Ballu, Haier, LG. Монтаж от 400 р., выезд в день заказа, гарантия 1 год. Звоните: +375 29 105-06-94.',
+  description: 'Купить кондиционер в Гомеле с установкой под ключ от 1 290 р. Electrolux, Ballu, Haier, LG — 300+ моделей в наличии. Монтаж от 400 р., выезд в день заказа, гарантия 1 год. ☎ +375 29 105-06-94.',
   keywords: [
     'установка кондиционеров Гомель',
     'продажа кондиционеров Гомель',
@@ -113,14 +113,14 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     url: 'https://aircom-fort.by',
     siteName: 'AirComfort',
-    title: `Установка и продажа кондиционеров в Гомеле и области`,
-    description: 'Продажа и монтаж кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG, Mitsudai. Установка под ключ от 400 р., гарантия 1 год, выезд в день заказа.',
-    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'AirComfort — Кондиционеры в Гомеле' }],
+    title: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
+    description: 'Купить кондиционер в Гомеле с установкой под ключ от 1 290 р. 300+ моделей: Electrolux, Ballu, Haier, LG. Монтаж от 400 р., выезд в день заказа.',
+    images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'AirComfort — Кондиционеры в Гомеле от 1 290 р.' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Установка и продажа кондиционеров в Гомеле и области`,
-    description: 'Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
+    title: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
+    description: 'Electrolux, Ballu, Haier, LG — 300+ моделей. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
     images: ['/opengraph-image'],
   },
   alternates: {
