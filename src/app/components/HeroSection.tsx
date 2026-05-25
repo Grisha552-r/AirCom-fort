@@ -59,14 +59,37 @@ export default function HeroSection() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 items-center">
             {/* Left: Text */}
             <div className="reveal-on-scroll opacity-100 relative z-10">
+              {/* Urgency badge */}
+              <div className="inline-flex items-center gap-2 bg-amber-50 border border-amber-200 text-amber-800 text-xs font-semibold px-3 py-1.5 rounded-full mb-4">
+                <span className="w-2 h-2 rounded-full bg-amber-500 animate-pulse shrink-0" />
+                Сезон открыт — выезд мастера в день заказа
+              </div>
+
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
                 Кондиционеры в Гомеле
                 <span className="text-crimson-gradient block">от 1 290 р.</span>
                 с установкой под ключ
               </h1>
-              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-6 max-w-md">
+              <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-md">
                 Electrolux, Ballu, Haier, LG, Mitsudai — 300+ моделей в наличии. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.
               </p>
+
+              {/* Trust counters */}
+              <div className="flex items-center gap-4 mb-6">
+                <div className="flex items-center gap-1.5">
+                  <span className="text-amber-400 text-lg">★</span>
+                  <span className="font-bold text-foreground text-sm">4.9</span>
+                  <span className="text-muted-foreground text-xs">/ 200+ отзывов</span>
+                </div>
+                <div className="w-px h-4 bg-border" />
+                <div className="text-sm text-muted-foreground">
+                  <span className="font-bold text-foreground">500+</span> установок в Гомеле
+                </div>
+                <div className="w-px h-4 bg-border" />
+                <div className="text-sm text-muted-foreground">
+                  Гарантия <span className="font-bold text-foreground">1 год</span>
+                </div>
+              </div>
 
               <div className="flex flex-col sm:flex-row gap-3 mb-6">
                 <button

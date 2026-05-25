@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Fraunces } from 'next/font/google';
 import '../styles/tailwind.css';
 import JsonLd from '@/components/JsonLd';
 import YandexMetrica from '@/components/YandexMetrica';
+import FloatingCTA from '@/components/FloatingCTA';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin'],
@@ -143,6 +144,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={plusJakartaSans.className}>
         <JsonLd />
         <YandexMetrica />
+        <FloatingCTA />
         {children}
       </body>
     </html>
