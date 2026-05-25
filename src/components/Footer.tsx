@@ -58,7 +58,13 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Компания</h4>
             <ul className="space-y-2.5">
-              {[{ label: 'О нас', href: '/about' }, { label: 'Ответы на вопросы', href: '/articles' }, { label: 'Реквизиты', href: '/requisites' }].map(item => (
+              {[
+                { label: 'Кондиционеры в Гомеле', href: '/konditsionery-gomel' },
+                { label: 'Услуги', href: '/services' },
+                { label: 'О нас', href: '/about' },
+                { label: 'Статьи', href: '/articles' },
+                { label: 'Реквизиты', href: '/requisites' },
+              ].map(item => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">
                     {item.label}

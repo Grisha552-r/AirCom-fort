@@ -4,12 +4,13 @@ import { getSupabaseAdmin } from '@/lib/supabase';
 const BASE = 'https://aircom-fort.by';
 
 const STATIC_PAGES = [
-  { url: `${BASE}/`,           priority: 1.0, changefreq: 'daily'   },
-  { url: `${BASE}/products`,   priority: 0.9, changefreq: 'daily'   },
-  { url: `${BASE}/services`,   priority: 0.8, changefreq: 'weekly'  },
-  { url: `${BASE}/about`,      priority: 0.5, changefreq: 'monthly' },
-  { url: `${BASE}/requisites`, priority: 0.4, changefreq: 'monthly' },
-  { url: `${BASE}/articles`,   priority: 0.6, changefreq: 'weekly'  },
+  { url: `${BASE}/`,                        priority: 1.0, changefreq: 'daily'   },
+  { url: `${BASE}/konditsionery-gomel`,     priority: 0.98, changefreq: 'daily'  },
+  { url: `${BASE}/products`,                priority: 0.9, changefreq: 'daily'   },
+  { url: `${BASE}/services`,                priority: 0.8, changefreq: 'weekly'  },
+  { url: `${BASE}/about`,                   priority: 0.5, changefreq: 'monthly' },
+  { url: `${BASE}/requisites`,              priority: 0.4, changefreq: 'monthly' },
+  { url: `${BASE}/articles`,                priority: 0.6, changefreq: 'weekly'  },
 ];
 
 const CATEGORY_SLUGS = [

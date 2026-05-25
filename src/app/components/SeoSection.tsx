@@ -51,6 +51,7 @@ export default function SeoSection() {
               Помимо охлаждения, большинство современных сплит-систем умеют обогревать помещение при температуре до −15 °C — это экономичнее электрообогревателя в 2–3 раза. Мобильный кондиционер — если сверление стен невозможно: идеально для аренды или дачи.
             </p>
             <div className="flex flex-wrap gap-2 mt-2">
+              <Link href="/konditsionery-gomel" className="text-xs bg-crimson-50 border border-crimson-200 rounded-lg px-3 py-1.5 text-crimson-700 font-medium hover:bg-crimson-100 transition-colors">Кондиционеры в Гомеле →</Link>
               <Link href="/products/split-systems" className="text-xs bg-white border border-border rounded-lg px-3 py-1.5 text-foreground hover:border-crimson-300 hover:bg-crimson-50 transition-colors">Сплит-системы →</Link>
               <Link href="/products/split-electrolux" className="text-xs bg-white border border-border rounded-lg px-3 py-1.5 text-foreground hover:border-crimson-300 hover:bg-crimson-50 transition-colors">Electrolux →</Link>
               <Link href="/products/split-ballu" className="text-xs bg-white border border-border rounded-lg px-3 py-1.5 text-foreground hover:border-crimson-300 hover:bg-crimson-50 transition-colors">Ballu →</Link>
