@@ -169,6 +169,42 @@ const ARTICLES = [
     date: '2026',
     tag: 'Обслуживание',
   },
+  {
+    slug: 'demontazh-konditsionera-gomel',
+    title: 'Демонтаж кондиционера в Гомеле — цена от 100 р., выезд в день заказа',
+    excerpt: 'Снимем кондиционер правильно: закачаем фреон, сохраним блоки в рабочем состоянии. При заказе нового кондиционера — демонтаж бесплатно.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '4 мин',
+    date: '2026',
+    tag: 'Установка',
+  },
+  {
+    slug: 'konditsioner-electrolux-gomel',
+    title: 'Кондиционеры Electrolux в Гомеле — купить с установкой от 1 490 р.',
+    excerpt: 'Официальный дилер Electrolux в Гомеле. Серии EACS, EACS-I и Nordic в наличии на складе. Установка в день заказа, гарантия 2–3 года.',
+    image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
+    readTime: '6 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'konditsioner-dlya-ofisa-gomel',
+    title: 'Кондиционер для офиса в Гомеле — как выбрать, цены и монтаж',
+    excerpt: 'Какой кондиционер выбрать для офиса: настенный сплит, кассетный или мультисплит. Расчёт мощности по площади и числу рабочих мест, цены с монтажом.',
+    image: 'https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg',
+    readTime: '6 мин',
+    date: '2026',
+    tag: 'Установка',
+  },
+  {
+    slug: 'tikhiy-konditsioner-dlya-spalni',
+    title: 'Тихий кондиционер для спальни 2026 — ТОП 5 бесшумных моделей',
+    excerpt: 'Рейтинг самых тихих кондиционеров с уровнем шума от 19 дБ. Ballu Platinum, Electrolux Nordic, Haier Pearl — выбор для спальни с режимом ночной работы.',
+    image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
+    readTime: '6 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {

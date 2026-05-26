@@ -62,7 +62,7 @@ export default function Footer() {
                 { label: 'Кондиционеры в Гомеле', href: '/konditsionery-gomel' },
                 { label: 'Услуги', href: '/services' },
                 { label: 'О нас', href: '/about' },
-                { label: 'Статьи', href: '/articles' },
+                { label: 'Все статьи', href: '/articles' },
                 { label: 'Реквизиты', href: '/requisites' },
               ].map(item => (
                 <li key={item.label}>
@@ -79,6 +79,27 @@ export default function Footer() {
                 уточняйте адрес по телефону
               </p>
             </div>
+          </div>
+
+          {/* Статьи */}
+          <div>
+            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Статьи</h4>
+            <ul className="space-y-2.5">
+              {[
+                { label: 'Установка кондиционера', href: '/articles/tsena-ustanovki-konditsionera' },
+                { label: 'Выбор кондиционера', href: '/articles/kak-vybrat-konditsioner' },
+                { label: 'Тихий кондиционер для спальни', href: '/articles/tikhiy-konditsioner-dlya-spalni' },
+                { label: 'Кондиционер для офиса', href: '/articles/konditsioner-dlya-ofisa-gomel' },
+                { label: 'Демонтаж кондиционера', href: '/articles/demontazh-konditsionera-gomel' },
+                { label: 'Заправка фреоном', href: '/articles/zapravka-konditsionera-gomel' },
+              ].map(item => (
+                <li key={item.label}>
+                  <Link href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">
+                    {item.label}
+                  </Link>
+                </li>
+              ))}
+            </ul>
           </div>
         </div>
 

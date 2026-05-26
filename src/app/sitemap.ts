@@ -37,6 +37,10 @@ const ARTICLE_SLUGS = [
   'zapravka-konditsionera-gomel',
   'remont-konditsionera-gomel',
   'obsluzhivanie-konditsionera-gomel',
+  'demontazh-konditsionera-gomel',
+  'konditsioner-electrolux-gomel',
+  'konditsioner-dlya-ofisa-gomel',
+  'tikhiy-konditsioner-dlya-spalni',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
