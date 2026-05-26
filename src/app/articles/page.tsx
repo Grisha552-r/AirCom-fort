@@ -286,6 +286,24 @@ const ARTICLES = [
     date: '2026',
     tag: 'Выбор техники',
   },
+  {
+    slug: 'konditsioner-gree-gomel',
+    title: 'Кондиционеры Gree в Гомеле — купить с установкой от 990 р.',
+    excerpt: 'Gree — №1 производитель кондиционеров в мире, OEM-поставщик для Daikin. Серии Bora, Lomo, Amber с установкой под ключ в Гомеле. Надёжность при доступной цене.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'konditsioner-dlya-dachi',
+    title: 'Кондиционер для дачи 2026 — мобильный или сплит, что выбрать',
+    excerpt: 'Мобильный кондиционер от 490 р. без сверления стен, или бюджетный сплит от 1 190 р. под ключ. Сравниваем и помогаем выбрать для дачного дома.',
+    image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {
