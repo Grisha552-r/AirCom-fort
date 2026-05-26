@@ -259,6 +259,33 @@ const ARTICLES = [
     date: '2026',
     tag: 'Установка',
   },
+  {
+    slug: 'konditsioner-dlya-gostinoy',
+    title: 'Кондиционер для гостиной — какой выбрать в 2026 году',
+    excerpt: 'Как выбрать кондиционер для гостиной: мощность по площади, лучшие модели, уровень шума и Wi-Fi управление. Цены с монтажом в Гомеле от 990 р.',
+    image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'mulitsplit-gomel',
+    title: 'Мультисплит система в Гомеле — цены 2026, один блок на все комнаты',
+    excerpt: 'Один внешний блок — 2–5 комнат. Цены на мультисплит в Гомеле от 2 500 р. под ключ. Когда мультисплит выгоднее нескольких кондиционеров — разбираем.',
+    image: 'https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Установка',
+  },
+  {
+    slug: 'konditsioner-midea-gomel',
+    title: 'Кондиционеры Midea в Гомеле — купить с установкой от 890 р.',
+    excerpt: 'Midea — крупнейший производитель климатической техники в мире. Серии Mission, Blanc, Xtreme Save Pro с установкой под ключ в Гомеле. Инверторные модели от 890 р.',
+    image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {

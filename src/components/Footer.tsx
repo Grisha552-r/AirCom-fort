@@ -90,8 +90,9 @@ export default function Footer() {
                 { label: 'Кондиционеры Electrolux', href: '/articles/konditsioner-electrolux-gomel' },
                 { label: 'Кондиционеры Ballu', href: '/articles/konditsioner-ballu-gomel' },
                 { label: 'Кондиционеры Haier', href: '/articles/konditsioner-haier-gomel' },
-                { label: 'Кондиционеры LG', href: '/articles/konditsioner-lg-gomel' },
-                { label: 'Тихий кондиционер для спальни', href: '/articles/tikhiy-konditsioner-dlya-spalni' },
+                { label: 'Кондиционеры Midea', href: '/articles/konditsioner-midea-gomel' },
+                { label: 'Кондиционер для гостиной', href: '/articles/konditsioner-dlya-gostinoy' },
+                { label: 'Мультисплит в Гомеле', href: '/articles/mulitsplit-gomel' },
               ].map(item => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">
