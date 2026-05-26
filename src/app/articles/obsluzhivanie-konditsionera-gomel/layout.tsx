@@ -21,6 +21,42 @@ export const metadata: Metadata = {
   },
 };
 
+const faqSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: [
+    {
+      '@type': 'Question',
+      name: 'Как часто нужно обслуживать кондиционер?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Рекомендуем профилактическое ТО 1 раз в год — обычно весной перед сезоном. При интенсивной работе (офисы, кафе) — 2 раза в год. Фильтры в домашних кондиционерах чистите самостоятельно раз в 2–4 недели в сезон.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Сколько стоит чистка кондиционера в Гомеле?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Чистка внутреннего блока в Гомеле — от 60 р. Включает промывку испарителя, чистку фильтров и дренажной системы. Дезинфекция (обработка антибактериальным составом) — от 90 р. Выезд мастера в день заказа.',
+      },
+    },
+    {
+      '@type': 'Question',
+      name: 'Что входит в полное ТО кондиционера?',
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: 'Полное ТО кондиционера включает: чистку фильтров, промывку теплообменника испарителя, прочистку дренажа, проверку давления фреона, замер тока компрессора, проверку всех режимов и дезинфекцию. Стоимость от 120 р. в Гомеле.',
+      },
+    },
+  ],
+};
+
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      {children}
+    </>
+  );
 }
