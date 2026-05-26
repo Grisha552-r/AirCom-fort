@@ -232,6 +232,24 @@ const ARTICLES = [
     date: '2026',
     tag: 'Выбор техники',
   },
+  {
+    slug: 'konditsioner-dlya-detskoy',
+    title: 'Кондиционер для детской комнаты — как выбрать безопасный в 2026',
+    excerpt: 'Тихий, с фильтрацией воздуха, без сквозняков — как выбрать кондиционер для детской. ТОП моделей до 24 дБ с режимом «Ночь» и самоочисткой.',
+    image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
+    readTime: '6 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'invertor-konditsioner-gomel',
+    title: 'Инверторный кондиционер в Гомеле — купить с установкой, цены 2026',
+    excerpt: 'Инверторный кондиционер с установкой в Гомеле от 1 290 р. Electrolux EACS-I, Ballu BSAGI, Haier, LG — экономия 30–40% на электроэнергии. Монтаж в день заказа.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '6 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {

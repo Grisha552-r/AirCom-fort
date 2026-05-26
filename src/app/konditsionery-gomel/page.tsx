@@ -378,10 +378,13 @@ export default function KonditsioneryGomelPage() {
               {[
                 ['/articles/kak-vybrat-konditsioner', 'Как выбрать кондиционер'],
                 ['/articles/tsena-ustanovki-konditsionera', 'Цены на установку'],
-                ['/articles/ustanovka-konditsionera-v-gomele', 'Монтаж в Гомеле'],
-                ['/articles/invertor-ili-obychnyy', 'Инвертор или On/Off'],
+                ['/articles/konditsioner-electrolux-gomel', 'Electrolux в Гомеле'],
+                ['/articles/konditsioner-ballu-gomel', 'Ballu в Гомеле'],
+                ['/articles/konditsioner-haier-gomel', 'Haier в Гомеле'],
+                ['/articles/konditsioner-lg-gomel', 'LG в Гомеле'],
+                ['/articles/tikhiy-konditsioner-dlya-spalni', 'Тихий кондиционер'],
+                ['/articles/konditsioner-dlya-ofisa-gomel', 'Кондиционер для офиса'],
                 ['/articles/zapravka-konditsionera-gomel', 'Заправка фреоном'],
-                ['/articles/remont-konditsionera-gomel', 'Ремонт кондиционера'],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="text-sm text-crimson-700 hover:underline py-1">
                   → {label}
