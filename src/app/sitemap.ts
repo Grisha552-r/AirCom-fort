@@ -41,6 +41,9 @@ const ARTICLE_SLUGS = [
   'konditsioner-electrolux-gomel',
   'konditsioner-dlya-ofisa-gomel',
   'tikhiy-konditsioner-dlya-spalni',
+  'konditsioner-ballu-gomel',
+  'konditsioner-haier-gomel',
+  'konditsioner-lg-gomel',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

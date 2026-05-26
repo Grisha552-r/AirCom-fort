@@ -87,11 +87,11 @@ export default function Footer() {
             <ul className="space-y-2.5">
               {[
                 { label: 'Установка кондиционера', href: '/articles/tsena-ustanovki-konditsionera' },
-                { label: 'Выбор кондиционера', href: '/articles/kak-vybrat-konditsioner' },
+                { label: 'Кондиционеры Electrolux', href: '/articles/konditsioner-electrolux-gomel' },
+                { label: 'Кондиционеры Ballu', href: '/articles/konditsioner-ballu-gomel' },
+                { label: 'Кондиционеры Haier', href: '/articles/konditsioner-haier-gomel' },
+                { label: 'Кондиционеры LG', href: '/articles/konditsioner-lg-gomel' },
                 { label: 'Тихий кондиционер для спальни', href: '/articles/tikhiy-konditsioner-dlya-spalni' },
-                { label: 'Кондиционер для офиса', href: '/articles/konditsioner-dlya-ofisa-gomel' },
-                { label: 'Демонтаж кондиционера', href: '/articles/demontazh-konditsionera-gomel' },
-                { label: 'Заправка фреоном', href: '/articles/zapravka-konditsionera-gomel' },
               ].map(item => (
                 <li key={item.label}>
                   <Link href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">

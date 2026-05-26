@@ -205,6 +205,33 @@ const ARTICLES = [
     date: '2026',
     tag: 'Выбор техники',
   },
+  {
+    slug: 'konditsioner-ballu-gomel',
+    title: 'Кондиционеры Ballu в Гомеле — купить с установкой от 1 290 р.',
+    excerpt: 'Официальный дилер Ballu в Гомеле. Серии BSW, BSAGI, BSDI и Platinum Evolution в наличии. Инвертор или On/Off — поможем выбрать под бюджет и задачи.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'konditsioner-haier-gomel',
+    title: 'Кондиционеры Haier в Гомеле — купить с установкой от 1 350 р.',
+    excerpt: 'Wi-Fi управление через hOn, инверторный компрессор, самоочистка. Официальный дилер Haier в Гомеле — все модели в наличии, монтаж в день заказа.',
+    image: 'https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'konditsioner-lg-gomel',
+    title: 'Кондиционеры LG в Гомеле — купить с установкой от 1 690 р.',
+    excerpt: 'Гарантия 3 года, тихая работа от 21 дБ, ThinQ Smart управление. LG S-серия и ArtCool в наличии в Гомеле. Официальный дилер AirComfort.',
+    image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {
