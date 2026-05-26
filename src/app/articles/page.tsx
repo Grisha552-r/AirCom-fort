@@ -304,6 +304,24 @@ const ARTICLES = [
     date: '2026',
     tag: 'Выбор техники',
   },
+  {
+    slug: 'konditsioner-s-obogrevom-gomel',
+    title: 'Кондиционер с обогревом в Гомеле — в 3 раза экономичнее обогревателя',
+    excerpt: 'Как кондиционер работает на обогрев: до какой температуры, сколько экономит. Лучшие модели для зимнего использования в Гомеле, цены с монтажом.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Эксплуатация',
+  },
+  {
+    slug: 'nedorogoy-konditsioner-gomel',
+    title: 'Недорогой кондиционер в Гомеле — купить с установкой от 1 090 р.',
+    excerpt: 'Рейтинг лучших бюджетных кондиционеров в Гомеле: Mitsudai от 1 090 р., Ballu от 1 190 р. Что выбрать — on/off или недорогой инвертор? Советы без лишних слов.',
+    image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {

@@ -52,6 +52,8 @@ const ARTICLE_SLUGS = [
   'konditsioner-midea-gomel',
   'konditsioner-gree-gomel',
   'konditsioner-dlya-dachi',
+  'konditsioner-s-obogrevom-gomel',
+  'nedorogoy-konditsioner-gomel',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
