@@ -77,6 +77,9 @@ export default function SeoSection() {
               { href: '/articles/konditsioner-ballu-gomel', label: 'Ballu в Гомеле' },
               { href: '/articles/konditsioner-haier-gomel', label: 'Haier в Гомеле' },
               { href: '/articles/konditsioner-lg-gomel', label: 'LG в Гомеле' },
+              { href: '/articles/konditsioner-dlya-gostinoy', label: 'Кондиционер для гостиной' },
+              { href: '/articles/mulitsplit-gomel', label: 'Мультисплит в Гомеле' },
+              { href: '/articles/konditsioner-midea-gomel', label: 'Midea в Гомеле' },
               { href: '/articles/zapravka-konditsionera-gomel', label: 'Заправка фреоном Гомель' },
               { href: '/articles/obsluzhivanie-konditsionera-gomel', label: 'Обслуживание кондиционера' },
             ].map(link => (
