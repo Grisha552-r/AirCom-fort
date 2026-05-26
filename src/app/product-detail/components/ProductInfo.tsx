@@ -89,10 +89,10 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
           <div className="bg-crimson-50 px-4 py-3 flex items-center justify-between gap-4">
             <div>
               <p className="text-2xl font-bold text-foreground">
-                {(product.price + 400).toLocaleString('ru-RU')} <span className="text-base font-semibold text-muted-foreground">р.</span>
+                {(product.price + (product.brand === 'King Home' ? 190 : 400)).toLocaleString('ru-RU')} <span className="text-base font-semibold text-muted-foreground">р.</span>
               </p>
               <p className="text-xs text-muted-foreground mt-0.5">
-                {product.price.toLocaleString('ru-RU')} р. + монтаж 400 р.
+                {product.price.toLocaleString('ru-RU')} р. + монтаж {product.brand === 'King Home' ? 190 : 400} р.
               </p>
             </div>
             {product.discount && product.originalPrice && (
@@ -107,15 +107,6 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
         </div>
       )}
 
-      {/* King Home discount banner */}
-      {product.brand === 'King Home' && (
-        <div className="flex items-center gap-2.5 bg-amber-50 border border-amber-200 rounded-xl px-3 py-2.5">
-          <Icon name="TagIcon" size={16} className="text-amber-600 shrink-0" />
-          <p className="text-sm text-amber-800">
-            Скидка <span className="font-bold">10%</span> на все модели King Home Luna Matt — акция сезона 2026
-          </p>
-        </div>
-      )}
 
       {/* Quantity + Add to cart */}
       <div className="flex items-center gap-3">
