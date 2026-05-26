@@ -322,6 +322,24 @@ const ARTICLES = [
     date: '2026',
     tag: 'Выбор техники',
   },
+  {
+    slug: 'konditsioner-kinghome-gomel',
+    title: 'Кондиционеры King Home в Гомеле — купить с установкой от 990 р.',
+    excerpt: 'King Home — надёжный бюджетный бренд. Сравнение с Ballu и Mitsudai, цены на все модели с монтажом в Гомеле. Официальный дилер AirComfort.',
+    image: 'https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg',
+    readTime: '4 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'ustanovka-konditsionera-v-novostroyke',
+    title: 'Установка кондиционера в новостройке — как правильно и сколько стоит',
+    excerpt: 'Когда лучше ставить кондиционер в новостройке — до отделки или после. Этапы монтажа, цены, согласование в новых домах Гомеля. Советы мастеров.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Установка',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {
