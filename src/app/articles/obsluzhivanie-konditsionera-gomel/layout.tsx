@@ -21,23 +21,6 @@ export const metadata: Metadata = {
   },
 };
 
-const articleSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'Article',
-  headline: 'Обслуживание кондиционера в Гомеле — чистка, заправка, ремонт',
-  datePublished: '2026-05-01',
-  dateModified: '2026-05-25',
-  author: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
-  publisher: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
-  url: 'https://aircom-fort.by/articles/obsluzhivanie-konditsionera-gomel',
-  inLanguage: 'ru',
-};
-
 export default function Layout({ children }: { children: React.ReactNode }) {
-  return (
-    <>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(articleSchema) }} />
-      {children}
-    </>
-  );
+  return <>{children}</>;
 }
