@@ -62,6 +62,31 @@ export default function SeoSection() {
           </div>
         </div>
 
+        {/* Article links */}
+        <div className="border-t border-border pt-8">
+          <h3 className="text-sm font-semibold text-foreground mb-4">Полезные статьи о кондиционерах</h3>
+          <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-4 gap-2">
+            {[
+              { href: '/articles/kak-vybrat-konditsioner', label: 'Как выбрать кондиционер' },
+              { href: '/articles/tsena-ustanovki-konditsionera', label: 'Цены на установку в Гомеле' },
+              { href: '/articles/invertor-konditsioner-gomel', label: 'Инверторный кондиционер Гомель' },
+              { href: '/articles/tikhiy-konditsioner-dlya-spalni', label: 'Тихий кондиционер для спальни' },
+              { href: '/articles/konditsioner-dlya-detskoy', label: 'Кондиционер для детской' },
+              { href: '/articles/konditsioner-dlya-ofisa-gomel', label: 'Кондиционер для офиса' },
+              { href: '/articles/konditsioner-electrolux-gomel', label: 'Electrolux в Гомеле' },
+              { href: '/articles/konditsioner-ballu-gomel', label: 'Ballu в Гомеле' },
+              { href: '/articles/konditsioner-haier-gomel', label: 'Haier в Гомеле' },
+              { href: '/articles/konditsioner-lg-gomel', label: 'LG в Гомеле' },
+              { href: '/articles/zapravka-konditsionera-gomel', label: 'Заправка фреоном Гомель' },
+              { href: '/articles/obsluzhivanie-konditsionera-gomel', label: 'Обслуживание кондиционера' },
+            ].map(link => (
+              <Link key={link.href} href={link.href} className="text-xs text-crimson-700 hover:underline py-1">
+                → {link.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+
       </div>
     </section>
   );
