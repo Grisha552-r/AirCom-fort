@@ -46,6 +46,7 @@ const ARTICLE_SLUGS = [
   'konditsioner-lg-gomel',
   'konditsioner-dlya-detskoy',
   'invertor-konditsioner-gomel',
+  'split-sistema-gomel',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {

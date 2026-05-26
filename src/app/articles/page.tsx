@@ -250,6 +250,15 @@ const ARTICLES = [
     date: '2026',
     tag: 'Выбор техники',
   },
+  {
+    slug: 'split-sistema-gomel',
+    title: 'Сплит-система в Гомеле — купить и установить от 1 290 р.',
+    excerpt: 'Как выбрать сплит-систему в Гомеле: расчёт мощности, сравнение с мобильным кондиционером, этапы монтажа. Лучшие модели с ценами, установка в день заказа.',
+    image: 'https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png',
+    readTime: '6 мин',
+    date: '2026',
+    tag: 'Установка',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {
