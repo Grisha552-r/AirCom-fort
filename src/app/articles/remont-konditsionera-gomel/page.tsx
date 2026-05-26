@@ -2,18 +2,6 @@ import Link from 'next/link';
 import ArticleShell from '../ArticleShell';
 
 export default function RemontPage() {
-  const jsonLd = {
-    '@context': 'https://schema.org',
-    '@type': 'Article',
-    headline: 'Ремонт кондиционера в Гомеле — диагностика бесплатно, цены 2026',
-    datePublished: '2026-05-25',
-    dateModified: '2026-05-25',
-    author: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
-    publisher: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
-    description: 'Ремонт кондиционеров в Гомеле. Не охлаждает, течёт, не включается. Диагностика бесплатно.',
-    mainEntityOfPage: { '@type': 'WebPage', '@id': 'https://aircom-fort.by/articles/remont-konditsionera-gomel' },
-  };
-
   const breadcrumbLd = {
     '@context': 'https://schema.org',
     '@type': 'BreadcrumbList',
@@ -27,7 +15,6 @@ export default function RemontPage() {
   return (
     <ArticleShell>
     <main className="max-w-3xl mx-auto px-4 py-10">
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
 
       <nav className="text-sm text-gray-500 mb-6">
