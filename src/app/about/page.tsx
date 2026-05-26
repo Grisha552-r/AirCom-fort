@@ -324,6 +324,25 @@ export default function AboutPage() {
             </div>
           </div>
 
+          {/* Article links */}
+          <div className="bg-zinc-50 border border-border rounded-2xl p-6 mt-8">
+            <p className="text-sm font-semibold text-foreground mb-4">Полезные статьи от наших специалистов</p>
+            <div className="grid grid-cols-1 sm:grid-cols-2 gap-2">
+              {[
+                ['/articles/kak-vybrat-konditsioner', 'Как выбрать кондиционер для квартиры'],
+                ['/articles/tsena-ustanovki-konditsionera', 'Сколько стоит установка в Гомеле'],
+                ['/articles/invertor-ili-obychnyy', 'Инвертор или обычный — что выгоднее'],
+                ['/articles/tikhiy-konditsioner-dlya-spalni', 'Тихий кондиционер для спальни'],
+                ['/articles/konditsioner-dlya-ofisa-gomel', 'Кондиционер для офиса в Гомеле'],
+                ['/articles/chistka-i-obsluzhivanie', 'Чистка и обслуживание кондиционера'],
+              ].map(([href, label]) => (
+                <Link key={href} href={href} className="text-sm text-crimson-700 hover:underline py-1">
+                  → {label}
+                </Link>
+              ))}
+            </div>
+          </div>
+
         </div>
       </main>
 

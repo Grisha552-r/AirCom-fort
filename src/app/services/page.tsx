@@ -446,6 +446,23 @@ export default function ServicesPage() {
                 </p>
               </div>
             </div>
+            <div className="mt-8 pt-6 border-t border-border">
+              <p className="text-sm font-semibold text-foreground mb-3">Полезные статьи по теме:</p>
+              <div className="grid grid-cols-2 sm:grid-cols-3 gap-2">
+                {[
+                  ['/articles/tsena-ustanovki-konditsionera', 'Цены на установку кондиционера'],
+                  ['/articles/split-sistema-gomel', 'Сплит-система в Гомеле'],
+                  ['/articles/montazh-kassetnogo-konditsionera', 'Монтаж кассетного кондиционера'],
+                  ['/articles/demontazh-konditsionera-gomel', 'Демонтаж кондиционера'],
+                  ['/articles/zapravka-konditsionera-gomel', 'Заправка фреоном'],
+                  ['/articles/obsluzhivanie-konditsionera-gomel', 'Обслуживание кондиционера'],
+                ].map(([href, label]) => (
+                  <Link key={href} href={href} className="text-xs text-crimson-700 hover:underline py-1">
+                    → {label}
+                  </Link>
+                ))}
+              </div>
+            </div>
           </div>
         </div>
       </main>
