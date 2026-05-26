@@ -27,8 +27,8 @@ export default function HeroSection() {
     e.preventDefault();
     e.stopPropagation();
     const items = [
-      { productId: 'p-kh-luna-09', productName: 'Кондиционер King Home Luna Matt 09 (9000 BTU)', price: 1890, quantity: 1, image: 'https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg' },
-      { productId: 'service-montage', productName: 'Монтаж кондиционера (стандарт, до 3 м трассы)', price: 400, quantity: 1, image: '' },
+      { productId: 'p-kh-luna-09', productName: 'Кондиционер King Home Luna Matt 09 (9000 BTU)', price: 2100, quantity: 1, image: 'https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg' },
+      { productId: 'service-montage', productName: 'Монтаж кондиционера (стандарт, до 3 м трассы)', price: 190, quantity: 1, image: '' },
     ];
     localStorage.setItem('sga_cart', JSON.stringify(items));
     window.dispatchEvent(new Event('cart-updated'));
@@ -214,7 +214,7 @@ export default function HeroSection() {
                         </div>
                         <div className="flex items-center gap-1.5 bg-indigo-600 text-white text-[10px] font-bold px-3 py-1.5 rounded-full shadow-sm self-start">
                           <span className="w-1.5 h-1.5 rounded-full bg-white animate-pulse" />
-                          СКИДКА · 10%
+                          СЕЗОН · 2026
                         </div>
                       </div>
                       <div className="text-right">
@@ -252,8 +252,7 @@ export default function HeroSection() {
                           <p className="text-2xl font-black text-white leading-none">
                             2 290 <span className="text-sm font-semibold text-zinc-400">BYN</span>
                           </p>
-                          <p className="text-[9px] text-zinc-500 mt-0.5">1 890 + монтаж 400</p>
-                          <p className="text-[9px] text-emerald-400 font-semibold mt-0.5">Экономия 210 р.</p>
+                          <p className="text-[9px] text-zinc-500 mt-0.5">2 100 + монтаж 190</p>
                         </div>
                         <button
                           onClick={handleOrderKH}
