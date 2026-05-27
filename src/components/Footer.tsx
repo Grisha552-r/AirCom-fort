@@ -85,20 +85,11 @@ export default function Footer() {
           <div>
             <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Статьи</h4>
             <ul className="space-y-2.5">
-              {[
-                { label: 'Установка кондиционера', href: '/articles/tsena-ustanovki-konditsionera' },
-                { label: 'Кондиционеры Electrolux', href: '/articles/konditsioner-electrolux-gomel' },
-                { label: 'Кондиционеры Ballu', href: '/articles/konditsioner-ballu-gomel' },
-                { label: 'Кондиционеры Haier', href: '/articles/konditsioner-haier-gomel' },
-                { label: 'Кондиционер для гостиной', href: '/articles/konditsioner-dlya-gostinoy' },
-                { label: 'Мультисплит в Гомеле', href: '/articles/mulitsplit-gomel' },
-              ].map(item => (
-                <li key={item.label}>
-                  <Link href={item.href} className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">
-                    {item.label}
-                  </Link>
-                </li>
-              ))}
+              <li>
+                <Link href="/articles" className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">
+                  Все статьи
+                </Link>
+              </li>
             </ul>
           </div>
         </div>
