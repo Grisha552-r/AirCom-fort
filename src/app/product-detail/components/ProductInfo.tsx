@@ -33,7 +33,7 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
   const [added, setAdded] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
 
-  const displayPrice = product.discount ? product.price : Math.round(product.price * 0.96);
+  const displayPrice = product.discount ? product.price : Math.round(product.price * 0.99);
   const installFee = product.brand === 'King Home' ? 190 : 400;
 
   const handleAdd = () => {

@@ -82,7 +82,7 @@ export default function ProductCard({ product, onCartAdd }: ProductCardProps) {
               <span className="text-lg font-bold text-foreground">
                 {product.discount
                   ? product.price.toLocaleString('ru-RU')
-                  : Math.round(product.price * 0.96).toLocaleString('ru-RU')} р.
+                  : Math.round(product.price * 0.99).toLocaleString('ru-RU')} р.
               </span>
               {product.originalPrice && (
                 <span className="text-xs text-muted-foreground line-through">{product.originalPrice.toLocaleString('ru-RU')} р.</span>
