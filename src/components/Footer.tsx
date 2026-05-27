@@ -14,12 +14,12 @@ export default function Footer() {
           {/* Brand */}
           <div className="lg:col-span-2">
             <div className="flex items-center gap-3 mb-5">
-              <div className="w-9 h-9 bg-crimson-700 rounded-xl flex items-center justify-center shrink-0">
+              <div className="w-9 h-9 shrink-0">
                 <AppImage
                   src="/assets/images/Image__1_-1777225844930.png"
                   alt="AirComfort логотип"
-                  width={28}
-                  height={28}
+                  width={36}
+                  height={36}
                   className="object-contain"
                 />
               </div>
