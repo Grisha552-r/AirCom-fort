@@ -7,7 +7,7 @@ export default function Footer() {
   return (
     <footer className="bg-zinc-900 text-zinc-300 border-t border-zinc-800 mt-16">
       <div className="max-w-7xl mx-auto px-4 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-10">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-10">
           {/* Brand */}
           <div className="lg:col-span-1">
             <div className="flex items-center gap-2 mb-4">
@@ -81,17 +81,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Статьи */}
-          <div>
-            <h4 className="text-white font-semibold text-sm mb-4 uppercase tracking-wider">Статьи</h4>
-            <ul className="space-y-2.5">
-              <li>
-                <Link href="/articles" className="text-sm text-zinc-400 hover:text-white transition-colors hover:translate-x-1 inline-block duration-200">
-                  Все статьи
-                </Link>
-              </li>
-            </ul>
-          </div>
         </div>
 
         {/* Bottom bar */}
