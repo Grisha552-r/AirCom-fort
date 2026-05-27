@@ -79,7 +79,11 @@ export default function ProductCard({ product, onCartAdd }: ProductCardProps) {
           <p className="text-sm font-medium text-foreground line-clamp-2 leading-snug mb-2 flex-1">{product.name}</p>
           <div className="mt-auto">
             <div className="flex items-baseline gap-2 mb-2">
-              <span className="text-lg font-bold text-foreground">{product.price.toLocaleString('ru-RU')} р.</span>
+              <span className="text-lg font-bold text-foreground">
+                {product.discount
+                  ? product.price.toLocaleString('ru-RU')
+                  : Math.round(product.price * 0.96).toLocaleString('ru-RU')} р.
+              </span>
               {product.originalPrice && (
                 <span className="text-xs text-muted-foreground line-through">{product.originalPrice.toLocaleString('ru-RU')} р.</span>
               )}

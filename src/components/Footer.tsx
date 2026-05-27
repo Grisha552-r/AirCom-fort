@@ -90,7 +90,6 @@ export default function Footer() {
                 { label: 'Кондиционеры Electrolux', href: '/articles/konditsioner-electrolux-gomel' },
                 { label: 'Кондиционеры Ballu', href: '/articles/konditsioner-ballu-gomel' },
                 { label: 'Кондиционеры Haier', href: '/articles/konditsioner-haier-gomel' },
-                { label: 'Кондиционеры Midea', href: '/articles/konditsioner-midea-gomel' },
                 { label: 'Кондиционер для гостиной', href: '/articles/konditsioner-dlya-gostinoy' },
                 { label: 'Мультисплит в Гомеле', href: '/articles/mulitsplit-gomel' },
               ].map(item => (

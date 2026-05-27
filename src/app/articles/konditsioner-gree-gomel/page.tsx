@@ -130,9 +130,6 @@ export default function GreePage() {
           <Link href="/articles/konditsioner-haier-gomel" className="block text-red-700 hover:underline text-sm">
             → Кондиционеры Haier в Гомеле
           </Link>
-          <Link href="/articles/konditsioner-midea-gomel" className="block text-red-700 hover:underline text-sm">
-            → Кондиционеры Midea в Гомеле
-          </Link>
           <Link href="/articles/invertor-konditsioner-gomel" className="block text-red-700 hover:underline text-sm">
             → Инверторный кондиционер в Гомеле
           </Link>

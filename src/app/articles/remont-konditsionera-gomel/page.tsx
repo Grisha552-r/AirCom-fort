@@ -76,7 +76,7 @@ export default function RemontPage() {
       <h2 className="text-2xl font-semibold text-gray-900 mb-4">Ремонтируем любые бренды</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
         Работаем с кондиционерами всех популярных марок: <strong>Electrolux, Ballu, Haier, LG,
-        Samsung, Panasonic, Daikin, Mitsubishi, Gree, Midea</strong> и другими. Запчасти есть
+        Samsung, Panasonic, Daikin, Mitsubishi, Gree</strong> и другими. Запчасти есть
         в наличии для большинства моделей — не нужно ждать доставки.
       </p>
 

@@ -49,7 +49,6 @@ const ARTICLE_SLUGS = [
   'split-sistema-gomel',
   'konditsioner-dlya-gostinoy',
   'mulitsplit-gomel',
-  'konditsioner-midea-gomel',
   'konditsioner-gree-gomel',
   'konditsioner-dlya-dachi',
   'konditsioner-s-obogrevom-gomel',

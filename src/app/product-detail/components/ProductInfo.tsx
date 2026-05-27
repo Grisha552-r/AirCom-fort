@@ -33,12 +33,15 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
   const [added, setAdded] = useState(false);
   const [calcOpen, setCalcOpen] = useState(false);
 
+  const displayPrice = product.discount ? product.price : Math.round(product.price * 0.96);
+  const installFee = product.brand === 'King Home' ? 190 : 400;
+
   const handleAdd = () => {
     for (let i = 0; i < quantity; i++) {
       addToCart({
         productId: product.id,
         productName: product.name,
-        price: product.price,
+        price: displayPrice,
         quantity: 1,
         image: product.images[0] || '',
       });
@@ -68,7 +71,7 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
       {/* Price */}
       <div className="bg-zinc-50 rounded-2xl p-4 border border-border">
         <div className="flex items-baseline gap-3 mb-1">
-          <span className="text-3xl font-bold text-foreground">{product.price.toLocaleString('ru-RU')} р.</span>
+          <span className="text-3xl font-bold text-foreground">{displayPrice.toLocaleString('ru-RU')} р.</span>
           {product.originalPrice && (
             <span className="text-lg text-muted-foreground line-through">{product.originalPrice.toLocaleString('ru-RU')} р.</span>
           )}
@@ -89,10 +92,10 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
           <div className="bg-crimson-50 px-4 py-3 flex items-center justify-between gap-4">
             <div>
               <p className="text-2xl font-bold text-foreground">
-                {(product.price + (product.brand === 'King Home' ? 190 : 400)).toLocaleString('ru-RU')} <span className="text-base font-semibold text-muted-foreground">р.</span>
+                {(displayPrice + installFee).toLocaleString('ru-RU')} <span className="text-base font-semibold text-muted-foreground">р.</span>
               </p>
               <p className="text-xs text-muted-foreground mt-0.5">
-                {product.price.toLocaleString('ru-RU')} р. + монтаж {product.brand === 'King Home' ? 190 : 400} р.
+                {displayPrice.toLocaleString('ru-RU')} р. + монтаж {installFee} р.
               </p>
             </div>
             {product.discount && product.originalPrice && (
