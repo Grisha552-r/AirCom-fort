@@ -68,7 +68,7 @@ export default function SeoSection() {
             <div className="grid grid-cols-2 gap-4">
               {[
                 { value: '5+', label: 'лет на рынке', sub: 'с 2019 года' },
-                { value: '1 200+', label: 'установок', sub: 'в Гомеле и области' },
+                { value: '500+', label: 'установок', sub: 'в Гомеле и области' },
                 { value: '400 р.', label: 'монтаж под ключ', sub: 'от — для комнаты 30 м²' },
                 { value: '7', label: 'брендов', sub: 'официальный дилер' },
               ].map(s => (
