@@ -141,7 +141,7 @@ export default function KonditsionerPodKlyuch() {
                 ['Трасса свыше 3 м (за каждый доп. метр)', '+50 р./м'],
                 ['Монтаж через балкон или лоджию', '+50 р.'],
                 ['Работы выше 5 этажа', 'от +100 р.'],
-                ['Штробление стен', 'от +80 р.'],
+                ['Штробление стен', 'от +70 р.'],
               ].map(([work, price]) => (
                 <tr key={work} className="odd:bg-white even:bg-gray-50">
                   <td className="p-3 border border-gray-200">{work}</td>
