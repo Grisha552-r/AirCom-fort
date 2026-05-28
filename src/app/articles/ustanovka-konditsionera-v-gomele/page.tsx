@@ -52,7 +52,7 @@ export default function UstanovkaVGomelee() {
           {[
             'Крепление внутреннего блока на кронштейны',
             'Крепление наружного блока на фасад или балкон',
-            'Прокладка медных трубок трассы (до 5 м включено)',
+            'Прокладка медных трубок трассы (до 3 м включено)',
             'Подключение электрокабеля от распределительного щитка',
             'Дренажный шланг для отвода конденсата',
             'Вакуумирование системы перед запуском',
@@ -79,8 +79,8 @@ export default function UstanovkaVGomelee() {
             <tbody>
               {[
                 ['до 30 м²', '7 000–9 000 BTU', 'от 400 р.'],
-                ['до 50 м²', '12 000–18 000 BTU', 'от 500 р.'],
-                ['до 70 м²', '24 000 BTU', 'от 550 р.'],
+                ['до 50 м²', '12 000–18 000 BTU', 'от 400 р.'],
+                ['до 70 м²', '24 000 BTU', 'от 400 р.'],
               ].map(([area, power, price]) => (
                 <tr key={area} className="odd:bg-white even:bg-gray-50">
                   <td className="p-3 border border-gray-200">{area}</td>
@@ -92,7 +92,7 @@ export default function UstanovkaVGomelee() {
           </table>
         </div>
         <p className="text-gray-600 text-sm mb-8 italic">
-          Цена действительна при стандартном монтаже — трасса до 5 м, без штробления, до 5 этажа.
+          Цена действительна при стандартном монтаже — трасса до 3 м, без штробления, до 5 этажа.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Как выбрать фирму по установке кондиционеров в Гомеле</h2>
@@ -158,7 +158,7 @@ export default function UstanovkaVGomelee() {
           {[
             {
               q: 'Сколько стоит установка кондиционера в Гомеле?',
-              a: 'Стандартный монтаж сплит-системы — от 400 р. за комнату до 30 м². Цена включает трассу 5 м, трубки, кабель, крепёж и пусконаладку.',
+              a: 'Стандартный монтаж сплит-системы — от 400 р. независимо от мощности. Цена включает трассу 3 м, трубки, кабель, крепёж и пусконаладку.',
             },
             {
               q: 'За сколько дней нужно записываться на монтаж?',
@@ -184,7 +184,7 @@ export default function UstanovkaVGomelee() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Читайте также</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             <Link href="/konditsionery-gomel" className="block p-4 border border-crimson-200 rounded-lg bg-crimson-50 hover:bg-crimson-100 transition-colors">
-              <p className="font-medium text-crimson-800 text-sm">Кондиционеры в Гомеле от 1 290 р.</p>
+              <p className="font-medium text-crimson-800 text-sm">Кондиционеры в Гомеле от 1 329 р.</p>
               <p className="text-crimson-600 text-xs mt-1">300+ моделей с установкой под ключ</p>
             </Link>
             <Link href="/articles/tsena-ustanovki-konditsionera" className="block p-4 border border-gray-200 rounded-lg hover:border-crimson-300 hover:bg-crimson-50 transition-colors">

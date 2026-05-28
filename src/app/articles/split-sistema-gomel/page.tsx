@@ -12,12 +12,12 @@ const breadcrumbLd = {
 };
 
 const MODELS = [
-  { brand: 'Mitsudai', series: 'MD-SNE09AI', area: '27 м²', price: '1 290', btu: '9 000', link: '/products/split-mitsudai', badge: 'Лучшая цена' },
-  { brand: 'Ballu', series: 'BSAGI-09HN8', area: '25 м²', price: '1 290', btu: '9 000', link: '/products/split-ballu', badge: 'Инвертор' },
-  { brand: 'Haier', series: 'AS09NS4ERA', area: '25 м²', price: '1 350', btu: '9 000', link: '/products/split-haier', badge: 'Wi-Fi' },
-  { brand: 'Electrolux', series: 'EACS-I-09HAL', area: '25 м²', price: '1 690', btu: '9 000', link: '/products/split-electrolux', badge: 'Тихий' },
-  { brand: 'LG', series: 'S09EQ', area: '25 м²', price: '1 690', btu: '9 000', link: '/products/split-lg', badge: 'Гарантия 3 г.' },
-  { brand: 'Ballu', series: 'BSAGI-12HN8', area: '35 м²', price: '1 490', btu: '12 000', link: '/products/split-ballu', badge: 'До 35 м²' },
+  { brand: 'Mitsudai', series: 'MD-SNE09AI', area: '27 м²', price: '1 329', btu: '9 000', link: '/products/split-mitsudai', badge: 'Лучшая цена' },
+  { brand: 'Ballu', series: 'BSW-09HN1', area: '25 м²', price: '1 522', btu: '9 000', link: '/products/split-ballu', badge: 'On/Off' },
+  { brand: 'Haier', series: 'Spirit On-Off 09', area: '25 м²', price: '1 600', btu: '9 000', link: '/products/split-haier', badge: 'Wi-Fi' },
+  { brand: 'Electrolux', series: 'EACS-I-09HAL', area: '25 м²', price: '1 790', btu: '9 000', link: '/products/split-electrolux', badge: 'Тихий' },
+  { brand: 'LG', series: 'Standard Plus PM09SP', area: '25 м²', price: '1 931', btu: '9 000', link: '/products/split-lg', badge: 'Гарантия 3 г.' },
+  { brand: 'Ballu', series: 'BSAGI-12HN8', area: '35 м²', price: '2 090', btu: '12 000', link: '/products/split-ballu', badge: 'До 35 м²' },
 ];
 
 const INSTALL_STEPS = [
@@ -42,12 +42,12 @@ export default function SplitSistemaPage() {
         </nav>
 
         <h1 className="text-3xl font-bold text-gray-900 mb-4">
-          Сплит-система в Гомеле — купить и установить от 1 290 р.
+          Сплит-система в Гомеле — купить и установить от 1 329 р.
         </h1>
         <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 6 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
-          Сплит-система — это двухблочный кондиционер: внутренний блок остаётся в комнате, наружный вешается на фасад или балкон. В отличие от мобильного кондиционера, сплит работает тише, охлаждает эффективнее и не занимает место на полу. AirComfort предлагает купить сплит-систему в Гомеле с установкой под ключ от 1 290 р. — всё в один визит мастера.
+          Сплит-система — это двухблочный кондиционер: внутренний блок остаётся в комнате, наружный вешается на фасад или балкон. В отличие от мобильного кондиционера, сплит работает тише, охлаждает эффективнее и не занимает место на полу. AirComfort предлагает купить сплит-систему в Гомеле с установкой под ключ от 1 329 р. — всё в один визит мастера.
         </p>
 
         <div className="bg-blue-50 border border-blue-200 rounded-xl p-5 mb-8">
@@ -136,7 +136,7 @@ export default function SplitSistemaPage() {
                 ['Монтаж', 'Нужно сверление и мастер', 'Не нужен, только вентиляционный шланг'],
                 ['Место', 'Блоки на стене/фасаде', 'Занимает место на полу'],
                 ['Подходит для аренды', 'Нет (нужно разрешение)', 'Да — легко забрать'],
-                ['Цена с установкой', 'от 1 290 р.', 'от 700 р. (без монтажа)'],
+                ['Цена с установкой', 'от 1 329 р.', 'от 700 р. (без монтажа)'],
               ].map(([crit, split, mobile], i) => (
                 <tr key={crit} className={i % 2 === 1 ? 'bg-gray-50' : ''}>
                   <td className="px-4 py-3 border border-gray-200 font-medium">{crit}</td>

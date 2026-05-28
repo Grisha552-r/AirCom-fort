@@ -12,12 +12,12 @@ const breadcrumbLd = {
 };
 
 const MODELS = [
-  { brand: 'Ballu', series: 'BSAGI-09HN8', btu: '9 000', area: '25 м²', price: 'от 1 290 р.', link: '/products/split-ballu', badge: 'Лучшая цена' },
-  { brand: 'Electrolux', series: 'EACS-I-09HAL/N8', btu: '9 000', area: '25 м²', price: 'от 1 690 р.', link: '/products/split-electrolux', badge: 'Надёжность' },
-  { brand: 'Haier', series: 'AS09NS4ERA', btu: '9 000', area: '25 м²', price: 'от 1 350 р.', link: '/products/split-haier', badge: 'Wi-Fi' },
-  { brand: 'LG', series: 'S09EQ', btu: '9 000', area: '25 м²', price: 'от 1 690 р.', link: '/products/split-lg', badge: 'Гарантия 3 г.' },
-  { brand: 'Ballu', series: 'BSAGI-12HN8', btu: '12 000', area: '35 м²', price: 'от 1 390 р.', link: '/products/split-ballu', badge: 'До 35 м²' },
-  { brand: 'Electrolux', series: 'EACS-I-12HAL/N8', btu: '12 000', area: '35 м²', price: 'от 1 890 р.', link: '/products/split-electrolux', badge: '' },
+  { brand: 'Ballu', series: 'BSAGI-09HN8', btu: '9 000', area: '25 м²', price: 'от 1 850 р.', link: '/products/split-ballu', badge: 'Лучшая цена' },
+  { brand: 'Electrolux', series: 'EACS-I-09HAL/N8', btu: '9 000', area: '25 м²', price: 'от 1 790 р.', link: '/products/split-electrolux', badge: 'Надёжность' },
+  { brand: 'Haier', series: 'Tundra AS09TT5HRA', btu: '9 000', area: '25 м²', price: 'от 1 920 р.', link: '/products/split-haier', badge: 'Wi-Fi' },
+  { brand: 'LG', series: 'Standard Plus PM09SP', btu: '9 000', area: '25 м²', price: 'от 1 931 р.', link: '/products/split-lg', badge: 'Гарантия 3 г.' },
+  { brand: 'Ballu', series: 'BSAGI-12HN8', btu: '12 000', area: '35 м²', price: 'от 2 090 р.', link: '/products/split-ballu', badge: 'До 35 м²' },
+  { brand: 'Electrolux', series: 'EACS-I-12HAL/N8', btu: '12 000', area: '35 м²', price: 'от 2 000 р.', link: '/products/split-electrolux', badge: '' },
 ];
 
 export default function InvertorPage() {
@@ -39,7 +39,7 @@ export default function InvertorPage() {
         <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 6 мин</p>
 
         <p className="text-gray-700 leading-relaxed mb-6">
-          Инверторный кондиционер — это не просто маркетинговый термин. Это технология, которая реально экономит деньги на электроэнергии и продлевает срок службы техники. В Гомеле инверторные кондиционеры продаются с установкой от 1 290 р. — и в большинстве случаев разница с On/Off моделями отбивается уже за первый сезон.
+          Инверторный кондиционер — это не просто маркетинговый термин. Это технология, которая реально экономит деньги на электроэнергии и продлевает срок службы техники. В Гомеле инверторные кондиционеры продаются с установкой от 1 790 р. — и в большинстве случаев разница с On/Off моделями отбивается уже за первый сезон.
         </p>
 
         <h2 className="text-2xl font-bold text-gray-900 mb-4">Чем инвертор отличается от обычного кондиционера</h2>

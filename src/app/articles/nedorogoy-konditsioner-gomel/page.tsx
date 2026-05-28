@@ -26,7 +26,7 @@ export default function NedorogoyPage() {
       </nav>
 
       <h1 className="text-3xl font-bold text-gray-900 mb-4">
-        Недорогой кондиционер в Гомеле — купить с установкой от 1 090 р.
+        Недорогой кондиционер в Гомеле — купить с установкой от 1 329 р.
       </h1>
       <p className="text-gray-500 text-sm mb-8">Обновлено: май 2026 · Время чтения: 5 мин</p>
 
@@ -48,12 +48,12 @@ export default function NedorogoyPage() {
           </thead>
           <tbody>
             {[
-              ['Mitsudai MD-SNE09AI', 'до 25 м²', 'On/Off', 'от 1 090 р.'],
-              ['Ballu BSW-09HN1', 'до 25 м²', 'On/Off', 'от 1 190 р.'],
-              ['Ballu BSW-12HN1', 'до 35 м²', 'On/Off', 'от 1 290 р.'],
-              ['Ballu BSAGI-09HN8', 'до 25 м²', 'Инвертор', 'от 1 290 р.'],
-              ['Electrolux EACS-09HA', 'до 25 м²', 'On/Off', 'от 1 490 р.'],
-              ['Haier AS09NS4ERA', 'до 25 м²', 'Инвертор', 'от 1 350 р.'],
+              ['Mitsudai MD-SNE09AI', 'до 25 м²', 'On/Off', 'от 1 329 р.'],
+              ['Ballu BSW-09HN1', 'до 25 м²', 'On/Off', 'от 1 522 р.'],
+              ['Ballu BSW-12HN1', 'до 35 м²', 'On/Off', 'от 1 930 р.'],
+              ['Ballu BSAGI-09HN8', 'до 25 м²', 'Инвертор', 'от 1 850 р.'],
+              ['Electrolux EACS-09HA', 'до 25 м²', 'On/Off', 'от 1 450 р.'],
+              ['Haier Tundra AS09TT5HRA', 'до 25 м²', 'Инвертор', 'от 1 920 р.'],
             ].map(([model, area, type, price], i) => (
               <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
                 <td className="p-3 border border-gray-200 font-medium">{model}</td>
@@ -78,7 +78,7 @@ export default function NedorogoyPage() {
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4">On/Off или дешёвый инвертор?</h2>
       <p className="text-gray-700 leading-relaxed mb-4">
-        Если бюджет ограничен до 1 300 р. — берите on/off (например, Mitsudai или Ballu BSW).
+        Если бюджет ограничен до 1 600 р. — берите on/off (например, Mitsudai или Ballu BSW).
         Это честный, надёжный кондиционер без лишних функций. Минус — потребляет больше электроэнергии
         и включается/выключается рывками.
       </p>

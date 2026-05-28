@@ -49,7 +49,7 @@ export default function KonditsionerPodKlyuch() {
             'Доставка оборудования к месту монтажа',
             'Установка внутреннего блока на стену',
             'Крепление наружного блока на кронштейны',
-            'Прокладка медной трассы (до 5 м)',
+            'Прокладка медной трассы (до 3 м)',
             'Подключение электрокабеля от щитка',
             'Монтаж дренажного шланга',
             'Вакуумирование системы',
@@ -76,10 +76,10 @@ export default function KonditsionerPodKlyuch() {
             </thead>
             <tbody>
               {[
-                ['Базовый (on/off)', 'до 25 м²', 'от 790 р.'],
-                ['Стандарт (инвертор)', 'до 35 м²', 'от 1 050 р.'],
-                ['Комфорт (инвертор + wifi)', 'до 35 м²', 'от 1 200 р.'],
-                ['Мощный инвертор', 'до 50 м²', 'от 1 350 р.'],
+                ['Базовый (on/off)', 'до 25 м²', 'от 1 522 р.'],
+                ['Стандарт (инвертор)', 'до 35 м²', 'от 1 850 р.'],
+                ['Комфорт (инвертор + wi-fi)', 'до 35 м²', 'от 2 170 р.'],
+                ['Мощный инвертор', 'до 50 м²', 'от 2 430 р.'],
               ].map(([set, area, price]) => (
                 <tr key={set} className="odd:bg-white even:bg-gray-50">
                   <td className="p-3 border border-gray-200 font-medium">{set}</td>
@@ -91,7 +91,7 @@ export default function KonditsionerPodKlyuch() {
           </table>
         </div>
         <p className="text-gray-600 text-sm mb-8 italic">
-          Цены указаны с монтажом трассы до 5 м. Точная стоимость зависит от конкретной модели и условий монтажа.
+          Цены указаны с монтажом трассы до 3 м. Точная стоимость зависит от конкретной модели и условий монтажа.
         </p>
 
         <h2 className="text-2xl font-semibold text-gray-900 mb-4">Климатические системы под ключ — когда это выгодно</h2>
@@ -138,7 +138,7 @@ export default function KonditsionerPodKlyuch() {
             </thead>
             <tbody>
               {[
-                ['Трасса свыше 5 м (за каждый доп. метр)', '+50 р./м'],
+                ['Трасса свыше 3 м (за каждый доп. метр)', '+50 р./м'],
                 ['Монтаж через балкон или лоджию', '+50 р.'],
                 ['Работы выше 5 этажа', 'от +100 р.'],
                 ['Штробление стен', 'от +80 р.'],
@@ -182,7 +182,7 @@ export default function KonditsionerPodKlyuch() {
             },
             {
               q: 'Сколько стоит кондиционер под ключ в Гомеле?',
-              a: 'От 790 р. за базовую модель с монтажом трассы 5 м. Инверторные модели с установкой — от 1050 р.',
+              a: 'От 1 522 р. за базовую on/off модель (9 000 BTU) с монтажом трассы 3 м. Инверторные модели с установкой — от 1 850 р.',
             },
             {
               q: 'Сколько времени занимает установка кондиционера под ключ?',
@@ -200,7 +200,7 @@ export default function KonditsionerPodKlyuch() {
           <h3 className="text-lg font-semibold text-gray-900 mb-4">Читайте также</h3>
           <div className="grid sm:grid-cols-2 gap-4">
             <Link href="/konditsionery-gomel" className="block p-4 border border-crimson-200 rounded-lg bg-crimson-50 hover:bg-crimson-100 transition-colors">
-              <p className="font-medium text-crimson-800 text-sm">Кондиционеры в Гомеле от 1 290 р.</p>
+              <p className="font-medium text-crimson-800 text-sm">Кондиционеры в Гомеле от 1 522 р.</p>
               <p className="text-crimson-600 text-xs mt-1">300+ моделей с установкой под ключ</p>
             </Link>
             <Link href="/articles/tsena-ustanovki-konditsionera" className="block p-4 border border-gray-200 rounded-lg hover:border-crimson-300 hover:bg-crimson-50 transition-colors">

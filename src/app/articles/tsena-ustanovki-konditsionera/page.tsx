@@ -52,18 +52,18 @@ export default function TsenaUstanovkiPage() {
             <tr className="bg-gray-50">
               <td className="p-3 border border-gray-200">до 50 м²</td>
               <td className="p-3 border border-gray-200">12 000–18 000 BTU (3,5–5,3 кВт)</td>
-              <td className="p-3 border border-gray-200 font-semibold text-blue-700">от 500 р.</td>
+              <td className="p-3 border border-gray-200 font-semibold text-blue-700">от 400 р.</td>
             </tr>
             <tr>
               <td className="p-3 border border-gray-200">до 70 м²</td>
               <td className="p-3 border border-gray-200">24 000 BTU (7 кВт)</td>
-              <td className="p-3 border border-gray-200 font-semibold text-blue-700">от 550 р.</td>
+              <td className="p-3 border border-gray-200 font-semibold text-blue-700">от 400 р.</td>
             </tr>
           </tbody>
         </table>
       </div>
       <p className="text-gray-600 text-sm mb-8 italic">
-        В базовую цену входит трасса 5 м, медные трубки, кабель, крепёж, вакуумирование и пусконаладка.
+        В базовую цену входит трасса 3 м, медные трубки, кабель, крепёж, вакуумирование и пусконаладка.
       </p>
 
       <h2 className="text-2xl font-semibold text-gray-900 mb-4">Что входит в стоимость установки</h2>
@@ -71,7 +71,7 @@ export default function TsenaUstanovkiPage() {
         {[
           'Крепление внутреннего блока на стену',
           'Крепление наружного блока на кронштейны',
-          'Прокладка медных трубок трассы до 5 м',
+          'Прокладка медных трубок трассы до 3 м',
           'Электрокабель от щитка до кондиционера',
           'Сливной шланг для конденсата',
           'Вакуумирование системы перед запуском',
@@ -100,7 +100,7 @@ export default function TsenaUstanovkiPage() {
           </thead>
           <tbody>
             {[
-              ['Каждый доп. метр трассы (свыше 5 м)', '+50 р./м'],
+              ['Каждый доп. метр трассы (свыше 3 м)', '+50 р./м'],
               ['Монтаж через балкон или лоджию', '+50 р.'],
               ['Высотные работы (этаж выше 5-го)', 'от +100 р.'],
               ['Штробление стены под трубки', 'от +80 р.'],
@@ -156,11 +156,11 @@ export default function TsenaUstanovkiPage() {
         {[
           {
             q: 'Сколько стоит стандартная установка кондиционера в Гомеле?',
-            a: 'Стандартный монтаж в AirComfort: до 30 м² — 400 р., до 50 м² — 500 р., до 70 м² — 550 р. В стоимость включена трасса 5 м, медные трубки, кабель и крепление.',
+            a: 'Стандартный монтаж в AirComfort: 400 р. независимо от мощности. В стоимость включена трасса 3 м, медные трубки, кабель и крепление.',
           },
           {
             q: 'Могут ли быть скрытые доплаты?',
-            a: 'Доплаты возможны за длину трассы свыше 5 м (50 р./м), монтаж через балкон (+50 р.) и высотные работы (от +100 р.). Все условия оговариваются до начала работ.',
+            a: 'Доплаты возможны за длину трассы свыше 3 м (50 р./м), монтаж через балкон (+50 р.) и высотные работы (от +100 р.). Все условия оговариваются до начала работ.',
           },
           {
             q: 'Даётся ли гарантия на установку?',
@@ -185,7 +185,7 @@ export default function TsenaUstanovkiPage() {
         <div className="grid sm:grid-cols-2 gap-4">
           <Link href="/konditsionery-gomel" className="block p-4 border border-red-200 rounded-lg bg-red-50 hover:bg-red-100 transition-colors">
             <p className="font-medium text-red-800 text-sm">Купить кондиционер с установкой в Гомеле</p>
-            <p className="text-red-600 text-xs mt-1">От 1 290 р. под ключ — 300+ моделей</p>
+            <p className="text-red-600 text-xs mt-1">От 1 329 р. под ключ — 300+ моделей</p>
           </Link>
           <Link href="/articles/kak-vybrat-konditsioner" className="block p-4 border border-gray-200 rounded-lg hover:border-blue-300 hover:bg-blue-50 transition-colors">
             <p className="font-medium text-gray-900 text-sm">Как выбрать кондиционер для квартиры</p>

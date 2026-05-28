@@ -12,11 +12,11 @@ const breadcrumbLd = {
 };
 
 const TOP_MODELS = [
-  { brand: 'Ballu', series: 'Platinum Evolution BSPI-09HN8', noise: '19 дБ', btu: '9 000', area: '25 м²', price: 'от 1 390 р.', link: '/products/split-ballu', badge: 'Самый тихий' },
-  { brand: 'Electrolux', series: 'Nordic EACS-I-09HN/N3', noise: '21 дБ', btu: '9 000', area: '25 м²', price: 'от 1 690 р.', link: '/products/split-electrolux', badge: 'Хит' },
-  { brand: 'Haier', series: 'Pearl AS09PM5HRA', noise: '22 дБ', btu: '9 000', area: '25 м²', price: 'от 1 490 р.', link: '/products/split-haier', badge: 'Wi-Fi' },
-  { brand: 'LG', series: 'ArtCool S09EQ', noise: '21 дБ', btu: '9 000', area: '25 м²', price: 'от 1 690 р.', link: '/products/split-lg', badge: 'Дизайн' },
-  { brand: 'Electrolux', series: 'Nordic EACS-I-12HN/N3', noise: '22 дБ', btu: '12 000', area: '35 м²', price: 'от 1 950 р.', link: '/products/split-electrolux', badge: 'До 35 м²' },
+  { brand: 'Ballu', series: 'Platinum Evolution BSUI-09HN8', noise: '19 дБ', btu: '9 000', area: '25 м²', price: 'от 2 404 р.', link: '/products/split-ballu', badge: 'Самый тихий' },
+  { brand: 'Electrolux', series: 'Skandi DC EACS/I-09HSK', noise: '21 дБ', btu: '9 000', area: '25 м²', price: 'от 1 790 р.', link: '/products/split-electrolux', badge: 'Хит' },
+  { brand: 'Haier', series: 'Tundra DC AS09TT5HRA', noise: '22 дБ', btu: '9 000', area: '25 м²', price: 'от 1 920 р.', link: '/products/split-haier', badge: 'Wi-Fi' },
+  { brand: 'LG', series: 'ArtCool Mirror AC09BK', noise: '21 дБ', btu: '9 000', area: '25 м²', price: 'от 2 290 р.', link: '/products/split-lg', badge: 'Дизайн' },
+  { brand: 'Electrolux', series: 'Skandi DC EACS/I-12HSK', noise: '22 дБ', btu: '12 000', area: '35 м²', price: 'от 2 000 р.', link: '/products/split-electrolux', badge: 'До 35 м²' },
 ];
 
 export default function TikhiyPage() {
