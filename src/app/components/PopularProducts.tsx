@@ -1,22 +1,19 @@
-'use client';
+﻿'use client';
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
-import Icon from '@/components/ui/AppIcon';
 import type { Product } from '@/lib/store';
 
 interface PopularProductsProps {
   onCartOpen?: () => void;
 }
 
-const BRANDS = [
-  { id: 'all',       label: 'Все',       slug: 'split-systems' },
-  { id: 'Electrolux',label: 'Electrolux',slug: 'split-electrolux' },
-  { id: 'Ballu',     label: 'Ballu',     slug: 'split-ballu' },
-  { id: 'Haier',     label: 'Haier',     slug: 'split-haier' },
-  { id: 'LG',        label: 'LG',        slug: 'split-lg' },
-  { id: 'Mitsudai',  label: 'Mitsudai',  slug: 'split-mitsudai' },
-  { id: 'King Home', label: 'King Home', slug: 'split-kinghome' },
+const TABS = [
+  { id: 'all', label: 'Все' },
+  { id: 'under500', label: 'до 500 р.' },
+  { id: '500-1500', label: '500–1500 р.' },
+  { id: 'over1500', label: 'от 1500 р.' },
+  { id: 'discounted', label: 'Скидки' },
 ];
 
 export default function PopularProducts({ onCartOpen }: PopularProductsProps) {
@@ -28,114 +25,65 @@ export default function PopularProducts({ onCartOpen }: PopularProductsProps) {
   }, []);
 
   const filtered = allProducts
-    .filter(p => activeTab === 'all' || p.brand === activeTab)
-    .sort((a, b) => a.price - b.price)
-    .slice(0, 10);
-
-  const activeBrand = BRANDS.find(b => b.id === activeTab);
-
-  // Count per brand
-  const counts: Record<string, number> = { all: allProducts.length };
-  for (const p of allProducts) {
-    counts[p.brand] = (counts[p.brand] || 0) + 1;
-  }
+    .filter(p => {
+      if (activeTab === 'all') return true;
+      if (activeTab === 'under500') return p.price < 500;
+      if (activeTab === '500-1500') return p.price >= 500 && p.price <= 1500;
+      if (activeTab === 'over1500') return p.price > 1500;
+      if (activeTab === 'discounted') return !!p.discount;
+      return true;
+    })
+    .sort((a, b) => a.price - b.price);
 
   return (
-    <section className="py-14 bg-zinc-50">
+    <section className="py-10 bg-white">
       <div className="max-w-7xl mx-auto px-4">
-
-        {/* Header */}
-        <div className="flex flex-col sm:flex-row sm:items-end sm:justify-between gap-4 mb-8">
+        <div className="flex flex-col sm:flex-row sm:items-center sm:justify-between gap-4 mb-6">
           <div>
-            <p className="text-xs font-bold uppercase tracking-[0.15em] text-muted-foreground mb-2">
-              Каталог
-            </p>
-            <h2 className="text-2xl md:text-3xl font-bold text-foreground leading-tight">
-              {activeTab === 'all'
-                ? 'Все кондиционеры'
-                : `Кондиционеры ${activeTab}`}
-            </h2>
-            <p className="text-sm text-muted-foreground mt-1">
-              {counts[activeTab] || 0} моделей в наличии · Гомель
-            </p>
+            <h2 className="text-2xl font-bold text-foreground">Популярные товары</h2>
+            <p className="text-sm text-muted-foreground mt-0.5">Самые востребованные позиции</p>
           </div>
-          {activeBrand && activeTab !== 'all' && (
-            <Link
-              href={`/products/${activeBrand.slug}`}
-              className="flex items-center gap-1.5 text-sm font-semibold text-crimson-700 hover:text-crimson-800 transition-colors self-start sm:self-auto"
-            >
-              Смотреть все {activeTab} <Icon name="ArrowRightIcon" size={14} />
-            </Link>
-          )}
-          {activeTab === 'all' && (
-            <Link
-              href="/products"
-              className="flex items-center gap-1.5 text-sm font-semibold text-crimson-700 hover:text-crimson-800 transition-colors self-start sm:self-auto"
-            >
-              Весь каталог <Icon name="ArrowRightIcon" size={14} />
-            </Link>
-          )}
+          <Link href="/products" className="text-sm font-medium text-crimson-700 hover:text-crimson-800 flex items-center gap-1">
+            Смотреть все →
+          </Link>
         </div>
 
-        {/* Brand tabs */}
-        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 mb-6 -mx-4 px-4">
-          {BRANDS.map(brand => {
-            const count = brand.id === 'all' ? allProducts.length : (counts[brand.id] || 0);
-            const isActive = activeTab === brand.id;
-            return (
-              <button
-                key={brand.id}
-                onClick={() => setActiveTab(brand.id)}
-                className={`shrink-0 flex items-center gap-1.5 px-4 py-2 rounded-xl text-sm font-semibold transition-all duration-200 border ${
-                  isActive
-                    ? 'bg-crimson-700 text-white border-crimson-700 shadow-sm'
-                    : 'bg-white text-foreground border-border hover:border-crimson-300 hover:text-crimson-700'
-                }`}
-              >
-                {brand.label}
-                {allProducts.length > 0 && (
-                  <span className={`text-[11px] font-normal ${isActive ? 'text-crimson-200' : 'text-muted-foreground'}`}>
-                    {count}
-                  </span>
-                )}
-              </button>
-            );
-          })}
+        <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1 mb-6">
+          {TABS.map(tab => (
+            <button
+              key={tab.id}
+              onClick={() => setActiveTab(tab.id)}
+              className={`shrink-0 px-4 py-2 rounded-xl text-sm font-medium transition-all duration-200 ${
+                activeTab === tab.id
+                  ? 'bg-crimson-700 text-white shadow-crimson'
+                  : 'bg-zinc-100 text-muted-foreground hover:bg-zinc-200'
+              }`}
+            >
+              {tab.label}
+            </button>
+          ))}
         </div>
 
-        {/* Products grid */}
         {allProducts.length === 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
             {[...Array(10)].map((_, i) => (
-              <div key={i} className="h-64 bg-zinc-200 rounded-2xl animate-pulse" />
-            ))}
-          </div>
-        ) : filtered.length > 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
-            {filtered.map(product => (
-              <ProductCard key={product.id} product={product} onCartAdd={onCartOpen} />
+              <div key={i} className="h-64 bg-zinc-100 rounded-2xl animate-pulse" />
             ))}
           </div>
         ) : (
+          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
+            {filtered.slice(0, 10).map(product => (
+              <ProductCard key={product.id} product={product} onCartAdd={onCartOpen} />
+            ))}
+          </div>
+        )}
+
+        {allProducts.length > 0 && filtered.length === 0 && (
           <div className="text-center py-16 text-muted-foreground">
             <p className="text-lg font-medium">Товары не найдены</p>
-            <p className="text-sm mt-1">Выберите другой бренд</p>
+            <p className="text-sm mt-1">Попробуйте другой фильтр</p>
           </div>
         )}
-
-        {/* See all button */}
-        {filtered.length > 0 && (
-          <div className="text-center mt-8">
-            <Link
-              href={activeBrand && activeTab !== 'all' ? `/products/${activeBrand.slug}` : '/products'}
-              className="inline-flex items-center gap-2 border border-border bg-white hover:border-crimson-400 hover:text-crimson-700 text-foreground font-semibold px-8 py-3 rounded-xl transition-all duration-200 text-sm"
-            >
-              Смотреть все {activeTab === 'all' ? 'кондиционеры' : activeTab}
-              <Icon name="ArrowRightIcon" size={16} />
-            </Link>
-          </div>
-        )}
-
       </div>
     </section>
   );
