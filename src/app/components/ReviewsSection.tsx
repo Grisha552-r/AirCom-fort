@@ -77,25 +77,6 @@ const REVIEWS = [
   },
 ];
 
-const reviewsJsonLd = {
-  '@context': 'https://schema.org',
-  '@type': 'LocalBusiness',
-  '@id': 'https://aircom-fort.by/#business',
-  aggregateRating: {
-    '@type': 'AggregateRating',
-    ratingValue: '4.9',
-    reviewCount: String(REVIEWS.length),
-    bestRating: '5',
-    worstRating: '1',
-  },
-  review: REVIEWS.map(r => ({
-    '@type': 'Review',
-    author: { '@type': 'Person', name: r.name },
-    datePublished: r.dateIso,
-    reviewRating: { '@type': 'Rating', ratingValue: String(r.rating), bestRating: '5', worstRating: '1' },
-    reviewBody: r.text,
-  })),
-};
 
 function Stars({ n }: { n: number }) {
   return (
@@ -120,10 +101,6 @@ export default function ReviewsSection() {
 
   return (
     <section className="py-12 bg-zinc-50">
-      <script
-        type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(reviewsJsonLd) }}
-      />
       <div className="max-w-7xl mx-auto px-4">
         <div className="flex items-center justify-between mb-8">
           <div>

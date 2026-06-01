@@ -358,8 +358,20 @@ const TAG_COLORS: Record<string, string> = {
   'Установка': 'bg-amber-100 text-amber-700',
 };
 
+const TAG_ACTIVE: Record<string, string> = {
+  'Выбор техники': 'bg-crimson-700 text-white border-crimson-700',
+  'Обслуживание': 'bg-emerald-600 text-white border-emerald-600',
+  'Эксплуатация': 'bg-blue-600 text-white border-blue-600',
+  'Установка': 'bg-amber-500 text-white border-amber-500',
+};
+
+const ALL_TAGS = ['Выбор техники', 'Установка', 'Обслуживание', 'Эксплуатация'];
+
 export default function ArticlesPage() {
   const [cartOpen, setCartOpen] = useState(false);
+  const [activeTag, setActiveTag] = useState<string | null>(null);
+
+  const filtered = activeTag ? ARTICLES.filter(a => a.tag === activeTag) : ARTICLES;
 
   return (
     <div className="min-h-screen bg-background">
@@ -379,9 +391,37 @@ export default function ArticlesPage() {
           </div>
         </div>
 
-        <div className="max-w-6xl mx-auto px-4 py-12">
+        <div className="max-w-6xl mx-auto px-4 pt-8 pb-4">
+          <div className="flex flex-wrap gap-2">
+            <button
+              onClick={() => setActiveTag(null)}
+              className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-colors ${
+                activeTag === null
+                  ? 'bg-zinc-900 text-white border-zinc-900'
+                  : 'bg-white text-muted-foreground border-border hover:border-zinc-400'
+              }`}
+            >
+              Все ({ARTICLES.length})
+            </button>
+            {ALL_TAGS.map(tag => (
+              <button
+                key={tag}
+                onClick={() => setActiveTag(activeTag === tag ? null : tag)}
+                className={`px-4 py-2 rounded-xl text-sm font-semibold border transition-colors ${
+                  activeTag === tag
+                    ? TAG_ACTIVE[tag] ?? 'bg-zinc-900 text-white border-zinc-900'
+                    : 'bg-white text-muted-foreground border-border hover:border-zinc-400'
+                }`}
+              >
+                {tag} ({ARTICLES.filter(a => a.tag === tag).length})
+              </button>
+            ))}
+          </div>
+        </div>
+
+        <div className="max-w-6xl mx-auto px-4 py-6">
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {ARTICLES.map(article => (
+            {filtered.map(article => (
               <Link key={article.slug} href={`/articles/${article.slug}`} className="group block">
                 <div className="bg-white rounded-2xl border border-border overflow-hidden hover:shadow-lg hover:border-crimson-200 transition-all duration-300 h-full flex flex-col">
                   <div className="aspect-video overflow-hidden bg-zinc-100">
