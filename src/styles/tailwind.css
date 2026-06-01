@@ -75,9 +75,11 @@
     transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.3s cubic-bezier(0.16, 1, 0.3, 1);
   }
 
-  .product-card-hover:hover {
-    transform: translateY(-4px);
-    box-shadow: 0 20px 40px rgba(155, 0, 56, 0.12);
+  @media (hover: hover) {
+    .product-card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 40px rgba(155, 0, 56, 0.12);
+    }
   }
 
   .shimmer-effect {
