@@ -78,13 +78,13 @@ export default function CheckoutPage() {
           </div>
           <h1 className="text-3xl font-bold text-foreground mb-3">Заказ оформлен!</h1>
           <p className="text-muted-foreground mb-2">Номер заказа: <span className="font-bold text-foreground">{orderId}</span></p>
-          <p className="text-muted-foreground mb-8">Мы свяжемся с вами по телефону для подтверждения и уточнения времени самовывоза.</p>
+          <p className="text-muted-foreground mb-8">Наш менеджер позвонит вам в течение 15 минут для подтверждения заказа и согласования доставки или монтажа.</p>
           <div className="bg-crimson-50 rounded-2xl p-5 border border-crimson-100 mb-8 text-left">
             <div className="flex items-center gap-3">
-              <Icon name="TruckIcon" size={20} className="text-crimson-600" />
+              <Icon name="PhoneIcon" size={20} className="text-crimson-600" />
               <div>
-                <p className="font-semibold text-crimson-800 text-sm">Самовывоз со склада</p>
-                <p className="text-xs text-crimson-600">Адрес и время уточните по телефону: <a href="tel:+375291050694" onClick={e => { e.preventDefault(); window.open('tel:+375291050694'); }} className="font-bold">+375 29 105-06-94</a></p>
+                <p className="font-semibold text-crimson-800 text-sm">Ждите звонка менеджера</p>
+                <p className="text-xs text-crimson-600">Или позвоните сами: <a href="tel:+375291050694" className="font-bold">+375 29 105-06-94</a></p>
               </div>
             </div>
           </div>
@@ -225,7 +225,7 @@ export default function CheckoutPage() {
                   </div>
                   <div className="flex justify-between text-sm">
                     <span className="text-muted-foreground">Доставка:</span>
-                    <span className="text-emerald-600 font-semibold">Самовывоз</span>
+                    <span className="text-emerald-600 font-semibold">Уточним при звонке</span>
                   </div>
                   <div className="flex justify-between font-bold text-lg pt-2 border-t border-border">
                     <span>Итого:</span>

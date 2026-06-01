@@ -1,5 +1,6 @@
 import { NextResponse } from 'next/server';
 import nodemailer from 'nodemailer';
+import { getSupabaseAdmin } from '@/lib/supabase';
 
 export async function POST(req: Request) {
   const { name, phone } = await req.json();
@@ -27,6 +28,19 @@ export async function POST(req: Request) {
           </div>
         </div>
       `,
+    });
+
+    await getSupabaseAdmin().from('orders').insert({
+      id: `CB-${Date.now()}`,
+      created_at: new Date().toISOString(),
+      customer_name: name || 'Не указано',
+      customer_phone: phone,
+      customer_email: null,
+      address: null,
+      comment: 'Заказ звонка с сайта',
+      items: [{ productId: 'callback', productName: 'Заявка на звонок', quantity: 1, price: 0 }],
+      total: 0,
+      status: 'callback',
     });
 
     return NextResponse.json({ ok: true });

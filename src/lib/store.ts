@@ -39,7 +39,7 @@ export interface Order {
   customerEmail?: string;
   items: { productId: string; productName: string; quantity: number; price: number }[];
   total: number;
-  status: 'new' | 'processing' | 'ready' | 'completed' | 'cancelled';
+  status: 'new' | 'processing' | 'ready' | 'completed' | 'cancelled' | 'callback';
   pickupDate?: string;
   comment?: string;
 }
