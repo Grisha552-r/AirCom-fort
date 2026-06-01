@@ -5,7 +5,6 @@ import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import HeroSection from '@/app/components/HeroSection';
 
-import FeaturedProducts from '@/app/components/FeaturedProducts';
 import PopularProducts from '@/app/components/PopularProducts';
 import ReviewsSection from '@/app/components/ReviewsSection';
 import SeoSection from '@/app/components/SeoSection';
@@ -54,7 +53,6 @@ export default function HomePage() {
       <main>
         <HeroSection />
 
-        <FeaturedProducts onCartOpen={() => setCartOpen(true)} />
         <PopularProducts onCartOpen={() => setCartOpen(true)} />
         <ReviewsSection />
         <SeoSection />
