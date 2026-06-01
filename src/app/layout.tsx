@@ -33,7 +33,7 @@ export const metadata: Metadata = {
   metadataBase: new URL('https://aircom-fort.by'),
   title: {
     default: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
-    template: '%s',
+    template: '%s | AirComfort',
   },
   description: 'Купить кондиционер в Гомеле с установкой под ключ от 1 290 р. Electrolux, Ballu, Haier, LG — 300+ моделей в наличии. Монтаж от 400 р., выезд в день заказа, гарантия 1 год. ☎ +375 29 105-06-94.',
   keywords: [
@@ -67,6 +67,9 @@ export const metadata: Metadata = {
     'сплит система LG',
     'кондиционер Mitsudai Гомель',
     'купить Mitsudai Гомель',
+    'кондиционер King Home Гомель',
+    'купить King Home Гомель',
+    'сплит система King Home',
     'мобильный кондиционер купить',
     'переносной кондиционер Гомель',
     'мобильный кондиционер без монтажа',

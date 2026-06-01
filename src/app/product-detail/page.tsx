@@ -1,6 +1,6 @@
 'use client';
-import React, { useState, useEffect, Suspense } from 'react';
-import { useSearchParams } from 'next/navigation';
+import React, { useState, useEffect, useRef, Suspense } from 'react';
+import { useSearchParams, useRouter } from 'next/navigation';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
@@ -11,6 +11,7 @@ import SimilarProducts from '@/app/product-detail/components/SimilarProducts';
 import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
 import { CATEGORIES } from '@/lib/categories';
+import { useCart } from '@/lib/useStore';
 import type { Product } from '@/lib/store';
 
 const BTU_TO_AREA: Record<string, string> = {
@@ -39,11 +40,23 @@ function getBtuLabel(p: Product): string {
 function ProductDetailContent() {
   const searchParams = useSearchParams();
   const id = searchParams?.get('id');
+  const router = useRouter();
+
+  // Redirect to canonical URL /products/[id]
+  useEffect(() => {
+    if (id) router.replace(`/products/${id}`);
+    else router.replace('/products');
+  }, [id, router]);
+
   const [cartOpen, setCartOpen] = useState(false);
   const [baseProduct, setBaseProduct] = useState<Product | null>(null);
   const [selected, setSelected] = useState<Product | null>(null);
   const [variants, setVariants] = useState<Product[]>([]);
   const [similar, setSimilar] = useState<Product[]>([]);
+  const [stickyVisible, setStickyVisible] = useState(false);
+  const [stickyAdded, setStickyAdded] = useState(false);
+  const productInfoRef = useRef<HTMLDivElement>(null);
+  const { addToCart } = useCart();
 
   useEffect(() => {
     fetch('/api/products')
@@ -122,6 +135,25 @@ function ProductDetailContent() {
       });
   }, [id]);
 
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!productInfoRef.current) return;
+      const rect = productInfoRef.current.getBoundingClientRect();
+      setStickyVisible(rect.bottom < 0);
+    };
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  const handleStickyAdd = () => {
+    if (!selected) return;
+    const displayPrice = selected.discount ? selected.price : Math.round(selected.price * 0.99);
+    addToCart({ productId: selected.id, productName: selected.name, price: displayPrice, quantity: 1, image: selected.images[0] || '' });
+    setStickyAdded(true);
+    setCartOpen(true);
+    setTimeout(() => setStickyAdded(false), 2000);
+  };
+
   const product = selected;
   const category = CATEGORIES.find(c => c.id === product?.categoryId);
   const parentCat = category?.parentId ? CATEGORIES.find(c => c.id === category.parentId) : null;
@@ -186,7 +218,7 @@ function ProductDetailContent() {
               </div>
             )}
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
+            <div ref={productInfoRef} className="grid grid-cols-1 lg:grid-cols-2 gap-8 mb-10">
               <ProductGallery images={product.images} productName={product.name} />
               <ProductInfo product={product} onCartOpen={() => setCartOpen(true)} />
             </div>
@@ -207,6 +239,27 @@ function ProductDetailContent() {
         )}
       </main>
       <Footer />
+
+      {/* Sticky mobile CTA — shown only on mobile after scrolling past product info */}
+      {product && stickyVisible && (
+        <div className="lg:hidden fixed bottom-0 left-0 right-0 z-40 bg-white border-t border-border shadow-2xl px-4 py-3 flex items-center gap-3">
+          <div className="flex-1 min-w-0">
+            <p className="text-xs text-muted-foreground truncate">{product.name}</p>
+            <p className="text-base font-bold text-foreground">
+              {(product.discount ? product.price : Math.round(product.price * 0.99)).toLocaleString('ru-RU')} р.
+            </p>
+          </div>
+          <button
+            onClick={handleStickyAdd}
+            className={`shrink-0 px-5 py-2.5 rounded-xl font-bold text-sm transition-all flex items-center gap-2 ${
+              stickyAdded ? 'bg-emerald-500 text-white' : 'bg-crimson-gradient text-white shadow-crimson'
+            }`}
+          >
+            <Icon name={stickyAdded ? 'CheckIcon' : 'ShoppingCartIcon'} size={16} />
+            {stickyAdded ? 'Добавлено!' : 'В корзину'}
+          </button>
+        </div>
+      )}
     </div>
   );
 }
