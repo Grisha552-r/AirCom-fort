@@ -32,7 +32,7 @@ const currentMonth = MONTHS_RU[new Date().getMonth()];
 export const metadata: Metadata = {
   metadataBase: new URL('https://aircom-fort.by'),
   title: {
-    default: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
+    default: `Кондиционеры в ${currentMonth} в Гомеле от 1 290 р. с установкой — AirComfort`,
     template: '%s | AirComfort',
   },
   description: 'Купить кондиционер в Гомеле с установкой под ключ от 1 290 р. Electrolux, Ballu, Haier, LG — 300+ моделей в наличии. Монтаж от 400 р., выезд в день заказа, гарантия 1 год. ☎ +375 29 105-06-94.',
