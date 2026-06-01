@@ -331,6 +331,24 @@ const ARTICLES = [
     date: '2026',
     tag: 'Установка',
   },
+  {
+    slug: 'konditsioner-mitsudai-gomel',
+    title: 'Кондиционеры Mitsudai в Гомеле — купить с установкой от 990 р.',
+    excerpt: 'Mitsudai — самый доступный вариант в каталоге AirComfort. On/off сплит с установкой от 1 254 р. Кому подходит и чем отличается от Ballu — разбираем честно.',
+    image: 'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
+    slug: 'konditsioner-dlya-kukhni',
+    title: 'Кондиционер для кухни — какой выбрать и особенности установки',
+    excerpt: 'Кухня — сложное помещение для кондиционирования: плита, пар, жир. Как правильно рассчитать мощность, куда ставить и почему кондиционер на кухне нужно чаще обслуживать.',
+    image: 'https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
 ];
 
 const TAG_COLORS: Record<string, string> = {
