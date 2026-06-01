@@ -57,14 +57,14 @@ export default function ProductCard({ product, onCartAdd }: ProductCardProps) {
               -{product.discount}%
             </span>
           )}
-          {product.isNew && (
+          {product.isNew && !product.discount && (
             <span className="absolute top-2 right-2 bg-emerald-500 text-white text-xs font-bold px-2 py-0.5 rounded-lg">
               NEW
             </span>
           )}
           <button
             onClick={e => { e.preventDefault(); e.stopPropagation(); toggleFavorite(product.id); }}
-            className={`absolute top-2 right-2 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-sm ${isFavorite(product.id) ? 'opacity-100 bg-crimson-50' : 'hover:bg-crimson-50'}`}
+            className={`absolute bottom-2 right-2 w-8 h-8 rounded-full bg-white/90 backdrop-blur-sm flex items-center justify-center opacity-0 group-hover:opacity-100 transition-all duration-200 shadow-sm ${isFavorite(product.id) ? 'opacity-100 bg-crimson-50' : 'hover:bg-crimson-50'}`}
           >
             <Icon name="HeartIcon" size={16} className={isFavorite(product.id) ? 'text-crimson-600' : 'text-muted-foreground hover:text-crimson-600'} />
           </button>

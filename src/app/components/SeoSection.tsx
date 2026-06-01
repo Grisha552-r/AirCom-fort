@@ -1,13 +1,14 @@
 import React from 'react';
 import Link from 'next/link';
+import Icon from '@/components/ui/AppIcon';
 
 const ADVANTAGES = [
-  { icon: '🔧', label: 'Монтаж по ГОСТ', desc: 'Медные трубки, правильная изоляция, вакуумирование' },
-  { icon: '🛡️', label: 'Гарантия 1 год на монтаж', desc: 'Устраняем неисправности по нашей вине бесплатно' },
-  { icon: '✅', label: 'Официальная гарантия', desc: 'Electrolux, Ballu, Haier, LG, Mitsudai — дилеры' },
-  { icon: '⚡', label: 'Выезд в день заказа', desc: 'Принимаем заявки пн–сб с 9:00 до 18:00' },
-  { icon: '💰', label: 'Фиксированная цена', desc: 'Без скрытых доплат. Монтаж от 400 р. под ключ' },
-  { icon: '📍', label: 'Гомель и область', desc: 'Жлобин, Мозырь, Речица, Светлогорск и другие' },
+  { icon: 'WrenchScrewdriverIcon', label: 'Монтаж по ГОСТ', desc: 'Медные трубки, правильная изоляция, вакуумирование' },
+  { icon: 'ShieldCheckIcon',       label: 'Гарантия 1 год на монтаж', desc: 'Устраняем неисправности по нашей вине бесплатно' },
+  { icon: 'CheckBadgeIcon',        label: 'Официальная гарантия', desc: 'Electrolux, Ballu, Haier, LG, Mitsudai — дилеры' },
+  { icon: 'BoltIcon',              label: 'Выезд в день заказа', desc: 'Принимаем заявки пн–сб с 9:00 до 18:00' },
+  { icon: 'BanknotesIcon',         label: 'Фиксированная цена', desc: 'Без скрытых доплат. Монтаж от 400 р. под ключ' },
+  { icon: 'MapPinIcon',            label: 'Гомель и область', desc: 'Жлобин, Мозырь, Речица, Светлогорск и другие' },
 ];
 
 const ARTICLE_LINKS = [
@@ -94,7 +95,9 @@ export default function SeoSection() {
         <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
           {ADVANTAGES.map(adv => (
             <div key={adv.label} className="group bg-white rounded-2xl border border-border p-5 hover:border-crimson-300 hover:shadow-md transition-all duration-200">
-              <span className="text-2xl mb-3 block">{adv.icon}</span>
+              <div className="w-10 h-10 rounded-xl bg-crimson-50 flex items-center justify-center mb-3">
+                <Icon name={adv.icon as Parameters<typeof Icon>[0]['name']} size={22} className="text-crimson-700" />
+              </div>
               <p className="font-semibold text-foreground text-sm mb-1.5">{adv.label}</p>
               <p className="text-xs text-muted-foreground leading-relaxed">{adv.desc}</p>
             </div>

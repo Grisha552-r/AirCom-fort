@@ -69,7 +69,11 @@ export default function Header({ onCartOpen }: HeaderProps) {
         {/* Top bar */}
         <div className="bg-crimson-800 text-white">
           <div className="max-w-7xl mx-auto px-4 py-1.5 flex items-center justify-between text-xs">
-            <div />
+            <span className="hidden sm:flex items-center gap-1.5 text-crimson-200 font-medium">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse" />
+              Выезд в день заказа · Гомель и область
+            </span>
+            <span className="sm:hidden text-crimson-200 font-medium">AirComfort</span>
             <div className="flex items-center gap-3">
               {/* Telegram */}
               <a

@@ -1,16 +1,16 @@
 import { MetadataRoute } from 'next';
-import { getSupabaseAdmin } from '@/lib/supabase';
+import products from '@/data/products.json';
 
 const BASE = 'https://aircom-fort.by';
 
 const STATIC_PAGES = [
-  { url: `${BASE}/`,                        priority: 1.0, changefreq: 'daily'   },
-  { url: `${BASE}/konditsionery-gomel`,     priority: 0.98, changefreq: 'daily'  },
-  { url: `${BASE}/products`,                priority: 0.9, changefreq: 'daily'   },
-  { url: `${BASE}/services`,                priority: 0.8, changefreq: 'weekly'  },
-  { url: `${BASE}/about`,                   priority: 0.5, changefreq: 'monthly' },
-  { url: `${BASE}/requisites`,              priority: 0.4, changefreq: 'monthly' },
-  { url: `${BASE}/articles`,                priority: 0.6, changefreq: 'weekly'  },
+  { url: `${BASE}/`,                    priority: 1.0,  changefreq: 'daily'   as const },
+  { url: `${BASE}/konditsionery-gomel`, priority: 0.98, changefreq: 'daily'   as const },
+  { url: `${BASE}/products`,            priority: 0.9,  changefreq: 'daily'   as const },
+  { url: `${BASE}/services`,            priority: 0.8,  changefreq: 'weekly'  as const },
+  { url: `${BASE}/articles`,            priority: 0.7,  changefreq: 'weekly'  as const },
+  { url: `${BASE}/about`,               priority: 0.5,  changefreq: 'monthly' as const },
+  { url: `${BASE}/requisites`,          priority: 0.4,  changefreq: 'monthly' as const },
 ];
 
 const CATEGORY_SLUGS = [
@@ -55,43 +55,24 @@ const ARTICLE_SLUGS = [
   'nedorogoy-konditsioner-gomel',
   'konditsioner-kinghome-gomel',
   'ustanovka-konditsionera-v-novostroyke',
+  'konditsioner-dlya-kukhni',
+  'konditsioner-mitsudai-gomel',
 ];
 
-export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
+export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();
 
-  const categoryPages = CATEGORY_SLUGS.map(slug => ({
-    url: `${BASE}/products/${slug}`,
+  const productPages: MetadataRoute.Sitemap = (products as { id: string }[]).map(p => ({
+    url: `${BASE}/products/${p.id}`,
     lastModified: now,
-    priority: 0.85,
+    priority: 0.7,
+    changefreq: 'monthly' as const,
   }));
-
-  const articlePages = ARTICLE_SLUGS.map(slug => ({
-    url: `${BASE}/articles/${slug}`,
-    lastModified: now,
-    priority: 0.6,
-  }));
-
-  // Fetch products from Supabase (works on Vercel, unlike fs.readFileSync)
-  let productPages: MetadataRoute.Sitemap = [];
-  try {
-    const { data } = await getSupabaseAdmin()
-      .from('products')
-      .select('id')
-      .order('id');
-    if (data) {
-      productPages = data.map(p => ({
-        url: `${BASE}/products/${p.id}`,
-        lastModified: now,
-        priority: 0.7,
-      }));
-    }
-  } catch {}
 
   return [
-    ...STATIC_PAGES.map(p => ({ url: p.url, lastModified: now, priority: p.priority })),
-    ...categoryPages,
-    ...articlePages,
+    ...STATIC_PAGES.map(p => ({ url: p.url, lastModified: now, priority: p.priority, changefreq: p.changefreq })),
+    ...CATEGORY_SLUGS.map(slug => ({ url: `${BASE}/products/${slug}`, lastModified: now, priority: 0.85, changefreq: 'weekly' as const })),
+    ...ARTICLE_SLUGS.map(slug => ({ url: `${BASE}/articles/${slug}`, lastModified: now, priority: 0.65, changefreq: 'monthly' as const })),
     ...productPages,
   ];
 }
