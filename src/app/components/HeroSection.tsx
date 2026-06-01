@@ -60,12 +60,12 @@ export default function HeroSection() {
             {/* Left: Text */}
             <div className="reveal-on-scroll opacity-100 relative z-10">
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
-                Кондиционеры в Гомеле
-                <span className="text-crimson-gradient block">от 1 290 р.</span>
+                Купить кондиционер
+                <span className="text-crimson-gradient block">в Гомеле</span>
                 с установкой под ключ
               </h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-md">
-                Electrolux, Ballu, Haier, LG, Mitsudai — 300+ моделей в наличии. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.
+                Electrolux, Ballu, Haier, LG, Mitsudai — 300+ моделей в наличии. <strong className="text-foreground">От 1 290 р. под ключ.</strong> Монтаж от 400 р., выезд в день заказа, гарантия 1 год.
               </p>
 
               {/* Trust counters */}
