@@ -177,17 +177,6 @@ export default function Header({ onCartOpen }: HeaderProps) {
                       ))}
                       <div className="border-t border-border mt-1 pt-1">
                         <Link
-                          href="/konditsionery-gomel"
-                          onClick={() => setCatalogOpen(false)}
-                          className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-crimson-50 group transition-colors duration-150"
-                        >
-                          <div className="w-10 h-10 rounded-lg shrink-0 flex items-center justify-center">
-                            <Icon name="MapPinIcon" size={22} className="text-crimson-700" />
-                          </div>
-                          <span className="text-sm font-medium text-foreground group-hover:text-crimson-700 transition-colors">Кондиционеры в Гомеле</span>
-                          <Icon name="ChevronRightIcon" size={14} className="ml-auto text-muted-foreground group-hover:text-crimson-600 transition-colors" />
-                        </Link>
-                        <Link
                           href="/services"
                           onClick={() => setCatalogOpen(false)}
                           className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-crimson-50 group transition-colors duration-150"
@@ -322,17 +311,6 @@ export default function Header({ onCartOpen }: HeaderProps) {
                 </Link>
               ))}
               <div className="border-t border-border pt-2 mt-2">
-                <Link
-                  href="/konditsionery-gomel"
-                  onClick={() => setMobileMenuOpen(false)}
-                  className="flex items-center gap-3 px-3 py-2.5 rounded-lg hover:bg-crimson-50 group transition-colors"
-                >
-                  <div className="w-10 h-10 rounded-lg shrink-0 bg-crimson-50 flex items-center justify-center">
-                    <Icon name="MapPinIcon" size={22} className="text-crimson-700" />
-                  </div>
-                  <span className="text-sm font-medium text-foreground group-hover:text-crimson-700 transition-colors">Кондиционеры в Гомеле</span>
-                  <Icon name="ChevronRightIcon" size={14} className="ml-auto text-muted-foreground" />
-                </Link>
                 <Link
                   href="/services"
                   onClick={() => setMobileMenuOpen(false)}
