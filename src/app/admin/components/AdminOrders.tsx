@@ -4,6 +4,7 @@ import Icon from '@/components/ui/AppIcon';
 import { Order } from '@/lib/store';
 
 const STATUS_LABELS: Record<Order['status'], string> = {
+  callback: 'Звонок',
   new: 'Новый',
   processing: 'В обработке',
   ready: 'Готов к выдаче',
@@ -12,6 +13,7 @@ const STATUS_LABELS: Record<Order['status'], string> = {
 };
 
 const STATUS_COLORS: Record<Order['status'], string> = {
+  callback: 'bg-purple-900/40 text-purple-300 border-purple-700',
   new: 'bg-blue-900/40 text-blue-300 border-blue-800',
   processing: 'bg-amber-900/40 text-amber-300 border-amber-800',
   ready: 'bg-emerald-900/40 text-emerald-300 border-emerald-800',
@@ -66,7 +68,7 @@ export default function AdminOrders() {
 
       {/* Status filter */}
       <div className="flex gap-2 overflow-x-auto scrollbar-hide pb-1">
-        {(['all', 'new', 'processing', 'ready', 'completed', 'cancelled'] as const).map(status => (
+        {(['all', 'callback', 'new', 'processing', 'ready', 'completed', 'cancelled'] as const).map(status => (
           <button
             key={status}
             onClick={() => setFilterStatus(status)}

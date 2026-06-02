@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Недорогой кондиционер в Гомеле — купить от 690 р. с установкой | AirComfort',
-  description: 'Бюджетные кондиционеры в Гомеле от 690 р. с установкой под ключ от 1 090 р. Ballu, Mitsudai, Electrolux — надёжные модели без переплаты. Монтаж в день заказа.',
+  description: 'Бюджетные кондиционеры в Гомеле от 690 р., с установкой от 1 090 р. Ballu, Mitsudai, Electrolux. Монтаж в день заказа.',
   keywords: ['недорогой кондиционер Гомель', 'бюджетный кондиционер Гомель', 'дешёвый кондиционер Гомель', 'кондиционер от 1000 рублей Гомель', 'купить кондиционер недорого Гомель'],
   alternates: { canonical: 'https://aircom-fort.by/articles/nedorogoy-konditsioner-gomel' },
   openGraph: {

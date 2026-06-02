@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Кондиционеры Mitsudai в Гомеле — купить с установкой от 1 254 р.',
-  description: 'Кондиционеры Mitsudai в Гомеле: бюджетные сплит-системы с установкой от 1 254 р. Серии SNE, надёжный компрессор, монтаж в день заказа. AirComfort — официальный дилер.',
+  description: 'Кондиционеры Mitsudai в Гомеле с установкой от 1 254 р. Серии SNE, надёжный компрессор. Монтаж в день заказа, гарантия 1 год.',
   keywords: [
     'кондиционер Mitsudai Гомель',
     'Mitsudai купить Гомель',

@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Чистка кондиционера в Гомеле — когда нужна и сколько стоит',
-  description: 'Как часто нужна чистка кондиционера, что будет если не обслуживать, признаки загрязнения. Профессиональное обслуживание кондиционеров в Гомеле — AirComfort.',
+  description: 'Чистка кондиционера в Гомеле: признаки загрязнения, периодичность, что делать самому. Профессиональное обслуживание от AirComfort.',
   keywords: ['чистка кондиционера Гомель', 'обслуживание кондиционера Гомель', 'промывка кондиционера', 'когда чистить кондиционер'],
   alternates: { canonical: 'https://aircom-fort.by/articles/chistka-i-obsluzhivanie' },
 };

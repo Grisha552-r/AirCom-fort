@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Кондиционеры Ballu в Гомеле — купить с установкой от 1 290 р.',
-  description: 'Официальный дилер Ballu в Гомеле. Ballu BSAGI, BSDI, Platinum Evolution — инверторные и On/Off модели в наличии. Установка в день заказа, гарантия 2 года.',
+  description: 'Официальный дилер Ballu в Гомеле. BSAGI, BSDI, Platinum — инверторные и On/Off модели. Монтаж в день заказа, гарантия 2 года.',
   keywords: [
     'кондиционер Ballu Гомель',
     'Ballu купить Гомель',

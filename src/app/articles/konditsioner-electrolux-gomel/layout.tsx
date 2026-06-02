@@ -1,8 +1,8 @@
-import type { Metadata } from 'next';
+﻿import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
   title: 'Кондиционеры Electrolux в Гомеле — купить с установкой от 1 490 р.',
-  description: 'Купить кондиционер Electrolux в Гомеле с установкой под ключ. Официальный дилер. Electrolux EACS, EACS-I, Nordic — все серии в наличии. Монтаж от 400 р., гарантия 3 года.',
+  description: 'Купить кондиционер Electrolux в Гомеле с установкой. Официальный дилер. Серии EACS, EACS-I, Nordic в наличии. Монтаж от 400 р., гарантия 3 года.',
   keywords: [
     'кондиционер Electrolux Гомель',
     'купить Electrolux Гомель',
