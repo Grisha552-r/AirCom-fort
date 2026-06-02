@@ -1,5 +1,6 @@
 import { MetadataRoute } from 'next';
 import products from '@/data/products.json';
+import { CITIES } from '@/lib/cities';
 
 const BASE = 'https://aircom-fort.by';
 
@@ -69,10 +70,18 @@ export default function sitemap(): MetadataRoute.Sitemap {
     changefreq: 'monthly' as const,
   }));
 
+  const cityPages: MetadataRoute.Sitemap = CITIES.map(c => ({
+    url: `${BASE}/konditsioner/${c.slug}`,
+    lastModified: now,
+    priority: 0.75,
+    changefreq: 'monthly' as const,
+  }));
+
   return [
     ...STATIC_PAGES.map(p => ({ url: p.url, lastModified: now, priority: p.priority, changefreq: p.changefreq })),
     ...CATEGORY_SLUGS.map(slug => ({ url: `${BASE}/products/${slug}`, lastModified: now, priority: 0.85, changefreq: 'weekly' as const })),
     ...ARTICLE_SLUGS.map(slug => ({ url: `${BASE}/articles/${slug}`, lastModified: now, priority: 0.65, changefreq: 'monthly' as const })),
+    ...cityPages,
     ...productPages,
   ];
 }

@@ -1,5 +1,6 @@
 import Link from 'next/link';
 import ArticleShell from '@/app/articles/ArticleShell';
+import { CITIES } from '@/lib/cities';
 
 const MAIN_PAGES = [
   { href: '/', label: 'Главная страница' },
@@ -107,6 +108,9 @@ export default function KartaSaytaPage() {
 
         <Section title="Основные страницы" links={MAIN_PAGES} />
         <Section title="Каталог кондиционеров" links={CATEGORIES} />
+        <Section title="Кондиционеры по городам Гомельской области" links={
+          CITIES.map(c => ({ href: `/konditsioner/${c.slug}`, label: `Кондиционер в ${c.nameIn}` }))
+        } />
         <Section title="Статьи: кондиционеры по брендам" links={ARTICLES_BRANDS} />
         <Section title="Статьи: выбор кондиционера" links={ARTICLES_CHOICE} />
         <Section title="Статьи: установка кондиционеров" links={ARTICLES_INSTALL} />
