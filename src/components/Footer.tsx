@@ -92,6 +92,7 @@ export default function Footer() {
                 { label: 'О нас', href: '/about' },
                 { label: 'Все статьи', href: '/articles' },
                 { label: 'Реквизиты', href: '/requisites' },
+                { label: 'Карта сайта', href: '/karta-sayta' },
               ].map(item => (
                 <li key={item.label}>
                   <Link
