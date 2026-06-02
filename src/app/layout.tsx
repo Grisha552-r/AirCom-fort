@@ -4,6 +4,7 @@ import { Plus_Jakarta_Sans, Fraunces } from 'next/font/google';
 import '../styles/tailwind.css';
 import JsonLd from '@/components/JsonLd';
 import YandexMetrica from '@/components/YandexMetrica';
+import GoogleAnalytics from '@/components/GoogleAnalytics';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin', 'cyrillic-ext'],
@@ -146,6 +147,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
       <body className={plusJakartaSans.className}>
         <JsonLd />
         <YandexMetrica />
+        <GoogleAnalytics />
         {children}
       </body>
     </html>
