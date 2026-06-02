@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Кондиционеры Haier в Гомеле — купить с установкой от 1 350 р.',
+  title: 'Кондиционеры Haier в Гомеле — Wi-Fi, инвертор, официальный дилер',
   description: 'Официальный дилер Haier в Гомеле. Кондиционеры Haier с Wi-Fi, инвертором, Smart управлением. Все модели в наличии. Монтаж в день заказа, гарантия 2 года.',
   keywords: [
     'кондиционер Haier Гомель',

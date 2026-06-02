@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Кондиционеры LG в Гомеле — купить с установкой от 1 690 р.',
+  title: 'Кондиционеры LG в Гомеле — Dual Inverter, ArtCool, ThinQ',
   description: 'Официальный дилер LG в Гомеле. Кондиционеры LG ArtCool, S-серия — самые тихие в своём классе, ThinQ управление. Монтаж в день заказа, гарантия 3 года.',
   keywords: [
     'кондиционер LG Гомель',

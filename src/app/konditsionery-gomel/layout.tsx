@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Кондиционеры в Гомеле — купить с установкой от 1 290 р.',
+  title: 'Кондиционеры в Гомеле — каталог, цены, установка | AirComfort',
   description: 'Купить кондиционер в Гомеле с установкой от 1 290 р. 300+ моделей: Electrolux, Ballu, Haier, LG. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
   keywords: [
     'кондиционеры Гомель',

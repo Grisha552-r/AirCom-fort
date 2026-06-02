@@ -58,7 +58,7 @@ export default function Footer() {
 
           {/* Каталог */}
           <div>
-            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Каталог</h4>
+            <p className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Каталог</p>
             <ul className="space-y-3">
               {[
                 { name: 'Electrolux', slug: 'split-electrolux' },
@@ -84,7 +84,7 @@ export default function Footer() {
 
           {/* Компания */}
           <div>
-            <h4 className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Компания</h4>
+            <p className="text-white font-semibold text-xs uppercase tracking-widest mb-5">Компания</p>
             <ul className="space-y-3">
               {[
                 { label: 'Кондиционеры в Гомеле', href: '/konditsionery-gomel' },

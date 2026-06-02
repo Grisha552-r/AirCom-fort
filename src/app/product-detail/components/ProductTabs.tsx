@@ -171,7 +171,7 @@ export default function ProductTabs({ product }: ProductTabsProps) {
 
             {/* Review form */}
             <div className="bg-zinc-50 rounded-2xl p-5 border border-border">
-              <h3 className="font-bold text-base text-foreground mb-4">Оставить отзыв</h3>
+              <h2 className="font-bold text-base text-foreground mb-4">Оставить отзыв</h2>
               {submitted ? (
                 <div className="flex items-center gap-3 bg-emerald-50 text-emerald-700 rounded-xl p-4 border border-emerald-100">
                   <Icon name="CheckCircleIcon" size={20} />

@@ -297,7 +297,7 @@ export default function ArticlePage() {
 
         {/* CTA */}
         <div className="bg-crimson-gradient rounded-2xl p-6 text-white text-center">
-          <h3 className="text-xl font-bold mb-2">Готовы выбрать кондиционер?</h3>
+          <p className="text-xl font-bold mb-2">Готовы выбрать кондиционер?</p>
           <p className="text-crimson-100 text-sm mb-5">Позвоните нам — поможем подобрать модель под ваш бюджет и площадь, рассчитаем стоимость монтажа.</p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
             <a
