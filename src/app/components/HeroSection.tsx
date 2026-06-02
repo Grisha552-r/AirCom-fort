@@ -153,6 +153,8 @@ export default function HeroSection() {
                         src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
                         alt="Сплит-система Mitsudai"
                         className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
+                        fetchPriority="high"
+                        loading="eager"
                       />
                     </Link>
 
