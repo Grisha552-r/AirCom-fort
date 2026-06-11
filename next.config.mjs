@@ -42,6 +42,16 @@ const nextConfig = {
         destination: '/articles/multisplit-gomel',
         permanent: true,
       },
+      {
+        source: '/contacts',
+        destination: '/requisites',
+        permanent: true,
+      },
+      {
+        source: '/contact',
+        destination: '/requisites',
+        permanent: true,
+      },
     ];
   },
 

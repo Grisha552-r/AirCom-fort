@@ -6,6 +6,13 @@ import CartDrawer from '@/components/CartDrawer';
 import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
 
+const CONTACTS = [
+  { icon: 'PhoneIcon', label: 'Телефон', value: '+375 29 105-06-94', href: 'tel:+375291050694' },
+  { icon: 'EnvelopeIcon', label: 'Email', value: 'aircomfortbel@gmail.com', href: 'mailto:aircomfortbel@gmail.com' },
+  { icon: 'MapPinIcon', label: 'Адрес', value: 'г. Гомель, ул. 2-я Витебская, 30, офис №1-14/1', href: null },
+  { icon: 'ClockIcon', label: 'Режим работы', value: 'Пн–Сб, 9:00–18:00', href: null },
+];
+
 const REQUISITES = [
   { label: 'Полное наименование', value: 'Общество с ограниченной ответственностью "ТеплоПрайм"' },
   { label: 'УНП', value: '491393506' },
@@ -71,14 +78,49 @@ export default function RequisitesPage() {
             <nav className="flex items-center gap-2 text-sm text-crimson-200 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Главная</Link>
               <Icon name="ChevronRightIcon" size={14} />
-              <span className="text-white font-medium">Реквизиты</span>
+              <span className="text-white font-medium">Контакты</span>
             </nav>
-            <h1 className="text-4xl font-bold mb-3">Реквизиты компании</h1>
+            <h1 className="text-4xl font-bold mb-3">Контакты и реквизиты</h1>
             <p className="text-crimson-100 text-lg">Работаем с физическими и юридическими лицами</p>
           </div>
         </div>
 
         <div className="max-w-4xl mx-auto px-4 py-12 space-y-10">
+
+          {/* Contacts */}
+          <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            {CONTACTS.map(c => (
+              <div key={c.label} className="bg-white rounded-2xl border border-border p-5 flex items-start gap-4">
+                <div className="w-10 h-10 rounded-xl bg-crimson-100 flex items-center justify-center shrink-0">
+                  <Icon name={c.icon as Parameters<typeof Icon>[0]['name']} size={20} className="text-crimson-700" />
+                </div>
+                <div>
+                  <p className="text-xs text-muted-foreground mb-0.5">{c.label}</p>
+                  {c.href ? (
+                    <a href={c.href} className="text-sm font-semibold text-foreground hover:text-crimson-700 transition-colors">{c.value}</a>
+                  ) : (
+                    <p className="text-sm font-semibold text-foreground">{c.value}</p>
+                  )}
+                </div>
+              </div>
+            ))}
+          </div>
+
+          {/* Messengers */}
+          <div className="flex flex-wrap gap-3">
+            <a href="https://t.me/AirComforto" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
+              style={{ background: 'linear-gradient(135deg,#2AABEE,#229ED9)' }}>
+              <Icon name="ChatBubbleLeftIcon" size={16} />
+              Telegram
+            </a>
+            <a href="viber://chat?number=%2B375291050694" target="_blank" rel="noopener noreferrer"
+              className="flex items-center gap-2 px-5 py-2.5 rounded-xl font-semibold text-sm text-white transition-opacity hover:opacity-90"
+              style={{ background: '#7B519D' }}>
+              <Icon name="ChatBubbleLeftIcon" size={16} />
+              Viber
+            </a>
+          </div>
 
           {/* Client types */}
           <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
