@@ -68,9 +68,9 @@ export default function SeoSection() {
             {/* Stats */}
             <div className="grid grid-cols-2 gap-4">
               {[
-                { value: '5+', label: 'лет на рынке', sub: 'с 2019 года' },
+                { value: `${new Date().getFullYear() - 2019}+`, label: 'лет на рынке', sub: 'с 2019 года' },
                 { value: '500+', label: 'установок', sub: 'в Гомеле и области' },
-                { value: '400 р.', label: 'монтаж под ключ', sub: 'от — для комнаты 30 м²' },
+                { value: 'от 400 р.', label: 'монтаж под ключ', sub: 'для комнаты до 30 м²' },
                 { value: '7', label: 'брендов', sub: 'официальный дилер' },
               ].map(s => (
                 <div key={s.value} className="bg-zinc-900 rounded-2xl p-5 border border-zinc-800 hover:border-crimson-800 transition-colors">
