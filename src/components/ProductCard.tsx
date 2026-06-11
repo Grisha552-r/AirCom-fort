@@ -72,10 +72,12 @@ export default function ProductCard({ product, onCartAdd }: ProductCardProps) {
 
         {/* Info */}
         <div className="p-3 flex flex-col flex-1">
-          <div className="flex items-center gap-1.5 mb-1.5">
-            <StarRating rating={product.rating} />
-            <span className="text-xs text-muted-foreground">({product.reviewCount})</span>
-          </div>
+          {product.reviewCount > 0 && (
+            <div className="flex items-center gap-1.5 mb-1.5">
+              <StarRating rating={product.rating} />
+              <span className="text-xs text-muted-foreground">({product.reviewCount})</span>
+            </div>
+          )}
           <p className="text-sm font-medium text-foreground line-clamp-2 leading-snug mb-2 flex-1">{product.name}</p>
           <div className="mt-auto">
             <div className="flex items-baseline gap-2 mb-2">

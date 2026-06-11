@@ -116,7 +116,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     locale: 'ru_BY',
-    url: 'https://aircom-fort.by',
+    url: 'https://aircom-fort.by/',
     siteName: 'AirComfort',
     title: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
     description: 'Купить кондиционер в Гомеле с установкой под ключ от 1 290 р. 300+ моделей: Electrolux, Ballu, Haier, LG. Монтаж от 400 р., выезд в день заказа.',
@@ -126,10 +126,10 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
     description: 'Electrolux, Ballu, Haier, LG — 300+ моделей. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
-    images: ['/opengraph-image'],
+    images: [{ url: '/opengraph-image', alt: 'AirComfort — Кондиционеры в Гомеле от 1 290 р.' }],
   },
   alternates: {
-    canonical: 'https://aircom-fort.by',
+    canonical: 'https://aircom-fort.by/',
   },
   icons: {
     icon: [

@@ -81,6 +81,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
                 target="_blank"
                 rel="noopener noreferrer"
                 title="Telegram"
+                aria-label="Написать в Telegram"
                 className="w-7 h-7 rounded-full flex items-center justify-center transition-transform hover:scale-110 shrink-0 overflow-hidden"
                 style={{ background: 'linear-gradient(135deg,#2AABEE,#229ED9)' }}
               >
@@ -92,6 +93,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
               <a
                 href="viber://chat?number=%2B375291050694"
                 title="Viber"
+                aria-label="Написать в Viber"
                 target="_blank"
                 rel="noopener noreferrer"
                 className="w-7 h-7 rounded-full flex items-center justify-center transition-transform hover:scale-110 shrink-0"
