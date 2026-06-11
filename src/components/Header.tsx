@@ -129,7 +129,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
             <Link href="/" className="shrink-0 flex items-center gap-2">
               <div className="w-8 h-8 shrink-0">
                 <AppImage
-                  src="/assets/images/Image__1_-1777225844930.png"
+                  src="/assets/images/logo.png"
                   alt="AirComfort логотип"
                   width={32}
                   height={32}

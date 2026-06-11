@@ -163,7 +163,7 @@ const ARTICLES = [
   {
     slug: 'obsluzhivanie-konditsionera-gomel',
     title: 'Обслуживание кондиционера в Гомеле — чистка, заправка, ремонт 2026',
-    excerpt: 'Чистка кондиционера от 60 р., заправка фреоном от 60 р. Что входит в полное ТО и как часто нужно обслуживать. Диагностика бесплатно.',
+    excerpt: 'Чистка кондиционера от 100 р., заправка фреоном от 60 р. Что входит в полное ТО и как часто нужно обслуживать. Диагностика бесплатно.',
     image: 'https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png',
     readTime: '5 мин',
     date: '2026',

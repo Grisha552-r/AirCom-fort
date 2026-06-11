@@ -85,7 +85,7 @@ export default function SeoSection() {
       </div>
 
       {/* Advantages */}
-      <div className="max-w-7xl mx-auto px-4 py-14">
+      <div className="print:break-before-page max-w-7xl mx-auto px-4 py-14">
         <div className="text-center mb-10">
           <span className="inline-block text-xs font-bold uppercase tracking-widest text-crimson-600 mb-3">Почему выбирают нас</span>
           <h2 className="text-2xl md:text-3xl font-bold text-foreground">

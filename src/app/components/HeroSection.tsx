@@ -238,6 +238,7 @@ export default function HeroSection() {
                       <img
                         src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
                         alt="King Home Luna Matt"
+                        loading="lazy"
                         className="max-h-full w-auto max-w-[280px] sm:max-w-[320px] object-contain mix-blend-multiply"
                         style={{ transform: 'scale(2.5)' }}
                       />
