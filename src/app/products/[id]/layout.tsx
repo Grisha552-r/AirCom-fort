@@ -169,6 +169,8 @@ export default async function ProductLayout({
         '@context': 'https://schema.org',
         '@type': 'Product',
         name: product.name,
+        sku: id,
+        mpn: product.slug || id,
         description: product.description?.replace(/<[^>]+>/g, '').slice(0, 200),
         image: Array.isArray(product.images) ? product.images.slice(0, 5) : [],
         brand: { '@type': 'Brand', name: product.brand || 'AirComfort' },

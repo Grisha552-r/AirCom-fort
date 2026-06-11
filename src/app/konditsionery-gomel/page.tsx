@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import ArticleShell from '../articles/ArticleShell';
 
 const faqSchema = {
@@ -385,7 +385,7 @@ export default function KonditsioneryGomelPage() {
                 ['/articles/tikhiy-konditsioner-dlya-spalni', 'Тихий кондиционер'],
                 ['/articles/konditsioner-dlya-ofisa-gomel', 'Кондиционер для офиса'],
                 ['/articles/konditsioner-dlya-gostinoy', 'Кондиционер для гостиной'],
-                ['/articles/mulitsplit-gomel', 'Мультисплит в Гомеле'],
+                ['/articles/multisplit-gomel', 'Мультисплит в Гомеле'],
                 ['/articles/zapravka-konditsionera-gomel', 'Заправка фреоном'],
               ].map(([href, label]) => (
                 <Link key={href} href={href} className="text-sm text-crimson-700 hover:underline py-1">

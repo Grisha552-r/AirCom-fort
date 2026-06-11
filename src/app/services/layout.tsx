@@ -34,6 +34,15 @@ export const metadata: Metadata = {
   },
 };
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://aircom-fort.by/' },
+    { '@type': 'ListItem', position: 2, name: 'Услуги', item: 'https://aircom-fort.by/services' },
+  ],
+};
+
 const serviceJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'ItemList',
@@ -81,6 +90,10 @@ const serviceJsonLd = {
 export default function ServicesLayout({ children }: { children: React.ReactNode }) {
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceJsonLd) }}

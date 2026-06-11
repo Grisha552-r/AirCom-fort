@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -269,7 +269,7 @@ const ARTICLES = [
     tag: 'Выбор техники',
   },
   {
-    slug: 'mulitsplit-gomel',
+    slug: 'multisplit-gomel',
     title: 'Мультисплит система в Гомеле — цены 2026, один блок на все комнаты',
     excerpt: 'Один внешний блок — 2–5 комнат. Цены на мультисплит в Гомеле от 2 500 р. под ключ. Когда мультисплит выгоднее нескольких кондиционеров — разбираем.',
     image: '/assets/images/articles/ac-mobile.jpg',
@@ -384,10 +384,10 @@ export default function ArticlesPage() {
             <nav className="flex items-center gap-2 text-sm text-crimson-200 mb-6">
               <Link href="/" className="hover:text-white transition-colors">Главная</Link>
               <Icon name="ChevronRightIcon" size={14} />
-              <span className="text-white font-medium">Ответы на вопросы</span>
+              <span className="text-white font-medium">Статьи о кондиционерах</span>
             </nav>
-            <h1 className="text-4xl font-bold mb-3">Ответы на вопросы</h1>
-            <p className="text-crimson-100 text-lg">Полезные статьи о выборе, установке и обслуживании кондиционеров</p>
+            <h1 className="text-4xl font-bold mb-3">Статьи о кондиционерах</h1>
+            <p className="text-crimson-100 text-lg">Как выбрать, установить и обслуживать кондиционер — советы от экспертов AirComfort</p>
           </div>
         </div>
 

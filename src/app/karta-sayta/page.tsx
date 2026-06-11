@@ -1,4 +1,4 @@
-import Link from 'next/link';
+﻿import Link from 'next/link';
 import ArticleShell from '@/app/articles/ArticleShell';
 import { CITIES } from '@/lib/cities';
 
@@ -47,7 +47,7 @@ const ARTICLES_CHOICE = [
   { href: '/articles/konditsioner-dlya-komnaty', label: 'Кондиционер для комнаты 20 кв. м' },
   { href: '/articles/konditsioner-dlya-ofisa-gomel', label: 'Кондиционер для офиса в Гомеле' },
   { href: '/articles/konditsioner-dlya-dachi', label: 'Кондиционер для дачи' },
-  { href: '/articles/mulitsplit-gomel', label: 'Мультисплит-система в Гомеле' },
+  { href: '/articles/multisplit-gomel', label: 'Мультисплит-система в Гомеле' },
   { href: '/articles/konditsioner-s-obogrevom-gomel', label: 'Кондиционер с обогревом в Гомеле' },
 ];
 
@@ -100,7 +100,7 @@ export default function KartaSaytaPage() {
       <main className="max-w-4xl mx-auto px-4 py-10">
         <nav className="text-sm text-muted-foreground mb-6">
           <Link href="/" className="hover:text-crimson-700">Главная</Link>
-          {' / '}
+          <span className="mx-1.5">›</span>
           <span className="text-foreground">Карта сайта</span>
         </nav>
         <h1 className="text-3xl font-bold text-foreground mb-2">Карта сайта</h1>

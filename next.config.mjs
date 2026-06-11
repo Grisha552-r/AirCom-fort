@@ -37,6 +37,11 @@ const nextConfig = {
         destination: `/products/${slug}`,
         permanent: true,
       })),
+      {
+        source: '/articles/mulitsplit-gomel',
+        destination: '/articles/multisplit-gomel',
+        permanent: true,
+      },
     ];
   },
 

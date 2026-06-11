@@ -197,28 +197,29 @@ export default function Header({ onCartOpen }: HeaderProps) {
             </div>
 
             {/* Search — hidden on mobile */}
-            <div className="hidden sm:flex flex-1 relative max-w-xl">
+            <form
+              role="search"
+              className="hidden sm:flex flex-1 relative max-w-xl"
+              onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) window.location.href = `/products?search=${encodeURIComponent(searchQuery.trim())}`; }}
+            >
               <div className="w-full flex items-center bg-muted rounded-xl border border-border focus-within:border-crimson-600 focus-within:ring-2 focus-within:ring-crimson-100 transition-all duration-200">
                 <Icon name="MagnifyingGlassIcon" size={18} className="ml-3 text-muted-foreground shrink-0" />
                 <input
-                  type="text"
+                  type="search"
+                  name="search"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && searchQuery.trim()) {
-                      window.location.href = `/products?search=${encodeURIComponent(searchQuery.trim())}`;
-                    }
-                  }}
                   placeholder="Поиск товаров..."
+                  aria-label="Поиск товаров"
                   className="flex-1 bg-transparent px-3 py-2.5 text-sm outline-none placeholder:text-muted-foreground"
                 />
                 {searchQuery && (
-                  <button onClick={() => setSearchQuery('')} className="mr-2 text-muted-foreground hover:text-foreground">
+                  <button type="button" onClick={() => setSearchQuery('')} className="mr-2 text-muted-foreground hover:text-foreground" aria-label="Очистить поиск">
                     <Icon name="XMarkIcon" size={16} />
                   </button>
                 )}
               </div>
-            </div>
+            </form>
 
             {/* Spacer on mobile so icons go to the right */}
             <div className="flex-1 sm:hidden" />
@@ -274,22 +275,22 @@ export default function Header({ onCartOpen }: HeaderProps) {
           <div className="md:hidden bg-white border-t border-border shadow-lg">
             <div className="p-4 space-y-1">
               {/* Mobile search */}
-              <div className="flex items-center bg-muted rounded-xl border border-border mb-3 focus-within:border-crimson-600 focus-within:ring-2 focus-within:ring-crimson-100 transition-all">
+              <form
+                role="search"
+                className="flex items-center bg-muted rounded-xl border border-border mb-3 focus-within:border-crimson-600 focus-within:ring-2 focus-within:ring-crimson-100 transition-all"
+                onSubmit={e => { e.preventDefault(); if (searchQuery.trim()) { window.location.href = `/products?search=${encodeURIComponent(searchQuery.trim())}`; setMobileMenuOpen(false); } }}
+              >
                 <Icon name="MagnifyingGlassIcon" size={16} className="ml-3 text-muted-foreground shrink-0" />
                 <input
-                  type="text"
+                  type="search"
+                  name="search"
                   value={searchQuery}
                   onChange={e => setSearchQuery(e.target.value)}
-                  onKeyDown={e => {
-                    if (e.key === 'Enter' && searchQuery.trim()) {
-                      window.location.href = `/products?search=${encodeURIComponent(searchQuery.trim())}`;
-                      setMobileMenuOpen(false);
-                    }
-                  }}
                   placeholder="Поиск товаров..."
+                  aria-label="Поиск товаров"
                   className="flex-1 bg-transparent px-3 py-2.5 text-sm outline-none placeholder:text-muted-foreground"
                 />
-              </div>
+              </form>
 
               <p className="text-xs font-semibold text-muted-foreground uppercase tracking-wider px-3 pb-2">Каталог</p>
               {topCategories.map(cat => (

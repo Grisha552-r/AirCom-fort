@@ -1,4 +1,4 @@
-import { MetadataRoute } from 'next';
+﻿import { MetadataRoute } from 'next';
 import products from '@/data/products.json';
 import { CITIES } from '@/lib/cities';
 
@@ -49,7 +49,7 @@ const ARTICLE_SLUGS = [
   'invertor-konditsioner-gomel',
   'split-sistema-gomel',
   'konditsioner-dlya-gostinoy',
-  'mulitsplit-gomel',
+  'multisplit-gomel',
   'konditsioner-gree-gomel',
   'konditsioner-dlya-dachi',
   'konditsioner-s-obogrevom-gomel',

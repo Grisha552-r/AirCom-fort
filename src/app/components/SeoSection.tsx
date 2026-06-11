@@ -1,4 +1,4 @@
-import React from 'react';
+﻿import React from 'react';
 import Link from 'next/link';
 import Icon from '@/components/ui/AppIcon';
 
@@ -23,7 +23,7 @@ const ARTICLE_LINKS = [
   { href: '/articles/konditsioner-haier-gomel', label: 'Haier в Гомеле' },
   { href: '/articles/konditsioner-lg-gomel', label: 'LG в Гомеле' },
   { href: '/articles/konditsioner-dlya-gostinoy', label: 'Кондиционер для гостиной' },
-  { href: '/articles/mulitsplit-gomel', label: 'Мультисплит в Гомеле' },
+  { href: '/articles/multisplit-gomel', label: 'Мультисплит в Гомеле' },
   { href: '/articles/zapravka-konditsionera-gomel', label: 'Заправка фреоном Гомель' },
   { href: '/articles/obsluzhivanie-konditsionera-gomel', label: 'Обслуживание кондиционера' },
 ];
