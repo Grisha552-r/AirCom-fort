@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -87,7 +87,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 py-12">
 
           <ArticleImage
-            src="https://split.by/sites/default/files/styles/640x400/public/field/image/nr.jpg?itok=eysvupPi"
+            src="/assets/images/articles/ac-permit.jpg"
             alt="Установка кондиционера на фасаде многоквартирного дома"
             caption="Установка кондиционера на фасаде МКД требует согласования с местными органами власти"
           />

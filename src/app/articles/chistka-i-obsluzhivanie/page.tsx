@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -87,7 +87,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 py-12">
 
           <ArticleImage
-            src="https://klimresh.by/imager/resized/news-single/450x275-uv6gS6xW4ORb6pZ74l3tWLwAsPqY2z-metadWhvZC1rb25kaWNpb25lciAoMSkucG5n-.png"
+            src="/assets/images/articles/ac-cleaning.png"
             alt="Обслуживание кондиционера — чистка фильтров и теплообменника"
             caption="Регулярное обслуживание продлевает ресурс кондиционера на 5–7 лет"
           />

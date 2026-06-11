@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -7,17 +7,17 @@ import Icon from '@/components/ui/AppIcon';
 import Link from 'next/link';
 
 const IMAGES = {
-  hero:    'https://cdn21vek.by/img/tmp/66ab9176d2a9b.jpeg',
-  power:   'https://cdn21vek.by/img/tmp/66ad0fe1ba938.jpeg',
-  types:   'https://cdn21vek.by/img/tmp/66ad1222b5e8b.jpeg',
-  modes:   'https://cdn21vek.by/img/tmp/66ad125659f9a.jpeg',
-  wifi:    'https://cdn21vek.by/img/tmp/66ad12815eec8.jpeg',
-  filters: 'https://cdn21vek.by/img/tmp/66ad1465c5574.jpeg',
-  winter:  'https://cdn21vek.by/img/tmp/66ad149706546.jpeg',
+  hero:    '/assets/images/articles/ac-guide.jpg',
+  power:   '/assets/images/articles/ac-power.jpg',
+  types:   '/assets/images/articles/ac-types.jpg',
+  modes:   '/assets/images/articles/ac-modes.jpg',
+  wifi:    '/assets/images/articles/ac-wifi.jpg',
+  filters: '/assets/images/articles/ac-filters.jpg',
+  winter:  '/assets/images/articles/ac-winter2.jpg',
   energy:  'https://cdn21vek.by/img/tmp/66ad1521bd52f.jpeg',
-  install: 'https://cdn21vek.by/img/tmp/66ad15d03848f.jpeg',
-  service: 'https://cdn21vek.by/img/tmp/66ad15e82c6c8.jpeg',
-  brands:  'https://cdn21vek.by/img/tmp/66ad15f9d7c13.jpeg',
+  install: '/assets/images/articles/ac-install.jpg',
+  service: '/assets/images/articles/ac-service.jpg',
+  brands:  '/assets/images/articles/ac-brands.jpg',
 };
 
 function ArticleImage({ src, alt }: { src: string; alt: string }) {

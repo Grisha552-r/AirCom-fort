@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -87,7 +87,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 py-12">
 
           <ArticleImage
-            src="https://static.tildacdn.com/tild6233-3334-4062-b238-386537323331/rendy-novantino-Pjx2.jpg"
+            src="/assets/images/articles/ac-summer.jpg"
             alt="Правильное использование кондиционера летом в квартире"
             caption="Комфортная температура в помещении — это 23–26°C, а не максимальный холод"
           />

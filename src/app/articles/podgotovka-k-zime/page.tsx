@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -87,7 +87,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 py-12">
 
           <ArticleImage
-            src="https://klimresh.by/imager/resized/news-single/450x275-Qpvs94OINi3S7YsdbyuQaF1TR2bkkK-metaa29uZGljaW9uZXItcG9kZ290b3ZrYS1rLXppbWUucG5n-.png"
+            src="/assets/images/articles/ac-winter.png"
             alt="Подготовка кондиционера к зиме — консервация на зимний период"
             caption="Правильная консервация продлевает ресурс наружного блока и предотвращает поломки от мороза"
           />

@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -89,7 +89,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 py-12">
 
           <ArticleImage
-            src="https://static.tildacdn.com/tild6362-6135-4234-a533-653563626231/invertonoff.jpg"
+            src="/assets/images/articles/ac-invertor.jpg"
             alt="Инверторный и обычный кондиционер — сравнение работы компрессора"
             caption="Принцип работы инверторного и on/off компрессора: главное отличие — способ регулировки мощности"
           />
@@ -143,7 +143,7 @@ export default function ArticlePage() {
           </Section>
 
           <ArticleImage
-            src="https://static.tildacdn.com/tild6631-3866-4366-a461-313637656332/123_1.png"
+            src="/assets/images/articles/ac-invertor-diagram.png"
             alt="Преимущества инверторного кондиционера"
             caption="График температуры: инверторный кондиционер поддерживает стабильный микроклимат без скачков"
           />

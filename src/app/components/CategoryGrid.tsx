@@ -41,7 +41,7 @@ export default function CategoryGrid() {
                 className={`relative rounded-2xl overflow-hidden group shadow-card hover:shadow-card-hover transition-shadow duration-300 ${colSpan}`}
               >
                 <AppImage
-                  src={cat.image || 'https://climate-montazh.by/wp-content/uploads/2023/03/88183.970.png'}
+                  src={cat.image || '/assets/images/no_image.png'}
                   alt={`${cat.name} — склад Гомель`}
                   fill
                   className="object-cover group-hover:scale-105 transition-transform duration-700"

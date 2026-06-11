@@ -1,4 +1,4 @@
-'use client';
+﻿'use client';
 import React, { useState } from 'react';
 import Header from '@/components/Header';
 import Footer from '@/components/Footer';
@@ -87,7 +87,7 @@ export default function ArticlePage() {
         <div className="max-w-3xl mx-auto px-4 py-12">
 
           <ArticleImage
-            src="https://content.onliner.by/news/1100x5616/fc670b5951c1c8d023eb5d860b4492bb.jpeg"
+            src="/assets/images/articles/ac-mobile.jpg"
             alt="Мобильный кондиционер и сплит-система — сравнение"
             caption="Мобильный кондиционер — удобен для тех, кто не может установить наружный блок"
           />
@@ -141,7 +141,7 @@ export default function ArticlePage() {
           </Section>
 
           <ArticleImage
-            src="https://content.onliner.by/news/1100x5616/019fe2287353e2e03643a9dea8811efa.jpeg"
+            src="/assets/images/articles/ac-mobile-2.jpg"
             alt="Установка мобильного кондиционера — шланг выведен в окно"
             caption="Шланг нужно выводить в окно — именно это сводит на нет главное преимущество мобильного кондиционера"
           />

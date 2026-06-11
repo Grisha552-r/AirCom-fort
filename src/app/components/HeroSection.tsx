@@ -15,7 +15,7 @@ export default function HeroSection() {
     e.preventDefault();
     e.stopPropagation();
     const items = [
-      { productId: 'p-md-sne09ai', productName: 'Сплит-система Mitsudai MD-SNE09AI', price: 890, quantity: 1, image: 'https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png' },
+      { productId: 'p-md-sne09ai', productName: 'Сплит-система Mitsudai MD-SNE09AI', price: 890, quantity: 1, image: '/assets/images/products/mitsudai-sne09.png' },
       { productId: 'service-montage', productName: 'Монтаж кондиционера (стандарт, до 3 м трассы)', price: 400, quantity: 1, image: '' },
     ];
     localStorage.setItem('sga_cart', JSON.stringify(items));
@@ -27,7 +27,7 @@ export default function HeroSection() {
     e.preventDefault();
     e.stopPropagation();
     const items = [
-      { productId: 'p-kh-luna-09', productName: 'Кондиционер King Home Luna Matt 09 (9000 BTU)', price: 2100, quantity: 1, image: 'https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg' },
+      { productId: 'p-kh-luna-09', productName: 'Кондиционер King Home Luna Matt 09 (9000 BTU)', price: 2100, quantity: 1, image: '/assets/images/products/kinghome-luna-09.jpg' },
       { productId: 'service-montage', productName: 'Монтаж кондиционера (стандарт, до 3 м трассы)', price: 190, quantity: 1, image: '' },
     ];
     localStorage.setItem('sga_cart', JSON.stringify(items));
@@ -150,7 +150,7 @@ export default function HeroSection() {
                     <Link href="/products/p-md-sne09ai" className="flex-1 min-h-0 flex items-center justify-center px-4 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="https://interpride.by/wp-content/uploads/2023/03/classic-split-system-sento-2022-01.png"
+                        src="/assets/images/products/mitsudai-sne09.png"
                         alt="Сплит-система Mitsudai"
                         className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                         fetchPriority="high"
@@ -236,7 +236,7 @@ export default function HeroSection() {
                     <Link href="/products/p-kh-luna-09" className="flex-1 min-h-0 flex items-center justify-center px-2 overflow-hidden">
                       {/* eslint-disable-next-line @next/next/no-img-element */}
                       <img
-                        src="https://vodateplo24.by/image/cache/catalog/kinghomelunaaaaaaaaaaaaa-950x950.jpg"
+                        src="/assets/images/products/kinghome-luna-09.jpg"
                         alt="King Home Luna Matt"
                         loading="lazy"
                         className="max-h-full w-auto max-w-[280px] sm:max-w-[320px] object-contain mix-blend-multiply"
