@@ -9,7 +9,7 @@ const MAIN_PAGES = [
   { href: '/services', label: 'Услуги по кондиционированию' },
   { href: '/articles', label: 'Статьи и советы' },
   { href: '/about', label: 'О компании AirComfort' },
-  { href: '/requisites', label: 'Реквизиты' },
+  { href: '/requisites', label: 'Контакты' },
 ];
 
 const CATEGORIES = [
