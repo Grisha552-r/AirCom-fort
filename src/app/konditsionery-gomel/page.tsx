@@ -1,61 +1,6 @@
 ﻿import Link from 'next/link';
 import ArticleShell from '../articles/ArticleShell';
 
-const faqSchema = {
-  '@context': 'https://schema.org',
-  '@type': 'FAQPage',
-  mainEntity: [
-    {
-      '@type': 'Question',
-      name: 'Сколько стоит кондиционер с установкой в Гомеле?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Стоимость кондиционера с установкой в Гомеле «под ключ» — от 1 290 р. Это включает: кондиционер Mitsudai 9000 BTU (890 р.) + стандартный монтаж до 3 м трассы (400 р.). Electrolux с установкой — от 1 490 р., Ballu — от 1 290 р., Haier — от 1 350 р., LG — от 1 690 р.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Как быстро приедет мастер для установки кондиционера в Гомеле?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Мастер приедет в день заказа или на следующий день. Работаем понедельник–суббота с 9:00 до 18:00. Монтаж занимает 2–4 часа в зависимости от сложности.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Какой кондиционер выбрать для комнаты 20 м² в Гомеле?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Для комнаты 20 м² подойдёт кондиционер мощностью 9 000 BTU (2,6 кВт). Рекомендуем: Ballu BSAGI-09 (инвертор, тихий, от 1 290 р. с установкой) или Electrolux EACS-09 (надёжный, бесшумный, от 1 490 р. с установкой).',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Выезжаете ли в районы Гомеля и область?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Да, работаем по всему Гомелю: Советский, Центральный, Железнодорожный, Новобелицкий и Октябрьский районы. Также выезжаем в Гомельскую область: Жлобин, Мозырь, Речица, Светлогорск, Жодино и другие населённые пункты.',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Нужно ли разрешение для установки кондиционера в квартире?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'В большинстве случаев разрешение от ЖЭУ не требуется — если наружный блок крепится на стену вашей квартиры без изменения фасада. Для жилых домов в Гомеле достаточно стандартного договора найма/собственности. Подробнее — в нашей статье «Согласование установки кондиционера».',
-      },
-    },
-    {
-      '@type': 'Question',
-      name: 'Какую гарантию даёте на кондиционер и монтаж?',
-      acceptedAnswer: {
-        '@type': 'Answer',
-        text: 'Гарантия на кондиционер — 1–3 года в зависимости от бренда (Electrolux и LG — 3 года, Ballu и Haier — 2 года). Гарантия на монтажные работы — 1 год. При гарантийной поломке выезжаем и устраняем за свой счёт.',
-      },
-    },
-  ],
-};
-
 const breadcrumbSchema = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -90,7 +35,6 @@ const DISTRICTS = [
 export default function KonditsioneryGomelPage() {
   return (
     <ArticleShell>
-      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
 
       <main>

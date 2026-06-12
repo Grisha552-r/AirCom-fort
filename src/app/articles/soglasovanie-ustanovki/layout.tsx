@@ -12,7 +12,7 @@ const articleSchema = {
   '@type': 'Article',
   headline: 'Согласование установки кондиционера в Беларуси — документы и разрешения',
   datePublished: '2026-05-01',
-  dateModified: '2026-05-25',
+  dateModified: '2026-06-12',
   author: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
   publisher: { '@type': 'Organization', name: 'AirComfort', url: 'https://aircom-fort.by' },
   url: 'https://aircom-fort.by/articles/soglasovanie-ustanovki',

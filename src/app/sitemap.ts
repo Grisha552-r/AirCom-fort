@@ -12,6 +12,7 @@ const STATIC_PAGES = [
   { url: `${BASE}/articles`,            priority: 0.7,  changefreq: 'weekly'  as const },
   { url: `${BASE}/about`,               priority: 0.5,  changefreq: 'monthly' as const },
   { url: `${BASE}/requisites`,          priority: 0.4,  changefreq: 'monthly' as const },
+  { url: `${BASE}/karta-sayta`,         priority: 0.3,  changefreq: 'monthly' as const },
 ];
 
 const CATEGORY_SLUGS = [

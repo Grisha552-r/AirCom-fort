@@ -77,11 +77,25 @@ export async function generateMetadata(
 
   const product = await fetchProduct(id);
   if (product) {
-    const title = `${product.name} — купить в Гомеле, цена ${product.price} р.`;
-    const descBase = product.description
-      ? product.description.replace(/<[^>]+>/g, '').slice(0, 100)
-      : `${product.brand || ''} кондиционер в Гомеле`;
-    const description = `${product.name}. Цена ${product.price} р. ${descBase}. Установка под ключ, гарантия.`;
+    const chars = (product.characteristics as Record<string, string>) ?? {};
+    const area = chars['Эффективен для помещ. площадью до'] || '';
+    const btuKey = Object.keys(chars).find(k => /btu/i.test(k));
+    const btu = btuKey ? chars[btuKey] : '';
+    const series = chars['Серия'] || '';
+    const wifi = chars['Wi-Fi модуль'] && chars['Wi-Fi модуль'] !== 'Нет' ? ' Wi-Fi,' : '';
+    const inv = chars['Инверторная технология'] === 'Да' ? ' инвертор,' : '';
+
+    const shortName = product.name.replace(/^(Блок\s+(внутренний|наружный)\s+|Сплит-система\s+)/i, '').slice(0, 60);
+    const title = `${shortName} купить в Гомеле — цена ${product.price} р. | AirComfort`;
+
+    const parts = [
+      `${product.brand || 'Кондиционер'} ${series} в Гомеле.`,
+      `Цена ${product.price} р.`,
+      area ? `Для помещений до ${area}.` : '',
+      btu ? `Мощность ${btu}.` : '',
+      `Монтаж под ключ от 400 р.${wifi}${inv} гарантия производителя.`,
+    ].filter(Boolean).join(' ');
+    const description = parts.slice(0, 160);
 
     return {
       title,
