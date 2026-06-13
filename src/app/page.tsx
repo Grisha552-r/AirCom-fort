@@ -4,9 +4,12 @@ import Header from '@/components/Header';
 import Footer from '@/components/Footer';
 import CartDrawer from '@/components/CartDrawer';
 import HeroSection from '@/app/components/HeroSection';
-
+import StatsSection from '@/app/components/StatsSection';
 import PopularProducts from '@/app/components/PopularProducts';
+import ServicesSection from '@/app/components/ServicesSection';
+import BrandsSection from '@/app/components/BrandsSection';
 import ReviewsSection from '@/app/components/ReviewsSection';
+import CtaSection from '@/app/components/CtaSection';
 import SeoSection from '@/app/components/SeoSection';
 
 const homeFaqSchema = {
@@ -51,10 +54,28 @@ export default function HomePage() {
       <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
 
       <main>
+        {/* 1. Hero — главное УТП + продуктовый слайдер */}
         <HeroSection />
 
+        {/* 2. Цифры доверия — сразу после hero */}
+        <StatsSection />
+
+        {/* 3. Каталог товаров с фильтрами */}
         <PopularProducts onCartOpen={() => setCartOpen(true)} />
+
+        {/* 4. Наши услуги */}
+        <ServicesSection />
+
+        {/* 5. Бренды которые мы продаём */}
+        <BrandsSection />
+
+        {/* 6. Отзывы покупателей */}
         <ReviewsSection />
+
+        {/* 7. CTA — форма обратного звонка */}
+        <CtaSection />
+
+        {/* 8. SEO / FAQ */}
         <SeoSection />
       </main>
 
