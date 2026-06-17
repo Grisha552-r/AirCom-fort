@@ -6,12 +6,11 @@ const BASE = 'https://aircom-fort.by';
 
 const STATIC_PAGES = [
   { url: `${BASE}/`,                    priority: 1.0,  changefreq: 'daily'   as const },
-  { url: `${BASE}/konditsionery-gomel`, priority: 0.98, changefreq: 'daily'   as const },
+  { url: `${BASE}/konditsionery-gomel`, priority: 0.75, changefreq: 'weekly'  as const },
   { url: `${BASE}/products`,            priority: 0.9,  changefreq: 'daily'   as const },
   { url: `${BASE}/services`,            priority: 0.8,  changefreq: 'weekly'  as const },
   { url: `${BASE}/articles`,            priority: 0.7,  changefreq: 'weekly'  as const },
   { url: `${BASE}/about`,               priority: 0.5,  changefreq: 'monthly' as const },
-  { url: `${BASE}/requisites`,          priority: 0.4,  changefreq: 'monthly' as const },
   { url: `${BASE}/karta-sayta`,         priority: 0.3,  changefreq: 'monthly' as const },
 ];
 

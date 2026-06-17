@@ -1,5 +1,14 @@
 import type { Metadata } from 'next';
 
+const breadcrumbJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Главная', item: 'https://aircom-fort.by/' },
+    { '@type': 'ListItem', position: 2, name: 'Каталог кондиционеров', item: 'https://aircom-fort.by/products' },
+  ],
+};
+
 export const metadata: Metadata = {
   title: 'Купить кондиционер в Гомеле — каталог, цены 2026',
   description: 'Купить кондиционер в Гомеле: Electrolux, Ballu, Haier, LG, Mitsudai. Сплит-системы и мобильные модели. Официальная гарантия, монтаж от 400 р.',
@@ -25,5 +34,13 @@ export const metadata: Metadata = {
 };
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {
-  return <>{children}</>;
+  return (
+    <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }}
+      />
+      {children}
+    </>
+  );
 }
