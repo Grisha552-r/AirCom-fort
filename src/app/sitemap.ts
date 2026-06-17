@@ -58,6 +58,7 @@ const ARTICLE_SLUGS = [
   'ustanovka-konditsionera-v-novostroyke',
   'konditsioner-dlya-kukhni',
   'konditsioner-mitsudai-gomel',
+  'mobilnyy-konditsioner-gomel',
 ];
 
 export default function sitemap(): MetadataRoute.Sitemap {
