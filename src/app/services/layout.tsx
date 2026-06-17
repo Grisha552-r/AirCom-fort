@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'Установка кондиционера в Гомеле — монтаж под ключ, цены',
+  title: 'Установка кондиционера в Гомеле — монтаж, цены',
   description: 'Кондиционер с установкой в Гомеле под ключ. Монтаж сплит-систем от 400 р., обслуживание и чистка, демонтаж. Гарантия 1 год. Рассчитайте стоимость онлайн.',
   alternates: { canonical: 'https://aircom-fort.by/services' },
   openGraph: {

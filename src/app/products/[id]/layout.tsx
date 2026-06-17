@@ -85,8 +85,8 @@ export async function generateMetadata(
     const wifi = chars['Wi-Fi модуль'] && chars['Wi-Fi модуль'] !== 'Нет' ? ' Wi-Fi,' : '';
     const inv = chars['Инверторная технология'] === 'Да' ? ' инвертор,' : '';
 
-    const shortName = product.name.replace(/^(Блок\s+(внутренний|наружный)\s+|Сплит-система\s+)/i, '').slice(0, 60);
-    const title = `${shortName} купить в Гомеле — цена ${product.price} р. | AirComfort`;
+    const shortName = product.name.replace(/^(Блок\s+(внутренний|наружный)\s+|Сплит-система\s+)/i, '').slice(0, 30);
+    const title = `${shortName} в Гомеле — ${product.price} р.`;
 
     const parts = [
       `${product.brand || 'Кондиционер'} ${series} в Гомеле.`,

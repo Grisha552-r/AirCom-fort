@@ -14,7 +14,7 @@ const IMAGES = {
   wifi:    '/assets/images/articles/ac-wifi.jpg',
   filters: '/assets/images/articles/ac-filters.jpg',
   winter:  '/assets/images/articles/ac-winter2.jpg',
-  energy:  'https://cdn21vek.by/img/tmp/66ad1521bd52f.jpeg',
+  energy:  '/assets/images/articles/ac-invertor.jpg',
   install: '/assets/images/articles/ac-install.jpg',
   service: '/assets/images/articles/ac-service.jpg',
   brands:  '/assets/images/articles/ac-brands.jpg',

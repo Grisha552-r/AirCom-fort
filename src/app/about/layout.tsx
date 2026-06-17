@@ -5,7 +5,7 @@ const BASE = 'https://aircom-fort.by';
 
 export const metadata: Metadata = {
   title: 'О компании — кондиционеры в Гомеле с установкой',
-  description: 'AirComfort — продажа и установка кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж под ключ от 400 р., гарантия на работы 1 год. Официальный дилер.',
+  description: 'AirComfort — продажа и установка кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG. Монтаж от 400 р., гарантия 1 год на монтаж.',
   robots: { index: true, follow: true },
   alternates: { canonical: `${BASE}/about` },
   openGraph: {
