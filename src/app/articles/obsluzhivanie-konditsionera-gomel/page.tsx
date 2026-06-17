@@ -149,18 +149,68 @@ export default function ObsluzhivaniePage() {
           ))}
         </div>
 
-        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Частые вопросы об обслуживании</h2>
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Что будет, если не обслуживать кондиционер</h2>
         <div className="space-y-3 mb-8">
-          {faqLd.mainEntity.map((faq, i) => (
+          {[
+            ['Потребление электроэнергии вырастет на 20–30%', 'Загрязнённый теплообменник хуже передаёт холод — компрессор компенсирует это, работая дольше и интенсивнее.'],
+            ['Производительность падает', 'Кондиционер с грязными фильтрами перекачивает воздух через уменьшенное сечение. Комната охлаждается медленнее, в жару — не охлаждается совсем.'],
+            ['Плесень и бактерии в воздухе', 'Влажный тёплый теплообменник — идеальная среда для роста грибка. Каждый раз при включении кондиционер распыляет споры по всему помещению.'],
+            ['Засор дренажа → вода в комнате', 'Слизь в дренажном лотке накапливается и перекрывает трубку. Конденсат начинает капать с внутреннего блока прямо на пол или мебель.'],
+            ['Ранний выход из строя', 'Компрессор, работающий в перегруженном режиме из-за загрязнения, изнашивается в 2–3 раза быстрее. Ремонт компрессора — от 400 р., замена блока — от 600 р.'],
+          ].map(([title, desc], i) => (
+            <div key={i} className="flex gap-3 p-4 bg-gray-50 border border-gray-200 rounded-xl">
+              <span className="text-red-500 text-lg shrink-0">!</span>
+              <div>
+                <p className="font-semibold text-gray-900 text-sm mb-1">{title}</p>
+                <p className="text-gray-600 text-sm">{desc}</p>
+              </div>
+            </div>
+          ))}
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Как часто нужно обслуживать кондиционер</h2>
+        <div className="overflow-x-auto mb-8">
+          <table className="w-full text-sm border-collapse">
+            <thead>
+              <tr className="bg-red-50">
+                <th className="text-left p-3 border border-gray-200 font-semibold">Условия эксплуатации</th>
+                <th className="text-left p-3 border border-gray-200 font-semibold">Периодичность ТО</th>
+              </tr>
+            </thead>
+            <tbody>
+              {[
+                ['Квартира, 1–2 человека, умеренное использование', '1 раз в год (весной)'],
+                ['Квартира с детьми или домашними животными', '2 раза в год'],
+                ['Офис с постоянной работой кондиционера', '2 раза в год'],
+                ['Пыльное помещение (вблизи ремонта, дороги)', 'каждые 3–4 месяца'],
+                ['Заведения общепита, производство', 'ежеквартально'],
+              ].map(([cond, freq], i) => (
+                <tr key={i} className={i % 2 === 0 ? 'bg-white' : 'bg-gray-50'}>
+                  <td className="p-3 border border-gray-200 text-gray-700">{cond}</td>
+                  <td className="p-3 border border-gray-200 font-medium text-red-700">{freq}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Частые вопросы об обслуживании кондиционера</h2>
+        <div className="space-y-3 mb-8">
+          {[
+            ...faqLd.mainEntity.map(f => ({ q: f.name, a: f.acceptedAnswer.text })),
+            { q: 'Можно ли помыть фильтры кондиционера самому?', a: 'Да, фильтры внутреннего блока (сеточные) легко снять и промыть тёплой водой. Делайте это раз в 2–4 недели в сезон. Промывку теплообменника, чистку дренажа и наружного блока лучше доверить мастеру — там нужна химия и специнструмент.' },
+            { q: 'Обязательно ли делать ТО кондиционера до истечения гарантии?', a: 'Производители рекомендуют ежегодное ТО и часто указывают это в условиях гарантии. Если кондиционер вышел из строя по причине загрязнения (засор дренажа, перегрев компрессора из-за грязного теплообменника) — отказ в гарантийном ремонте правомерен.' },
+            { q: 'Нужно ли выключать кондиционер перед приездом мастера?', a: 'Нет, наоборот: включите кондиционер в режиме охлаждения за 10–15 минут до приезда. Мастер замерит температуру воздуха и проверит давление фреона сразу в рабочем режиме.' },
+          ].map(({ q, a }, i) => (
             <details key={i} className="group border border-gray-200 rounded-xl overflow-hidden">
               <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-gray-800 text-sm hover:bg-gray-50 list-none">
-                {faq.name}
+                {q}
                 <svg className="w-4 h-4 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
                   <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
                 </svg>
               </summary>
               <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">
-                {faq.acceptedAnswer.text}
+                {a}
               </div>
             </details>
           ))}
