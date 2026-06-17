@@ -3,13 +3,13 @@ import ArticleShell from '@/app/articles/ArticleShell';
 import { CITIES } from '@/lib/cities';
 
 const MAIN_PAGES = [
-  { href: '/', label: 'Главная страница' },
-  { href: '/konditsionery-gomel', label: 'Кондиционеры в Гомеле' },
-  { href: '/products', label: 'Каталог кондиционеров' },
-  { href: '/services', label: 'Услуги по кондиционированию' },
-  { href: '/articles', label: 'Статьи и советы' },
-  { href: '/about', label: 'О компании AirComfort' },
-  { href: '/requisites', label: 'Контакты' },
+  { href: '/', label: 'Кондиционеры в Гомеле от 1 290 р. с установкой под ключ' },
+  { href: '/konditsionery-gomel', label: 'Кондиционеры в Гомеле — купить с установкой от 1 290 р.' },
+  { href: '/products', label: 'Каталог кондиционеров в Гомеле — 300+ моделей' },
+  { href: '/services', label: 'Установка кондиционеров в Гомеле' },
+  { href: '/articles', label: 'Статьи о кондиционерах' },
+  { href: '/about', label: 'AirComfort — кондиционеры в Гомеле' },
+  { href: '/requisites', label: 'Контакты и реквизиты' },
 ];
 
 const CATEGORIES = [
