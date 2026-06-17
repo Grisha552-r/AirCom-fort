@@ -259,12 +259,69 @@ export default function KonditsioneryGomelPage() {
           </div>
         </section>
 
-        {/* FAQ */}
+        {/* Buying guide */}
         <section className="py-10 bg-white border-t border-gray-100">
+          <div className="max-w-4xl mx-auto px-4">
+            <h2 className="text-2xl font-bold text-gray-900 mb-4">Как купить кондиционер с установкой в Гомеле — пошаговый гид</h2>
+            <p className="text-gray-600 leading-relaxed mb-6">
+              Купить кондиционер с установкой в Гомеле проще всего в одном месте — так вы получаете
+              единую гарантию на оборудование и монтаж, без лишних согласований. Вот как это работает:
+            </p>
+            <div className="space-y-4 mb-8">
+              {[
+                {
+                  title: 'Шаг 1. Определите площадь комнаты',
+                  text: 'Мощность кондиционера подбирается из расчёта 1 кВт на 10 м² (с корректировкой на высоту потолков и ориентацию окон). Для комнаты 20 м² — 2 кВт (7 000–9 000 BTU), для 30 м² — 3 кВт (12 000 BTU), для 50 м² — 5 кВт (18 000 BTU).',
+                },
+                {
+                  title: 'Шаг 2. Выберите тип: инвертор или On/Off',
+                  text: 'Инверторный кондиционер плавно регулирует мощность, потребляет на 30–40% меньше электроэнергии и поддерживает температуру точнее. On/Off — дешевле при покупке, но дороже в эксплуатации. Если планируете использовать ежедневно — берите инвертор.',
+                },
+                {
+                  title: 'Шаг 3. Выберите бренд',
+                  text: 'Electrolux и LG — надёжные, тихие, с долгим сроком службы. Ballu и Mitsudai — лучшее соотношение цены и качества. Haier — смарт-функции, Wi-Fi, самоочистка. Все бренды представлены в нашем каталоге.',
+                },
+                {
+                  title: 'Шаг 4. Согласуйте место монтажа',
+                  text: 'Перед заказом убедитесь: есть ли возможность вывести трубки наружу (через стену или балкон), на какую высоту будет установлен наружный блок. Если сомневаетесь — мастер оценит бесплатно по фото или при выезде.',
+                },
+                {
+                  title: 'Шаг 5. Закажите установку',
+                  text: 'Позвоните или оформите заказ в каталоге. Мастер приедет в день заказа со всем оборудованием. Монтаж занимает 2–4 часа, после — проверка всех режимов и инструктаж.',
+                },
+              ].map(({ title, text }, i) => (
+                <div key={i} className="flex gap-4 p-4 bg-gray-50 rounded-xl">
+                  <span className="bg-red-700 text-white w-7 h-7 rounded-full flex items-center justify-center text-xs font-bold shrink-0 mt-0.5">{i + 1}</span>
+                  <div>
+                    <p className="font-semibold text-gray-900 mb-1 text-sm">{title}</p>
+                    <p className="text-gray-600 text-sm leading-relaxed">{text}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+
+            <div className="bg-red-50 border border-red-100 rounded-xl p-5">
+              <p className="font-semibold text-gray-900 mb-2">Не знаете, какой кондиционер выбрать?</p>
+              <p className="text-gray-600 text-sm mb-3">Позвоните — бесплатно подберём модель под вашу площадь и бюджет за 5 минут.</p>
+              <a href="tel:+375291050694" className="inline-block bg-red-700 text-white px-5 py-2.5 rounded-xl font-semibold text-sm hover:bg-red-800 transition-colors">
+                +375 29 105-06-94
+              </a>
+            </div>
+          </div>
+        </section>
+
+        {/* FAQ */}
+        <section className="py-10 bg-gray-50 border-t border-gray-100">
           <div className="max-w-4xl mx-auto px-4">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Частые вопросы о кондиционерах в Гомеле</h2>
             <div className="space-y-4">
-              {faqSchema.mainEntity.map((faq, i) => (
+              {[
+                ...faqSchema.mainEntity,
+                { name: 'Можно ли купить кондиционер в рассрочку?', acceptedAnswer: { text: 'Да, мы работаем с рассрочкой через банки-партнёры. Уточните условия по телефону +375 29 105-06-94 — подберём удобный вариант оплаты.' } },
+                { name: 'Какой кондиционер лучше для квартиры с установкой в Гомеле?', acceptedAnswer: { text: 'Для квартиры рекомендуем инверторный сплит: тихий (до 22 дБ), экономичный (класс А++), с режимом ночной работы. Оптимальный выбор — Ballu BSAGI или Electrolux EACS в соответствии с площадью комнаты.' } },
+                { name: 'Какова цена кондиционера Electrolux с установкой в Гомеле?', acceptedAnswer: { text: 'Electrolux с установкой в Гомеле под ключ — от 1 490 р. (модель EACS-09, до 25 м²). Более мощные модели на 12 000 BTU — от 1 690 р. с монтажом.' } },
+                { name: 'За сколько дней устанавливают кондиционер в Гомеле?', acceptedAnswer: { text: 'Обычно монтаж выполняется в день заказа или на следующий день. В пиковый сезон (июнь–июль) запись на 1–2 дня вперёд. Звоните заранее, чтобы выбрать удобное время.' } },
+              ].map((faq, i) => (
                 <details key={i} className="group border border-gray-200 rounded-xl overflow-hidden">
                   <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-gray-800 text-sm hover:bg-gray-50 list-none">
                     {faq.name}
