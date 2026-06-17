@@ -440,6 +440,30 @@ function ProductsContent() {
         </>
       )}
 
+      {/* FAQ */}
+      <section className="max-w-7xl mx-auto px-4 py-10">
+        <h2 className="text-xl font-bold text-foreground mb-6">Часто задаваемые вопросы</h2>
+        <div className="space-y-3 max-w-3xl">
+          {[
+            ['Как выбрать мощность кондиционера?', 'Ориентируйтесь на площадь помещения: для 20 м² — 7 000–9 000 BTU, для 35 м² — 12 000 BTU, для 50 м² — 18 000 BTU. Если потолки выше 2,7 м или помещение с большими окнами — берите модель с запасом мощности.'],
+            ['Что входит в стандартный монтаж?', 'В монтаж от 400 р. входит: крепление внутреннего и наружного блоков, прокладка медной трассы до 3 м, электрокабель, вакуумирование системы и пусконаладка. Дополнительный метр трассы — 25 р.'],
+            ['Сколько времени занимает установка?', 'Стандартная установка одного кондиционера — 2–4 часа. Если трасса длинная или монтаж через балкон — до 5–6 часов. Мастера приезжают в оговорённое время в день заказа или на следующий день.'],
+            ['Какая гарантия на кондиционер?', 'Electrolux и LG — 3 года, Ballu и Haier — 2 года, Mitsudai и King Home — 1 год. На монтажные работы — отдельная гарантия 1 год. Гарантийный ремонт выполняем бесплатно с выездом мастера.'],
+            ['Можно ли купить кондиционер без установки?', 'Да, продаём кондиционеры без монтажа. Самовывоз — по адресу, уточняйте по телефону. Доставка по Гомелю — договаривайтесь при заказе. Но рекомендуем установку: неправильный монтаж снимает гарантию производителя.'],
+          ].map(([q, a], i) => (
+            <details key={i} className="group border border-border rounded-xl overflow-hidden bg-white">
+              <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-sm text-foreground hover:bg-zinc-50 list-none">
+                {q}
+                <svg className="w-4 h-4 text-muted-foreground shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-4 pb-4 text-sm text-muted-foreground leading-relaxed border-t border-border pt-3">{a}</div>
+            </details>
+          ))}
+        </div>
+      </section>
+
       <Footer />
     </div>
   );
