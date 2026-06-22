@@ -1,6 +1,9 @@
 ﻿import { MetadataRoute } from 'next';
+import { unstable_cache } from 'next/cache';
 import { getAllProducts } from '@/lib/getProducts';
 import { CITIES } from '@/lib/cities';
+
+const getSitemapDate = unstable_cache(async () => new Date(), ['sitemap-date'], { revalidate: 86400 });
 
 const BASE = 'https://aircom-fort.by';
 
@@ -62,7 +65,7 @@ const ARTICLE_SLUGS = [
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
-  const now = new Date();
+  const now = await getSitemapDate();
   const products = await getAllProducts();
 
   const productPages: MetadataRoute.Sitemap = products.map(p => ({
