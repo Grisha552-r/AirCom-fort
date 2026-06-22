@@ -8,6 +8,7 @@ import AppImage from '@/components/ui/AppImage';
 import Link from 'next/link';
 import { useCart, useOrders } from '@/lib/useStore';
 import type { Order } from '@/lib/store';
+import { trackLead } from '@/lib/analytics';
 
 export default function CheckoutPage() {
   const [cartOpen, setCartOpen] = useState(false);
@@ -18,6 +19,8 @@ export default function CheckoutPage() {
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
   const [orderId, setOrderId] = useState('');
+  const [submitting, setSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState(false);
 
   const validate = () => {
     const newErrors: Record<string, string> = {};
@@ -45,26 +48,36 @@ export default function CheckoutPage() {
       status: 'new',
       comment: form.comment || undefined,
     };
-    addOrder(order);
+    setSubmitting(true);
+    setSubmitError(false);
+    try {
+      const res = await fetch('/api/send-order', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          orderId: id,
+          name: form.name,
+          phone: form.phone,
+          email: form.email,
+          address: form.address,
+          comment: form.comment,
+          items: order.items,
+          total,
+        }),
+      });
+      const data = await res.json();
+      if (!data.ok) throw new Error(data.error || 'send-order failed');
 
-    fetch('/api/send-order', {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        orderId: id,
-        name: form.name,
-        phone: form.phone,
-        email: form.email,
-        address: form.address,
-        comment: form.comment,
-        items: order.items,
-        total,
-      }),
-    }).catch(() => {});
-
-    clearCart();
-    setOrderId(id);
-    setSubmitted(true);
+      addOrder(order);
+      trackLead('order_placed');
+      clearCart();
+      setOrderId(id);
+      setSubmitted(true);
+    } catch {
+      setSubmitError(true);
+    } finally {
+      setSubmitting(false);
+    }
   };
 
   if (submitted) {
@@ -183,12 +196,18 @@ export default function CheckoutPage() {
                   </div>
                 </div>
 
+                {submitError && (
+                  <p className="text-sm text-crimson-600 bg-crimson-50 rounded-lg px-3 py-2 text-center">
+                    Не удалось отправить заказ. Позвоните нам: <a href="tel:+375291050694" className="font-semibold underline">+375 29 105-06-94</a>
+                  </p>
+                )}
                 <button
                   type="submit"
-                  className="w-full bg-crimson-gradient text-white py-4 rounded-xl font-bold text-base hover:opacity-90 transition-opacity shadow-crimson flex items-center justify-center gap-2"
+                  disabled={submitting}
+                  className="w-full bg-crimson-gradient text-white py-4 rounded-xl font-bold text-base hover:opacity-90 transition-opacity shadow-crimson flex items-center justify-center gap-2 disabled:opacity-50 disabled:cursor-not-allowed"
                 >
                   <Icon name="CheckIcon" size={20} />
-                  Оформить заказ
+                  {submitting ? 'Отправляем...' : 'Оформить заказ'}
                 </button>
                 <p className="text-xs text-muted-foreground text-center">Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных</p>
               </form>

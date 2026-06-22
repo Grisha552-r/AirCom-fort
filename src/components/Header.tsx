@@ -5,6 +5,7 @@ import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
 import { CATEGORIES } from '@/lib/categories';
 import { useCart, useFavorites } from '@/lib/useStore';
+import { trackLead } from '@/lib/analytics';
 
 interface HeaderProps {
   onCartOpen?: () => void;
@@ -20,6 +21,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
   const [callPhone, setCallPhone] = useState('');
   const [callSending, setCallSending] = useState(false);
   const [callSent, setCallSent] = useState(false);
+  const [callError, setCallError] = useState(false);
   const catalogRef = useRef<HTMLDivElement>(null);
   const { itemCount } = useCart();
   const { count: favCount } = useFavorites();
@@ -41,7 +43,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
   }, []);
 
   useEffect(() => {
-    if (!callFormOpen) { setCallSent(false); setCallName(''); setCallPhone(''); }
+    if (!callFormOpen) { setCallSent(false); setCallError(false); setCallName(''); setCallPhone(''); }
   }, [callFormOpen]);
 
   const topCategories = CATEGORIES.filter(c => !c.parentId && c.id !== 'accessories' && c.id !== 'blocks');
@@ -50,14 +52,23 @@ export default function Header({ onCartOpen }: HeaderProps) {
     e.preventDefault();
     if (!callPhone.trim()) return;
     setCallSending(true);
+    setCallError(false);
     try {
-      await fetch('/api/call-request', {
+      const res = await fetch('/api/call-request', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ name: callName, phone: callPhone }),
       });
-      setCallSent(true);
-      setTimeout(() => setCallFormOpen(false), 2000);
+      const data = await res.json();
+      if (data.ok) {
+        setCallSent(true);
+        trackLead('call_request');
+        setTimeout(() => setCallFormOpen(false), 2000);
+      } else {
+        setCallError(true);
+      }
+    } catch {
+      setCallError(true);
     } finally {
       setCallSending(false);
     }
@@ -109,7 +120,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
               </a>
               <span className="opacity-30">|</span>
               <div className="flex flex-col items-end sm:flex-row sm:items-center sm:gap-1.5">
-                <a href="tel:+375291050694" onClick={e => { e.preventDefault(); window.open('tel:+375291050694'); }} className="flex items-center gap-1.5 font-medium hover:text-crimson-200 transition-colors">
+                <a href="tel:+375291050694" onClick={e => { e.preventDefault(); trackLead('phone_click_header_top'); window.open('tel:+375291050694'); }} className="flex items-center gap-1.5 font-medium hover:text-crimson-200 transition-colors">
                   <Icon name="PhoneIcon" size={12} />
                   +375 29 105-06-94
                 </a>
@@ -328,7 +339,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
                 </Link>
               </div>
               <div className="border-t border-border pt-3 mt-2">
-                <a href="tel:+375291050694" onClick={e => { e.preventDefault(); window.open('tel:+375291050694'); }} className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-crimson-700">
+                <a href="tel:+375291050694" onClick={e => { e.preventDefault(); trackLead('phone_click_header_mobile_menu'); window.open('tel:+375291050694'); }} className="flex items-center gap-3 px-3 py-2.5 text-sm font-medium text-crimson-700">
                   <Icon name="PhoneIcon" size={16} />
                   +375 29 105-06-94
                 </a>
@@ -370,6 +381,11 @@ export default function Header({ onCartOpen }: HeaderProps) {
                 </div>
               ) : (
                 <form onSubmit={handleCallSubmit} className="space-y-4">
+                  {callError && (
+                    <p className="text-sm text-crimson-600 bg-crimson-50 rounded-lg px-3 py-2">
+                      Не удалось отправить заявку. Позвоните нам: <a href="tel:+375291050694" className="font-semibold underline">+375 29 105-06-94</a>
+                    </p>
+                  )}
                   <div>
                     <label className="block text-sm font-medium text-foreground mb-1.5">Ваше имя <span className="text-muted-foreground font-normal">(необязательно)</span></label>
                     <input

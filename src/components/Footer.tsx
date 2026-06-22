@@ -1,7 +1,9 @@
+'use client';
 import React from 'react';
 import Link from 'next/link';
 import AppImage from '@/components/ui/AppImage';
 import Icon from '@/components/ui/AppIcon';
+import { trackLead } from '@/lib/analytics';
 
 export default function Footer() {
   return (
@@ -34,6 +36,7 @@ export default function Footer() {
             <div className="space-y-3">
               <a
                 href="tel:+375291050694"
+                onClick={() => trackLead('phone_click_footer')}
                 className="flex items-center gap-3 group w-fit"
               >
                 <div className="w-9 h-9 rounded-xl bg-zinc-800 group-hover:bg-crimson-700 flex items-center justify-center transition-colors duration-200">

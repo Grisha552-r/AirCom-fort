@@ -1,6 +1,7 @@
 'use client';
 import React, { useState, useEffect } from 'react';
 import Icon from '@/components/ui/AppIcon';
+import { trackLead } from '@/lib/analytics';
 
 interface Props {
   open: boolean;
@@ -85,7 +86,7 @@ export default function SelectionModal({ open, onClose }: Props) {
         body: JSON.stringify({ roomType, area, budget, compressorType, features, name, phone }),
       });
       const data = await res.json();
-      if (data.ok) setSent(true);
+      if (data.ok) { setSent(true); trackLead('selection_modal'); }
       else setError('Ошибка отправки. Позвоните нам: +375 29 105-06-94');
     } catch {
       setError('Ошибка отправки. Позвоните нам: +375 29 105-06-94');

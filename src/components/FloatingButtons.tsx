@@ -1,5 +1,6 @@
 'use client';
 import React, { useState, useRef, useEffect } from 'react';
+import { trackLead } from '@/lib/analytics';
 
 export default function FloatingButtons() {
   const [hoveredTg, setHoveredTg] = useState(false);
@@ -34,6 +35,7 @@ export default function FloatingButtons() {
       const data = await res.json();
       if (data.ok) {
         setStatus('ok');
+        trackLead('floating_callback');
         setTimeout(() => {
           setCallbackOpen(false);
           setStatus('idle');
@@ -49,7 +51,7 @@ export default function FloatingButtons() {
   };
 
   return (
-    <div className="fixed bottom-4 right-4 z-[999] flex flex-col items-end gap-2.5">
+    <div className="fixed bottom-4 right-4 z-[999] hidden md:flex flex-col items-end gap-2.5">
 
       {/* Callback popup */}
       {callbackOpen && (
@@ -155,6 +157,7 @@ export default function FloatingButtons() {
           href="https://t.me/AirComforto"
           target="_blank"
           rel="noopener noreferrer"
+          onClick={() => trackLead('telegram_click_floating')}
           onMouseEnter={() => setHoveredTg(true)}
           onMouseLeave={() => setHoveredTg(false)}
           className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:scale-105 active:scale-95"
@@ -175,6 +178,7 @@ export default function FloatingButtons() {
         )}
         <a
           href="viber://chat?number=%2B375291050694"
+          onClick={() => trackLead('viber_click_floating')}
           onMouseEnter={() => setHoveredVb(true)}
           onMouseLeave={() => setHoveredVb(false)}
           className="w-12 h-12 rounded-full flex items-center justify-center shadow-lg transition-transform duration-200 hover:-translate-y-1 hover:scale-105 active:scale-95"
