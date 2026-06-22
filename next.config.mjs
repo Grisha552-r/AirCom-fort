@@ -53,6 +53,7 @@ const nextConfig = {
         permanent: true,
       },
       { source: '/apple-icon', destination: '/apple-icon.png', permanent: true },
+      { source: '/icon', destination: '/icon.png', permanent: true },
       { source: '/kalkulyator', destination: '/services', permanent: true },
       { source: '/kalkulyator/', destination: '/services', permanent: true },
       { source: '/uslugi', destination: '/services', permanent: true },
