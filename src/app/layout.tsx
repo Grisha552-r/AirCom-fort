@@ -33,7 +33,7 @@ const currentMonth = MONTHS_RU[new Date().getMonth()];
 export const metadata: Metadata = {
   metadataBase: new URL('https://aircom-fort.by'),
   title: {
-    default: `Кондиционер в Гомеле с установкой от 1 290 р. — AirComfort`,
+    default: `AirComfort — кондиционеры в Гомеле с установкой под ключ`,
     template: '%s | AirComfort',
   },
   description: 'Купить кондиционер в Гомеле с установкой от 1 290 р. Electrolux, Ballu, Haier, LG — 300+ моделей. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
@@ -50,13 +50,13 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     url: 'https://aircom-fort.by/',
     siteName: 'AirComfort',
-    title: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
+    title: `AirComfort — кондиционеры в Гомеле с установкой под ключ`,
     description: 'Купить кондиционер в Гомеле с установкой под ключ от 1 290 р. 300+ моделей: Electrolux, Ballu, Haier, LG. Монтаж от 400 р., выезд в день заказа.',
     images: [{ url: '/opengraph-image', width: 1200, height: 630, alt: 'AirComfort — Кондиционеры в Гомеле от 1 290 р.' }],
   },
   twitter: {
     card: 'summary_large_image',
-    title: `Кондиционеры в Гомеле от 1 290 р. с установкой — AirComfort`,
+    title: `AirComfort — кондиционеры в Гомеле с установкой под ключ`,
     description: 'Electrolux, Ballu, Haier, LG — 300+ моделей. Монтаж от 400 р., выезд в день заказа, гарантия 1 год.',
     images: [{ url: '/opengraph-image', alt: 'AirComfort — Кондиционеры в Гомеле от 1 290 р.' }],
   },
