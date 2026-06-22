@@ -27,7 +27,7 @@ export default function JsonLd() {
         aggregateRating: {
           '@type': 'AggregateRating',
           ratingValue: '4.9',
-          reviewCount: '47',
+          reviewCount: '9',
           bestRating: '5',
           worstRating: '1',
         },

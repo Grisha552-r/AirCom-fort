@@ -55,6 +55,7 @@ const faqSchema = {
 const localBusinessSchema = {
   '@context': 'https://schema.org',
   '@type': 'LocalBusiness',
+  '@id': 'https://aircom-fort.by/#business',
   name: 'AirComfort',
   description: 'Продажа и установка кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р.',
   url: 'https://aircom-fort.by',

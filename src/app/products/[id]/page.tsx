@@ -1,3 +1,4 @@
+import { notFound } from 'next/navigation';
 import { getAllProducts } from '@/lib/getProducts';
 import CategoryView from './CategoryView';
 import ProductPageClient from './ProductPageClient';
@@ -123,5 +124,6 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   // Individual product page — pass all products for variants/similar
   const allProducts = await getAllProducts();
   const product = allProducts.find(p => p.id === id) ?? null;
+  if (!product) notFound();
   return <ProductPageClient productId={id} initialProduct={product} initialAll={allProducts} />;
 }
