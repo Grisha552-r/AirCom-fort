@@ -1,5 +1,7 @@
 ﻿import Link from 'next/link';
 import ArticleShell from '../articles/ArticleShell';
+import { getAllProducts } from '@/lib/getProducts';
+import type { Product } from '@/lib/store';
 
 const faqSchema = {
   mainEntity: [
@@ -21,14 +23,32 @@ const breadcrumbSchema = {
   ],
 };
 
-const MODELS = [
-  { name: 'Mitsudai MD-SNE09AI', area: '27 м²', price: '1 290', slug: 'p-md-sne09ai', label: 'Хит продаж' },
-  { name: 'Ballu BSAGI-09HN8', area: '25 м²', price: '1 290', slug: 'p-ba-bsagi09hn8', label: 'Инвертор' },
-  { name: 'Electrolux EACS-09', area: '25 м²', price: '1 490', slug: 'split-electrolux', label: 'Бесшумный' },
-  { name: 'Haier AS09NS4ERA', area: '25 м²', price: '1 350', slug: 'p-ha-as09ns4era', label: 'Wi-Fi' },
-  { name: 'LG S09EQ', area: '25 м²', price: '1 690', slug: 'p-lg-s09eq', label: 'Премиум' },
-  { name: 'Ballu BSDI-12HN8', area: '35 м²', price: '1 590', slug: 'p-ba-bsdi12hn8', label: 'До 35 м²' },
+const FEATURED_BRANDS = [
+  { brand: 'Mitsudai', label: 'Хит продаж' },
+  { brand: 'Ballu', label: 'Инвертор' },
+  { brand: 'Electrolux', label: 'Бесшумный' },
+  { brand: 'Haier', label: 'Wi-Fi' },
+  { brand: 'LG', label: 'Премиум' },
 ];
+
+function pickFeaturedModels(products: Product[]) {
+  const inStock = products.filter(p => p.inStock && p.price > 0);
+  return FEATURED_BRANDS
+    .map(({ brand, label }) => {
+      const candidates = inStock
+        .filter(p => p.brand === brand)
+        .sort((a, b) => a.price - b.price);
+      const pick = candidates[0];
+      if (!pick) return null;
+      return {
+        name: pick.name.slice(0, 30),
+        price: pick.price.toLocaleString('ru-RU'),
+        slug: pick.id,
+        label,
+      };
+    })
+    .filter((m): m is NonNullable<typeof m> => m !== null);
+}
 
 const PRICES = [
   { area: 'до 20 м²', btu: '7 000–9 000 BTU', condPrice: 'от 690 р.', installPrice: 'от 400 р.', total: 'от 1 090 р.' },
@@ -43,7 +63,10 @@ const DISTRICTS = [
   'Жлобин', 'Мозырь', 'Речица', 'Светлогорск', 'Добруш',
 ];
 
-export default function KonditsioneryGomelPage() {
+export default async function KonditsioneryGomelPage() {
+  const allProducts = await getAllProducts();
+  const MODELS = pickFeaturedModels(allProducts);
+
   return (
     <ArticleShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }} />
@@ -145,7 +168,6 @@ export default function KonditsioneryGomelPage() {
                 >
                   <div className="flex items-center justify-between mb-2">
                     <span className="text-[10px] bg-crimson-50 text-crimson-700 font-semibold px-2 py-0.5 rounded-full">{m.label}</span>
-                    <span className="text-xs text-gray-400">{m.area}</span>
                   </div>
                   <p className="text-sm font-semibold text-gray-800 group-hover:text-crimson-700 leading-tight mb-1">{m.name}</p>
                   <p className="text-base font-bold text-crimson-700">от {m.price} р.</p>
