@@ -13,12 +13,12 @@ export async function generateMetadata(
     return { title: 'Страница не найдена' };
   }
 
-  const title = `Кондиционер в ${city.nameIn} — купить и установить | AirComfort`;
+  const title = `Кондиционер в ${city.nameIn} — купить и установить`;
   const description = `Купить кондиционер в ${city.nameIn} с доставкой и установкой. Electrolux, Ballu, Haier, LG — выезд из Гомеля. Монтаж от 400 р., гарантия 1 год. ☎ +375 29 105-06-94.`;
   const url = `${BASE}/konditsioner/${slug}`;
 
   return {
-    title,
+    title: { absolute: `${title} | AirComfort` },
     description,
     alternates: { canonical: url },
     openGraph: {
