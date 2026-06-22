@@ -1,10 +1,11 @@
-﻿'use client';
-import React, { useState, useEffect } from 'react';
+'use client';
+import React, { useState } from 'react';
 import Link from 'next/link';
 import ProductCard from '@/components/ProductCard';
 import type { Product } from '@/lib/store';
 
 interface PopularProductsProps {
+  initialProducts: Product[];
   onCartOpen?: () => void;
 }
 
@@ -16,13 +17,9 @@ const TABS = [
   { id: 'discounted', label: 'Скидки' },
 ];
 
-export default function PopularProducts({ onCartOpen }: PopularProductsProps) {
+export default function PopularProducts({ initialProducts, onCartOpen }: PopularProductsProps) {
   const [activeTab, setActiveTab] = useState('all');
-  const [allProducts, setAllProducts] = useState<Product[]>([]);
-
-  useEffect(() => {
-    fetch('/api/products').then(r => r.json()).then(setAllProducts);
-  }, []);
+  const [allProducts] = useState<Product[]>(initialProducts);
 
   const filtered = allProducts
     .filter(p => {
@@ -64,21 +61,13 @@ export default function PopularProducts({ onCartOpen }: PopularProductsProps) {
           ))}
         </div>
 
-        {allProducts.length === 0 ? (
-          <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
-            {[...Array(10)].map((_, i) => (
-              <div key={i} className="h-64 bg-zinc-100 rounded-2xl animate-pulse" />
-            ))}
-          </div>
-        ) : (
+        {filtered.length > 0 ? (
           <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-3 md:gap-4">
             {filtered.slice(0, 10).map(product => (
               <ProductCard key={product.id} product={product} onCartAdd={onCartOpen} />
             ))}
           </div>
-        )}
-
-        {allProducts.length > 0 && filtered.length === 0 && (
+        ) : (
           <div className="text-center py-16 text-muted-foreground">
             <p className="text-lg font-medium">Товары не найдены</p>
             <p className="text-sm mt-1">Попробуйте другой фильтр</p>

@@ -1,13 +1,5 @@
-'use client';
-import React, { useState } from 'react';
-import Header from '@/components/Header';
-import Footer from '@/components/Footer';
-import CartDrawer from '@/components/CartDrawer';
-import HeroSection from '@/app/components/HeroSection';
-
-import PopularProducts from '@/app/components/PopularProducts';
-import ReviewsSection from '@/app/components/ReviewsSection';
-import SeoSection from '@/app/components/SeoSection';
+import { getAllProducts } from '@/lib/getProducts';
+import HomePageClient from './HomePageClient';
 
 const homeReviewsSchema = {
   '@context': 'https://schema.org',
@@ -66,25 +58,14 @@ const homeFaqSchema = {
   ],
 };
 
-export default function HomePage() {
-  const [cartOpen, setCartOpen] = useState(false);
+export default async function HomePage() {
+  const allProducts = await getAllProducts();
 
   return (
-    <div className="min-h-screen bg-background">
+    <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeReviewsSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
-      <Header onCartOpen={() => setCartOpen(true)} />
-      <CartDrawer open={cartOpen} onClose={() => setCartOpen(false)} />
-
-      <main>
-        <HeroSection />
-
-        <PopularProducts onCartOpen={() => setCartOpen(true)} />
-        <ReviewsSection />
-        <SeoSection />
-      </main>
-
-      <Footer />
-    </div>
+      <HomePageClient initialProducts={allProducts} />
+    </>
   );
 }
