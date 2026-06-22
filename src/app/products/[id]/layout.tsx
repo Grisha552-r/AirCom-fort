@@ -85,11 +85,33 @@ export async function generateMetadata(
     const wifi = chars['Wi-Fi модуль'] && chars['Wi-Fi модуль'] !== 'Нет' ? ' Wi-Fi,' : '';
     const inv = chars['Инверторная технология'] === 'Да' ? ' инвертор,' : '';
 
-    const shortName = product.name.replace(/^(Блок\s+(внутренний|наружный)\s+|Сплит-система\s+)/i, '').slice(0, 30);
+    const GENERIC_PREFIXES = [
+      /^Сплит-система\s+/i,
+      /^Блок\s+(внутренний|наружный)\s+/i,
+      /^инверторного\s+типа\s+/i,
+      /^неинверторного\s+типа\s+/i,
+      /^инверторная\s+/i,
+      /^настенного\s+типа\s+/i,
+      /^кассетного\s+типа\s+/i,
+      /^канального\s+типа\s+/i,
+      /^напольно-потолочного\s+типа\s+/i,
+    ];
+    let shortName = product.name;
+    let stripped = true;
+    while (stripped) {
+      stripped = false;
+      for (const re of GENERIC_PREFIXES) {
+        if (re.test(shortName)) {
+          shortName = shortName.replace(re, '');
+          stripped = true;
+        }
+      }
+    }
+    shortName = shortName.slice(0, 30);
     const title = `${shortName} в Гомеле — ${product.price} р.`;
 
     const parts = [
-      `${product.brand || 'Кондиционер'} ${series} в Гомеле.`,
+      `${product.brand || 'Кондиционер'}${series ? ' ' + series : ''} в Гомеле.`,
       `Цена ${product.price} р.`,
       area ? `Для помещений до ${area}.` : '',
       btu ? `Мощность ${btu}.` : '',
