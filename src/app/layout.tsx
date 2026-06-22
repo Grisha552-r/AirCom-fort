@@ -5,8 +5,6 @@ import '../styles/tailwind.css';
 import JsonLd from '@/components/JsonLd';
 import YandexMetrica from '@/components/YandexMetrica';
 import GoogleAnalytics from '@/components/GoogleAnalytics';
-import FloatingCTA from '@/components/FloatingCTA';
-import FloatingButtons from '@/components/FloatingButtons';
 
 const plusJakartaSans = Plus_Jakarta_Sans({
   subsets: ['latin', 'cyrillic-ext'],
@@ -83,8 +81,6 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <YandexMetrica />
         <GoogleAnalytics />
         {children}
-        <FloatingCTA />
-        <FloatingButtons />
       </body>
     </html>
   );
