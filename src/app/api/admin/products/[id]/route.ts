@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import { isAuthorized } from '@/app/api/admin/_auth';
 import { getSupabaseAdmin } from '@/lib/supabase';
 
@@ -29,6 +30,7 @@ export async function PUT(req: Request, { params }: { params: Promise<{ id: stri
     const update = await req.json();
     const { error } = await getSupabaseAdmin().from('products').update(toDb(update)).eq('id', id);
     if (error) throw new Error(error.message);
+    revalidateTag('products');
     return NextResponse.json({ ok: true });
   } catch (e) {
     return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });
@@ -41,6 +43,7 @@ export async function DELETE(_: Request, { params }: { params: Promise<{ id: str
     const { id } = await params;
     const { error } = await getSupabaseAdmin().from('products').delete().eq('id', id);
     if (error) throw new Error(error.message);
+    revalidateTag('products');
     return NextResponse.json({ ok: true });
   } catch (e) {
     return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });

@@ -1,3 +1,4 @@
+import { unstable_cache } from 'next/cache';
 import { getSupabase } from '@/lib/supabase';
 import type { Product } from '@/lib/store';
 
@@ -29,7 +30,7 @@ export function fromDbRow(row: any): Product {
   };
 }
 
-export async function getAllProducts(): Promise<Product[]> {
+async function fetchAllProducts(): Promise<Product[]> {
   try {
     const { data, error } = await getSupabase().from('products').select('*');
     if (error || !data) return [];
@@ -38,3 +39,8 @@ export async function getAllProducts(): Promise<Product[]> {
     return [];
   }
 }
+
+export const getAllProducts = unstable_cache(fetchAllProducts, ['all-products'], {
+  revalidate: 300,
+  tags: ['products'],
+});

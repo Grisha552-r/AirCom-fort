@@ -1,4 +1,5 @@
 import { NextResponse } from 'next/server';
+import { revalidateTag } from 'next/cache';
 import { isAuthorized } from '@/app/api/admin/_auth';
 import { getSupabaseAdmin } from '@/lib/supabase';
 
@@ -57,6 +58,7 @@ export async function POST(req: Request) {
     const product = await req.json();
     const { error } = await getSupabaseAdmin().from('products').insert(toDb(product));
     if (error) throw new Error(error.message);
+    revalidateTag('products');
     return NextResponse.json({ ok: true });
   } catch (e) {
     return NextResponse.json({ ok: false, error: String(e) }, { status: 500 });
