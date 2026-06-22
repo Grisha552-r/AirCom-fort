@@ -63,8 +63,8 @@ const nextConfig = {
       { source: '/tseny/', destination: '/services', permanent: true },
       { source: '/blog', destination: '/articles', permanent: true },
       { source: '/blog/', destination: '/articles', permanent: true },
-      { source: '/ustanovka-konditsionero', destination: '/services', permanent: true },
-      { source: '/ustanovka-konditsionero/', destination: '/services', permanent: true },
+      { source: '/ustanovka-konditsionerov', destination: '/services', permanent: true },
+      { source: '/ustanovka-konditsionerov/', destination: '/services', permanent: true },
       { source: '/articles/konditsioner-midea-gomel', destination: '/articles', permanent: true },
     ];
   },
