@@ -1,5 +1,5 @@
 ﻿import { MetadataRoute } from 'next';
-import products from '@/data/products.json';
+import { getAllProducts } from '@/lib/getProducts';
 import { CITIES } from '@/lib/cities';
 
 const BASE = 'https://aircom-fort.by';
@@ -61,10 +61,11 @@ const ARTICLE_SLUGS = [
   'mobilnyy-konditsioner-gomel',
 ];
 
-export default function sitemap(): MetadataRoute.Sitemap {
+export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const now = new Date();
+  const products = await getAllProducts();
 
-  const productPages: MetadataRoute.Sitemap = (products as { id: string }[]).map(p => ({
+  const productPages: MetadataRoute.Sitemap = products.map(p => ({
     url: `${BASE}/products/${p.id}`,
     lastModified: now,
     priority: 0.7,
