@@ -131,10 +131,12 @@ export default function RemontPage() {
         ремонт: мелкая поломка усугубляется.
       </p>
 
-      <h3 className="text-lg font-semibold text-gray-900 mb-2">Ошибки на дисплее: E1, E3, E4, F1…</h3>
+      <h3 className="text-lg font-semibold text-gray-900 mb-2">Ошибки на дисплее: E1, E2, E5, F1…</h3>
       <p className="text-gray-700 leading-relaxed mb-8">
-        Коды ошибок у разных брендов означают разные неисправности. E1 у Electrolux — датчик
-        температуры испарителя; E3 у Ballu — высокое давление; F1 у Haier — разрыв цепи датчика.
+        Коды ошибок у разных брендов означают разные неисправности. E1 у Electrolux и Gree — защита
+        по высокому давлению; E2 у Ballu — ошибка датчика температуры испарителя; F1 у Haier —
+        отключение термодатчика теплообменника. Полную расшифровку по брендам смотрите{' '}
+        <Link href="/articles/kody-oshibok-konditsionerov-gomel" className="text-red-700 hover:underline">в нашей статье о кодах ошибок</Link>.
         Мастер расшифрует код и проведёт диагностику конкретного датчика или платы.
       </p>
 

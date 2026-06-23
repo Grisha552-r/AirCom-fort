@@ -62,6 +62,7 @@ const ARTICLE_SLUGS = [
   'konditsioner-dlya-kukhni',
   'konditsioner-mitsudai-gomel',
   'mobilnyy-konditsioner-gomel',
+  'kody-oshibok-konditsionerov-gomel',
 ];
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
