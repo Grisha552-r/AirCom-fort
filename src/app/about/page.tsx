@@ -115,7 +115,7 @@ export default function AboutPage() {
               <span className="text-white font-medium">О нас</span>
             </nav>
             <div className="max-w-2xl">
-              <h1 className="text-4xl font-bold mb-4 leading-tight">AirComfort —<br />кондиционеры в Гомеле</h1>
+              <h1 className="text-4xl font-bold mb-4 leading-tight">Кондиционеры в Гомеле</h1>
               <p className="text-crimson-100 text-lg leading-relaxed">
                 Продаём и устанавливаем кондиционеры ведущих мировых брендов в Гомеле и Беларуси. Работаем напрямую с поставщиками — без посредников и переплат.
               </p>

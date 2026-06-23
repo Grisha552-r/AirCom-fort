@@ -3,12 +3,12 @@ import ArticleShell from '@/app/articles/ArticleShell';
 import { CITIES } from '@/lib/cities';
 
 const MAIN_PAGES = [
-  { href: '/', label: 'Кондиционеры в Гомеле от 1 290 р. с установкой под ключ' },
+  { href: '/', label: 'Кондиционеры в Гомеле с установкой под ключ' },
   { href: '/konditsionery-gomel', label: 'Кондиционеры в Гомеле — купить с установкой от 1 290 р.' },
   { href: '/products', label: 'Каталог кондиционеров в Гомеле — 300+ моделей' },
   { href: '/services', label: 'Установка кондиционеров в Гомеле' },
   { href: '/articles', label: 'Статьи о кондиционерах' },
-  { href: '/about', label: 'AirComfort — кондиционеры в Гомеле' },
+  { href: '/about', label: 'Кондиционеры в Гомеле' },
   { href: '/requisites', label: 'Контакты и реквизиты' },
 ];
 

@@ -365,7 +365,7 @@ export default async function KonditsioneryGomelPage() {
           <div className="max-w-4xl mx-auto px-4">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
               <div>
-                <h2 className="text-2xl font-bold text-gray-900 mb-4">AirComfort — ваш надёжный поставщик кондиционеров в Гомеле</h2>
+                <h2 className="text-2xl font-bold text-gray-900 mb-4">Ваш надёжный поставщик кондиционеров в Гомеле</h2>
                 <p className="text-gray-600 text-sm leading-relaxed mb-4">
                   Работаем с 2019 года. За это время выполнили более 500 установок в Гомеле и Гомельской области.
                   Мы не просто продаём кондиционеры — мы несём ответственность за каждый монтаж.

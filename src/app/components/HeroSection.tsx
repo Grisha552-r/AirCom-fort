@@ -60,7 +60,7 @@ export default function HeroSection() {
             {/* Left: Text */}
             <div className="reveal-on-scroll opacity-100 relative z-10">
               <h1 className="font-display text-4xl md:text-5xl lg:text-6xl font-bold text-foreground leading-tight mb-4">
-                AirComfort — кондиционеры в Гомеле{' '}
+                Кондиционеры в Гомеле{' '}
                 <span className="text-crimson-gradient block">с установкой под ключ</span>
               </h1>
               <p className="text-base md:text-lg text-muted-foreground leading-relaxed mb-5 max-w-md">
