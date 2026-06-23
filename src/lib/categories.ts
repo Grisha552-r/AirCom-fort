@@ -18,5 +18,6 @@ export const CATEGORIES: Category[] = [
   { id: "split-panasonic", name: "Сплит-системы Panasonic", slug: "split-panasonic", icon: "BoltIcon", parentId: "split-systems", productCount: 14, image: "/assets/images/categories/split-haier.jpg" },
   { id: "split-mitsudai", name: "Сплит-системы Mitsudai", slug: "split-mitsudai", icon: "BoltIcon", parentId: "split-systems", productCount: 16, image: "/assets/images/categories/split-mitsudai.png" },
   { id: "split-kinghome", name: "Сплит-системы King Home", slug: "split-kinghome", icon: "BoltIcon", parentId: "split-systems", productCount: 4, image: "/assets/images/categories/split-kinghome.webp" },
+  { id: "split-vicool", name: "Сплит-системы Vicool", slug: "split-vicool", icon: "BoltIcon", parentId: "split-systems", productCount: 13, image: "https://k24.by/upload/iblock/a56/o1bisbd2ecxydlk9cz5cyehong2h1yy2.png" },
   { id: "mobile", name: "Мобильные кондиционеры", slug: "mobile", icon: "DevicePhoneMobileIcon", productCount: 39, image: "/assets/images/categories/mobile.jpg" },
 ];

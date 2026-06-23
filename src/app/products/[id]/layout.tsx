@@ -33,6 +33,10 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
     title: 'Кондиционеры King Home в Гомеле — купить с установкой',
     description: 'Кондиционеры King Home Luna Matt в Гомеле: Wi-Fi, инвертор, R32. Мощность 9000–24000 BTU. Класс А++. Монтаж от 400 р., гарантия 74 месяца.',
   },
+  'split-vicool': {
+    title: 'Кондиционеры Vicool в Гомеле — купить с установкой',
+    description: 'Кондиционеры Vicool VIERA и PRO Light в Гомеле: on/off и инверторные модели 7000–24000 BTU, хладагент R32, Wi-Fi. Монтаж от 400 р., гарантия производителя.',
+  },
   mobile: {
     title: 'Мобильные кондиционеры в Гомеле — без монтажа',
     description: 'Мобильные кондиционеры в Гомеле без сверления и монтажа. Для аренды и дачи. Готов к работе за 5 минут. Быстрая доставка по Гомелю.',
@@ -150,6 +154,7 @@ const CAT_BREADCRUMB_NAME: Record<string, string> = {
   'split-lg': 'Кондиционеры LG',
   'split-mitsudai': 'Кондиционеры Mitsudai',
   'split-kinghome': 'Кондиционеры King Home',
+  'split-vicool': 'Кондиционеры Vicool',
   'mobile': 'Мобильные кондиционеры',
 };
 
