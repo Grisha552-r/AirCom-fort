@@ -81,13 +81,23 @@ export default async function ProductsPage({
   const sp = await searchParams;
   const allProducts = await getAllProducts();
 
+  // The listing only needs a few characteristics keys (BTU/inverter filters) and a
+  // short description slice (search matching) — sending the full objects to the
+  // client for all ~450 products bloats the page by several MB for no benefit.
+  const FILTER_KEYS = ['Базовая мощность кондиционера (охлаждение),BTU', 'Инверторная технология', 'Тип управления'];
+  const lightProducts = allProducts.map(p => ({
+    ...p,
+    description: p.description.slice(0, 150),
+    characteristics: Object.fromEntries(FILTER_KEYS.map(k => [k, p.characteristics[k]]).filter(([, v]) => v !== undefined)),
+  }));
+
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(productListJsonLd) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }} />
       <ProductsListView
-        initialProducts={allProducts}
+        initialProducts={lightProducts}
         initialSearch={sp.search || ''}
         initialCategory={sp.category || ''}
       />

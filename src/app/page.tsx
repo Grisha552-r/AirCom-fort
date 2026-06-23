@@ -60,12 +60,15 @@ const homeFaqSchema = {
 
 export default async function HomePage() {
   const allProducts = await getAllProducts();
+  // PopularProducts only filters by price/discount — description and the full
+  // characteristics object aren't used and just bloat the page for every visitor.
+  const lightProducts = allProducts.map(p => ({ ...p, description: '', characteristics: {} }));
 
   return (
     <>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeReviewsSchema) }} />
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(homeFaqSchema) }} />
-      <HomePageClient initialProducts={allProducts} />
+      <HomePageClient initialProducts={lightProducts} />
     </>
   );
 }

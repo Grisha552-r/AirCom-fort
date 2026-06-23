@@ -129,7 +129,15 @@ export default async function Page({ params }: { params: Promise<{ id: string }>
   if (catMeta) {
     const allProducts = await getAllProducts();
     const filtered = filterByCategory(allProducts, id);
-    return <CategoryView slug={id} meta={catMeta} initialProducts={filtered} />;
+    // Category grid only needs BTU/inverter filter keys, not the full
+    // characteristics object or description — trims the client payload.
+    const FILTER_KEYS = ['Базовая мощность кондиционера (охлаждение),BTU', 'Инверторная технология', 'Тип управления'];
+    const lightFiltered = filtered.map(p => ({
+      ...p,
+      description: '',
+      characteristics: Object.fromEntries(FILTER_KEYS.map(k => [k, p.characteristics[k]]).filter(([, v]) => v !== undefined)),
+    }));
+    return <CategoryView slug={id} meta={catMeta} initialProducts={lightFiltered} />;
   }
 
   // Individual product page — pass all products for variants/similar
