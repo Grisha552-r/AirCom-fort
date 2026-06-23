@@ -33,7 +33,6 @@ const ARTICLE_SLUGS = [
   'podgotovka-k-zime',
   'soglasovanie-ustanovki',
   'mobilnyy-ili-split',
-  'ustanovka-konditsionera-v-gomele',
   'skolko-vremeni-zanimaet-ustanovka-konditsionera',
   'razreshenie-na-ustanovku-konditsionera',
   'konditsioner-pod-klyuch',

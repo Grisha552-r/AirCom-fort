@@ -52,7 +52,6 @@ const ARTICLES_CHOICE = [
 ];
 
 const ARTICLES_INSTALL = [
-  { href: '/articles/ustanovka-konditsionera-v-gomele', label: 'Установка кондиционера в Гомеле' },
   { href: '/articles/tsena-ustanovki-konditsionera', label: 'Цена установки кондиционера' },
   { href: '/articles/konditsioner-pod-klyuch', label: 'Кондиционер под ключ' },
   { href: '/articles/skolko-vremeni-zanimaet-ustanovka-konditsionera', label: 'Сколько времени занимает установка' },

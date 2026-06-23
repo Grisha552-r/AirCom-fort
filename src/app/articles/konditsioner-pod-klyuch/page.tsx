@@ -83,7 +83,7 @@ export default function KonditsionerPodKlyuchPage() {
           <p className="font-semibold text-gray-900 mb-3">Читайте также</p>
           <div className="space-y-2">
             <Link href="/articles/tsena-ustanovki-konditsionera" className="block text-red-700 hover:underline text-sm">→ Цены на установку кондиционера</Link>
-            <Link href="/articles/ustanovka-konditsionera-v-gomele" className="block text-red-700 hover:underline text-sm">→ Установка кондиционера в Гомеле</Link>
+            <Link href="/services" className="block text-red-700 hover:underline text-sm">→ Установка кондиционера в Гомеле</Link>
             <Link href="/articles/kak-vybrat-konditsioner" className="block text-red-700 hover:underline text-sm">→ Как выбрать кондиционер</Link>
           </div>
         </div>

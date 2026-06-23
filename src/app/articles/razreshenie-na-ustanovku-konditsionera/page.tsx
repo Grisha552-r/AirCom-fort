@@ -179,9 +179,9 @@ export default function RazresheniePage() {
               <p className="font-medium text-gray-900 text-sm">Как согласовать установку кондиционера</p>
               <p className="text-gray-500 text-xs mt-1">Документы и юридические нюансы</p>
             </Link>
-            <Link href="/articles/ustanovka-konditsionera-v-gomele" className="block p-4 border border-gray-200 rounded-lg hover:border-crimson-300 hover:bg-crimson-50 transition-colors">
+            <Link href="/services" className="block p-4 border border-gray-200 rounded-lg hover:border-crimson-300 hover:bg-crimson-50 transition-colors">
               <p className="font-medium text-gray-900 text-sm">Установка кондиционера в Гомеле</p>
-              <p className="text-gray-500 text-xs mt-1">Цены и фирмы по монтажу</p>
+              <p className="text-gray-500 text-xs mt-1">Цены и расчёт стоимости онлайн</p>
             </Link>
           </div>
         </div>
