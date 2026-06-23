@@ -5,8 +5,6 @@ import ProductPageClient from './ProductPageClient';
 import type { CategoryMeta } from './CategoryView';
 import type { Product } from '@/lib/store';
 
-export const dynamic = 'force-dynamic';
-
 const WALL_CATEGORY_IDS = [
   'split-electrolux', 'split-ballu', 'split-haier', 'split-panasonic',
   'split-lg', 'split-mitsudai', 'split-kinghome', 'split-vicool',
