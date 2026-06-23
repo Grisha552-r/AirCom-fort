@@ -60,6 +60,7 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
         <span className="bg-zinc-100 text-zinc-600 text-xs font-semibold px-3 py-1 rounded-full">{product.brand}</span>
         {product.isNew && <span className="bg-emerald-100 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full">Новинка</span>}
         {product.discount && <span className="bg-crimson-100 text-crimson-700 text-xs font-semibold px-3 py-1 rounded-full">-{product.discount}%</span>}
+        {product.inStock && <span className="flex items-center gap-1 bg-emerald-50 text-emerald-700 text-xs font-semibold px-3 py-1 rounded-full"><span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />В наличии</span>}
       </div>
 
       {/* Name */}

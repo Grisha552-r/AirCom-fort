@@ -31,13 +31,18 @@ export function fromDbRow(row: any): Product {
 }
 
 async function fetchAllProducts(): Promise<Product[]> {
-  try {
-    const { data, error } = await getSupabase().from('products').select('*');
-    if (error || !data) return [];
-    return data.map(fromDbRow);
-  } catch {
-    return [];
+  const delays = [0, 150, 400, 800];
+  for (const delay of delays) {
+    if (delay) await new Promise(r => setTimeout(r, delay));
+    try {
+      const { data, error } = await getSupabase().from('products').select('*');
+      if (error || !data) continue;
+      return data.map(fromDbRow);
+    } catch {
+      // retry on transient connection errors
+    }
   }
+  return [];
 }
 
 export const getAllProducts = unstable_cache(fetchAllProducts, ['all-products'], {

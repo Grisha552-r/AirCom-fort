@@ -45,16 +45,22 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
 
 // React cache deduplicates this across generateMetadata + layout render
 const fetchProduct = cache(async (id: string) => {
-  try {
-    const { data } = await getSupabaseAdmin()
-      .from('products')
-      .select('id, name, description, price, images, brand, in_stock, category_id, rating, review_count, characteristics')
-      .eq('id', id)
-      .single();
-    return data;
-  } catch {
-    return null;
+  const delays = [0, 150, 400];
+  for (const delay of delays) {
+    if (delay) await new Promise(r => setTimeout(r, delay));
+    try {
+      const { data, error } = await getSupabaseAdmin()
+        .from('products')
+        .select('id, name, description, price, images, brand, in_stock, category_id, rating, review_count, characteristics')
+        .eq('id', id)
+        .single();
+      if (error) throw error;
+      return data;
+    } catch {
+      // retry on transient connection errors; fall through to next delay
+    }
   }
+  return null;
 });
 
 export async function generateMetadata(

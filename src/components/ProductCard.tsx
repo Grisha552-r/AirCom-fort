@@ -78,6 +78,12 @@ export default function ProductCard({ product, onCartAdd }: ProductCardProps) {
               <span className="text-xs text-muted-foreground">({product.reviewCount})</span>
             </div>
           )}
+          {product.inStock && (
+            <div className="flex items-center gap-1 mb-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+              <span className="text-xs text-emerald-700 font-medium">В наличии</span>
+            </div>
+          )}
           <p className="text-sm font-medium text-foreground line-clamp-2 leading-snug mb-2 flex-1">{product.name}</p>
           <div className="mt-auto">
             <div className="flex items-baseline gap-2 mb-2">
