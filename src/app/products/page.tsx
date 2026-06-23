@@ -59,7 +59,7 @@ const faqJsonLd = {
       name: 'Какая гарантия на кондиционер?',
       acceptedAnswer: {
         '@type': 'Answer',
-        text: 'Electrolux и LG — 3 года, Ballu и Haier — 2 года, Mitsudai и King Home — 1 год, Vicool — 7 лет. На монтажные работы — отдельная гарантия 1 год. Гарантийный ремонт выполняем бесплатно с выездом мастера.',
+        text: 'Electrolux и LG — 3 года, Ballu и Haier — 2 года, Mitsudai и King Home — 1 год, Vicool VIERA — 3 года, Vicool PRO Light — 5 лет. На монтажные работы — отдельная гарантия 1 год. Гарантийный ремонт выполняем бесплатно с выездом мастера.',
       },
     },
     {
