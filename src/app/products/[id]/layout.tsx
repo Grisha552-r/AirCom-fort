@@ -35,7 +35,7 @@ const CATEGORY_META: Record<string, { title: string; description: string }> = {
   },
   'split-vicool': {
     title: 'Кондиционеры Vicool в Гомеле — купить с установкой',
-    description: 'Кондиционеры Vicool VIERA и PRO Light в Гомеле: on/off и инверторные модели 7000–24000 BTU, хладагент R32, Wi-Fi. Монтаж от 400 р., гарантия производителя.',
+    description: 'Кондиционеры Vicool VIERA и PRO Light в Гомеле: инверторные модели 9000–24000 BTU, хладагент R32, Wi-Fi. Монтаж от 400 р., гарантия производителя 7 лет.',
   },
   mobile: {
     title: 'Мобильные кондиционеры в Гомеле — без монтажа',
