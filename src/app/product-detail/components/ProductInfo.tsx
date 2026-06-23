@@ -158,20 +158,6 @@ export default function ProductInfo({ product, onCartOpen }: ProductInfoProps) {
         </button>
       )}
 
-      {/* Trust strip */}
-      <div className="grid grid-cols-3 gap-2 text-xs text-center">
-        {[
-          { icon: 'ShieldCheckIcon', label: 'Гарантия\n2 года' },
-          { icon: 'TruckIcon', label: 'Доставка\nпо Гомелю' },
-          { icon: 'WrenchScrewdriverIcon', label: 'Монтаж\nза 1–2 дня' },
-        ].map(({ icon, label }) => (
-          <div key={label} className="flex flex-col items-center gap-1 bg-zinc-50 rounded-xl p-2 border border-border">
-            <Icon name={icon} size={18} className="text-crimson-600" />
-            <span className="text-muted-foreground leading-tight whitespace-pre-line">{label}</span>
-          </div>
-        ))}
-      </div>
-
       {/* Key characteristics preview */}
       {Object.keys(product.characteristics).length > 0 && (
         <div className="space-y-2">
