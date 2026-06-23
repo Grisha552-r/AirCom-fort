@@ -27,7 +27,7 @@ const BTU_OPTIONS = [
   { id: '36 000', label: '36 000 BTU' },
 ];
 
-const CAT_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai', 'King Home'];
+const CAT_BRANDS = ['Electrolux', 'Ballu', 'Haier', 'LG', 'Mitsudai', 'King Home', 'Vicool'];
 
 function getBtuLabel(p: Product): string {
   return (p.characteristics?.['Базовая мощность кондиционера (охлаждение),BTU'] || '').trim();
