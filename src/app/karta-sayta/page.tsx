@@ -13,7 +13,7 @@ const MAIN_PAGES = [
 ];
 
 const CATEGORIES = [
-  { href: '/products/split-systems', label: 'Все сплит-системы' },
+  { href: '/products/split-systems', label: 'Купить кондиционер' },
   { href: '/products/split-electrolux', label: 'Кондиционеры Electrolux' },
   { href: '/products/split-ballu', label: 'Кондиционеры Ballu' },
   { href: '/products/split-haier', label: 'Кондиционеры Haier' },

@@ -12,7 +12,7 @@ const WALL_CATEGORY_IDS = [
 
 const CATEGORY_META: Record<string, CategoryMeta> = {
   'split-systems': {
-    label: 'Все сплит-системы',
+    label: 'Купить кондиционер',
     categoryIds: WALL_CATEGORY_IDS,
     seoText: {
       h2: 'Купить сплит-систему в Гомеле — AirComfort',
