@@ -151,6 +151,8 @@ export default function HeroSection() {
                       <img
                         src="/assets/images/products/mitsudai-sne09.png"
                         alt="Сплит-система Mitsudai"
+                        width={1000}
+                        height={368}
                         className="max-h-full w-auto max-w-[220px] sm:max-w-[260px] object-contain mix-blend-multiply"
                         fetchPriority="high"
                         loading="eager"
@@ -238,6 +240,8 @@ export default function HeroSection() {
                         src="/assets/images/products/kinghome-luna-09.jpg"
                         alt="King Home Luna Matt"
                         loading="lazy"
+                        width={950}
+                        height={950}
                         className="max-h-full w-auto max-w-[280px] sm:max-w-[320px] object-contain mix-blend-multiply"
                         style={{ transform: 'scale(2.5)' }}
                       />
