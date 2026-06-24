@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/konditsioner-kinghome-gomel',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры King Home в Гомеле — цены и установка 2026',
+    description: 'King Home в Гомеле от 990 р. с установкой. Инверторные и on/off модели.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

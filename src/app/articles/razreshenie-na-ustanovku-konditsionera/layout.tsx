@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Разрешение на установку кондиционера в Гомеле',
+    description: 'Когда нужно согласование, куда обращаться и чем грозит самовольная установка.',
+  },
 };
 
 const articleSchema = {

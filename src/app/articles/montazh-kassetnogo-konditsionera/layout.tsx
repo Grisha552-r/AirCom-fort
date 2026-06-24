@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Монтаж кассетного кондиционера в Гомеле — стоимость',
+    description: 'Цены на установку кассетного кондиционера в потолок. Особенности монтажа и что влияет на стоимость.',
+  },
 };
 
 const articleSchema = {

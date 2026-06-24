@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/konditsioner-s-obogrevom-gomel',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер с обогревом в Гомеле — цены и установка 2026',
+    description: 'Кондиционер вместо обогревателя — в 2–3 раза экономичнее. Работает при −20°C. Установка в Гомеле.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

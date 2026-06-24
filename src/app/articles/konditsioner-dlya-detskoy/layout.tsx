@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер для детской комнаты — как выбрать безопасный',
+    description: 'Тихий, с фильтрацией воздуха, без сквозняков — что важно при выборе кондиционера для детской.',
+  },
 };
 
 const articleSchema = {

@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры LG в Гомеле — купить с установкой от 1 690 р.',
+    description: 'Официальный дилер LG в Гомеле. Тихие модели 21 дБ, гарантия 3 года, монтаж в день заказа.',
+  },
 };
 
 const articleSchema = {

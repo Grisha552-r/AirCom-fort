@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     description: 'Чистка от 100 р., заправка фреоном от 60 р. Выезд в день заказа.',
     url: 'https://aircom-fort.by/articles/obsluzhivanie-konditsionera-gomel',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Обслуживание кондиционера в Гомеле — чистка, заправка',
+    description: 'Чистка от 100 р., заправка фреоном от 60 р. Выезд в день заказа.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

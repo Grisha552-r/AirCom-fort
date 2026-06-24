@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Сколько стоит установка кондиционера в Гомеле — цены 2026',
+    description: 'Монтаж от 400 р. Разбираем из чего складывается цена и как не переплатить.',
+  },
 };
 
 const faqSchema = {

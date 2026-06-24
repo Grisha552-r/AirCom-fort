@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры Vicool в Гомеле — купить с установкой',
+    description: 'Кондиционеры Vicool VIERA и PRO Light в Гомеле. Установка в день заказа, гарантия 3-5 лет.',
+  },
 };
 
 const articleSchema = {

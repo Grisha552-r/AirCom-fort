@@ -21,6 +21,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Сплит-система в Гомеле — купить и установить от 1 290 р.',
+    description: 'Все ведущие бренды в наличии. Монтаж под ключ в день заказа.',
+  },
 };
 
 const articleSchema = {

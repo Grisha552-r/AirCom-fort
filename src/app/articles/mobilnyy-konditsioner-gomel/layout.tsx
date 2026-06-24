@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Мобильный кондиционер в Гомеле — купить напольный без установки',
+    description: 'Мобильные и напольные кондиционеры: Ballu, Electrolux, Zanussi. Без монтажа, от 699 р. Доставка по Гомелю.',
+  },
 };
 
 const articleSchema = {

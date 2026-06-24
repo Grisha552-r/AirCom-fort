@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Какой кондиционер выбрать для комнаты — советы 2026',
+    description: 'Расчёт мощности, инвертор или on/off, топ моделей для квартиры.',
+  },
 };
 
 const articleSchema = {

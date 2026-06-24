@@ -9,6 +9,11 @@ export const metadata: Metadata = {
     description: 'Сплит-системы и мобильные кондиционеры со склада в Гомеле. Лучшие цены.',
     url: 'https://aircom-fort.by/products',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Каталог кондиционеров в Гомеле',
+    description: 'Сплит-системы и мобильные кондиционеры со склада в Гомеле. Лучшие цены.',
+  },
 };
 
 export default function ProductsLayout({ children }: { children: React.ReactNode }) {

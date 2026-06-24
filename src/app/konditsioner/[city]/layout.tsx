@@ -28,6 +28,11 @@ export async function generateMetadata(
       locale: 'ru_BY',
       type: 'website',
     },
+    twitter: {
+      card: 'summary_large_image',
+      title,
+      description,
+    },
   };
 }
 

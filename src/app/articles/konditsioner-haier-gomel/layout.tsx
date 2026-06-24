@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры Haier в Гомеле — купить с установкой от 1 350 р.',
+    description: 'Официальный дилер Haier в Гомеле. Wi-Fi в базовой комплектации, инвертор, монтаж в день заказа.',
+  },
 };
 
 const articleSchema = {

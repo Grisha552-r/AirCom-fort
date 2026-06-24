@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Демонтаж кондиционера в Гомеле — от 100 р.',
+    description: 'Снятие кондиционера при переносе, замене или ремонте. Выезд в день заказа.',
+  },
 };
 
 const articleSchema = {

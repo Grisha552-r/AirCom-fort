@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Коды ошибок кондиционеров — расшифровка по брендам',
+    description: 'E1, E2, E5, H6, CH05 и другие коды для Electrolux, Ballu, Haier, LG, Gree — что значат и что делать.',
+  },
 };
 
 const articleSchema = {

@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/konditsioner-dlya-dachi',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер для дачи — какой выбрать в 2026 году',
+    description: 'Мобильный или сплит для дачи — что выгоднее. Бюджетные модели без сверления стен.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

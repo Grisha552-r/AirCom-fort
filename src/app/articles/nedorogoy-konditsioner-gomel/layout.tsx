@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/nedorogoy-konditsioner-gomel',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Недорогой кондиционер в Гомеле — от 690 р. с установкой',
+    description: 'Бюджетные кондиционеры в Гомеле с установкой под ключ от 1 090 р. Ballu, Mitsudai, Electrolux.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

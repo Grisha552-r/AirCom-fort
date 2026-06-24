@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер для офиса в Гомеле — выбор и установка',
+    description: 'Какой кондиционер выбрать для офиса: площадь, тип системы, бренды. Монтаж от 400 р.',
+  },
 };
 
 const articleSchema = {

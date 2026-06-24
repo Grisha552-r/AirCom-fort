@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/ustanovka-konditsionera-v-novostroyke',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Установка кондиционера в новостройке — цены и особенности 2026',
+    description: 'Когда делать отверстие под кондиционер, как согласовать установку в новостройке Гомеля.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

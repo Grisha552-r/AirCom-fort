@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры Electrolux в Гомеле — от 1 490 р. с установкой',
+    description: 'Официальный дилер Electrolux. Все серии в наличии, монтаж в день заказа.',
+  },
 };
 
 const articleSchema = {

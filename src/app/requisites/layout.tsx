@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Контакты AirComfort — кондиционеры в Гомеле',
+    description: 'Телефон, адрес, режим работы и реквизиты компании AirComfort в Гомеле.',
+  },
 };
 
 export default function RequisitesLayout({ children }: { children: React.ReactNode }) {

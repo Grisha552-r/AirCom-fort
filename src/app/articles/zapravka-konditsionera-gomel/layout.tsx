@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Заправка кондиционера в Гомеле — от 60 р., выезд в день',
+    description: 'Заправка фреоном R32, R410A, R22. Диагностика бесплатно при заправке. Гарантия 1 год.',
+  },
 };
 
 const articleSchema = {

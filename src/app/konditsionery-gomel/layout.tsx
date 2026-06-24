@@ -13,6 +13,11 @@ export const metadata: Metadata = {
     description: 'AirComfort — продажа и установка кондиционеров в Гомеле. 300+ моделей, монтаж от 400 р., выезд в день заказа.',
     images: [{ url: '/opengraph-image', width: 1200, height: 630 }],
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры в Гомеле — купить с установкой от 1 290 р.',
+    description: 'AirComfort — продажа и установка кондиционеров в Гомеле. 300+ моделей, монтаж от 400 р., выезд в день заказа.',
+  },
 };
 
 const faqSchema = {

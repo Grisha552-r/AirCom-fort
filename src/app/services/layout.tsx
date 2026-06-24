@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Установка кондиционера в Гомеле',
+    description: 'Монтаж, обслуживание и демонтаж кондиционеров в Гомеле. Рассчитайте стоимость онлайн.',
+  },
 };
 
 const howToJsonLd = {

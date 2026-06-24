@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры Ballu в Гомеле — купить с установкой от 1 290 р.',
+    description: 'Официальный дилер Ballu в Гомеле. Установка в день заказа, гарантия 2 года.',
+  },
 };
 
 const articleSchema = {

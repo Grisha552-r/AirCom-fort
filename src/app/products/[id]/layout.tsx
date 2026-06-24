@@ -82,6 +82,11 @@ export async function generateMetadata(
         locale: 'ru_BY',
         type: 'website',
       },
+      twitter: {
+        card: 'summary_large_image',
+        title: cat.title,
+        description: cat.description,
+      },
     };
   }
 
@@ -141,6 +146,12 @@ export async function generateMetadata(
         locale: 'ru_BY',
         type: 'website',
         images: product.images?.[0] ? [{ url: product.images[0], width: 800, height: 600, alt: product.name }] : undefined,
+      },
+      twitter: {
+        card: 'summary_large_image',
+        title,
+        description: description.slice(0, 160),
+        images: product.images?.[0] ? [product.images[0]] : undefined,
       },
     };
   }

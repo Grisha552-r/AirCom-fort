@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер под ключ в Гомеле — цены',
+    description: 'Купите кондиционер с монтажом под ключ. Один визит, один договор, гарантия 1 год.',
+  },
 };
 
 const faqSchema = {

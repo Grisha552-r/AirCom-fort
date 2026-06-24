@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/konditsioner-gree-gomel',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры Gree в Гомеле — цены и установка 2026',
+    description: 'Gree — №1 производитель кондиционеров в мире. Купить с установкой в Гомеле от 990 р.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

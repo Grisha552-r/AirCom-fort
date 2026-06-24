@@ -10,6 +10,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/konditsioner-dlya-gostinoy',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер для гостиной — какой выбрать в 2026 году',
+    description: 'Как выбрать кондиционер для гостиной: мощность, бренды, цены. Установка в Гомеле под ключ.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

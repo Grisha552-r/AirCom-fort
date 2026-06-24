@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционеры Mitsudai в Гомеле — купить с установкой от 990 р.',
+    description: 'Бюджетные сплит-системы Mitsudai с установкой в Гомеле. Монтаж в день заказа, гарантия 1 год.',
+  },
 };
 
 const faqSchema = {

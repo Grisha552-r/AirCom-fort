@@ -12,6 +12,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер не охлаждает — 7 причин и что делать',
+    description: 'Грязный фильтр, утечка фреона, неисправный компрессор — находим причину и чиним.',
+  },
 };
 
 const articleSchema = {

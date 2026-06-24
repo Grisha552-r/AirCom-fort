@@ -19,6 +19,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Кондиционер для кухни — как выбрать и установить',
+    description: 'Советы по выбору кондиционера для кухни с учётом плиты, пара и запахов. Особенности монтажа.',
+  },
 };
 
 const faqSchema = {

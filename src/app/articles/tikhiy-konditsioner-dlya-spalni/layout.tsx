@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Тихий кондиционер для спальни 2026 — ТОП бесшумных моделей',
+    description: 'Уровень шума до 19 дБ. ТОП моделей с ночным режимом для спальни в Гомеле.',
+  },
 };
 
 const articleSchema = {

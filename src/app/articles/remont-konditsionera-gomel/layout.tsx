@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Ремонт кондиционеров в Гомеле — диагностика бесплатно',
+    description: 'Не охлаждает, течёт, не включается. Выезд мастера в день заказа. Гарантия 6 месяцев.',
+  },
 };
 
 const articleSchema = {

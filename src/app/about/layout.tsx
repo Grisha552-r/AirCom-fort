@@ -15,6 +15,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'website',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'О компании — кондиционеры в Гомеле',
+    description: 'Продажа и установка кондиционеров в Гомеле. Electrolux, Ballu, Haier, LG, Mitsudai. Монтаж от 400 р., гарантия 1 год.',
+  },
 };
 
 const breadcrumbJsonLd = {

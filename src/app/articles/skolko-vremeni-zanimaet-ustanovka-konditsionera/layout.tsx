@@ -18,6 +18,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Сколько времени занимает установка кондиционера',
+    description: 'Стандартный монтаж — 2–4 часа. Разбираем все этапы и что влияет на время установки.',
+  },
 };
 
 const articleSchema = {

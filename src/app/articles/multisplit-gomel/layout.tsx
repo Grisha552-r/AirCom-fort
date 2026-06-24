@@ -11,6 +11,11 @@ export const metadata: Metadata = {
     url: 'https://aircom-fort.by/articles/multisplit-gomel',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Мультисплит система в Гомеле — цены и установка 2026',
+    description: 'Один внешний блок — несколько комнат. Цены на мультисплит системы в Гомеле.',
+  },
 };
 
 export default function Layout({ children }: { children: React.ReactNode }) {

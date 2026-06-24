@@ -20,6 +20,11 @@ export const metadata: Metadata = {
     locale: 'ru_BY',
     type: 'article',
   },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'Инверторный кондиционер в Гомеле — купить с установкой от 1 290 р.',
+    description: 'Инвертор или обычный? Объясняем разницу и предлагаем лучшие инверторные модели в Гомеле с установкой.',
+  },
 };
 
 const articleSchema = {
