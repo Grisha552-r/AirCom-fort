@@ -57,6 +57,7 @@ const ARTICLE_SLUGS = [
   'konditsioner-s-obogrevom-gomel',
   'nedorogoy-konditsioner-gomel',
   'konditsioner-kinghome-gomel',
+  'konditsioner-vicool-gomel',
   'ustanovka-konditsionera-v-novostroyke',
   'konditsioner-dlya-kukhni',
   'konditsioner-mitsudai-gomel',

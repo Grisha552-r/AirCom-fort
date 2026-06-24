@@ -323,6 +323,15 @@ const ARTICLES = [
     tag: 'Выбор техники',
   },
   {
+    slug: 'konditsioner-vicool-gomel',
+    title: 'Кондиционеры Vicool в Гомеле — купить с установкой',
+    excerpt: 'Vicool VIERA и PRO Light — инверторные кондиционеры на заводе TCL с гарантией 3-5 лет. Цены на все модели с монтажом в Гомеле.',
+    image: '/assets/images/articles/ac-invertor.jpg',
+    readTime: '5 мин',
+    date: '2026',
+    tag: 'Выбор техники',
+  },
+  {
     slug: 'ustanovka-konditsionera-v-novostroyke',
     title: 'Установка кондиционера в новостройке — как правильно и сколько стоит',
     excerpt: 'Когда лучше ставить кондиционер в новостройке — до отделки или после. Этапы монтажа, цены, согласование в новых домах Гомеля. Советы мастеров.',
