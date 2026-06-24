@@ -20,10 +20,35 @@ export default function CityPageTemplate({ city }: Props) {
 
   const delivery = getDeliveryText(city);
 
+  const faqItems = [
+    {
+      q: `Сколько стоит установка кондиционера в ${city.nameIn}?`,
+      a: `Монтаж под ключ — от 400 р. (трасса до 3 м включена). Стоимость выезда мастера в ${city.nameIn} согласовывается отдельно по телефону.`,
+    },
+    {
+      q: `Как доставляют и устанавливают кондиционер в ${city.nameIn}?`,
+      a: `Оборудование везём со склада в Гомеле, монтаж выполняют наши штатные мастера на месте. ${delivery}`,
+    },
+    {
+      q: `Какие бренды кондиционеров можно купить с доставкой в ${city.nameIn}?`,
+      a: `В наличии Electrolux, Ballu, Haier, LG, Mitsudai, King Home — более 300 моделей. Цены на оборудование такие же, как в Гомеле, без наценки за доставку в область.`,
+    },
+  ];
+  const faqLd = {
+    '@context': 'https://schema.org',
+    '@type': 'FAQPage',
+    mainEntity: faqItems.map(item => ({
+      '@type': 'Question',
+      name: item.q,
+      acceptedAnswer: { '@type': 'Answer', text: item.a },
+    })),
+  };
+
   return (
     <ArticleShell>
       <main className="max-w-3xl mx-auto px-4 py-10">
         <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbLd) }} />
+        <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqLd) }} />
 
         <nav className="text-sm text-gray-500 mb-6">
           <Link href="/" className="hover:text-red-600">Главная</Link>{' / '}
@@ -136,6 +161,21 @@ export default function CityPageTemplate({ city }: Props) {
           <a href="tel:+375291050694" className="text-red-700 font-bold text-lg hover:underline">
             +375 29 105-06-94
           </a>
+        </div>
+
+        <h2 className="text-2xl font-semibold text-gray-900 mb-4">Вопросы и ответы</h2>
+        <div className="space-y-3 mb-8">
+          {faqItems.map(item => (
+            <details key={item.q} className="group border border-gray-200 rounded-xl overflow-hidden bg-white">
+              <summary className="flex items-center justify-between p-4 cursor-pointer font-semibold text-sm text-gray-900 hover:bg-gray-50 list-none">
+                {item.q}
+                <svg className="w-4 h-4 text-gray-400 shrink-0 group-open:rotate-180 transition-transform" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M19 9l-7 7-7-7" />
+                </svg>
+              </summary>
+              <div className="px-4 pb-4 text-sm text-gray-600 leading-relaxed border-t border-gray-100 pt-3">{item.a}</div>
+            </details>
+          ))}
         </div>
 
         <div className="bg-gray-50 rounded-xl p-5 mb-8">
