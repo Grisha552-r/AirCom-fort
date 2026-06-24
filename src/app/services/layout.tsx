@@ -13,6 +13,41 @@ export const metadata: Metadata = {
   },
 };
 
+const howToJsonLd = {
+  '@context': 'https://schema.org',
+  '@type': 'HowTo',
+  name: 'Как проходит установка кондиционера в Гомеле',
+  description: 'Монтаж сплит-системы выполняется по ГОСТ, все расходники включены в стоимость.',
+  totalTime: 'PT3H',
+  estimatedCost: { '@type': 'MonetaryAmount', currency: 'BYN', value: '400' },
+  step: [
+    {
+      '@type': 'HowToStep',
+      position: 1,
+      name: 'Замер и разметка',
+      text: 'Мастер определяет оптимальное место установки внутреннего блока, размечает трассу и бурит отверстие в стене.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 2,
+      name: 'Монтаж внутреннего блока',
+      text: 'Крепим пластину, навешиваем внутренний блок, подключаем трубки и электрокабель. Прокладываем трассу.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 3,
+      name: 'Монтаж наружного блока',
+      text: 'Устанавливаем кронштейны на стену, монтируем наружный блок, подключаем трубки и кабель снаружи.',
+    },
+    {
+      '@type': 'HowToStep',
+      position: 4,
+      name: 'Пуско-наладка',
+      text: 'Вакуумируем систему, проверяем герметичность, запускаем кондиционер и тестируем все режимы работы.',
+    },
+  ],
+};
+
 const breadcrumbJsonLd = {
   '@context': 'https://schema.org',
   '@type': 'BreadcrumbList',
@@ -119,6 +154,10 @@ export default function ServicesLayout({ children }: { children: React.ReactNode
       <script
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(faqJsonLd) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(howToJsonLd) }}
       />
       {children}
     </>
