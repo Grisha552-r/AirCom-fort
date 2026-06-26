@@ -115,7 +115,10 @@ export default function Footer() {
         {/* Divider */}
         <div className="border-t border-zinc-800 pt-6 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-zinc-600">© 2026 AirComfort. Все права защищены.</p>
-          <p className="text-xs text-zinc-700">Продажа и установка кондиционеров в Гомеле</p>
+          <div className="flex items-center gap-4">
+            <Link href="/privacy-policy" className="text-xs text-zinc-500 hover:text-white transition-colors">Политика конфиденциальности</Link>
+            <p className="text-xs text-zinc-700">Продажа и установка кондиционеров в Гомеле</p>
+          </div>
         </div>
 
       </div>

@@ -10,6 +10,7 @@ const MAIN_PAGES = [
   { href: '/articles', label: 'Статьи о кондиционерах' },
   { href: '/about', label: 'Кондиционеры в Гомеле' },
   { href: '/requisites', label: 'Контакты и реквизиты' },
+  { href: '/privacy-policy', label: 'Политика конфиденциальности' },
 ];
 
 const CATEGORIES = [

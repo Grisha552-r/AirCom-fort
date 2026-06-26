@@ -209,7 +209,7 @@ export default function CheckoutPage() {
                   <Icon name="CheckIcon" size={20} />
                   {submitting ? 'Отправляем...' : 'Оформить заказ'}
                 </button>
-                <p className="text-xs text-muted-foreground text-center">Нажимая кнопку, вы соглашаетесь с условиями обработки персональных данных</p>
+                <p className="text-xs text-muted-foreground text-center">Нажимая кнопку, вы соглашаетесь с условиями <Link href="/privacy-policy" className="underline hover:text-crimson-700">обработки персональных данных</Link></p>
               </form>
             </div>
 

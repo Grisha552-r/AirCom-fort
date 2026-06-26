@@ -422,7 +422,7 @@ export default function Header({ onCartOpen }: HeaderProps) {
                     )}
                     {callSending ? 'Отправляем...' : 'Перезвоните мне'}
                   </button>
-                  <p className="text-xs text-muted-foreground text-center">Нажимая кнопку, вы соглашаетесь на обработку персональных данных</p>
+                  <p className="text-xs text-muted-foreground text-center">Нажимая кнопку, вы соглашаетесь на <Link href="/privacy-policy" className="underline hover:text-crimson-700">обработку персональных данных</Link></p>
                 </form>
               )}
             </div>
